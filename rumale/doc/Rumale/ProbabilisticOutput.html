@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: Rumale::ProbabilisticOutput
+  
+    &mdash; Documentation by YARD 0.9.20
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "Rumale::ProbabilisticOutput";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (P)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span>
+     &raquo; 
+    <span class="title">ProbabilisticOutput</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: Rumale::ProbabilisticOutput
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/rumale/probabilistic_output.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Module for calculating posterior class probabilities with SVM outputs. This
+module is used for internal processes.</p>
+
+<p><strong>Reference</strong></p>
+<ol><li>
+<p>J C. Platt, “Probabilistic Outputs for Support Vector Machines and
+Comparisons to Regularized Likelihood Methods,” Adv. Large Margin
+Classifiers, pp. 61–74, 2000.</p>
+</li><li>
+<p>H-T Lin, C-J Lin, and R C.Weng, “A Note on Platt&#39;s Probabilistic
+Outputs for Support Vector Machines,” J. Machine Learning, Vol. 63 (3), pp.
+267–276, 2007.</p>
+</li></ol>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_estimator'>estimator</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LinearModel.html" title="Rumale::LinearModel (module)">LinearModel</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LinearModel/SVC.html" title="Rumale::LinearModel::SVC (class)">SVC</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LinearModel/SVC.html#initialize-instance_method" title="Rumale::LinearModel::SVC#initialize (method)">new</a></span></span>
+<span class='id identifier rubyid_estimator'>estimator</span><span class='period'>.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_bin_y'>bin_y</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_df'>df</span> <span class='op'>=</span> <span class='id identifier rubyid_estimator'>estimator</span><span class='period'>.</span><span class='id identifier rubyid_decision_function'>decision_function</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>ProbabilisticOutput</span><span class='period'>.</span><span class='id identifier rubyid_fit_sigmoid'><span class='object_link'><a href="#fit_sigmoid-class_method" title="Rumale::ProbabilisticOutput.fit_sigmoid (method)">fit_sigmoid</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_df'>df</span><span class='comma'>,</span> <span class='id identifier rubyid_bin_y'>bin_y</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_probs'>probs</span> <span class='op'>=</span> <span class='int'>1</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='const'>Numo</span><span class='op'>::</span><span class='const'>NMath</span><span class='period'>.</span><span class='id identifier rubyid_exp'>exp</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_df'>df</span> <span class='op'>+</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='int'>1</span><span class='rparen'>)</span></code></pre>
+    
+  </div>
+
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fit_sigmoid-class_method" title="fit_sigmoid (class method)">.<strong>fit_sigmoid</strong>(df, bin_y, max_iter = 100, min_step = 1e-10, sigma = 1e-12)  &#x21d2; Numo::DFloat </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Fit the probabilistic model for binary SVM outputs.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="fit_sigmoid-class_method">
+  
+    .<strong>fit_sigmoid</strong>(df, bin_y, max_iter = 100, min_step = 1e-10, sigma = 1e-12)  &#x21d2; <tt>Numo::DFloat</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Fit the probabilistic model for binary SVM outputs.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>df</span>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_samples]) The outputs of decision function to be used for
+fitting the model.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>bin_y</span>
+      
+      
+        <span class='type'>(<tt>Numo::Int32</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_samples]) The binary labels to be used for fitting the model.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>max_iter</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>100</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The maximum number of iterations.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>min_step</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>1e-10</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The minimum step of Newton&#39;s method.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>sigma</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>1e-12</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The parameter to avoid hessian matrix from becoming singular matrix.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: 2) The parameters of the model.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/probabilistic_output.rb', line 27</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_fit_sigmoid'>fit_sigmoid</span><span class='lparen'>(</span><span class='id identifier rubyid_df'>df</span><span class='comma'>,</span> <span class='id identifier rubyid_bin_y'>bin_y</span><span class='comma'>,</span> <span class='id identifier rubyid_max_iter'>max_iter</span> <span class='op'>=</span> <span class='int'>100</span><span class='comma'>,</span> <span class='id identifier rubyid_min_step'>min_step</span> <span class='op'>=</span> <span class='float'>1e-10</span><span class='comma'>,</span> <span class='id identifier rubyid_sigma'>sigma</span> <span class='op'>=</span> <span class='float'>1e-12</span><span class='rparen'>)</span>
+  <span class='comment'># Initialize some variables.
+</span>  <span class='id identifier rubyid_n_samples'>n_samples</span> <span class='op'>=</span> <span class='id identifier rubyid_bin_y'>bin_y</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
+  <span class='id identifier rubyid_negative_label'>negative_label</span> <span class='op'>=</span> <span class='id identifier rubyid_bin_y'>bin_y</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span><span class='period'>.</span><span class='id identifier rubyid_uniq'>uniq</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span>
+  <span class='id identifier rubyid_pos'>pos</span> <span class='op'>=</span> <span class='id identifier rubyid_bin_y'>bin_y</span><span class='period'>.</span><span class='id identifier rubyid_ne'>ne</span><span class='lparen'>(</span><span class='id identifier rubyid_negative_label'>negative_label</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_neg'>neg</span> <span class='op'>=</span> <span class='id identifier rubyid_bin_y'>bin_y</span><span class='period'>.</span><span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='id identifier rubyid_negative_label'>negative_label</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_n_pos_samples'>n_pos_samples</span> <span class='op'>=</span> <span class='id identifier rubyid_pos'>pos</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span>
+  <span class='id identifier rubyid_n_neg_samples'>n_neg_samples</span> <span class='op'>=</span> <span class='id identifier rubyid_neg'>neg</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span>
+  <span class='id identifier rubyid_target_probs'>target_probs</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='id identifier rubyid_n_samples'>n_samples</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_target_probs'>target_probs</span><span class='lbracket'>[</span><span class='id identifier rubyid_pos'>pos</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_n_pos_samples'>n_pos_samples</span> <span class='op'>+</span> <span class='int'>1</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='id identifier rubyid_n_pos_samples'>n_pos_samples</span> <span class='op'>+</span> <span class='float'>2.0</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_target_probs'>target_probs</span><span class='lbracket'>[</span><span class='id identifier rubyid_neg'>neg</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='int'>1</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='id identifier rubyid_n_neg_samples'>n_neg_samples</span> <span class='op'>+</span> <span class='float'>2.0</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_alpha'>alpha</span> <span class='op'>=</span> <span class='float'>0.0</span>
+  <span class='id identifier rubyid_beta'>beta</span> <span class='op'>=</span> <span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='lparen'>(</span><span class='id identifier rubyid_n_neg_samples'>n_neg_samples</span> <span class='op'>+</span> <span class='int'>1</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='id identifier rubyid_n_pos_samples'>n_pos_samples</span> <span class='op'>+</span> <span class='float'>1.0</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_err'>err</span> <span class='op'>=</span> <span class='id identifier rubyid_error_function'>error_function</span><span class='lparen'>(</span><span class='id identifier rubyid_target_probs'>target_probs</span><span class='comma'>,</span> <span class='id identifier rubyid_df'>df</span><span class='comma'>,</span> <span class='id identifier rubyid_alpha'>alpha</span><span class='comma'>,</span> <span class='id identifier rubyid_beta'>beta</span><span class='rparen'>)</span>
+  <span class='comment'># Optimize parameters for class porbability calculation.
+</span>  <span class='id identifier rubyid_old_grad_vec'>old_grad_vec</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_max_iter'>max_iter</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span>
+    <span class='comment'># Calculate gradient and hessian matrix.
+</span>    <span class='id identifier rubyid_probs'>probs</span> <span class='op'>=</span> <span class='id identifier rubyid_predicted_probs'>predicted_probs</span><span class='lparen'>(</span><span class='id identifier rubyid_df'>df</span><span class='comma'>,</span> <span class='id identifier rubyid_alpha'>alpha</span><span class='comma'>,</span> <span class='id identifier rubyid_beta'>beta</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_grad_vec'>grad_vec</span> <span class='op'>=</span> <span class='id identifier rubyid_gradient'>gradient</span><span class='lparen'>(</span><span class='id identifier rubyid_target_probs'>target_probs</span><span class='comma'>,</span> <span class='id identifier rubyid_probs'>probs</span><span class='comma'>,</span> <span class='id identifier rubyid_df'>df</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_hess_mat'>hess_mat</span> <span class='op'>=</span> <span class='id identifier rubyid_hessian_matrix'>hessian_matrix</span><span class='lparen'>(</span><span class='id identifier rubyid_probs'>probs</span><span class='comma'>,</span> <span class='id identifier rubyid_df'>df</span><span class='comma'>,</span> <span class='id identifier rubyid_sigma'>sigma</span><span class='rparen'>)</span>
+    <span class='kw'>break</span> <span class='kw'>if</span> <span class='id identifier rubyid_grad_vec'>grad_vec</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span><span class='period'>.</span><span class='id identifier rubyid_lt'>lt</span><span class='lparen'>(</span><span class='float'>1e-5</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span> <span class='op'>==</span> <span class='int'>2</span>
+    <span class='kw'>break</span> <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_old_grad_vec'>old_grad_vec</span> <span class='op'>-</span> <span class='id identifier rubyid_grad_vec'>grad_vec</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span> <span class='op'>&lt;</span> <span class='float'>1e-5</span>
+    <span class='id identifier rubyid_old_grad_vec'>old_grad_vec</span> <span class='op'>=</span> <span class='id identifier rubyid_grad_vec'>grad_vec</span>
+    <span class='comment'># Calculate Newton directions.
+</span>    <span class='id identifier rubyid_dirs_vec'>dirs_vec</span> <span class='op'>=</span> <span class='id identifier rubyid_directions'>directions</span><span class='lparen'>(</span><span class='id identifier rubyid_grad_vec'>grad_vec</span><span class='comma'>,</span> <span class='id identifier rubyid_hess_mat'>hess_mat</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_grad_dir'>grad_dir</span> <span class='op'>=</span> <span class='id identifier rubyid_grad_vec'>grad_vec</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='id identifier rubyid_dirs_vec'>dirs_vec</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_stepsize'>stepsize</span> <span class='op'>=</span> <span class='float'>2.0</span>
+    <span class='kw'>while</span> <span class='id identifier rubyid_stepsize'>stepsize</span> <span class='op'>&gt;=</span> <span class='id identifier rubyid_min_step'>min_step</span>
+      <span class='id identifier rubyid_stepsize'>stepsize</span> <span class='op'>*=</span> <span class='float'>0.5</span>
+      <span class='id identifier rubyid_new_alpha'>new_alpha</span> <span class='op'>=</span> <span class='id identifier rubyid_alpha'>alpha</span> <span class='op'>+</span> <span class='id identifier rubyid_stepsize'>stepsize</span> <span class='op'>*</span> <span class='id identifier rubyid_dirs_vec'>dirs_vec</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+      <span class='id identifier rubyid_new_beta'>new_beta</span> <span class='op'>=</span> <span class='id identifier rubyid_beta'>beta</span> <span class='op'>+</span> <span class='id identifier rubyid_stepsize'>stepsize</span> <span class='op'>*</span> <span class='id identifier rubyid_dirs_vec'>dirs_vec</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+      <span class='id identifier rubyid_new_err'>new_err</span> <span class='op'>=</span> <span class='id identifier rubyid_error_function'>error_function</span><span class='lparen'>(</span><span class='id identifier rubyid_target_probs'>target_probs</span><span class='comma'>,</span> <span class='id identifier rubyid_df'>df</span><span class='comma'>,</span> <span class='id identifier rubyid_new_alpha'>new_alpha</span><span class='comma'>,</span> <span class='id identifier rubyid_new_beta'>new_beta</span><span class='rparen'>)</span>
+      <span class='kw'>next</span> <span class='kw'>unless</span> <span class='id identifier rubyid_new_err'>new_err</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_err'>err</span> <span class='op'>+</span> <span class='float'>0.0001</span> <span class='op'>*</span> <span class='id identifier rubyid_stepsize'>stepsize</span> <span class='op'>*</span> <span class='id identifier rubyid_grad_dir'>grad_dir</span>
+      <span class='id identifier rubyid_alpha'>alpha</span> <span class='op'>=</span> <span class='id identifier rubyid_new_alpha'>new_alpha</span>
+      <span class='id identifier rubyid_beta'>beta</span> <span class='op'>=</span> <span class='id identifier rubyid_new_beta'>new_beta</span>
+      <span class='id identifier rubyid_err'>err</span> <span class='op'>=</span> <span class='id identifier rubyid_new_err'>new_err</span>
+      <span class='kw'>break</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='lbracket'>[</span><span class='id identifier rubyid_alpha'>alpha</span><span class='comma'>,</span> <span class='id identifier rubyid_beta'>beta</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Thu Sep  5 23:59:47 2019 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.20 (ruby-2.4.6).
+</div>
+
+    </div>
+  </body>
+</html>

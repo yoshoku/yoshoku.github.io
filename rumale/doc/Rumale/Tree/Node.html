@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Rumale::Tree::Node
+  
+    &mdash; Documentation by YARD 0.9.20
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "Rumale::Tree::Node";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (N)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Tree.html" title="Rumale::Tree (module)">Tree</a></span></span>
+     &raquo; 
+    <span class="title">Node</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Rumale::Tree::Node
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Rumale::Tree::Node</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/rumale/tree/node.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Node is a class that implements node used for construction of decision
+tree. This class is used for internal data structures.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(depth: 0, impurity: 0.0, n_samples: 0, probs: 0.0, leaf: false, leaf_id: nil, left: nil, right: nil, feature_id: 0, threshold: 0.0)  &#x21d2; Node </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new node for decision tree.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#marshal_dump-instance_method" title="#marshal_dump (instance method)">#<strong>marshal_dump</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Dump marshal data.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#marshal_load-instance_method" title="#marshal_load (instance method)">#<strong>marshal_load</strong>(obj)  &#x21d2; nil </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Load marshal data.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(depth: 0, impurity: 0.0, n_samples: 0, probs: 0.0, leaf: false, leaf_id: nil, left: nil, right: nil, feature_id: 0, threshold: 0.0)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::Tree::Node (class)">Node</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Create a new node for decision tree.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>depth</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The depth of the node in tree.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>impurity</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The impurity of the node.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>n_samples</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The number of the samples in the node.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>probs</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The probability of the node.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>leaf</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The flag indicating whether the node is a leaf.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>leaf_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The leaf index of the node.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>left</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Rumale::Tree::Node (class)">Node</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The left node.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>right</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Rumale::Tree::Node (class)">Node</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The right node.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>feature_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The feature index used for evaluation.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>threshold</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The threshold value of the feature for splitting the node.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/tree/node.rb', line 23</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>depth:</span> <span class='int'>0</span><span class='comma'>,</span> <span class='label'>impurity:</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='label'>n_samples:</span> <span class='int'>0</span><span class='comma'>,</span> <span class='label'>probs:</span> <span class='float'>0.0</span><span class='comma'>,</span>
+               <span class='label'>leaf:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>leaf_id:</span> <span class='kw'>nil</span><span class='comma'>,</span>
+               <span class='label'>left:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>right:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>feature_id:</span> <span class='int'>0</span><span class='comma'>,</span> <span class='label'>threshold:</span> <span class='float'>0.0</span><span class='rparen'>)</span>
+  <span class='ivar'>@depth</span> <span class='op'>=</span> <span class='id identifier rubyid_depth'>depth</span>
+  <span class='ivar'>@impurity</span> <span class='op'>=</span> <span class='id identifier rubyid_impurity'>impurity</span>
+  <span class='ivar'>@n_samples</span> <span class='op'>=</span> <span class='id identifier rubyid_n_samples'>n_samples</span>
+  <span class='ivar'>@probs</span> <span class='op'>=</span> <span class='id identifier rubyid_probs'>probs</span>
+  <span class='ivar'>@leaf</span> <span class='op'>=</span> <span class='id identifier rubyid_leaf'>leaf</span>
+  <span class='ivar'>@leaf_id</span> <span class='op'>=</span> <span class='id identifier rubyid_leaf_id'>leaf_id</span>
+  <span class='ivar'>@left</span> <span class='op'>=</span> <span class='id identifier rubyid_left'>left</span>
+  <span class='ivar'>@right</span> <span class='op'>=</span> <span class='id identifier rubyid_right'>right</span>
+  <span class='ivar'>@feature_id</span> <span class='op'>=</span> <span class='id identifier rubyid_feature_id'>feature_id</span>
+  <span class='ivar'>@threshold</span> <span class='op'>=</span> <span class='id identifier rubyid_threshold'>threshold</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="marshal_dump-instance_method">
+  
+    #<strong>marshal_dump</strong>  &#x21d2; <tt>Hash</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Dump marshal data.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The marshal data about Node</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/tree/node.rb', line 40</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_marshal_dump'>marshal_dump</span>
+  <span class='lbrace'>{</span> <span class='label'>depth:</span> <span class='ivar'>@depth</span><span class='comma'>,</span>
+    <span class='label'>impurity:</span> <span class='ivar'>@impurity</span><span class='comma'>,</span>
+    <span class='label'>n_samples:</span> <span class='ivar'>@n_samples</span><span class='comma'>,</span>
+    <span class='label'>probs:</span> <span class='ivar'>@probs</span><span class='comma'>,</span>
+    <span class='label'>leaf:</span> <span class='ivar'>@leaf</span><span class='comma'>,</span>
+    <span class='label'>leaf_id:</span> <span class='ivar'>@leaf_id</span><span class='comma'>,</span>
+    <span class='label'>left:</span> <span class='ivar'>@left</span><span class='comma'>,</span>
+    <span class='label'>right:</span> <span class='ivar'>@right</span><span class='comma'>,</span>
+    <span class='label'>feature_id:</span> <span class='ivar'>@feature_id</span><span class='comma'>,</span>
+    <span class='label'>threshold:</span> <span class='ivar'>@threshold</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="marshal_load-instance_method">
+  
+    #<strong>marshal_load</strong>(obj)  &#x21d2; <tt>nil</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Load marshal data.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/tree/node.rb', line 55</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_marshal_load'>marshal_load</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
+  <span class='ivar'>@depth</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:depth</span><span class='rbracket'>]</span>
+  <span class='ivar'>@impurity</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:impurity</span><span class='rbracket'>]</span>
+  <span class='ivar'>@n_samples</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:n_samples</span><span class='rbracket'>]</span>
+  <span class='ivar'>@probs</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:probs</span><span class='rbracket'>]</span>
+  <span class='ivar'>@leaf</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:leaf</span><span class='rbracket'>]</span>
+  <span class='ivar'>@leaf_id</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:leaf_id</span><span class='rbracket'>]</span>
+  <span class='ivar'>@left</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:left</span><span class='rbracket'>]</span>
+  <span class='ivar'>@right</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:right</span><span class='rbracket'>]</span>
+  <span class='ivar'>@feature_id</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:feature_id</span><span class='rbracket'>]</span>
+  <span class='ivar'>@threshold</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:threshold</span><span class='rbracket'>]</span>
+  <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Thu Sep  5 23:59:47 2019 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.20 (ruby-2.4.6).
+</div>
+
+    </div>
+  </body>
+</html>

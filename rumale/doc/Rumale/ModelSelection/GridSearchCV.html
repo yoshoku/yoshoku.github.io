@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Rumale::ModelSelection::GridSearchCV
+  
+    &mdash; Documentation by YARD 0.9.20
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "Rumale::ModelSelection::GridSearchCV";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (G)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../ModelSelection.html" title="Rumale::ModelSelection (module)">ModelSelection</a></span></span>
+     &raquo; 
+    <span class="title">GridSearchCV</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Rumale::ModelSelection::GridSearchCV
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Rumale::ModelSelection::GridSearchCV</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  <dl>
+      <dt>Includes:</dt>
+      <dd><span class='object_link'><a href="../Base/BaseEstimator.html" title="Rumale::Base::BaseEstimator (module)">Base::BaseEstimator</a></span></dd>
+  </dl>
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/rumale/model_selection/grid_search_cv.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>GridSearchCV is a class that performs hyperparameter optimization with grid
+search method.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_rfc'>rfc</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Ensemble.html" title="Rumale::Ensemble (module)">Ensemble</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Ensemble/RandomForestClassifier.html" title="Rumale::Ensemble::RandomForestClassifier (class)">RandomForestClassifier</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Ensemble/RandomForestClassifier.html#initialize-instance_method" title="Rumale::Ensemble::RandomForestClassifier#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>random_seed:</span> <span class='int'>1</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_pg'>pg</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='label'>n_estimators:</span> <span class='lbracket'>[</span><span class='int'>5</span><span class='comma'>,</span> <span class='int'>10</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>max_depth:</span> <span class='lbracket'>[</span><span class='int'>3</span><span class='comma'>,</span> <span class='int'>5</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>max_leaf_nodes:</span> <span class='lbracket'>[</span><span class='int'>15</span><span class='comma'>,</span> <span class='int'>31</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_kf'>kf</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../ModelSelection.html" title="Rumale::ModelSelection (module)">ModelSelection</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="StratifiedKFold.html" title="Rumale::ModelSelection::StratifiedKFold (class)">StratifiedKFold</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="StratifiedKFold.html#initialize-instance_method" title="Rumale::ModelSelection::StratifiedKFold#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>n_splits:</span> <span class='int'>5</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_gs'>gs</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../ModelSelection.html" title="Rumale::ModelSelection (module)">ModelSelection</a></span></span><span class='op'>::</span><span class='const'>GridSearchCV</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::ModelSelection::GridSearchCV#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>estimator:</span> <span class='id identifier rubyid_rfc'>rfc</span><span class='comma'>,</span> <span class='label'>param_grid:</span> <span class='id identifier rubyid_pg'>pg</span><span class='comma'>,</span> <span class='label'>splitter:</span> <span class='id identifier rubyid_kf'>kf</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_gs'>gs</span><span class='period'>.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_samples'>samples</span><span class='comma'>,</span> <span class='id identifier rubyid_labels'>labels</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_gs'>gs</span><span class='period'>.</span><span class='id identifier rubyid_cv_results'>cv_results</span>
+<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_gs'>gs</span><span class='period'>.</span><span class='id identifier rubyid_best_params'>best_params</span></code></pre>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_rbf'>rbf</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../KernelApproximation.html" title="Rumale::KernelApproximation (module)">KernelApproximation</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../KernelApproximation/RBF.html" title="Rumale::KernelApproximation::RBF (class)">RBF</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../KernelApproximation/RBF.html#initialize-instance_method" title="Rumale::KernelApproximation::RBF#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>random_seed:</span> <span class='int'>1</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_svc'>svc</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../LinearModel.html" title="Rumale::LinearModel (module)">LinearModel</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../LinearModel/SVC.html" title="Rumale::LinearModel::SVC (class)">SVC</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../LinearModel/SVC.html#initialize-instance_method" title="Rumale::LinearModel::SVC#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>random_seed:</span> <span class='int'>1</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_pipe'>pipe</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Pipeline.html" title="Rumale::Pipeline (module)">Pipeline</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Pipeline/Pipeline.html" title="Rumale::Pipeline::Pipeline (class)">Pipeline</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Pipeline/Pipeline.html#initialize-instance_method" title="Rumale::Pipeline::Pipeline#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>steps:</span> <span class='lbrace'>{</span> <span class='label'>rbf:</span> <span class='id identifier rubyid_rbf'>rbf</span><span class='comma'>,</span> <span class='label'>svc:</span> <span class='id identifier rubyid_svc'>svc</span> <span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_pg'>pg</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='label'>rbf__gamma:</span> <span class='lbracket'>[</span><span class='float'>32.0</span><span class='comma'>,</span> <span class='float'>1.0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>rbf__n_components:</span> <span class='lbracket'>[</span><span class='int'>4</span><span class='comma'>,</span> <span class='int'>128</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>svc__reg_param:</span> <span class='lbracket'>[</span><span class='float'>16.0</span><span class='comma'>,</span> <span class='float'>0.1</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_kf'>kf</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../ModelSelection.html" title="Rumale::ModelSelection (module)">ModelSelection</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="StratifiedKFold.html" title="Rumale::ModelSelection::StratifiedKFold (class)">StratifiedKFold</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="StratifiedKFold.html#initialize-instance_method" title="Rumale::ModelSelection::StratifiedKFold#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>n_splits:</span> <span class='int'>5</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_gs'>gs</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../ModelSelection.html" title="Rumale::ModelSelection (module)">ModelSelection</a></span></span><span class='op'>::</span><span class='const'>GridSearchCV</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::ModelSelection::GridSearchCV#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>estimator:</span> <span class='id identifier rubyid_pipe'>pipe</span><span class='comma'>,</span> <span class='label'>param_grid:</span> <span class='id identifier rubyid_pg'>pg</span><span class='comma'>,</span> <span class='label'>splitter:</span> <span class='id identifier rubyid_kf'>kf</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_gs'>gs</span><span class='period'>.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_samples'>samples</span><span class='comma'>,</span> <span class='id identifier rubyid_labels'>labels</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_gs'>gs</span><span class='period'>.</span><span class='id identifier rubyid_cv_results'>cv_results</span>
+<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_gs'>gs</span><span class='period'>.</span><span class='id identifier rubyid_best_params'>best_params</span></code></pre>
+    
+  </div>
+
+
+</div>
+
+
+
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#best_estimator-instance_method" title="#best_estimator (instance method)">#<strong>best_estimator</strong>  &#x21d2; Estimator </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the estimator learned with the best parameter.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#best_index-instance_method" title="#best_index (instance method)">#<strong>best_index</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the index of the best parameter.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#best_params-instance_method" title="#best_params (instance method)">#<strong>best_params</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the best parameter set.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#best_score-instance_method" title="#best_score (instance method)">#<strong>best_score</strong>  &#x21d2; Float </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the score of the estimator learned with the best parameter.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cv_results-instance_method" title="#cv_results (instance method)">#<strong>cv_results</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the result of cross validation for each parameter.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  <h3 class="inherited">Attributes included from <span class='object_link'><a href="../Base/BaseEstimator.html" title="Rumale::Base::BaseEstimator (module)">Base::BaseEstimator</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../Base/BaseEstimator.html#params-instance_method" title="Rumale::Base::BaseEstimator#params (method)">#params</a></span></p>
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#decision_function-instance_method" title="#decision_function (instance method)">#<strong>decision_function</strong>(x)  &#x21d2; Numo::DFloat </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Call the decision_function method of learned estimator with the best
+parameter.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fit-instance_method" title="#fit (instance method)">#<strong>fit</strong>(x, y)  &#x21d2; GridSearchCV </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Fit the model with given training data and all sets of parameters.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(estimator: nil, param_grid: nil, splitter: nil, evaluator: nil, greater_is_better: true)  &#x21d2; GridSearchCV </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new grid search method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#marshal_dump-instance_method" title="#marshal_dump (instance method)">#<strong>marshal_dump</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Dump marshal data.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#marshal_load-instance_method" title="#marshal_load (instance method)">#<strong>marshal_load</strong>(obj)  &#x21d2; nil </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Load marshal data.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#predict-instance_method" title="#predict (instance method)">#<strong>predict</strong>(x)  &#x21d2; Numo::NArray </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Call the predict method of learned estimator with the best parameter.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#predict_log_proba-instance_method" title="#predict_log_proba (instance method)">#<strong>predict_log_proba</strong>(x)  &#x21d2; Numo::DFloat </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Call the predict_log_proba method of learned estimator with the best
+parameter.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#predict_proba-instance_method" title="#predict_proba (instance method)">#<strong>predict_proba</strong>(x)  &#x21d2; Numo::DFloat </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Call the predict_proba method of learned estimator with the best parameter.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#score-instance_method" title="#score (instance method)">#<strong>score</strong>(x, y)  &#x21d2; Float </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Call the score method of learned estimator with the best parameter.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(estimator: nil, param_grid: nil, splitter: nil, evaluator: nil, greater_is_better: true)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::ModelSelection::GridSearchCV (class)">GridSearchCV</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Create a new grid search method.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>estimator</span>
+      
+      
+        <span class='type'>(<tt>Classifier/Regresor</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The estimator to be searched for optimal parameters with grid search
+method.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>param_grid</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;Hash&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The parameter sets is represented with array of hash that consists of
+parameter names as keys and array of parameter values as values.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>splitter</span>
+      
+      
+        <span class='type'>(<tt>Splitter</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The splitter that divides dataset to training and testing dataset on cross
+validation.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>evaluator</span>
+      
+      
+        <span class='type'>(<tt>Evaluator</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The evaluator that calculates score of estimator results on cross
+validation. If nil is given, the score method of estimator is used to
+evaluation.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>greater_is_better</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The flag that indicates whether the estimator is better as evaluation score
+is larger.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/model_selection/grid_search_cv.rb', line 67</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>estimator:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>param_grid:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>splitter:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>evaluator:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>greater_is_better:</span> <span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_params_type'>check_params_type</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Base.html" title="Rumale::Base (module)">Base</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Base/BaseEstimator.html" title="Rumale::Base::BaseEstimator (module)">BaseEstimator</a></span></span><span class='comma'>,</span> <span class='label'>estimator:</span> <span class='id identifier rubyid_estimator'>estimator</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_params_type'>check_params_type</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Base.html" title="Rumale::Base (module)">Base</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Base/Splitter.html" title="Rumale::Base::Splitter (module)">Splitter</a></span></span><span class='comma'>,</span> <span class='label'>splitter:</span> <span class='id identifier rubyid_splitter'>splitter</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_params_type_or_nil'>check_params_type_or_nil</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Base.html" title="Rumale::Base (module)">Base</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Base/Evaluator.html" title="Rumale::Base::Evaluator (module)">Evaluator</a></span></span><span class='comma'>,</span> <span class='label'>evaluator:</span> <span class='id identifier rubyid_evaluator'>evaluator</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_params_boolean'>check_params_boolean</span><span class='lparen'>(</span><span class='label'>greater_is_better:</span> <span class='id identifier rubyid_greater_is_better'>greater_is_better</span><span class='rparen'>)</span>
+  <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:param_grid</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_valid_param_grid'>valid_param_grid</span><span class='lparen'>(</span><span class='id identifier rubyid_param_grid'>param_grid</span><span class='rparen'>)</span>
+  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:estimator</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Marshal</span><span class='period'>.</span><span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='const'>Marshal</span><span class='period'>.</span><span class='id identifier rubyid_dump'>dump</span><span class='lparen'>(</span><span class='id identifier rubyid_estimator'>estimator</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:splitter</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Marshal</span><span class='period'>.</span><span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='const'>Marshal</span><span class='period'>.</span><span class='id identifier rubyid_dump'>dump</span><span class='lparen'>(</span><span class='id identifier rubyid_splitter'>splitter</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:evaluator</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Marshal</span><span class='period'>.</span><span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='const'>Marshal</span><span class='period'>.</span><span class='id identifier rubyid_dump'>dump</span><span class='lparen'>(</span><span class='id identifier rubyid_evaluator'>evaluator</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:greater_is_better</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_greater_is_better'>greater_is_better</span>
+  <span class='ivar'>@cv_results</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@best_score</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@best_params</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@best_index</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@best_estimator</span> <span class='op'>=</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="best_estimator-instance_method">
+  
+    #<strong>best_estimator</strong>  &#x21d2; <tt>Estimator</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the estimator learned with the best parameter.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Estimator</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+55
+56
+57</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/model_selection/grid_search_cv.rb', line 55</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_best_estimator'>best_estimator</span>
+  <span class='ivar'>@best_estimator</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="best_index-instance_method">
+  
+    #<strong>best_index</strong>  &#x21d2; <tt>Integer</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the index of the best parameter.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+51
+52
+53</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/model_selection/grid_search_cv.rb', line 51</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_best_index'>best_index</span>
+  <span class='ivar'>@best_index</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="best_params-instance_method">
+  
+    #<strong>best_params</strong>  &#x21d2; <tt>Hash</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the best parameter set.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+47
+48
+49</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/model_selection/grid_search_cv.rb', line 47</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_best_params'>best_params</span>
+  <span class='ivar'>@best_params</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="best_score-instance_method">
+  
+    #<strong>best_score</strong>  &#x21d2; <tt>Float</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the score of the estimator learned with the best parameter.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/model_selection/grid_search_cv.rb', line 43</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_best_score'>best_score</span>
+  <span class='ivar'>@best_score</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="cv_results-instance_method">
+  
+    #<strong>cv_results</strong>  &#x21d2; <tt>Hash</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the result of cross validation for each parameter.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+39
+40
+41</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/model_selection/grid_search_cv.rb', line 39</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_cv_results'>cv_results</span>
+  <span class='ivar'>@cv_results</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="decision_function-instance_method">
+  
+    #<strong>decision_function</strong>(x)  &#x21d2; <tt>Numo::DFloat</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Call the decision_function method of learned estimator with the best
+parameter.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>x</span>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_samples, n_features]) The samples to compute the scores.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_samples]) Confidence score per sample.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+113
+114
+115
+116</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/model_selection/grid_search_cv.rb', line 113</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_decision_function'>decision_function</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='ivar'>@best_estimator</span><span class='period'>.</span><span class='id identifier rubyid_decision_function'>decision_function</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fit-instance_method">
+  
+    #<strong>fit</strong>(x, y)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::ModelSelection::GridSearchCV (class)">GridSearchCV</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Fit the model with given training data and all sets of parameters.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>x</span>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_samples, n_features]) The training data to be used for fitting
+the model.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>y</span>
+      
+      
+        <span class='type'>(<tt>Numo::NArray</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_samples, n_outputs]) The target values or labels to be used for
+fitting the model.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Rumale::ModelSelection::GridSearchCV (class)">GridSearchCV</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The learned estimator with grid search.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/model_selection/grid_search_cv.rb', line 90</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_init_attrs'>init_attrs</span>
+
+  <span class='id identifier rubyid_param_combinations'>param_combinations</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_prm_set'>prm_set</span><span class='op'>|</span>
+    <span class='id identifier rubyid_prm_set'>prm_set</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_prms'>prms</span><span class='op'>|</span>
+      <span class='id identifier rubyid_report'>report</span> <span class='op'>=</span> <span class='id identifier rubyid_perform_cross_validation'>perform_cross_validation</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='id identifier rubyid_prms'>prms</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_store_cv_result'>store_cv_result</span><span class='lparen'>(</span><span class='id identifier rubyid_prms'>prms</span><span class='comma'>,</span> <span class='id identifier rubyid_report'>report</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_find_best_params'>find_best_params</span>
+
+  <span class='ivar'>@best_estimator</span> <span class='op'>=</span> <span class='id identifier rubyid_configurated_estimator'>configurated_estimator</span><span class='lparen'>(</span><span class='ivar'>@best_params</span><span class='rparen'>)</span>
+  <span class='ivar'>@best_estimator</span><span class='period'>.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="marshal_dump-instance_method">
+  
+    #<strong>marshal_dump</strong>  &#x21d2; <tt>Hash</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Dump marshal data.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The marshal data about GridSearchCV.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+157
+158
+159
+160
+161
+162
+163
+164</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/model_selection/grid_search_cv.rb', line 157</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_marshal_dump'>marshal_dump</span>
+  <span class='lbrace'>{</span> <span class='label'>params:</span> <span class='ivar'>@params</span><span class='comma'>,</span>
+    <span class='label'>cv_results:</span> <span class='ivar'>@cv_results</span><span class='comma'>,</span>
+    <span class='label'>best_score:</span> <span class='ivar'>@best_score</span><span class='comma'>,</span>
+    <span class='label'>best_params:</span> <span class='ivar'>@best_params</span><span class='comma'>,</span>
+    <span class='label'>best_index:</span> <span class='ivar'>@best_index</span><span class='comma'>,</span>
+    <span class='label'>best_estimator:</span> <span class='ivar'>@best_estimator</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="marshal_load-instance_method">
+  
+    #<strong>marshal_load</strong>(obj)  &#x21d2; <tt>nil</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Load marshal data.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+168
+169
+170
+171
+172
+173
+174
+175
+176</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/model_selection/grid_search_cv.rb', line 168</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_marshal_load'>marshal_load</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
+  <span class='ivar'>@params</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:params</span><span class='rbracket'>]</span>
+  <span class='ivar'>@cv_results</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:cv_results</span><span class='rbracket'>]</span>
+  <span class='ivar'>@best_score</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:best_score</span><span class='rbracket'>]</span>
+  <span class='ivar'>@best_params</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:best_params</span><span class='rbracket'>]</span>
+  <span class='ivar'>@best_index</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:best_index</span><span class='rbracket'>]</span>
+  <span class='ivar'>@best_estimator</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:best_estimator</span><span class='rbracket'>]</span>
+  <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="predict-instance_method">
+  
+    #<strong>predict</strong>(x)  &#x21d2; <tt>Numo::NArray</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Call the predict method of learned estimator with the best parameter.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>x</span>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_samples, n_features]) The samples to obtain prediction result.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::NArray</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Predicted results.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+122
+123
+124
+125</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/model_selection/grid_search_cv.rb', line 122</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='ivar'>@best_estimator</span><span class='period'>.</span><span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="predict_log_proba-instance_method">
+  
+    #<strong>predict_log_proba</strong>(x)  &#x21d2; <tt>Numo::DFloat</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Call the predict_log_proba method of learned estimator with the best
+parameter.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>x</span>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_samples, n_features]) The samples to predict the
+log-probailities.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_samples, n_classes]) Predicted log-probability of each class per
+sample.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+131
+132
+133
+134</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/model_selection/grid_search_cv.rb', line 131</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_predict_log_proba'>predict_log_proba</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='ivar'>@best_estimator</span><span class='period'>.</span><span class='id identifier rubyid_predict_log_proba'>predict_log_proba</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="predict_proba-instance_method">
+  
+    #<strong>predict_proba</strong>(x)  &#x21d2; <tt>Numo::DFloat</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Call the predict_proba method of learned estimator with the best parameter.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>x</span>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_samples, n_features]) The samples to predict the probailities.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_samples, n_classes]) Predicted probability of each class per
+sample.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+140
+141
+142
+143</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/model_selection/grid_search_cv.rb', line 140</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_predict_proba'>predict_proba</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='ivar'>@best_estimator</span><span class='period'>.</span><span class='id identifier rubyid_predict_proba'>predict_proba</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="score-instance_method">
+  
+    #<strong>score</strong>(x, y)  &#x21d2; <tt>Float</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Call the score method of learned estimator with the best parameter.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>x</span>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_samples, n_features]) Testing data.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>y</span>
+      
+      
+        <span class='type'>(<tt>Numo::NArray</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_samples, n_outputs]) True target values or labels for testing
+data.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The score of estimator.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+150
+151
+152
+153</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/model_selection/grid_search_cv.rb', line 150</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_score'>score</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='ivar'>@best_estimator</span><span class='period'>.</span><span class='id identifier rubyid_score'>score</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Fri Sep  6 00:00:01 2019 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.20 (ruby-2.4.6).
+</div>
+
+    </div>
+  </body>
+</html>
