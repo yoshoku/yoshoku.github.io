@@ -1,0 +1,1928 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: Numo::Pocketfft
+  
+    &mdash; Documentation by YARD 0.9.20
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "Numo::Pocketfft";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (P)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span>
+     &raquo; 
+    <span class="title">Pocketfft</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: Numo::Pocketfft
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/numo/pocketfft/version.rb<span class="defines">,<br />
+  lib/numo/pocketfft.rb,<br /> ext/numo/pocketfft/pocketfftext.c</span>
+</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Numo::Pocketfft is the module that has functions for Fourier transform.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+  
+    <h2>
+      Constant Summary
+      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+    </h2>
+
+    <dl class="constants">
+      
+        <dt id="VERSION-constant" class="">VERSION =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>The version of Numo::Pocketfft you are using.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.2.1</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fft-class_method" title="fft (class method)">.<strong>fft</strong>(a)  &#x21d2; Numo::DComplex </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Compute the 1-dimensional discrete Fourier Transform.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fft2-class_method" title="fft2 (class method)">.<strong>fft2</strong>(a)  &#x21d2; Numo::DComplex </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Compute the 2-dimensional discrete Fourier Transform.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fftconvolve-class_method" title="fftconvolve (class method)">.<strong>fftconvolve</strong>(a, b)  &#x21d2; Numo::DFloat/Numo::DComplex </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Convolve two N-dimensinal arrays using dscrete Fourier Transform.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fftn-class_method" title="fftn (class method)">.<strong>fftn</strong>(a)  &#x21d2; Numo::DComplex </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Compute the N-dimensional discrete Fourier Transform.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ifft-class_method" title="ifft (class method)">.<strong>ifft</strong>(a)  &#x21d2; Numo::DComplex </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Compute the 1-dimensional inverse discrete Fourier Transform.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ifft2-class_method" title="ifft2 (class method)">.<strong>ifft2</strong>(a)  &#x21d2; Numo::DComplex </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Compute the 2-dimensional inverse discrete Fourier Transform.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ifftn-class_method" title="ifftn (class method)">.<strong>ifftn</strong>(a)  &#x21d2; Numo::DComplex </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Compute the N-dimensional inverse discrete Fourier Transform.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#irfft-class_method" title="irfft (class method)">.<strong>irfft</strong>(a)  &#x21d2; Numo::DFloat </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Compute the inverse of the 1-dimensional discrete Fourier Transform of real
+input.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#irfft2-class_method" title="irfft2 (class method)">.<strong>irfft2</strong>(a)  &#x21d2; Numo::DFloat </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Compute the inverse of the 2-dimensional discrete Fourier Transform of real
+input.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#irfftn-class_method" title="irfftn (class method)">.<strong>irfftn</strong>(a)  &#x21d2; Numo::DFloat </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Compute the inverse of the N-dimensional discrete Fourier Transform of real
+input.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rfft-class_method" title="rfft (class method)">.<strong>rfft</strong>(a)  &#x21d2; Numo::DComplex </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Compute the 1-dimensional discrete Fourier Transform for real input.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rfft2-class_method" title="rfft2 (class method)">.<strong>rfft2</strong>(a)  &#x21d2; Numo::DComplex </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Compute the 2-dimensional discrete Fourier Transform for real input.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rfftn-class_method" title="rfftn (class method)">.<strong>rfftn</strong>(a)  &#x21d2; Numo::DComplex </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Compute the N-dimensional discrete Fourier Transform for real input.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="fft-class_method">
+  
+    .<strong>fft</strong>(a)  &#x21d2; <tt>Numo::DComplex</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Compute the 1-dimensional discrete Fourier Transform.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>a</span>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat/Numo::DComplex</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Real or complex 1-dimensional input array.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DComplex</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Transformed data.</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ArgumentError</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>This error is raised if input array is not Numo::NArray, is not
+one-dimensional array, or is empty.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17
+18
+19
+20
+21</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/numo/pocketfft.rb', line 15</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_fft'>fft</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect class of input array to be Numo::NArray.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>NArray</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect input array to be non-empty.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect input array to be one-dimensional.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_ndim'>ndim</span> <span class='op'>==</span> <span class='int'>1</span>
+
+  <span class='id identifier rubyid_raw_fft'>raw_fft</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='label'>inverse:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>real:</span> <span class='kw'>false</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fft2-class_method">
+  
+    .<strong>fft2</strong>(a)  &#x21d2; <tt>Numo::DComplex</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Compute the 2-dimensional discrete Fourier Transform.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>a</span>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat/Numo::DComplex</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Real or complex 2-dimensional input array.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DComplex</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Transformed data.</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ArgumentError</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>This error is raised if input array is not Numo::NArray, is not
+two-dimensional array, or is empty.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+39
+40
+41
+42
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/numo/pocketfft.rb', line 39</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_fft2'>fft2</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect class of input array to be Numo::NArray.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>NArray</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect input array to be non-empty.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect input array to be two-dimensional.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_ndim'>ndim</span> <span class='op'>==</span> <span class='int'>2</span>
+
+  <span class='id identifier rubyid_fftn'>fftn</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fftconvolve-class_method">
+  
+    .<strong>fftconvolve</strong>(a, b)  &#x21d2; <tt>Numo::DFloat/Numo::DComplex</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Convolve two N-dimensinal arrays using dscrete Fourier Transform.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/pocketfftw</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='id identifier rubyid_a'>a</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>DFloat</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rbracket'>]</span>
+<span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>DFloat</span><span class='lbracket'>[</span><span class='int'>4</span><span class='comma'>,</span> <span class='int'>5</span><span class='rbracket'>]</span>
+<span class='id identifier rubyid_p'>p</span> <span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Numo::Pocketfft (module)">Pocketfft</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fftconvolve'>fftconvolve</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span>
+<span class='comment'># Numo::DFloat#shape=[4]
+</span><span class='comment'># [4, 13, 22, 15]
+</span>
+<span class='id identifier rubyid_a'>a</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>DFloat</span><span class='lbracket'>[</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='int'>3</span><span class='comma'>,</span> <span class='int'>4</span><span class='rbracket'>]</span><span class='rbracket'>]</span>
+<span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>DFloat</span><span class='lbracket'>[</span><span class='lbracket'>[</span><span class='int'>5</span><span class='comma'>,</span> <span class='int'>6</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='int'>7</span><span class='comma'>,</span> <span class='int'>8</span><span class='rbracket'>]</span><span class='rbracket'>]</span>
+<span class='id identifier rubyid_p'>p</span> <span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Numo::Pocketfft (module)">Pocketfft</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fftconvolve'>fftconvolve</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span>
+<span class='comment'># Numo::DFloat#shape=[3,3]
+</span><span class='comment'># [[5, 16, 12],
+</span><span class='comment'>#  [22, 60, 40],
+</span><span class='comment'>#  [21, 52, 32]]</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>a</span>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat/Numo::DComplex</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Fisrt input array with any-dimension.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>b</span>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat/Numo::DComplex</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Second input array with the same number of dimensions as first input array.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat/Numo::DComplex</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The discrete linear convolution of &#39;a&#39; with &#39;b&#39;.</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ArgumentError</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>This error is raised if input arrays are not Numo::NArray, are not the same
+dimensionality, or are empty.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/numo/pocketfft.rb', line 182</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_fftconvolve'>fftconvolve</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect class of input array to be Numo::NArray.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>NArray</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>NArray</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect input array to be non-empty.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span> <span class='op'>||</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Input arrays should have the same dimensionarity</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_ndim'>ndim</span> <span class='op'>!=</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_ndim'>ndim</span>
+
+  <span class='id identifier rubyid_ashp'>ashp</span> <span class='op'>=</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span>
+  <span class='id identifier rubyid_bshp'>bshp</span> <span class='op'>=</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span>
+
+  <span class='kw'>return</span> <span class='id identifier rubyid_a'>a</span> <span class='op'>*</span> <span class='id identifier rubyid_b'>b</span> <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_ashp'>ashp</span> <span class='op'>+</span> <span class='id identifier rubyid_bshp'>bshp</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_all?'>all?</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_el'>el</span><span class='op'>|</span> <span class='id identifier rubyid_el'>el</span> <span class='op'>==</span> <span class='int'>1</span> <span class='rbrace'>}</span>
+
+  <span class='id identifier rubyid_retshp'>retshp</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_ndim'>ndim</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='id identifier rubyid_ashp'>ashp</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_bshp'>bshp</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span> <span class='op'>-</span> <span class='int'>1</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_a_zp'>a_zp</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>DComplex</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_retshp'>retshp</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_arr'>arr</span><span class='op'>|</span> <span class='id identifier rubyid_arr'>arr</span><span class='lbracket'>[</span><span class='op'>*</span><span class='id identifier rubyid_ashp'>ashp</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='int'>0</span><span class='op'>...</span><span class='id identifier rubyid_n'>n</span> <span class='rbrace'>}</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_a'>a</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_b_zp'>b_zp</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>DComplex</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_retshp'>retshp</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_arr'>arr</span><span class='op'>|</span> <span class='id identifier rubyid_arr'>arr</span><span class='lbracket'>[</span><span class='op'>*</span><span class='id identifier rubyid_bshp'>bshp</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='int'>0</span><span class='op'>...</span><span class='id identifier rubyid_n'>n</span> <span class='rbrace'>}</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_b'>b</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_ret'>ret</span> <span class='op'>=</span> <span class='id identifier rubyid_ifftn'>ifftn</span><span class='lparen'>(</span><span class='id identifier rubyid_fftn'>fftn</span><span class='lparen'>(</span><span class='id identifier rubyid_a_zp'>a_zp</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='id identifier rubyid_fftn'>fftn</span><span class='lparen'>(</span><span class='id identifier rubyid_b_zp'>b_zp</span><span class='rparen'>)</span><span class='rparen'>)</span>
+
+  <span class='kw'>return</span> <span class='id identifier rubyid_ret'>ret</span> <span class='kw'>if</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>DComplex</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>SComplex</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>DComplex</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>SComplex</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_ret'>ret</span><span class='period'>.</span><span class='id identifier rubyid_real'>real</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fftn-class_method">
+  
+    .<strong>fftn</strong>(a)  &#x21d2; <tt>Numo::DComplex</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Compute the N-dimensional discrete Fourier Transform.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>a</span>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat/Numo::DComplex</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Real or complex input array with any-dimension.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DComplex</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Transformed data.</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ArgumentError</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>This error is raised if input array is not Numo::NArray or is empty.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+63
+64
+65
+66
+67
+68
+69
+70</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/numo/pocketfft.rb', line 63</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_fftn'>fftn</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect class of input array to be Numo::NArray.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>NArray</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect input array to be non-empty.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+
+  <span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
+  <span class='lparen'>(</span><span class='int'>0</span><span class='op'>...</span><span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_ndim'>ndim</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span><span class='period'>.</span><span class='id identifier rubyid_reverse'>reverse</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_ax_id'>ax_id</span><span class='op'>|</span> <span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='id identifier rubyid_raw_fft'>raw_fft</span><span class='lparen'>(</span><span class='id identifier rubyid_b'>b</span><span class='comma'>,</span> <span class='id identifier rubyid_ax_id'>ax_id</span><span class='comma'>,</span> <span class='label'>inverse:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>real:</span> <span class='kw'>false</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_b'>b</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ifft-class_method">
+  
+    .<strong>ifft</strong>(a)  &#x21d2; <tt>Numo::DComplex</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Compute the 1-dimensional inverse discrete Fourier Transform.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>a</span>
+      
+      
+        <span class='type'>(<tt>Numo::DComplex</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Complex 1-dimensional input array.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DComplex</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Inversed transformed data.</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ArgumentError</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>This error is raised if input array is not Numo::NArray, is not
+one-dimensional array, or is empty.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+27
+28
+29
+30
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/numo/pocketfft.rb', line 27</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_ifft'>ifft</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect class of input array to be Numo::NArray.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>NArray</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect input array to be non-empty.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect input array to be one-dimensional.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_ndim'>ndim</span> <span class='op'>==</span> <span class='int'>1</span>
+
+  <span class='id identifier rubyid_raw_fft'>raw_fft</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='label'>inverse:</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='label'>real:</span> <span class='kw'>false</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ifft2-class_method">
+  
+    .<strong>ifft2</strong>(a)  &#x21d2; <tt>Numo::DComplex</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Compute the 2-dimensional inverse discrete Fourier Transform.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>a</span>
+      
+      
+        <span class='type'>(<tt>Numo::DComplex</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Complex 2-dimensional input array.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DComplex</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Inversed transformed data.</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ArgumentError</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>This error is raised if input array is not Numo::NArray, is not
+two-dimensional array, or is empty.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+51
+52
+53
+54
+55
+56
+57</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/numo/pocketfft.rb', line 51</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_ifft2'>ifft2</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect class of input array to be Numo::NArray.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>NArray</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect input array to be non-empty.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect input array to be two-dimensional.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_ndim'>ndim</span> <span class='op'>==</span> <span class='int'>2</span>
+
+  <span class='id identifier rubyid_ifftn'>ifftn</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ifftn-class_method">
+  
+    .<strong>ifftn</strong>(a)  &#x21d2; <tt>Numo::DComplex</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Compute the N-dimensional inverse discrete Fourier Transform.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>a</span>
+      
+      
+        <span class='type'>(<tt>Numo::DComplex</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Complex input array with any-dimension.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DComplex</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Inversed transformed data.</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ArgumentError</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>This error is raised if input array is not Numo::NArray or is empty.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+76
+77
+78
+79
+80
+81
+82
+83</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/numo/pocketfft.rb', line 76</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_ifftn'>ifftn</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect class of input array to be Numo::NArray.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>NArray</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect input array to be non-empty.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+
+  <span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
+  <span class='lparen'>(</span><span class='int'>0</span><span class='op'>...</span><span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_ndim'>ndim</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_ax_id'>ax_id</span><span class='op'>|</span> <span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='id identifier rubyid_raw_fft'>raw_fft</span><span class='lparen'>(</span><span class='id identifier rubyid_b'>b</span><span class='comma'>,</span> <span class='id identifier rubyid_ax_id'>ax_id</span><span class='comma'>,</span> <span class='label'>inverse:</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='label'>real:</span> <span class='kw'>false</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_b'>b</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="irfft-class_method">
+  
+    .<strong>irfft</strong>(a)  &#x21d2; <tt>Numo::DFloat</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Compute the inverse of the 1-dimensional discrete Fourier Transform of real
+input.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>a</span>
+      
+      
+        <span class='type'>(<tt>Numo::DComplex</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Complex 1-dimensional input array.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Inverse transformed data.</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ArgumentError</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>This error is raised if input array is not Numo::NArray, is not
+one-dimensional array, or is empty.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+101
+102
+103
+104
+105
+106
+107</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/numo/pocketfft.rb', line 101</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_irfft'>irfft</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect class of input array to be Numo::NArray.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>NArray</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect input array to be non-empty.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect input array to be one-dimensional.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_ndim'>ndim</span> <span class='op'>==</span> <span class='int'>1</span>
+
+  <span class='id identifier rubyid_raw_fft'>raw_fft</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='label'>inverse:</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='label'>real:</span> <span class='kw'>true</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="irfft2-class_method">
+  
+    .<strong>irfft2</strong>(a)  &#x21d2; <tt>Numo::DFloat</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Compute the inverse of the 2-dimensional discrete Fourier Transform of real
+input.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>a</span>
+      
+      
+        <span class='type'>(<tt>Numo::DComplex</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Complex 2-dimensional input array.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Inverse transformed data.</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ArgumentError</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>This error is raised if input array is not Numo::NArray, is not
+two-dimensional array, or is empty.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+125
+126
+127
+128
+129
+130
+131</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/numo/pocketfft.rb', line 125</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_irfft2'>irfft2</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect class of input array to be Numo::NArray.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>NArray</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect input array to be non-empty.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect input array to be two-dimensional.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_ndim'>ndim</span> <span class='op'>==</span> <span class='int'>2</span>
+
+  <span class='id identifier rubyid_irfftn'>irfftn</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="irfftn-class_method">
+  
+    .<strong>irfftn</strong>(a)  &#x21d2; <tt>Numo::DFloat</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Compute the inverse of the N-dimensional discrete Fourier Transform of real
+input.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>a</span>
+      
+      
+        <span class='type'>(<tt>Numo::DComplex</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Complex input array with any-dimension.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Inverse transformed data.</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ArgumentError</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>This error is raised if input array is not Numo::NArray or is empty.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+151
+152
+153
+154
+155
+156
+157
+158
+159</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/numo/pocketfft.rb', line 151</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_irfftn'>irfftn</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect class of input array to be Numo::NArray.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>NArray</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect input array to be non-empty.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+
+  <span class='id identifier rubyid_last_axis_id'>last_axis_id</span> <span class='op'>=</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_ndim'>ndim</span> <span class='op'>-</span> <span class='int'>1</span>
+  <span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
+  <span class='lparen'>(</span><span class='int'>0</span><span class='op'>...</span><span class='id identifier rubyid_last_axis_id'>last_axis_id</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_ax_id'>ax_id</span><span class='op'>|</span> <span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='id identifier rubyid_raw_fft'>raw_fft</span><span class='lparen'>(</span><span class='id identifier rubyid_b'>b</span><span class='comma'>,</span> <span class='id identifier rubyid_ax_id'>ax_id</span><span class='comma'>,</span> <span class='label'>inverse:</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='label'>real:</span> <span class='kw'>false</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_raw_fft'>raw_fft</span><span class='lparen'>(</span><span class='id identifier rubyid_b'>b</span><span class='comma'>,</span> <span class='id identifier rubyid_last_axis_id'>last_axis_id</span><span class='comma'>,</span> <span class='label'>inverse:</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='label'>real:</span> <span class='kw'>true</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="rfft-class_method">
+  
+    .<strong>rfft</strong>(a)  &#x21d2; <tt>Numo::DComplex</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Compute the 1-dimensional discrete Fourier Transform for real input.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>a</span>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Real 1-dimensional input array.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DComplex</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Transformed data.</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ArgumentError</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>This error is raised if input array is not Numo::NArray, is not
+one-dimensional array, or is empty.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+89
+90
+91
+92
+93
+94
+95</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/numo/pocketfft.rb', line 89</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_rfft'>rfft</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect class of input array to be Numo::NArray.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>NArray</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect input array to be non-empty.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect input array to be one-dimensional.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_ndim'>ndim</span> <span class='op'>==</span> <span class='int'>1</span>
+
+  <span class='id identifier rubyid_raw_fft'>raw_fft</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='label'>inverse:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>real:</span> <span class='kw'>true</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="rfft2-class_method">
+  
+    .<strong>rfft2</strong>(a)  &#x21d2; <tt>Numo::DComplex</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Compute the 2-dimensional discrete Fourier Transform for real input.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>a</span>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Real 2-dimensional input array.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DComplex</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Transformed data.</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ArgumentError</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>This error is raised if input array is not Numo::NArray, is not
+two-dimensional array, or is empty.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+113
+114
+115
+116
+117
+118
+119</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/numo/pocketfft.rb', line 113</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_rfft2'>rfft2</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect class of input array to be Numo::NArray.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>NArray</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect input array to be non-empty.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect input array to be two-dimensional.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_ndim'>ndim</span> <span class='op'>==</span> <span class='int'>2</span>
+
+  <span class='id identifier rubyid_rfftn'>rfftn</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="rfftn-class_method">
+  
+    .<strong>rfftn</strong>(a)  &#x21d2; <tt>Numo::DComplex</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Compute the N-dimensional discrete Fourier Transform for real input.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>a</span>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Real input array with any-dimension.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DComplex</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Transformed data.</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ArgumentError</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>This error is raised if input array is not Numo::NArray or is empty.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+137
+138
+139
+140
+141
+142
+143
+144
+145</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/numo/pocketfft.rb', line 137</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_rfftn'>rfftn</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect class of input array to be Numo::NArray.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>NArray</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect input array to be non-empty.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+
+  <span class='id identifier rubyid_last_axis_id'>last_axis_id</span> <span class='op'>=</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_ndim'>ndim</span> <span class='op'>-</span> <span class='int'>1</span>
+  <span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='id identifier rubyid_raw_fft'>raw_fft</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_last_axis_id'>last_axis_id</span><span class='comma'>,</span> <span class='label'>inverse:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>real:</span> <span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='lparen'>(</span><span class='int'>0</span><span class='op'>...</span><span class='id identifier rubyid_last_axis_id'>last_axis_id</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span><span class='period'>.</span><span class='id identifier rubyid_reverse'>reverse</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_ax_id'>ax_id</span><span class='op'>|</span> <span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='id identifier rubyid_raw_fft'>raw_fft</span><span class='lparen'>(</span><span class='id identifier rubyid_b'>b</span><span class='comma'>,</span> <span class='id identifier rubyid_ax_id'>ax_id</span><span class='comma'>,</span> <span class='label'>inverse:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>real:</span> <span class='kw'>false</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_b'>b</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Sat Sep  7 01:14:09 2019 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.20 (ruby-2.4.6).
+</div>
+
+    </div>
+  </body>
+</html>
