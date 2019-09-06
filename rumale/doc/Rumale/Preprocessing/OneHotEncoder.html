@@ -143,6 +143,36 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#active_features-instance_method" title="#active_features (instance method)">#<strong>active_features</strong>  &#x21d2; Nimo::Int32 </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the indices for feature values that actually occur in the training
+set.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#feature_indices-instance_method" title="#feature_indices (instance method)">#<strong>feature_indices</strong>  &#x21d2; Numo::Int32 </a>
     
 
@@ -414,18 +444,20 @@ one-hot-vectors</p>
       <pre class="lines">
 
 
-35
-36
-37
-38
-39</pre>
+39
+40
+41
+42
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/preprocessing/one_hot_encoder.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/preprocessing/one_hot_encoder.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
   <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='ivar'>@n_values</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@active_features</span> <span class='op'>=</span> <span class='kw'>nil</span>
   <span class='ivar'>@feature_indices</span> <span class='op'>=</span> <span class='kw'>nil</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -441,7 +473,64 @@ one-hot-vectors</p>
       
       <span id=""></span>
       <div class="method_details first">
-  <h3 class="signature first" id="feature_indices-instance_method">
+  <h3 class="signature first" id="active_features-instance_method">
+  
+    #<strong>active_features</strong>  &#x21d2; <tt>Nimo::Int32</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the indices for feature values that actually occur in the training
+set.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Nimo::Int32</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+32
+33
+34</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/preprocessing/one_hot_encoder.rb', line 32</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_active_features'>active_features</span>
+  <span class='ivar'>@active_features</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="feature_indices-instance_method">
   
     #<strong>feature_indices</strong>  &#x21d2; <tt>Numo::Int32</tt>  <span class="extras">(readonly)</span>
   
@@ -484,12 +573,12 @@ one-hot-vectors</p>
       <pre class="lines">
 
 
-32
-33
-34</pre>
+36
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/preprocessing/one_hot_encoder.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/preprocessing/one_hot_encoder.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_feature_indices'>feature_indices</span>
   <span class='ivar'>@feature_indices</span>
@@ -586,8 +675,14 @@ one-hot-vectors</p>
 </div>
 <div class="tags">
   
-  
-<p class="tag_title">Parameters:</p>
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -608,6 +703,9 @@ one-hot-vectors</p>
   
 </ul>
 
+
+</div>
+
 <p class="tag_title">Returns:</p>
 <ul class="return">
   
@@ -621,6 +719,19 @@ one-hot-vectors</p>
     </li>
   
 </ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ArgumentError</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -628,20 +739,24 @@ one-hot-vectors</p>
       <pre class="lines">
 
 
-47
-48
-49
-50
 51
-52</pre>
+52
+53
+54
+55
+56
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/preprocessing/one_hot_encoder.rb', line 47</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/preprocessing/one_hot_encoder.rb', line 51</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid__y'>_y</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_type'>check_params_type</span><span class='lparen'>(</span><span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='comma'>,</span> <span class='label'>x:</span> <span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expected the input samples only consists of non-negative integer values.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_lt'>lt</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
   <span class='ivar'>@n_values</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='int'>1</span>
   <span class='ivar'>@feature_indices</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='period'>.</span><span class='id identifier rubyid_hstack'>hstack</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='ivar'>@n_values</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_cumsum'>cumsum</span>
+  <span class='ivar'>@active_features</span> <span class='op'>=</span> <span class='id identifier rubyid_encode'>encode</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='ivar'>@feature_indices</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_ne'>ne</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span>
   <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -709,6 +824,19 @@ one-hot-vectors.</p>
     </li>
   
 </ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ArgumentError</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -716,16 +844,18 @@ one-hot-vectors.</p>
       <pre class="lines">
 
 
-60
-61
-62
-63</pre>
+66
+67
+68
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/preprocessing/one_hot_encoder.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/preprocessing/one_hot_encoder.rb', line 66</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid__y'>_y</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_type'>check_params_type</span><span class='lparen'>(</span><span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='comma'>,</span> <span class='label'>x:</span> <span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expected the input samples only consists of non-negative integer values.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_lt'>lt</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
   <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_transform'>transform</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -777,18 +907,20 @@ one-hot-vectors.</p>
       <pre class="lines">
 
 
-82
-83
-84
 85
-86</pre>
+86
+87
+88
+89
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/preprocessing/one_hot_encoder.rb', line 82</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/preprocessing/one_hot_encoder.rb', line 85</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_marshal_dump'>marshal_dump</span>
   <span class='lbrace'>{</span> <span class='label'>params:</span> <span class='ivar'>@params</span><span class='comma'>,</span>
     <span class='label'>n_values:</span> <span class='ivar'>@n_values</span><span class='comma'>,</span>
+    <span class='label'>active_features:</span> <span class='ivar'>@active_features</span><span class='comma'>,</span>
     <span class='label'>feature_indices:</span> <span class='ivar'>@feature_indices</span> <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -835,19 +967,21 @@ one-hot-vectors.</p>
       <pre class="lines">
 
 
-90
-91
-92
-93
 94
-95</pre>
+95
+96
+97
+98
+99
+100</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/preprocessing/one_hot_encoder.rb', line 90</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/preprocessing/one_hot_encoder.rb', line 94</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_marshal_load'>marshal_load</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:params</span><span class='rbracket'>]</span>
   <span class='ivar'>@n_values</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:n_values</span><span class='rbracket'>]</span>
+  <span class='ivar'>@active_features</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:active_features</span><span class='rbracket'>]</span>
   <span class='ivar'>@feature_indices</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:feature_indices</span><span class='rbracket'>]</span>
   <span class='kw'>nil</span>
 <span class='kw'>end</span></pre>
@@ -914,6 +1048,19 @@ one-hot-vectors.</p>
     </li>
   
 </ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ArgumentError</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -921,29 +1068,21 @@ one-hot-vectors.</p>
       <pre class="lines">
 
 
-69
-70
-71
-72
-73
-74
-75
 76
 77
-78</pre>
+78
+79
+80
+81</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/preprocessing/one_hot_encoder.rb', line 69</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/preprocessing/one_hot_encoder.rb', line 76</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_transform'>transform</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_type'>check_params_type</span><span class='lparen'>(</span><span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='comma'>,</span> <span class='label'>x:</span> <span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_n_samples'>n_samples</span><span class='comma'>,</span> <span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span>
-  <span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>=</span> <span class='int'>1</span> <span class='kw'>if</span> <span class='id identifier rubyid_n_features'>n_features</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-  <span class='id identifier rubyid_column_indices'>column_indices</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span> <span class='op'>+</span> <span class='ivar'>@feature_indices</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>...</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span>
-  <span class='id identifier rubyid_row_indices'>row_indices</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_n_samples'>n_samples</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_seq'>seq</span><span class='period'>.</span><span class='id identifier rubyid_repeat'>repeat</span><span class='lparen'>(</span><span class='id identifier rubyid_n_features'>n_features</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span>
-  <span class='id identifier rubyid_codes'>codes</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='id identifier rubyid_n_samples'>n_samples</span><span class='comma'>,</span> <span class='ivar'>@feature_indices</span><span class='lbracket'>[</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_row_indices'>row_indices</span><span class='period'>.</span><span class='id identifier rubyid_zip'>zip</span><span class='lparen'>(</span><span class='id identifier rubyid_column_indices'>column_indices</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_r'>r</span><span class='comma'>,</span> <span class='id identifier rubyid_c'>c</span><span class='op'>|</span> <span class='id identifier rubyid_codes'>codes</span><span class='lbracket'>[</span><span class='id identifier rubyid_r'>r</span><span class='comma'>,</span> <span class='id identifier rubyid_c'>c</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='float'>1.0</span> <span class='rbrace'>}</span>
-  <span class='id identifier rubyid_codes'>codes</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expected the input samples only consists of non-negative integer values.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_lt'>lt</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+  <span class='id identifier rubyid_codes'>codes</span> <span class='op'>=</span> <span class='id identifier rubyid_encode'>encode</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='ivar'>@feature_indices</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_codes'>codes</span><span class='lbracket'>[</span><span class='kw'>true</span><span class='comma'>,</span> <span class='ivar'>@active_features</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -955,7 +1094,7 @@ one-hot-vectors.</p>
 </div>
 
       <div id="footer">
-  Generated on Thu Sep  5 23:59:59 2019 by
+  Generated on Fri Sep  6 20:54:05 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.4.6).
 </div>
