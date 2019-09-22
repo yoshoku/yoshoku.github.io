@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: Rumale::Clustering::PowerIteration
+  Class: Rumale::Clustering::SpectralClustering
   
     &mdash; Documentation by YARD 0.9.20
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  pathId = "Rumale::Clustering::PowerIteration";
+  pathId = "Rumale::Clustering::SpectralClustering";
   relpath = '../../';
 </script>
 
@@ -36,10 +36,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../../_index.html">Index (P)</a> &raquo;
+    <a href="../../_index.html">Index (S)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Clustering.html" title="Rumale::Clustering (module)">Clustering</a></span></span>
      &raquo; 
-    <span class="title">PowerIteration</span>
+    <span class="title">SpectralClustering</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: Rumale::Clustering::PowerIteration
+      <div id="content"><h1>Class: Rumale::Clustering::SpectralClustering
   
   
   
@@ -74,7 +74,7 @@
         <ul class="fullTree">
           <li>Object</li>
           
-            <li class="next">Rumale::Clustering::PowerIteration</li>
+            <li class="next">Rumale::Clustering::SpectralClustering</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -99,7 +99,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/rumale/clustering/power_iteration.rb</dd>
+    <dd>lib/rumale/clustering/spectral_clustering.rb</dd>
   </dl>
   
 </div>
@@ -107,13 +107,16 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>PowerIteration is a class that implements power iteration clustering.</p>
+<p>SpectralClustering is a class that implements the normalized spectral
+clustering.</p>
 
 <p><strong>Reference</strong></p>
-<ul><li><ol style="list-style-type: upper-alpha"><li>
-<p>Lin and W W. Cohen, “Power Iteration Clustering,” Proc. ICML&#39;10, pp.
-655–662, 2010.</p>
-</li></ol>
+<ul><li>
+<p>A Y. Ng, M I. Jordan, and Y. Weiss, “On Spectral Clustering: Analyssi and
+an algorithm,” Proc. NIPS&#39;01, pp. 849–856, 2001.</p>
+</li><li>
+<p>U von Luxburg, “A tutorial on spectral clustering,” Statistics and
+Computing, Vol. 17 (4), pp. 395–416, 2007.</p>
 </li></ul>
 
 
@@ -125,7 +128,9 @@
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_analyzer'>analyzer</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Clustering.html" title="Rumale::Clustering (module)">Clustering</a></span></span><span class='op'>::</span><span class='const'>PowerIteration</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::Clustering::PowerIteration#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>n_clusters:</span> <span class='int'>10</span><span class='comma'>,</span> <span class='label'>gamma:</span> <span class='float'>8.0</span><span class='comma'>,</span> <span class='label'>max_iter:</span> <span class='int'>1000</span><span class='rparen'>)</span>
+      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/linalg/autoloader</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='id identifier rubyid_analyzer'>analyzer</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Clustering.html" title="Rumale::Clustering (module)">Clustering</a></span></span><span class='op'>::</span><span class='const'>SpectralClustering</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::Clustering::SpectralClustering#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>n_clusters:</span> <span class='int'>10</span><span class='comma'>,</span> <span class='label'>gamma:</span> <span class='float'>8.0</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_cluster_labels'>cluster_labels</span> <span class='op'>=</span> <span class='id identifier rubyid_analyzer'>analyzer</span><span class='period'>.</span><span class='id identifier rubyid_fit_predict'>fit_predict</span><span class='lparen'>(</span><span class='id identifier rubyid_samples'>samples</span><span class='rparen'>)</span></code></pre>
     
   </div>
@@ -196,35 +201,6 @@
 </li>
 
     
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#n_iter-instance_method" title="#n_iter (instance method)">#<strong>n_iter</strong>  &#x21d2; Integer </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-      <span class="note title readonly">readonly</span>
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Return the number of iterations run for optimization.</p>
-</div></span>
-  
-</li>
-
-    
   </ul>
 
 
@@ -246,7 +222,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#fit-instance_method" title="#fit (instance method)">#<strong>fit</strong>(x)  &#x21d2; PowerIteration </a>
+      <a href="#fit-instance_method" title="#fit (instance method)">#<strong>fit</strong>(x)  &#x21d2; SpectralClustering </a>
     
 
     
@@ -294,7 +270,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(n_clusters: 8, affinity: &#39;rbf&#39;, gamma: nil, init: &#39;k-means++&#39;, max_iter: 1000, tol: 1.0e-8, eps: 1.0e-5, random_seed: nil)  &#x21d2; PowerIteration </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(n_clusters: 2, affinity: &#39;rbf&#39;, gamma: nil, init: &#39;k-means++&#39;, max_iter: 10, tol: 1.0e-8, random_seed: nil)  &#x21d2; SpectralClustering </a>
     
 
     
@@ -311,7 +287,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Create a new cluster analyzer with power iteration clustering.</p>
+<p>Create a new cluster analyzer with normalized spectral clustering.</p>
 </div></span>
   
 </li>
@@ -397,7 +373,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(n_clusters: 8, affinity: &#39;rbf&#39;, gamma: nil, init: &#39;k-means++&#39;, max_iter: 1000, tol: 1.0e-8, eps: 1.0e-5, random_seed: nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::Clustering::PowerIteration (class)">PowerIteration</a></span></tt> 
+    #<strong>initialize</strong>(n_clusters: 2, affinity: &#39;rbf&#39;, gamma: nil, init: &#39;k-means++&#39;, max_iter: 10, tol: 1.0e-8, random_seed: nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::Clustering::SpectralClustering (class)">SpectralClustering</a></span></tt> 
   
 
   
@@ -406,7 +382,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Create a new cluster analyzer with power iteration clustering.</p>
+<p>Create a new cluster analyzer with normalized spectral clustering.</p>
 
 
   </div>
@@ -443,7 +419,9 @@
         &mdash;
         <div class='inline'>
 <p>The representation of affinity matrix (&#39;rbf&#39; or
-&#39;precomputed&#39;).</p>
+&#39;precomputed&#39;). If affinity = &#39;rbf&#39;, the class performs the
+normalized spectral clustering with the fully connected graph weighted by
+rbf kernel.</p>
 </div>
       
     </li>
@@ -493,7 +471,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The maximum number of iterations.</p>
+<p>The maximum number of iterations for K-Means clustering.</p>
 </div>
       
     </li>
@@ -509,23 +487,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The tolerance of termination criterion.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>eps</span>
-      
-      
-        <span class='type'>(<tt>Float</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>A small value close to zero to avoid zero division error.</p>
+<p>The tolerance of termination criterion for K-Means clustering.</p>
 </div>
       
     </li>
@@ -573,20 +535,18 @@
 59
 60
 61
-62
-63
-64</pre>
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/clustering/power_iteration.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/clustering/spectral_clustering.rb', line 44</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>n_clusters:</span> <span class='int'>8</span><span class='comma'>,</span> <span class='label'>affinity:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rbf</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>gamma:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>init:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>k-means++</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>max_iter:</span> <span class='int'>1000</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='float'>1.0e-8</span><span class='comma'>,</span> <span class='label'>eps:</span> <span class='float'>1.0e-5</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>n_clusters:</span> <span class='int'>2</span><span class='comma'>,</span> <span class='label'>affinity:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rbf</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>gamma:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>init:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>k-means++</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>max_iter:</span> <span class='int'>10</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='float'>1.0e-8</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_integer'>check_params_integer</span><span class='lparen'>(</span><span class='label'>n_clusters:</span> <span class='id identifier rubyid_n_clusters'>n_clusters</span><span class='comma'>,</span> <span class='label'>max_iter:</span> <span class='id identifier rubyid_max_iter'>max_iter</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_float'>check_params_float</span><span class='lparen'>(</span><span class='label'>tol:</span> <span class='id identifier rubyid_tol'>tol</span><span class='comma'>,</span> <span class='label'>eps:</span> <span class='id identifier rubyid_eps'>eps</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_params_float'>check_params_float</span><span class='lparen'>(</span><span class='label'>tol:</span> <span class='id identifier rubyid_tol'>tol</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_string'>check_params_string</span><span class='lparen'>(</span><span class='label'>affinity:</span> <span class='id identifier rubyid_affinity'>affinity</span><span class='comma'>,</span> <span class='label'>init:</span> <span class='id identifier rubyid_init'>init</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_type_or_nil'>check_params_type_or_nil</span><span class='lparen'>(</span><span class='const'>Float</span><span class='comma'>,</span> <span class='label'>gamma:</span> <span class='id identifier rubyid_gamma'>gamma</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_type_or_nil'>check_params_type_or_nil</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='id identifier rubyid_random_seed'>random_seed</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_positive'>check_params_positive</span><span class='lparen'>(</span><span class='label'>n_clusters:</span> <span class='id identifier rubyid_n_clusters'>n_clusters</span><span class='comma'>,</span> <span class='label'>max_iter:</span> <span class='id identifier rubyid_max_iter'>max_iter</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='id identifier rubyid_tol'>tol</span><span class='comma'>,</span> <span class='label'>eps:</span> <span class='id identifier rubyid_eps'>eps</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_params_positive'>check_params_positive</span><span class='lparen'>(</span><span class='label'>n_clusters:</span> <span class='id identifier rubyid_n_clusters'>n_clusters</span><span class='comma'>,</span> <span class='label'>max_iter:</span> <span class='id identifier rubyid_max_iter'>max_iter</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='id identifier rubyid_tol'>tol</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_clusters</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_n_clusters'>n_clusters</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:affinity</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_affinity'>affinity</span>
@@ -594,12 +554,10 @@
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:init</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_init'>init</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>random</span><span class='tstring_end'>&#39;</span></span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>random</span><span class='tstring_end'>&#39;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>k-means++</span><span class='tstring_end'>&#39;</span></span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_iter</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_max_iter'>max_iter</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:tol</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_tol'>tol</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:eps</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_eps'>eps</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:random_seed</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_random_seed'>random_seed</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:random_seed</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='id identifier rubyid_srand'>srand</span>
   <span class='ivar'>@embedding</span> <span class='op'>=</span> <span class='kw'>nil</span>
   <span class='ivar'>@labels</span> <span class='op'>=</span> <span class='kw'>nil</span>
-  <span class='ivar'>@n_iter</span> <span class='op'>=</span> <span class='kw'>nil</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -644,7 +602,7 @@
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples])</p>
+<p>(shape: [n_samples, n_clusters])</p>
 </div>
       
     </li>
@@ -657,12 +615,12 @@
       <pre class="lines">
 
 
-23
-24
-25</pre>
+27
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/clustering/power_iteration.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/clustering/spectral_clustering.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_embedding'>embedding</span>
   <span class='ivar'>@embedding</span>
@@ -718,71 +676,15 @@
       <pre class="lines">
 
 
-27
-28
-29</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/clustering/power_iteration.rb', line 27</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_labels'>labels</span>
-  <span class='ivar'>@labels</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id=""></span>
-      <div class="method_details ">
-  <h3 class="signature " id="n_iter-instance_method">
-  
-    #<strong>n_iter</strong>  &#x21d2; <tt>Integer</tt>  <span class="extras">(readonly)</span>
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Return the number of iterations run for optimization</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Integer</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
 31
 32
 33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/clustering/power_iteration.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/clustering/spectral_clustering.rb', line 31</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_n_iter'>n_iter</span>
-  <span class='ivar'>@n_iter</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_labels'>labels</span>
+  <span class='ivar'>@labels</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -799,7 +701,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="fit-instance_method">
   
-    #<strong>fit</strong>(x)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::Clustering::PowerIteration (class)">PowerIteration</a></span></tt> 
+    #<strong>fit</strong>(x)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::Clustering::SpectralClustering (class)">SpectralClustering</a></span></tt> 
   
 
   
@@ -808,15 +710,22 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Analysis clusters with given training data.</p>
+<p>Analysis clusters with given training data. To execute this method,
+Numo::Linalg must be loaded.</p>
 
 
   </div>
 </div>
 <div class="tags">
   
-  
-<p class="tag_title">Parameters:</p>
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -839,13 +748,16 @@ affinity matrix (shape: [n_samples, n_samples]).</p>
   
 </ul>
 
+
+</div>
+
 <p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="" title="Rumale::Clustering::PowerIteration (class)">PowerIteration</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Rumale::Clustering::SpectralClustering (class)">SpectralClustering</a></span></tt>)</span>
       
       
       
@@ -877,6 +789,8 @@ affinity matrix (shape: [n_samples, n_samples]).</p>
       <pre class="lines">
 
 
+71
+72
 73
 74
 75
@@ -885,11 +799,13 @@ affinity matrix (shape: [n_samples, n_samples]).</p>
 78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/clustering/power_iteration.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/clustering/spectral_clustering.rb', line 71</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid__y'>_y</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect the input affinity matrix to be square.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:affinity</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>precomputed</span><span class='tstring_end'>&#39;</span></span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SpectralClustering#fit requires Numo::Linalg but that is not loaded.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_enable_linalg?'>enable_linalg?</span>
+
   <span class='id identifier rubyid_fit_predict'>fit_predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
@@ -910,7 +826,8 @@ affinity matrix (shape: [n_samples, n_samples]).</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Analysis clusters and assign samples to clusters.</p>
+<p>Analysis clusters and assign samples to clusters. To execute this method,
+Numo::Linalg must be loaded.</p>
 
 
   </div>
@@ -977,25 +894,29 @@ affinity matrix (shape: [n_samples, n_samples]).</p>
       <pre class="lines">
 
 
-85
 86
 87
 88
 89
 90
 91
-92</pre>
+92
+93
+94
+95</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/clustering/power_iteration.rb', line 85</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/clustering/spectral_clustering.rb', line 86</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit_predict'>fit_predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect the input affinity matrix to be square.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:affinity</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>precomputed</span><span class='tstring_end'>&#39;</span></span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SpectralClustering#fit_predict requires Numo::Linalg but that is not loaded.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_enable_linalg?'>enable_linalg?</span>
 
   <span class='id identifier rubyid_affinity_mat'>affinity_mat</span> <span class='op'>=</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:metric</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>precomputed</span><span class='tstring_end'>&#39;</span></span> <span class='op'>?</span> <span class='id identifier rubyid_x'>x</span> <span class='op'>:</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../PairwiseMetric.html" title="Rumale::PairwiseMetric (module)">PairwiseMetric</a></span></span><span class='period'>.</span><span class='id identifier rubyid_rbf_kernel'><span class='object_link'><a href="../PairwiseMetric.html#rbf_kernel-class_method" title="Rumale::PairwiseMetric.rbf_kernel (method)">rbf_kernel</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:gamma</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-  <span class='ivar'>@embedding</span><span class='comma'>,</span> <span class='ivar'>@n_iter</span> <span class='op'>=</span> <span class='id identifier rubyid_embedded_space'>embedded_space</span><span class='lparen'>(</span><span class='id identifier rubyid_affinity_mat'>affinity_mat</span><span class='comma'>,</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_iter</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:tol</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_fdiv'>fdiv</span><span class='lparen'>(</span><span class='id identifier rubyid_affinity_mat'>affinity_mat</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rparen'>)</span>
-  <span class='ivar'>@labels</span> <span class='op'>=</span> <span class='id identifier rubyid_line_kmeans_clustering'>line_kmeans_clustering</span><span class='lparen'>(</span><span class='ivar'>@embedding</span><span class='rparen'>)</span>
+  <span class='ivar'>@embedding</span> <span class='op'>=</span> <span class='id identifier rubyid_embedded_space'>embedded_space</span><span class='lparen'>(</span><span class='id identifier rubyid_affinity_mat'>affinity_mat</span><span class='comma'>,</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_clusters</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_normalized_embedding'>normalized_embedding</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Preprocessing.html" title="Rumale::Preprocessing (module)">Preprocessing</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Preprocessing/L2Normalizer.html" title="Rumale::Preprocessing::L2Normalizer (class)">L2Normalizer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Preprocessing/L2Normalizer.html#initialize-instance_method" title="Rumale::Preprocessing::L2Normalizer#initialize (method)">new</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fit_transform'><span class='object_link'><a href="../Preprocessing/L2Normalizer.html#fit_transform-instance_method" title="Rumale::Preprocessing::L2Normalizer#fit_transform (method)">fit_transform</a></span></span><span class='lparen'>(</span><span class='ivar'>@embedding</span><span class='rparen'>)</span>
+  <span class='ivar'>@labels</span> <span class='op'>=</span> <span class='id identifier rubyid_kmeans_clustering'>kmeans_clustering</span><span class='lparen'>(</span><span class='id identifier rubyid_normalized_embedding'>normalized_embedding</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1046,21 +967,19 @@ affinity matrix (shape: [n_samples, n_samples]).</p>
       <pre class="lines">
 
 
-96
-97
-98
 99
 100
-101</pre>
+101
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/clustering/power_iteration.rb', line 96</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/clustering/spectral_clustering.rb', line 99</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_marshal_dump'>marshal_dump</span>
   <span class='lbrace'>{</span> <span class='label'>params:</span> <span class='ivar'>@params</span><span class='comma'>,</span>
     <span class='label'>embedding:</span> <span class='ivar'>@embedding</span><span class='comma'>,</span>
-    <span class='label'>labels:</span> <span class='ivar'>@labels</span><span class='comma'>,</span>
-    <span class='label'>n_iter:</span> <span class='ivar'>@n_iter</span> <span class='rbrace'>}</span>
+    <span class='label'>labels:</span> <span class='ivar'>@labels</span> <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1106,22 +1025,20 @@ affinity matrix (shape: [n_samples, n_samples]).</p>
       <pre class="lines">
 
 
-105
-106
 107
 108
 109
 110
-111</pre>
+111
+112</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/clustering/power_iteration.rb', line 105</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/clustering/spectral_clustering.rb', line 107</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_marshal_load'>marshal_load</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:params</span><span class='rbracket'>]</span>
   <span class='ivar'>@embedding</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:embedding</span><span class='rbracket'>]</span>
   <span class='ivar'>@labels</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:labels</span><span class='rbracket'>]</span>
-  <span class='ivar'>@n_iter</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:n_iter</span><span class='rbracket'>]</span>
   <span class='kw'>nil</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1134,7 +1051,7 @@ affinity matrix (shape: [n_samples, n_samples]).</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Sep 22 13:18:26 2019 by
+  Generated on Sun Sep 22 13:18:32 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.4.6).
 </div>
