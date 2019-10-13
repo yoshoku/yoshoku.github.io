@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: Rumale::Decomposition::PCA
+  Class: Rumale::Decomposition::FastICA
   
     &mdash; Documentation by YARD 0.9.20
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  pathId = "Rumale::Decomposition::PCA";
+  pathId = "Rumale::Decomposition::FastICA";
   relpath = '../../';
 </script>
 
@@ -36,10 +36,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../../_index.html">Index (P)</a> &raquo;
+    <a href="../../_index.html">Index (F)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Decomposition.html" title="Rumale::Decomposition (module)">Decomposition</a></span></span>
      &raquo; 
-    <span class="title">PCA</span>
+    <span class="title">FastICA</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: Rumale::Decomposition::PCA
+      <div id="content"><h1>Class: Rumale::Decomposition::FastICA
   
   
   
@@ -74,7 +74,7 @@
         <ul class="fullTree">
           <li>Object</li>
           
-            <li class="next">Rumale::Decomposition::PCA</li>
+            <li class="next">Rumale::Decomposition::FastICA</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -99,7 +99,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/rumale/decomposition/pca.rb</dd>
+    <dd>lib/rumale/decomposition/fast_ica.rb</dd>
   </dl>
   
 </div>
@@ -107,13 +107,16 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>PCA is a class that implements Principal Component Analysis.</p>
+<p>FastICA is a class that implments Fast Independent Component Analaysis.</p>
 
 <p><strong>Reference</strong></p>
 <ul><li><ol style="list-style-type: upper-alpha"><li>
-<p>Sharma and K K. Paliwal, “Fast principal component analysis using
-fixed-point algorithm,” Pattern Recognition Letters, 28, pp. 1151–1155,
-2007.</p>
+<p>Hyvarinen “Fast and Robust Fixed-Point Algorithms for Independent Component
+Analysis,” IEEE Trans. Neural Networks, Vol. 10 (3), pp. 626–634, 1999.</p>
+</li></ol>
+</li><li><ol style="list-style-type: upper-alpha"><li>
+<p>Hyvarinen and E. Oja, “Independent Component Analysis: Algorithms and
+Applications,” Neural Networks, Vol. 13 (4-5), pp. 411–430, 2000.</p>
 </li></ol>
 </li></ul>
 
@@ -126,13 +129,10 @@ fixed-point algorithm,” Pattern Recognition Letters, 28, pp. 1151–1155,
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_decomposer'>decomposer</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Decomposition.html" title="Rumale::Decomposition (module)">Decomposition</a></span></span><span class='op'>::</span><span class='const'>PCA</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::Decomposition::PCA#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>n_components:</span> <span class='int'>2</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_representaion'>representaion</span> <span class='op'>=</span> <span class='id identifier rubyid_decomposer'>decomposer</span><span class='period'>.</span><span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_samples'>samples</span><span class='rparen'>)</span>
+      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/linalg/autoloader</span><span class='tstring_end'>&#39;</span></span>
 
-<span class='comment'># If Numo::Linalg is installed, you can specify &#39;evd&#39; for the solver option.
-</span><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/linalg/autoloader</span><span class='tstring_end'>&#39;</span></span>
-<span class='id identifier rubyid_decomposer'>decomposer</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Decomposition.html" title="Rumale::Decomposition (module)">Decomposition</a></span></span><span class='op'>::</span><span class='const'>PCA</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::Decomposition::PCA#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>n_components:</span> <span class='int'>2</span><span class='comma'>,</span> <span class='label'>solver:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>evd</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-<span class='id identifier rubyid_representaion'>representaion</span> <span class='op'>=</span> <span class='id identifier rubyid_decomposer'>decomposer</span><span class='period'>.</span><span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_samples'>samples</span><span class='rparen'>)</span></code></pre>
+<span class='id identifier rubyid_transformer'>transformer</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Decomposition.html" title="Rumale::Decomposition (module)">Decomposition</a></span></span><span class='op'>::</span><span class='const'>FastICA</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::Decomposition::FastICA#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>n_components:</span> <span class='int'>2</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='int'>1</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_source_data'>source_data</span> <span class='op'>=</span> <span class='id identifier rubyid_transformer'>transformer</span><span class='period'>.</span><span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_observed_data'>observed_data</span><span class='rparen'>)</span></code></pre>
     
   </div>
 
@@ -167,7 +167,7 @@ fixed-point algorithm,” Pattern Recognition Letters, 28, pp. 1151–1155,
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Returns the principal components.</p>
+<p>Returns the unmixing matrix.</p>
 </div></span>
   
 </li>
@@ -176,7 +176,7 @@ fixed-point algorithm,” Pattern Recognition Letters, 28, pp. 1151–1155,
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#mean-instance_method" title="#mean (instance method)">#<strong>mean</strong>  &#x21d2; Numo::DFloat </a>
+      <a href="#mixing-instance_method" title="#mixing (instance method)">#<strong>mixing</strong>  &#x21d2; Numo::DFloat </a>
     
 
     
@@ -196,7 +196,36 @@ fixed-point algorithm,” Pattern Recognition Letters, 28, pp. 1151–1155,
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Returns the mean vector.</p>
+<p>Returns the mixing matrix.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#n_iter-instance_method" title="#n_iter (instance method)">#<strong>n_iter</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the number of iterations when converged.</p>
 </div></span>
   
 </li>
@@ -252,7 +281,7 @@ fixed-point algorithm,” Pattern Recognition Letters, 28, pp. 1151–1155,
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#fit-instance_method" title="#fit (instance method)">#<strong>fit</strong>(x)  &#x21d2; PCA </a>
+      <a href="#fit-instance_method" title="#fit (instance method)">#<strong>fit</strong>(x)  &#x21d2; FastICA </a>
     
 
     
@@ -301,7 +330,7 @@ model.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(n_components: 2, solver: &#39;fpt&#39;, max_iter: 100, tol: 1.0e-4, random_seed: nil)  &#x21d2; PCA </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(n_components: 2, whiten: true, fun: &#39;logcosh&#39;, alpha: 1.0, max_iter: 200, tol: 1e-4, random_seed: nil)  &#x21d2; FastICA </a>
     
 
     
@@ -318,7 +347,7 @@ model.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Create a new transformer with PCA.</p>
+<p>Create a new transformer with FastICA.</p>
 </div></span>
   
 </li>
@@ -447,7 +476,7 @@ model.</p>
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(n_components: 2, solver: &#39;fpt&#39;, max_iter: 100, tol: 1.0e-4, random_seed: nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::Decomposition::PCA (class)">PCA</a></span></tt> 
+    #<strong>initialize</strong>(n_components: 2, whiten: true, fun: &#39;logcosh&#39;, alpha: 1.0, max_iter: 200, tol: 1e-4, random_seed: nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::Decomposition::FastICA (class)">FastICA</a></span></tt> 
   
 
   
@@ -456,7 +485,7 @@ model.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Create a new transformer with PCA.</p>
+<p>Create a new transformer with FastICA.</p>
 
 
   </div>
@@ -476,14 +505,30 @@ model.</p>
       
         &mdash;
         <div class='inline'>
-<p>The number of principal components.</p>
+<p>The number of independent components.</p>
 </div>
       
     </li>
   
     <li>
       
-        <span class='name'>solver</span>
+        <span class='name'>whiten</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The flag indicating whether to perform whitening.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>fun</span>
       
       
         <span class='type'>(<tt>String</tt>)</span>
@@ -492,9 +537,25 @@ model.</p>
       
         &mdash;
         <div class='inline'>
-<p>The algorithm for the optimization (&#39;fpt&#39; or &#39;evd&#39;).
-&#39;fpt&#39; uses the fixed-point algorithm. &#39;evd&#39; performs eigen
-value decomposition of the covariance matrix of samples.</p>
+<p>The type of contrast function (&#39;logcosh&#39;, &#39;exp&#39;, or
+&#39;cube&#39;).</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>alpha</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The parameter of contrast function for &#39;logcosh&#39; and &#39;exp&#39;.
+If fun = &#39;cube&#39;, this parameter is ignored.</p>
 </div>
       
     </li>
@@ -510,8 +571,7 @@ value decomposition of the covariance matrix of samples.</p>
       
         &mdash;
         <div class='inline'>
-<p>The maximum number of iterations. If solver = &#39;evd&#39;, this parameter
-is ignored.</p>
+<p>The maximum number of iterations.</p>
 </div>
       
     </li>
@@ -527,8 +587,7 @@ is ignored.</p>
       
         &mdash;
         <div class='inline'>
-<p>The tolerance of termination criterion. If solver = &#39;evd&#39;, this
-parameter is ignored.</p>
+<p>The tolerance of termination criterion.</p>
 </div>
       
     </li>
@@ -558,9 +617,6 @@ parameter is ignored.</p>
       <pre class="lines">
 
 
-46
-47
-48
 49
 50
 51
@@ -574,25 +630,38 @@ parameter is ignored.</p>
 59
 60
 61
-62</pre>
+62
+63
+64
+65
+66
+67
+68
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/decomposition/pca.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/decomposition/fast_ica.rb', line 49</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>n_components:</span> <span class='int'>2</span><span class='comma'>,</span> <span class='label'>solver:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>fpt</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>max_iter:</span> <span class='int'>100</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='float'>1.0e-4</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>n_components:</span> <span class='int'>2</span><span class='comma'>,</span> <span class='label'>whiten:</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='label'>fun:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>logcosh</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>alpha:</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='label'>max_iter:</span> <span class='int'>200</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='float'>1e-4</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_integer'>check_params_integer</span><span class='lparen'>(</span><span class='label'>n_components:</span> <span class='id identifier rubyid_n_components'>n_components</span><span class='comma'>,</span> <span class='label'>max_iter:</span> <span class='id identifier rubyid_max_iter'>max_iter</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_string'>check_params_string</span><span class='lparen'>(</span><span class='label'>solver:</span> <span class='id identifier rubyid_solver'>solver</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_float'>check_params_float</span><span class='lparen'>(</span><span class='label'>tol:</span> <span class='id identifier rubyid_tol'>tol</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_params_boolean'>check_params_boolean</span><span class='lparen'>(</span><span class='label'>whiten:</span> <span class='id identifier rubyid_whiten'>whiten</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_params_string'>check_params_string</span><span class='lparen'>(</span><span class='label'>fun:</span> <span class='id identifier rubyid_fun'>fun</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_params_float'>check_params_float</span><span class='lparen'>(</span><span class='label'>alpha:</span> <span class='id identifier rubyid_alpha'>alpha</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='id identifier rubyid_tol'>tol</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_type_or_nil'>check_params_type_or_nil</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='id identifier rubyid_random_seed'>random_seed</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_positive'>check_params_positive</span><span class='lparen'>(</span><span class='label'>n_components:</span> <span class='id identifier rubyid_n_components'>n_components</span><span class='comma'>,</span> <span class='label'>max_iter:</span> <span class='id identifier rubyid_max_iter'>max_iter</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='id identifier rubyid_tol'>tol</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:solver</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_solver'>solver</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>evd</span><span class='tstring_end'>&#39;</span></span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>fpt</span><span class='tstring_end'>&#39;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>evd</span><span class='tstring_end'>&#39;</span></span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_components</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_n_components'>n_components</span>
+  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:whiten</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_whiten'>whiten</span>
+  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:fun</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_fun'>fun</span>
+  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:alpha</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_alpha'>alpha</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_iter</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_max_iter'>max_iter</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:tol</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_tol'>tol</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:random_seed</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_random_seed'>random_seed</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:random_seed</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='id identifier rubyid_srand'>srand</span>
   <span class='ivar'>@components</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@mixing</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@n_iter</span> <span class='op'>=</span> <span class='kw'>nil</span>
   <span class='ivar'>@mean</span> <span class='op'>=</span> <span class='kw'>nil</span>
   <span class='ivar'>@rng</span> <span class='op'>=</span> <span class='const'>Random</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:random_seed</span><span class='rbracket'>]</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -620,7 +689,7 @@ parameter is ignored.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the principal components.</p>
+<p>Returns the unmixing matrix.</p>
 
 
   </div>
@@ -652,12 +721,12 @@ parameter is ignored.</p>
       <pre class="lines">
 
 
-28
-29
-30</pre>
+25
+26
+27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/decomposition/pca.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/decomposition/fast_ica.rb', line 25</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_components'>components</span>
   <span class='ivar'>@components</span>
@@ -670,9 +739,9 @@ parameter is ignored.</p>
       
       <span id=""></span>
       <div class="method_details ">
-  <h3 class="signature " id="mean-instance_method">
+  <h3 class="signature " id="mixing-instance_method">
   
-    #<strong>mean</strong>  &#x21d2; <tt>Numo::DFloat</tt>  <span class="extras">(readonly)</span>
+    #<strong>mixing</strong>  &#x21d2; <tt>Numo::DFloat</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -681,7 +750,7 @@ parameter is ignored.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the mean vector.</p>
+<p>Returns the mixing matrix.</p>
 
 
   </div>
@@ -700,7 +769,7 @@ parameter is ignored.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_features])</p>
+<p>(shape: [n_features, n_components])</p>
 </div>
       
     </li>
@@ -713,15 +782,71 @@ parameter is ignored.</p>
       <pre class="lines">
 
 
-32
-33
-34</pre>
+29
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/decomposition/pca.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/decomposition/fast_ica.rb', line 29</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_mean'>mean</span>
-  <span class='ivar'>@mean</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_mixing'>mixing</span>
+  <span class='ivar'>@mixing</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="n_iter-instance_method">
+  
+    #<strong>n_iter</strong>  &#x21d2; <tt>Integer</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the number of iterations when converged.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+33
+34
+35</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/decomposition/fast_ica.rb', line 33</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_n_iter'>n_iter</span>
+  <span class='ivar'>@n_iter</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -769,12 +894,12 @@ parameter is ignored.</p>
       <pre class="lines">
 
 
-36
 37
-38</pre>
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/decomposition/pca.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/decomposition/fast_ica.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rng'>rng</span>
   <span class='ivar'>@rng</span>
@@ -794,7 +919,7 @@ parameter is ignored.</p>
       <div class="method_details first">
   <h3 class="signature first" id="fit-instance_method">
   
-    #<strong>fit</strong>(x)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::Decomposition::PCA (class)">PCA</a></span></tt> 
+    #<strong>fit</strong>(x)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::Decomposition::FastICA (class)">FastICA</a></span></tt> 
   
 
   
@@ -810,8 +935,14 @@ parameter is ignored.</p>
 </div>
 <div class="tags">
   
-  
-<p class="tag_title">Parameters:</p>
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -833,13 +964,16 @@ the model.</p>
   
 </ul>
 
+
+</div>
+
 <p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="" title="Rumale::Decomposition::PCA (class)">PCA</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Rumale::Decomposition::FastICA (class)">FastICA</a></span></tt>)</span>
       
       
       
@@ -858,13 +992,6 @@ the model.</p>
       <pre class="lines">
 
 
-70
-71
-72
-73
-74
-75
-76
 77
 78
 79
@@ -879,42 +1006,23 @@ the model.</p>
 88
 89
 90
-91
-92
-93
-94
-95
-96
-97</pre>
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/decomposition/pca.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/decomposition/fast_ica.rb', line 77</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid__y'>_y</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='comment'># initialize some variables.
-</span>  <span class='ivar'>@components</span> <span class='op'>=</span> <span class='kw'>nil</span>
-  <span class='id identifier rubyid_n_samples'>n_samples</span><span class='comma'>,</span> <span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span>
-  <span class='id identifier rubyid_sub_rng'>sub_rng</span> <span class='op'>=</span> <span class='ivar'>@rng</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
-  <span class='comment'># centering.
-</span>  <span class='ivar'>@mean</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_mean'>mean</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_centered_x'>centered_x</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span> <span class='op'>-</span> <span class='ivar'>@mean</span>
-  <span class='comment'># optimization.
-</span>  <span class='id identifier rubyid_covariance_mat'>covariance_mat</span> <span class='op'>=</span> <span class='id identifier rubyid_centered_x'>centered_x</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='id identifier rubyid_centered_x'>centered_x</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='id identifier rubyid_n_samples'>n_samples</span> <span class='op'>-</span> <span class='int'>1</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:solver</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>evd</span><span class='tstring_end'>&#39;</span></span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_enable_linalg?'>enable_linalg?</span>
-    <span class='id identifier rubyid__'>_</span><span class='comma'>,</span> <span class='id identifier rubyid_evecs'>evecs</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Linalg</span><span class='period'>.</span><span class='id identifier rubyid_eigh'>eigh</span><span class='lparen'>(</span><span class='id identifier rubyid_covariance_mat'>covariance_mat</span><span class='comma'>,</span> <span class='label'>vals_range:</span> <span class='lparen'>(</span><span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>-</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_components</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='op'>...</span><span class='id identifier rubyid_n_features'>n_features</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_comps'>comps</span> <span class='op'>=</span> <span class='id identifier rubyid_evecs'>evecs</span><span class='period'>.</span><span class='id identifier rubyid_reverse'>reverse</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span>
-    <span class='ivar'>@components</span> <span class='op'>=</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_components</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='int'>1</span> <span class='op'>?</span> <span class='id identifier rubyid_comps'>comps</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span> <span class='op'>:</span> <span class='id identifier rubyid_comps'>comps</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
-  <span class='kw'>else</span>
-    <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_components</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span>
-      <span class='id identifier rubyid_comp_vec'>comp_vec</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_rand_uniform'>rand_uniform</span><span class='lparen'>(</span><span class='id identifier rubyid_n_features'>n_features</span><span class='comma'>,</span> <span class='id identifier rubyid_sub_rng'>sub_rng</span><span class='rparen'>)</span>
-      <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_iter</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span>
-        <span class='id identifier rubyid_updated'>updated</span> <span class='op'>=</span> <span class='id identifier rubyid_orthogonalize'>orthogonalize</span><span class='lparen'>(</span><span class='id identifier rubyid_covariance_mat'>covariance_mat</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='id identifier rubyid_comp_vec'>comp_vec</span><span class='rparen'>)</span><span class='rparen'>)</span>
-        <span class='kw'>break</span> <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_updated'>updated</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='id identifier rubyid_comp_vec'>comp_vec</span><span class='rparen'>)</span> <span class='op'>-</span> <span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span> <span class='op'>&lt;</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:tol</span><span class='rbracket'>]</span>
-        <span class='id identifier rubyid_comp_vec'>comp_vec</span> <span class='op'>=</span> <span class='id identifier rubyid_updated'>updated</span>
-      <span class='kw'>end</span>
-      <span class='ivar'>@components</span> <span class='op'>=</span> <span class='ivar'>@components</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>?</span> <span class='id identifier rubyid_comp_vec'>comp_vec</span> <span class='op'>:</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>NArray</span><span class='period'>.</span><span class='id identifier rubyid_vstack'>vstack</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='ivar'>@components</span><span class='comma'>,</span> <span class='id identifier rubyid_comp_vec'>comp_vec</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>FastICA#fit requires Numo::Linalg but that is not loaded.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_enable_linalg?'>enable_linalg?</span>
+
+  <span class='ivar'>@mean</span><span class='comma'>,</span> <span class='id identifier rubyid_whiten_mat'>whiten_mat</span> <span class='op'>=</span> <span class='id identifier rubyid_whitening'>whitening</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_components</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:whiten</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_wx'>wx</span> <span class='op'>=</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:whiten</span><span class='rbracket'>]</span> <span class='op'>?</span> <span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span> <span class='op'>-</span> <span class='ivar'>@mean</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='id identifier rubyid_whiten_mat'>whiten_mat</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id identifier rubyid_x'>x</span>
+  <span class='id identifier rubyid_unmixing'>unmixing</span><span class='comma'>,</span> <span class='ivar'>@n_iter</span> <span class='op'>=</span> <span class='id identifier rubyid_ica'>ica</span><span class='lparen'>(</span><span class='id identifier rubyid_wx'>wx</span><span class='comma'>,</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:fun</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_iter</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:tol</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='ivar'>@rng</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='rparen'>)</span>
+  <span class='ivar'>@components</span> <span class='op'>=</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:whiten</span><span class='rbracket'>]</span> <span class='op'>?</span> <span class='id identifier rubyid_unmixing'>unmixing</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='id identifier rubyid_whiten_mat'>whiten_mat</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id identifier rubyid_unmixing'>unmixing</span>
+  <span class='ivar'>@mixing</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Linalg</span><span class='period'>.</span><span class='id identifier rubyid_pinv'>pinv</span><span class='lparen'>(</span><span class='ivar'>@components</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_components</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='int'>1</span>
+    <span class='ivar'>@components</span> <span class='op'>=</span> <span class='ivar'>@components</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
+    <span class='ivar'>@mixing</span> <span class='op'>=</span> <span class='ivar'>@mixing</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
   <span class='kw'>end</span>
   <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
@@ -943,8 +1051,14 @@ model.</p>
 </div>
 <div class="tags">
   
-  
-<p class="tag_title">Parameters:</p>
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -965,6 +1079,9 @@ the model.</p>
     </li>
   
 </ul>
+
+
+</div>
 
 <p class="tag_title">Returns:</p>
 <ul class="return">
@@ -991,16 +1108,20 @@ the model.</p>
       <pre class="lines">
 
 
-105
-106
-107
-108</pre>
+98
+99
+100
+101
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/decomposition/pca.rb', line 105</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/decomposition/fast_ica.rb', line 98</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid__y'>_y</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>FastICA#fit_transform requires Numo::Linalg but that is not loaded.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_enable_linalg?'>enable_linalg?</span>
+
   <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_transform'>transform</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1040,8 +1161,8 @@ the model.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_components]) The data to be restored into original
-space with the learned model.</p>
+<p>(shape: [n_samples, n_components]) The source data reconstructed to the
+mixed data.</p>
 </div>
       
     </li>
@@ -1060,7 +1181,7 @@ space with the learned model.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_featuress]) The restored data.</p>
+<p>(shape: [n_samples, n_featuress]) The mixed data.</p>
 </div>
       
     </li>
@@ -1073,19 +1194,23 @@ space with the learned model.</p>
       <pre class="lines">
 
 
+119
+120
+121
+122
 123
 124
-125
-126
-127</pre>
+125</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/decomposition/pca.rb', line 123</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/decomposition/fast_ica.rb', line 119</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inverse_transform'>inverse_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_z'>z</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_z'>z</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_c'>c</span> <span class='op'>=</span> <span class='ivar'>@components</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>?</span> <span class='ivar'>@components</span><span class='period'>.</span><span class='id identifier rubyid_expand_dims'>expand_dims</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='ivar'>@components</span>
-  <span class='id identifier rubyid_z'>z</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='id identifier rubyid_c'>c</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='ivar'>@mean</span>
+  <span class='id identifier rubyid_m'>m</span> <span class='op'>=</span> <span class='ivar'>@mixing</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>?</span> <span class='ivar'>@mixing</span><span class='period'>.</span><span class='id identifier rubyid_expand_dims'>expand_dims</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span> <span class='op'>:</span> <span class='ivar'>@mixing</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_z'>z</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>+=</span> <span class='ivar'>@mean</span> <span class='kw'>if</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:whiten</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_x'>x</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1136,6 +1261,8 @@ space with the learned model.</p>
       <pre class="lines">
 
 
+129
+130
 131
 132
 133
@@ -1144,11 +1271,13 @@ space with the learned model.</p>
 136</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/decomposition/pca.rb', line 131</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/decomposition/fast_ica.rb', line 129</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_marshal_dump'>marshal_dump</span>
   <span class='lbrace'>{</span> <span class='label'>params:</span> <span class='ivar'>@params</span><span class='comma'>,</span>
     <span class='label'>components:</span> <span class='ivar'>@components</span><span class='comma'>,</span>
+    <span class='label'>mixing:</span> <span class='ivar'>@mixing</span><span class='comma'>,</span>
+    <span class='label'>n_iter:</span> <span class='ivar'>@n_iter</span><span class='comma'>,</span>
     <span class='label'>mean:</span> <span class='ivar'>@mean</span><span class='comma'>,</span>
     <span class='label'>rng:</span> <span class='ivar'>@rng</span> <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
@@ -1202,14 +1331,18 @@ space with the learned model.</p>
 143
 144
 145
-146</pre>
+146
+147
+148</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/decomposition/pca.rb', line 140</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/decomposition/fast_ica.rb', line 140</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_marshal_load'>marshal_load</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:params</span><span class='rbracket'>]</span>
   <span class='ivar'>@components</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:components</span><span class='rbracket'>]</span>
+  <span class='ivar'>@mixing</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:mixing</span><span class='rbracket'>]</span>
+  <span class='ivar'>@n_iter</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:n_iter</span><span class='rbracket'>]</span>
   <span class='ivar'>@mean</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:mean</span><span class='rbracket'>]</span>
   <span class='ivar'>@rng</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:rng</span><span class='rbracket'>]</span>
   <span class='kw'>nil</span>
@@ -1284,17 +1417,19 @@ learned model.</p>
       <pre class="lines">
 
 
-114
-115
-116
-117</pre>
+109
+110
+111
+112
+113</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/decomposition/pca.rb', line 114</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/decomposition/fast_ica.rb', line 109</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_transform'>transform</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span> <span class='op'>-</span> <span class='ivar'>@mean</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='ivar'>@components</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_cx'>cx</span> <span class='op'>=</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:whiten</span><span class='rbracket'>]</span> <span class='op'>?</span> <span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span> <span class='op'>-</span> <span class='ivar'>@mean</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id identifier rubyid_x'>x</span>
+  <span class='id identifier rubyid_cx'>cx</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='ivar'>@components</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1306,7 +1441,7 @@ learned model.</p>
 </div>
 
       <div id="footer">
-  Generated on Mon Oct 14 01:09:42 2019 by
+  Generated on Mon Oct 14 01:09:44 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.4.9).
 </div>
