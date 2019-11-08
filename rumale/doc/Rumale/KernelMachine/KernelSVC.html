@@ -111,6 +111,10 @@
 Classifier with stochastic gradient descent (SGD) optimization. For
 multiclass classification problem, it uses one-vs-the-rest strategy.</p>
 
+<p>Rumale::SVM provides kernel support vector classifier based on LIBSVM. If
+you prefer execution speed, you should use Rumale::SVM::SVC. <a
+href="https://github.com/yoshoku/rumale-svm">github.com/yoshoku/rumale-svm</a></p>
+
 <p><strong>Reference</strong></p>
 <ol><li><ol style="list-style-type: upper-alpha"><li>
 <p>Shalev-Shwartz, Y. Singer, N. Srebro, and A. Cotter, “Pegasos: Primal
@@ -564,10 +568,6 @@ ignored if the Parallel gem is not loaded.</p>
       <pre class="lines">
 
 
-50
-51
-52
-53
 54
 55
 56
@@ -581,10 +581,14 @@ ignored if the Parallel gem is not loaded.</p>
 64
 65
 66
-67</pre>
+67
+68
+69
+70
+71</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>reg_param:</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='label'>max_iter:</span> <span class='int'>1000</span><span class='comma'>,</span> <span class='label'>probability:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>n_jobs:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_float'>check_params_float</span><span class='lparen'>(</span><span class='label'>reg_param:</span> <span class='id identifier rubyid_reg_param'>reg_param</span><span class='rparen'>)</span>
@@ -660,12 +664,12 @@ ignored if the Parallel gem is not loaded.</p>
       <pre class="lines">
 
 
-34
-35
-36</pre>
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_classes'>classes</span>
   <span class='ivar'>@classes</span>
@@ -716,12 +720,12 @@ ignored if the Parallel gem is not loaded.</p>
       <pre class="lines">
 
 
-38
-39
-40</pre>
+42
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rng'>rng</span>
   <span class='ivar'>@rng</span>
@@ -777,12 +781,12 @@ ignored if the Parallel gem is not loaded.</p>
       <pre class="lines">
 
 
-30
-31
-32</pre>
+34
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_weight_vec'>weight_vec</span>
   <span class='ivar'>@weight_vec</span>
@@ -864,14 +868,14 @@ testing samples and training samples to compute the scores.</p>
       <pre class="lines">
 
 
-115
-116
-117
-118
-119</pre>
+119
+120
+121
+122
+123</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 115</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 119</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_decision_function'>decision_function</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -964,10 +968,6 @@ training data to be used for fitting the model.</p>
       <pre class="lines">
 
 
-75
-76
-77
-78
 79
 80
 81
@@ -997,10 +997,14 @@ training data to be used for fitting the model.</p>
 105
 106
 107
-108</pre>
+108
+109
+110
+111
+112</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 79</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -1085,16 +1089,16 @@ training data to be used for fitting the model.</p>
       <pre class="lines">
 
 
-163
-164
-165
-166
 167
 168
-169</pre>
+169
+170
+171
+172
+173</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 163</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 167</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_marshal_dump'>marshal_dump</span>
   <span class='lbrace'>{</span> <span class='label'>params:</span> <span class='ivar'>@params</span><span class='comma'>,</span>
@@ -1147,17 +1151,17 @@ training data to be used for fitting the model.</p>
       <pre class="lines">
 
 
-173
-174
-175
-176
 177
 178
 179
-180</pre>
+180
+181
+182
+183
+184</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 173</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 177</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_marshal_load'>marshal_load</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:params</span><span class='rbracket'>]</span>
@@ -1237,10 +1241,6 @@ testing samples and training samples to predict the labels.</p>
       <pre class="lines">
 
 
-126
-127
-128
-129
 130
 131
 132
@@ -1250,10 +1250,14 @@ testing samples and training samples to predict the labels.</p>
 136
 137
 138
-139</pre>
+139
+140
+141
+142
+143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 126</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 130</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -1340,10 +1344,6 @@ sample.</p>
       <pre class="lines">
 
 
-146
-147
-148
-149
 150
 151
 152
@@ -1353,10 +1353,14 @@ sample.</p>
 156
 157
 158
-159</pre>
+159
+160
+161
+162
+163</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 146</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 150</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict_proba'>predict_proba</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -1382,7 +1386,7 @@ sample.</p>
 </div>
 
       <div id="footer">
-  Generated on Sat Nov  2 17:26:54 2019 by
+  Generated on Fri Nov  8 11:13:38 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.4.9).
 </div>

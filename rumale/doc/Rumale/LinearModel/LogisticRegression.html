@@ -113,6 +113,10 @@
 mini-batch stochastic gradient descent optimization. For multiclass
 classification problem, it uses one-vs-the-rest strategy.</p>
 
+<p>Rumale::SVM provides Logistic Regression based on LIBLINEAR. If you prefer
+execution speed, you should use Rumale::SVM::LogisticRegression. <a
+href="https://github.com/yoshoku/rumale-svm">github.com/yoshoku/rumale-svm</a></p>
+
 <p><strong>Reference</strong></p>
 <ul><li><ol style="list-style-type: upper-alpha"><li>
 <p>Shalev-Shwartz, Y. Singer, N. Srebro, and A. Cotter, “Pegasos: Primal
@@ -647,19 +651,19 @@ ignored if the Parallel gem is not loaded.</p>
       <pre class="lines">
 
 
-54
-55
-56
-57
 58
 59
 60
 61
 62
-63</pre>
+63
+64
+65
+66
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/logistic_regression.rb', line 54</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/logistic_regression.rb', line 58</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>reg_param:</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='label'>fit_bias:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>bias_scale:</span> <span class='float'>1.0</span><span class='comma'>,</span>
                <span class='label'>max_iter:</span> <span class='int'>1000</span><span class='comma'>,</span> <span class='label'>batch_size:</span> <span class='int'>20</span><span class='comma'>,</span> <span class='label'>optimizer:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>n_jobs:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
@@ -727,12 +731,12 @@ ignored if the Parallel gem is not loaded.</p>
       <pre class="lines">
 
 
-29
-30
-31</pre>
+33
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/logistic_regression.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/logistic_regression.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bias_term'>bias_term</span>
   <span class='ivar'>@bias_term</span>
@@ -788,12 +792,12 @@ ignored if the Parallel gem is not loaded.</p>
       <pre class="lines">
 
 
-33
-34
-35</pre>
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/logistic_regression.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/logistic_regression.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_classes'>classes</span>
   <span class='ivar'>@classes</span>
@@ -844,12 +848,12 @@ ignored if the Parallel gem is not loaded.</p>
       <pre class="lines">
 
 
-37
-38
-39</pre>
+41
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/logistic_regression.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/logistic_regression.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rng'>rng</span>
   <span class='ivar'>@rng</span>
@@ -905,12 +909,12 @@ ignored if the Parallel gem is not loaded.</p>
       <pre class="lines">
 
 
-25
-26
-27</pre>
+29
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/logistic_regression.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/logistic_regression.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_weight_vec'>weight_vec</span>
   <span class='ivar'>@weight_vec</span>
@@ -991,13 +995,13 @@ ignored if the Parallel gem is not loaded.</p>
       <pre class="lines">
 
 
-109
-110
-111
-112</pre>
+113
+114
+115
+116</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/logistic_regression.rb', line 109</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/logistic_regression.rb', line 113</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_decision_function'>decision_function</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -1089,10 +1093,6 @@ the model.</p>
       <pre class="lines">
 
 
-70
-71
-72
-73
 74
 75
 76
@@ -1122,10 +1122,14 @@ the model.</p>
 100
 101
 102
-103</pre>
+103
+104
+105
+106
+107</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/logistic_regression.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/logistic_regression.rb', line 74</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -1210,16 +1214,16 @@ the model.</p>
       <pre class="lines">
 
 
-152
-153
-154
-155
 156
 157
-158</pre>
+158
+159
+160
+161
+162</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/logistic_regression.rb', line 152</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/logistic_regression.rb', line 156</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_marshal_dump'>marshal_dump</span>
   <span class='lbrace'>{</span> <span class='label'>params:</span> <span class='ivar'>@params</span><span class='comma'>,</span>
@@ -1272,17 +1276,17 @@ the model.</p>
       <pre class="lines">
 
 
-162
-163
-164
-165
 166
 167
 168
-169</pre>
+169
+170
+171
+172
+173</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/logistic_regression.rb', line 162</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/logistic_regression.rb', line 166</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_marshal_load'>marshal_load</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:params</span><span class='rbracket'>]</span>
@@ -1361,10 +1365,6 @@ the model.</p>
       <pre class="lines">
 
 
-118
-119
-120
-121
 122
 123
 124
@@ -1374,10 +1374,14 @@ the model.</p>
 128
 129
 130
-131</pre>
+131
+132
+133
+134
+135</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/logistic_regression.rb', line 118</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/logistic_regression.rb', line 122</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -1463,10 +1467,6 @@ sample.</p>
       <pre class="lines">
 
 
-137
-138
-139
-140
 141
 142
 143
@@ -1474,10 +1474,14 @@ sample.</p>
 145
 146
 147
-148</pre>
+148
+149
+150
+151
+152</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/logistic_regression.rb', line 137</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/logistic_regression.rb', line 141</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict_proba'>predict_proba</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -1501,7 +1505,7 @@ sample.</p>
 </div>
 
       <div id="footer">
-  Generated on Sat Nov  2 17:27:02 2019 by
+  Generated on Fri Nov  8 11:13:47 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.4.9).
 </div>
