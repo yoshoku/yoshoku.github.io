@@ -584,17 +584,15 @@ ignored if the Parallel gem is not loaded.</p>
 67
 68
 69
-70
-71</pre>
+70</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>reg_param:</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='label'>max_iter:</span> <span class='int'>1000</span><span class='comma'>,</span> <span class='label'>probability:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>n_jobs:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_float'>check_params_float</span><span class='lparen'>(</span><span class='label'>reg_param:</span> <span class='id identifier rubyid_reg_param'>reg_param</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_integer'>check_params_integer</span><span class='lparen'>(</span><span class='label'>max_iter:</span> <span class='id identifier rubyid_max_iter'>max_iter</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_params_numeric'>check_params_numeric</span><span class='lparen'>(</span><span class='label'>reg_param:</span> <span class='id identifier rubyid_reg_param'>reg_param</span><span class='comma'>,</span> <span class='label'>max_iter:</span> <span class='id identifier rubyid_max_iter'>max_iter</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_boolean'>check_params_boolean</span><span class='lparen'>(</span><span class='label'>probability:</span> <span class='id identifier rubyid_probability'>probability</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_type_or_nil'>check_params_type_or_nil</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='comma'>,</span> <span class='label'>n_jobs:</span> <span class='id identifier rubyid_n_jobs'>n_jobs</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='id identifier rubyid_random_seed'>random_seed</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_params_numeric_or_nil'>check_params_numeric_or_nil</span><span class='lparen'>(</span><span class='label'>n_jobs:</span> <span class='id identifier rubyid_n_jobs'>n_jobs</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='id identifier rubyid_random_seed'>random_seed</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_positive'>check_params_positive</span><span class='lparen'>(</span><span class='label'>reg_param:</span> <span class='id identifier rubyid_reg_param'>reg_param</span><span class='comma'>,</span> <span class='label'>max_iter:</span> <span class='id identifier rubyid_max_iter'>max_iter</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:reg_param</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_reg_param'>reg_param</span>
@@ -868,17 +866,17 @@ testing samples and training samples to compute the scores.</p>
       <pre class="lines">
 
 
+118
 119
 120
 121
-122
-123</pre>
+122</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 119</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 118</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_decision_function'>decision_function</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='ivar'>@weight_vec</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -968,6 +966,7 @@ training data to be used for fitting the model.</p>
       <pre class="lines">
 
 
+78
 79
 80
 81
@@ -1000,15 +999,14 @@ training data to be used for fitting the model.</p>
 108
 109
 110
-111
-112</pre>
+111</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 79</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 78</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_label_array'>check_label_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_label_array'>check_convert_label_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_sample_label_size'>check_sample_label_size</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
 
   <span class='ivar'>@classes</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='lbracket'>[</span><span class='op'>*</span><span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span><span class='period'>.</span><span class='id identifier rubyid_uniq'>uniq</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span><span class='rbracket'>]</span>
@@ -1089,16 +1087,16 @@ training data to be used for fitting the model.</p>
       <pre class="lines">
 
 
+166
 167
 168
 169
 170
 171
-172
-173</pre>
+172</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 167</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 166</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_marshal_dump'>marshal_dump</span>
   <span class='lbrace'>{</span> <span class='label'>params:</span> <span class='ivar'>@params</span><span class='comma'>,</span>
@@ -1151,17 +1149,17 @@ training data to be used for fitting the model.</p>
       <pre class="lines">
 
 
+176
 177
 178
 179
 180
 181
 182
-183
-184</pre>
+183</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 177</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 176</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_marshal_load'>marshal_load</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:params</span><span class='rbracket'>]</span>
@@ -1241,6 +1239,7 @@ testing samples and training samples to predict the labels.</p>
       <pre class="lines">
 
 
+129
 130
 131
 132
@@ -1253,14 +1252,13 @@ testing samples and training samples to predict the labels.</p>
 139
 140
 141
-142
-143</pre>
+142</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 130</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 129</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
 
   <span class='kw'>return</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='period'>.</span><span class='id identifier rubyid_cast'>cast</span><span class='lparen'>(</span><span class='id identifier rubyid_decision_function'>decision_function</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_ge'>ge</span><span class='lparen'>(</span><span class='float'>0.0</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='int'>2</span> <span class='op'>-</span> <span class='int'>1</span> <span class='kw'>if</span> <span class='ivar'>@classes</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>&lt;=</span> <span class='int'>2</span>
 
@@ -1344,6 +1342,7 @@ sample.</p>
       <pre class="lines">
 
 
+149
 150
 151
 152
@@ -1356,14 +1355,13 @@ sample.</p>
 159
 160
 161
-162
-163</pre>
+162</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 150</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_svc.rb', line 149</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict_proba'>predict_proba</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
 
   <span class='kw'>if</span> <span class='ivar'>@classes</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>&gt;</span> <span class='int'>2</span>
     <span class='id identifier rubyid_probs'>probs</span> <span class='op'>=</span> <span class='float'>1.0</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='const'>Numo</span><span class='op'>::</span><span class='const'>NMath</span><span class='period'>.</span><span class='id identifier rubyid_exp'>exp</span><span class='lparen'>(</span><span class='ivar'>@prob_param</span><span class='lbracket'>[</span><span class='kw'>true</span><span class='comma'>,</span> <span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_decision_function'>decision_function</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='ivar'>@prob_param</span><span class='lbracket'>[</span><span class='kw'>true</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='float'>1.0</span><span class='rparen'>)</span>
@@ -1386,7 +1384,7 @@ sample.</p>
 </div>
 
       <div id="footer">
-  Generated on Fri Nov  8 11:13:38 2019 by
+  Generated on Sat Nov 16 18:20:37 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.4.9).
 </div>

@@ -476,7 +476,7 @@ Retrieval,” Cambridge University Press., 2008.</p>
       <pre class="code"><span class="info file"># File 'lib/rumale/naive_bayes/naive_bayes.rb', line 245</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>smoothing_param:</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='label'>bin_threshold:</span> <span class='float'>0.0</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_float'>check_params_float</span><span class='lparen'>(</span><span class='label'>smoothing_param:</span> <span class='id identifier rubyid_smoothing_param'>smoothing_param</span><span class='comma'>,</span> <span class='label'>bin_threshold:</span> <span class='id identifier rubyid_bin_threshold'>bin_threshold</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_params_numeric'>check_params_numeric</span><span class='lparen'>(</span><span class='label'>smoothing_param:</span> <span class='id identifier rubyid_smoothing_param'>smoothing_param</span><span class='comma'>,</span> <span class='label'>bin_threshold:</span> <span class='id identifier rubyid_bin_threshold'>bin_threshold</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_positive'>check_params_positive</span><span class='lparen'>(</span><span class='label'>smoothing_param:</span> <span class='id identifier rubyid_smoothing_param'>smoothing_param</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:smoothing_param</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_smoothing_param'>smoothing_param</span>
@@ -764,7 +764,7 @@ class.</p>
       <pre class="code"><span class="info file"># File 'lib/rumale/naive_bayes/naive_bayes.rb', line 280</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_decision_function'>decision_function</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_n_classes'>n_classes</span> <span class='op'>=</span> <span class='ivar'>@classes</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
   <span class='id identifier rubyid_bin_x'>bin_x</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='lbracket'>[</span><span class='op'>*</span><span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_gt'>gt</span><span class='lparen'>(</span><span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:bin_threshold</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_not_bin_x'>not_bin_x</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='lbracket'>[</span><span class='op'>*</span><span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_le'>le</span><span class='lparen'>(</span><span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:bin_threshold</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rbracket'>]</span>
@@ -883,8 +883,8 @@ fitting the model.</p>
       <pre class="code"><span class="info file"># File 'lib/rumale/naive_bayes/naive_bayes.rb', line 259</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_label_array'>check_label_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_label_array'>check_convert_label_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_sample_label_size'>check_sample_label_size</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_n_samples'>n_samples</span><span class='comma'>,</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span>
   <span class='id identifier rubyid_bin_x'>bin_x</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='lbracket'>[</span><span class='op'>*</span><span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_gt'>gt</span><span class='lparen'>(</span><span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:bin_threshold</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rbracket'>]</span>
@@ -1035,7 +1035,7 @@ fitting the model.</p>
 </div>
 
       <div id="footer">
-  Generated on Fri Nov  8 11:13:37 2019 by
+  Generated on Sat Nov 16 18:20:36 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.4.9).
 </div>

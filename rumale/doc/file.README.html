@@ -76,14 +76,12 @@ src="http://img.shields.io/badge/docs-rdoc.info-blue.svg"></a></p>
 
 <p>Rumale (*Ru*by *ma*chine *le*arning) is a machine learning library in Ruby.
 Rumale provides machine learning algorithms with interfaces similar to
-Scikit-Learn in Python. Rumale supports Linear / Kernel Support Vector
-Machine, Logistic Regression, Linear Regression, Ridge, Lasso, Kernel
-Ridge, Factorization Machine, Naive Bayes, Decision Tree, AdaBoost,
-Gradient Tree Boosting, Random Forest, Extra-Trees, K-nearest neighbor
-classifier, K-Means, K-Medoids, Gaussian Mixture Model, DBSCAN, HDBSCAN,
-SNN, Spectral Clustering, Power Iteration Clustering, Mutidimensional
-Scaling, t-SNE, Principal Component Analysis, Kernel PCA and Non-negative
-Matrix Factorization.</p>
+Scikit-Learn in Python. Rumale supports Support Vector Machine, Logistic
+Regression, Ridge, Lasso, Factorization Machine, Multi-layer Perceptron,
+Naive Bayes, Decision Tree, Gradient Tree Boosting, Random Forest, K-Means,
+Gaussian Mixture Model, DBSCAN, Spectral Clustering, Mutidimensional
+Scaling, t-SNE, Principal Component Analysis, and Non-negative Matrix
+Factorization.</p>
 
 <p>This project was formerly known as “SVMKit”. If you are using SVMKit,
 please install Rumale and replace <code>SVMKit</code> constants with
@@ -108,19 +106,13 @@ please install Rumale and replace <code>SVMKit</code> constants with
 
 <h3 id="label-Example+1.+XOR+data">Example 1. XOR data</h3>
 
-<p>First, let&#39;s classify simple xor data. In Rumale, feature vectors and
-labels are represented by <a
-href="https://github.com/ruby-numo/numo-narray">Numo::NArray</a>.</p>
+<p>First, let&#39;s classify simple xor data.</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rumale</span><span class='tstring_end'>&#39;</span></span>
 
 <span class='comment'># Prepare XOR data.
 </span><span class='id identifier rubyid_features'>features</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span><span class='rbracket'>]</span>
 <span class='id identifier rubyid_labels'>labels</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>0</span><span class='rbracket'>]</span>
-
-<span class='comment'># Convert Ruby Array into Numo::NArray.
-</span><span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_asarray'>asarray</span><span class='lparen'>(</span><span class='id identifier rubyid_features'>features</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='period'>.</span><span class='id identifier rubyid_asarray'>asarray</span><span class='lparen'>(</span><span class='id identifier rubyid_labels'>labels</span><span class='rparen'>)</span>
 
 <span class='comment'># Train classifier with nearest neighbor rule.
 </span><span class='id identifier rubyid_estimator'>estimator</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Rumale/NearestNeighbors.html" title="Rumale::NearestNeighbors (module)">NearestNeighbors</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Rumale/NearestNeighbors/KNeighborsClassifier.html" title="Rumale::NearestNeighbors::KNeighborsClassifier (class)">KNeighborsClassifier</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Rumale/NearestNeighbors/KNeighborsClassifier.html#initialize-instance_method" title="Rumale::NearestNeighbors::KNeighborsClassifier#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>n_neighbors:</span> <span class='int'>1</span><span class='rparen'>)</span>
@@ -140,7 +132,9 @@ href="https://github.com/ruby-numo/numo-narray">Numo::NArray</a>.</p>
 </code></pre>
 
 <p>The basic usage of Rumale is to first train the model with the fit method
-and then estimate with the predict method.</p>
+and then estimate with the predict method. In addition, Rumale recommends
+using arrays such as feature vectors and labels with <a
+href="https://github.com/ruby-numo/numo-narray">Numo::NArray</a>.</p>
 
 <h3 id="label-Example+2.+Pendigits+dataset+classification">Example 2. Pendigits dataset classification</h3>
 
@@ -350,7 +344,7 @@ of conduct</a>.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Fri Nov  8 11:13:32 2019 by
+  Generated on Sat Nov 16 18:20:29 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.4.9).
 </div>

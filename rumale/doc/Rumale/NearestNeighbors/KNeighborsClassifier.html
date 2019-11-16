@@ -475,7 +475,7 @@ distance for finding the neighbors.</p>
       <pre class="code"><span class="info file"># File 'lib/rumale/nearest_neighbors/k_neighbors_classifier.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>n_neighbors:</span> <span class='int'>5</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_integer'>check_params_integer</span><span class='lparen'>(</span><span class='label'>n_neighbors:</span> <span class='id identifier rubyid_n_neighbors'>n_neighbors</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_params_numeric'>check_params_numeric</span><span class='lparen'>(</span><span class='label'>n_neighbors:</span> <span class='id identifier rubyid_n_neighbors'>n_neighbors</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_positive'>check_params_positive</span><span class='lparen'>(</span><span class='label'>n_neighbors:</span> <span class='id identifier rubyid_n_neighbors'>n_neighbors</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_neighbors</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_n_neighbors'>n_neighbors</span>
@@ -766,7 +766,7 @@ class.</p>
       <pre class="code"><span class="info file"># File 'lib/rumale/nearest_neighbors/k_neighbors_classifier.rb', line 66</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_decision_function'>decision_function</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_distance_matrix'>distance_matrix</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../PairwiseMetric.html" title="Rumale::PairwiseMetric (module)">PairwiseMetric</a></span></span><span class='period'>.</span><span class='id identifier rubyid_euclidean_distance'><span class='object_link'><a href="../PairwiseMetric.html#euclidean_distance-class_method" title="Rumale::PairwiseMetric.euclidean_distance (method)">euclidean_distance</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='ivar'>@prototypes</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_n_samples'>n_samples</span><span class='comma'>,</span> <span class='id identifier rubyid_n_prototypes'>n_prototypes</span> <span class='op'>=</span> <span class='id identifier rubyid_distance_matrix'>distance_matrix</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span>
   <span class='id identifier rubyid_n_classes'>n_classes</span> <span class='op'>=</span> <span class='ivar'>@classes</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
@@ -878,8 +878,8 @@ the model.</p>
       <pre class="code"><span class="info file"># File 'lib/rumale/nearest_neighbors/k_neighbors_classifier.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_label_array'>check_label_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_label_array'>check_convert_label_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_sample_label_size'>check_sample_label_size</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='ivar'>@prototypes</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_asarray'>asarray</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span><span class='rparen'>)</span>
   <span class='ivar'>@labels</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='period'>.</span><span class='id identifier rubyid_asarray'>asarray</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span><span class='rparen'>)</span>
@@ -1093,7 +1093,7 @@ the model.</p>
       <pre class="code"><span class="info file"># File 'lib/rumale/nearest_neighbors/k_neighbors_classifier.rb', line 84</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_n_samples'>n_samples</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
   <span class='id identifier rubyid_decision_values'>decision_values</span> <span class='op'>=</span> <span class='id identifier rubyid_decision_function'>decision_function</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='period'>.</span><span class='id identifier rubyid_asarray'>asarray</span><span class='lparen'>(</span><span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_n_samples'>n_samples</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='ivar'>@classes</span><span class='lbracket'>[</span><span class='id identifier rubyid_decision_values'>decision_values</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max_index'>max_index</span><span class='rbracket'>]</span> <span class='rbrace'>}</span><span class='rparen'>)</span>
@@ -1108,7 +1108,7 @@ the model.</p>
 </div>
 
       <div id="footer">
-  Generated on Fri Nov  8 11:13:50 2019 by
+  Generated on Sat Nov 16 18:20:46 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.4.9).
 </div>

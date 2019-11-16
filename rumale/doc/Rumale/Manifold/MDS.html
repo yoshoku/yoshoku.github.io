@@ -589,19 +589,17 @@ optimization.</p>
 71
 72
 73
-74
-75</pre>
+74</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rumale/manifold/mds.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>n_components:</span> <span class='int'>2</span><span class='comma'>,</span> <span class='label'>metric:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>euclidean</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>init:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>random</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
                <span class='label'>max_iter:</span> <span class='int'>300</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>verbose:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_integer'>check_params_integer</span><span class='lparen'>(</span><span class='label'>n_components:</span> <span class='id identifier rubyid_n_components'>n_components</span><span class='comma'>,</span> <span class='label'>max_iter:</span> <span class='id identifier rubyid_max_iter'>max_iter</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_params_numeric'>check_params_numeric</span><span class='lparen'>(</span><span class='label'>n_components:</span> <span class='id identifier rubyid_n_components'>n_components</span><span class='comma'>,</span> <span class='label'>max_iter:</span> <span class='id identifier rubyid_max_iter'>max_iter</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_string'>check_params_string</span><span class='lparen'>(</span><span class='label'>metric:</span> <span class='id identifier rubyid_metric'>metric</span><span class='comma'>,</span> <span class='label'>init:</span> <span class='id identifier rubyid_init'>init</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_boolean'>check_params_boolean</span><span class='lparen'>(</span><span class='label'>verbose:</span> <span class='id identifier rubyid_verbose'>verbose</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_type_or_nil'>check_params_type_or_nil</span><span class='lparen'>(</span><span class='const'>Float</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='id identifier rubyid_tol'>tol</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_type_or_nil'>check_params_type_or_nil</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='id identifier rubyid_random_seed'>random_seed</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_params_numeric_or_nil'>check_params_numeric_or_nil</span><span class='lparen'>(</span><span class='label'>tol:</span> <span class='id identifier rubyid_tol'>tol</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='id identifier rubyid_random_seed'>random_seed</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_positive'>check_params_positive</span><span class='lparen'>(</span><span class='label'>n_components:</span> <span class='id identifier rubyid_n_components'>n_components</span><span class='comma'>,</span> <span class='label'>max_iter:</span> <span class='id identifier rubyid_max_iter'>max_iter</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_components</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_n_components'>n_components</span>
@@ -944,6 +942,7 @@ distance matrix (shape: [n_samples, n_samples]).</p>
       <pre class="lines">
 
 
+83
 84
 85
 86
@@ -975,14 +974,13 @@ distance matrix (shape: [n_samples, n_samples]).</p>
 112
 113
 114
-115
-116</pre>
+115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/manifold/mds.rb', line 84</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/manifold/mds.rb', line 83</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid__not_used'>_not_used</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect the input distance matrix to be square.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:metric</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>precomputed</span><span class='tstring_end'>&#39;</span></span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
   <span class='comment'># initialize some varibales.
 </span>  <span class='id identifier rubyid_n_samples'>n_samples</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
@@ -1088,13 +1086,13 @@ distance matrix (shape: [n_samples, n_samples]).</p>
       <pre class="lines">
 
 
+124
 125
 126
-127
-128</pre>
+127</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/manifold/mds.rb', line 125</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/manifold/mds.rb', line 124</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid__not_used'>_not_used</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -1149,16 +1147,16 @@ distance matrix (shape: [n_samples, n_samples]).</p>
       <pre class="lines">
 
 
+131
 132
 133
 134
 135
 136
-137
-138</pre>
+137</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/manifold/mds.rb', line 132</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/manifold/mds.rb', line 131</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_marshal_dump'>marshal_dump</span>
   <span class='lbrace'>{</span> <span class='label'>params:</span> <span class='ivar'>@params</span><span class='comma'>,</span>
@@ -1211,17 +1209,17 @@ distance matrix (shape: [n_samples, n_samples]).</p>
       <pre class="lines">
 
 
+141
 142
 143
 144
 145
 146
 147
-148
-149</pre>
+148</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/manifold/mds.rb', line 142</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/manifold/mds.rb', line 141</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_marshal_load'>marshal_load</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:params</span><span class='rbracket'>]</span>
@@ -1241,7 +1239,7 @@ distance matrix (shape: [n_samples, n_samples]).</p>
 </div>
 
       <div id="footer">
-  Generated on Fri Nov  8 11:13:33 2019 by
+  Generated on Sat Nov 16 18:20:31 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.4.9).
 </div>

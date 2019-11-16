@@ -361,7 +361,7 @@ ICLR&#39;15, 2015.</p>
       <pre class="code"><span class="info file"># File 'lib/rumale/optimizer/adam.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>learning_rate:</span> <span class='float'>0.001</span><span class='comma'>,</span> <span class='label'>decay1:</span> <span class='float'>0.9</span><span class='comma'>,</span> <span class='label'>decay2:</span> <span class='float'>0.999</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_float'>check_params_float</span><span class='lparen'>(</span><span class='label'>learning_rate:</span> <span class='id identifier rubyid_learning_rate'>learning_rate</span><span class='comma'>,</span> <span class='label'>decay1:</span> <span class='id identifier rubyid_decay1'>decay1</span><span class='comma'>,</span> <span class='label'>decay2:</span> <span class='id identifier rubyid_decay2'>decay2</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_params_numeric'>check_params_numeric</span><span class='lparen'>(</span><span class='label'>learning_rate:</span> <span class='id identifier rubyid_learning_rate'>learning_rate</span><span class='comma'>,</span> <span class='label'>decay1:</span> <span class='id identifier rubyid_decay1'>decay1</span><span class='comma'>,</span> <span class='label'>decay2:</span> <span class='id identifier rubyid_decay2'>decay2</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_positive'>check_params_positive</span><span class='lparen'>(</span><span class='label'>learning_rate:</span> <span class='id identifier rubyid_learning_rate'>learning_rate</span><span class='comma'>,</span> <span class='label'>decay1:</span> <span class='id identifier rubyid_decay1'>decay1</span><span class='comma'>,</span> <span class='label'>decay2:</span> <span class='id identifier rubyid_decay2'>decay2</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:learning_rate</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_learning_rate'>learning_rate</span>
@@ -481,8 +481,8 @@ ICLR&#39;15, 2015.</p>
       <pre class="code"><span class="info file"># File 'lib/rumale/optimizer/adam.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_weight'>weight</span><span class='comma'>,</span> <span class='id identifier rubyid_gradient'>gradient</span><span class='rparen'>)</span>
-  <span class='ivar'>@fst_moment</span> <span class='op'>||=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='id identifier rubyid_weight'>weight</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-  <span class='ivar'>@sec_moment</span> <span class='op'>||=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='id identifier rubyid_weight'>weight</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='ivar'>@fst_moment</span> <span class='op'>||=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='id identifier rubyid_weight'>weight</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='rparen'>)</span>
+  <span class='ivar'>@sec_moment</span> <span class='op'>||=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='id identifier rubyid_weight'>weight</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='rparen'>)</span>
 
   <span class='ivar'>@iter</span> <span class='op'>+=</span> <span class='int'>1</span>
 
@@ -630,7 +630,7 @@ ICLR&#39;15, 2015.</p>
 </div>
 
       <div id="footer">
-  Generated on Fri Nov  8 11:13:34 2019 by
+  Generated on Sat Nov 16 18:20:32 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.4.9).
 </div>

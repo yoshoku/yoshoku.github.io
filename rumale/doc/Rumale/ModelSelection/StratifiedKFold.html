@@ -399,9 +399,9 @@ end</code></pre>
       <pre class="code"><span class="info file"># File 'lib/rumale/model_selection/stratified_k_fold.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>n_splits:</span> <span class='int'>3</span><span class='comma'>,</span> <span class='label'>shuffle:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_integer'>check_params_integer</span><span class='lparen'>(</span><span class='label'>n_splits:</span> <span class='id identifier rubyid_n_splits'>n_splits</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_params_numeric'>check_params_numeric</span><span class='lparen'>(</span><span class='label'>n_splits:</span> <span class='id identifier rubyid_n_splits'>n_splits</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_boolean'>check_params_boolean</span><span class='lparen'>(</span><span class='label'>shuffle:</span> <span class='id identifier rubyid_shuffle'>shuffle</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_type_or_nil'>check_params_type_or_nil</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='id identifier rubyid_random_seed'>random_seed</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_params_numeric_or_nil'>check_params_numeric_or_nil</span><span class='lparen'>(</span><span class='label'>random_seed:</span> <span class='id identifier rubyid_random_seed'>random_seed</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_positive'>check_params_positive</span><span class='lparen'>(</span><span class='label'>n_splits:</span> <span class='id identifier rubyid_n_splits'>n_splits</span><span class='rparen'>)</span>
   <span class='ivar'>@n_splits</span> <span class='op'>=</span> <span class='id identifier rubyid_n_splits'>n_splits</span>
   <span class='ivar'>@shuffle</span> <span class='op'>=</span> <span class='id identifier rubyid_shuffle'>shuffle</span>
@@ -699,8 +699,8 @@ in each fold.</p>
       <pre class="code"><span class="info file"># File 'lib/rumale/model_selection/stratified_k_fold.rb', line 58</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_label_array'>check_label_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_label_array'>check_convert_label_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_sample_label_size'>check_sample_label_size</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='comment'># Check the number of samples in each class.
 </span>  <span class='kw'>unless</span> <span class='id identifier rubyid_valid_n_splits?'>valid_n_splits?</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
@@ -723,7 +723,7 @@ in each fold.</p>
 </div>
 
       <div id="footer">
-  Generated on Fri Nov  8 11:13:48 2019 by
+  Generated on Sat Nov 16 18:20:44 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.4.9).
 </div>

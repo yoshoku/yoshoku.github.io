@@ -369,8 +369,8 @@ determination.</p>
       <pre class="code"><span class="info file"># File 'lib/rumale/evaluation_measure/r2_score.rb', line 24</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_score'>score</span><span class='lparen'>(</span><span class='id identifier rubyid_y_true'>y_true</span><span class='comma'>,</span> <span class='id identifier rubyid_y_pred'>y_pred</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_tvalue_array'>check_tvalue_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y_true'>y_true</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_tvalue_array'>check_tvalue_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y_pred'>y_pred</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_y_true'>y_true</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_tvalue_array'>check_convert_tvalue_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y_true'>y_true</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_y_pred'>y_pred</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_tvalue_array'>check_convert_tvalue_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y_pred'>y_pred</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect to have the same size both y_true and y_pred.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_y_true'>y_true</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span> <span class='op'>==</span> <span class='id identifier rubyid_y_pred'>y_pred</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span>
 
   <span class='id identifier rubyid_n_samples'>n_samples</span><span class='comma'>,</span> <span class='id identifier rubyid_n_outputs'>n_outputs</span> <span class='op'>=</span> <span class='id identifier rubyid_y_true'>y_true</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span>
@@ -395,7 +395,7 @@ determination.</p>
 </div>
 
       <div id="footer">
-  Generated on Fri Nov  8 11:13:40 2019 by
+  Generated on Sat Nov 16 18:20:38 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.4.9).
 </div>

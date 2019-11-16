@@ -292,8 +292,8 @@ for Chance,” J. Machine Learning Research, vol. 11, pp. 2837–1854, 2010.</p>
       <pre class="code"><span class="info file"># File 'lib/rumale/evaluation_measure/normalized_mutual_information.rb', line 25</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_score'>score</span><span class='lparen'>(</span><span class='id identifier rubyid_y_true'>y_true</span><span class='comma'>,</span> <span class='id identifier rubyid_y_pred'>y_pred</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_label_array'>check_label_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y_true'>y_true</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_label_array'>check_label_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y_pred'>y_pred</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_y_true'>y_true</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_label_array'>check_convert_label_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y_true'>y_true</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_y_pred'>y_pred</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_label_array'>check_convert_label_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y_pred'>y_pred</span><span class='rparen'>)</span>
   <span class='comment'># calculate entropies.
 </span>  <span class='id identifier rubyid_class_entropy'>class_entropy</span> <span class='op'>=</span> <span class='id identifier rubyid_entropy'>entropy</span><span class='lparen'>(</span><span class='id identifier rubyid_y_true'>y_true</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='float'>0.0</span> <span class='kw'>if</span> <span class='id identifier rubyid_class_entropy'>class_entropy</span><span class='period'>.</span><span class='id identifier rubyid_zero?'>zero?</span>
@@ -313,7 +313,7 @@ for Chance,” J. Machine Learning Research, vol. 11, pp. 2837–1854, 2010.</p>
 </div>
 
       <div id="footer">
-  Generated on Fri Nov  8 11:13:50 2019 by
+  Generated on Sat Nov 16 18:20:46 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.4.9).
 </div>

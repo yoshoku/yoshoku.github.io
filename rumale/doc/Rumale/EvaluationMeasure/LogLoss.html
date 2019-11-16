@@ -310,8 +310,8 @@ calcuation.</p>
       <pre class="code"><span class="info file"># File 'lib/rumale/evaluation_measure/log_loss.rb', line 24</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_score'>score</span><span class='lparen'>(</span><span class='id identifier rubyid_y_true'>y_true</span><span class='comma'>,</span> <span class='id identifier rubyid_y_pred'>y_pred</span><span class='comma'>,</span> <span class='id identifier rubyid_eps'>eps</span> <span class='op'>=</span> <span class='float'>1e-15</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_type'>check_params_type</span><span class='lparen'>(</span><span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='comma'>,</span> <span class='label'>y_true:</span> <span class='id identifier rubyid_y_true'>y_true</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_type'>check_params_type</span><span class='lparen'>(</span><span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='comma'>,</span> <span class='label'>y_pred:</span> <span class='id identifier rubyid_y_pred'>y_pred</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_y_true'>y_true</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_label_array'>check_convert_label_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y_true'>y_true</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_y_pred'>y_pred</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_tvalue_array'>check_convert_tvalue_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y_pred'>y_pred</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_n_samples'>n_samples</span><span class='comma'>,</span> <span class='id identifier rubyid_n_classes'>n_classes</span> <span class='op'>=</span> <span class='id identifier rubyid_y_pred'>y_pred</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span>
   <span class='id identifier rubyid_clipped_p'>clipped_p</span> <span class='op'>=</span> <span class='id identifier rubyid_y_pred'>y_pred</span><span class='period'>.</span><span class='id identifier rubyid_clip'>clip</span><span class='lparen'>(</span><span class='id identifier rubyid_eps'>eps</span><span class='comma'>,</span> <span class='int'>1</span> <span class='op'>-</span> <span class='id identifier rubyid_eps'>eps</span><span class='rparen'>)</span>
@@ -338,7 +338,7 @@ calcuation.</p>
 </div>
 
       <div id="footer">
-  Generated on Fri Nov  8 11:13:40 2019 by
+  Generated on Sat Nov 16 18:20:38 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.4.9).
 </div>

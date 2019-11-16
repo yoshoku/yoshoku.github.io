@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: Rumale::Tree::ExtraTreeClassifier
+  Class: Rumale::NeuralNetwork::MLPClassifier
   
     &mdash; Documentation by YARD 0.9.20
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  pathId = "Rumale::Tree::ExtraTreeClassifier";
+  pathId = "Rumale::NeuralNetwork::MLPClassifier";
   relpath = '../../';
 </script>
 
@@ -36,10 +36,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../../_index.html">Index (E)</a> &raquo;
-    <span class='title'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Tree.html" title="Rumale::Tree (module)">Tree</a></span></span>
+    <a href="../../_index.html">Index (M)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../NeuralNetwork.html" title="Rumale::NeuralNetwork (module)">NeuralNetwork</a></span></span>
      &raquo; 
-    <span class="title">ExtraTreeClassifier</span>
+    <span class="title">MLPClassifier</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: Rumale::Tree::ExtraTreeClassifier
+      <div id="content"><h1>Class: Rumale::NeuralNetwork::MLPClassifier
   
   
   
@@ -69,16 +69,14 @@
   <dl>
     <dt>Inherits:</dt>
     <dd>
-      <span class="inheritName"><span class='object_link'><a href="DecisionTreeClassifier.html" title="Rumale::Tree::DecisionTreeClassifier (class)">DecisionTreeClassifier</a></span></span>
+      <span class="inheritName"><span class='object_link'><a href="BaseMLP.html" title="Rumale::NeuralNetwork::BaseMLP (class)">BaseMLP</a></span></span>
       
         <ul class="fullTree">
           <li>Object</li>
           
-            <li class="next"><span class='object_link'><a href="BaseDecisionTree.html" title="Rumale::Tree::BaseDecisionTree (class)">BaseDecisionTree</a></span></li>
+            <li class="next"><span class='object_link'><a href="BaseMLP.html" title="Rumale::NeuralNetwork::BaseMLP (class)">BaseMLP</a></span></li>
           
-            <li class="next"><span class='object_link'><a href="DecisionTreeClassifier.html" title="Rumale::Tree::DecisionTreeClassifier (class)">DecisionTreeClassifier</a></span></li>
-          
-            <li class="next">Rumale::Tree::ExtraTreeClassifier</li>
+            <li class="next">Rumale::NeuralNetwork::MLPClassifier</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -91,6 +89,11 @@
   
   
   
+  <dl>
+      <dt>Includes:</dt>
+      <dd><span class='object_link'><a href="../Base/Classifier.html" title="Rumale::Base::Classifier (module)">Base::Classifier</a></span></dd>
+  </dl>
+  
   
 
   
@@ -98,7 +101,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/rumale/tree/extra_tree_classifier.rb</dd>
+    <dd>lib/rumale/neural_network/mlp_classifier.rb</dd>
   </dl>
   
 </div>
@@ -106,15 +109,9 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>ExtraTreeClassifier is a class that implements extra randomized tree for
-classification.</p>
-
-<p><strong>Reference</strong></p>
-<ul><li><ol style="list-style-type: upper-alpha"><li>
-<p>Geurts, D. Ernst, and L. Wehenkel, “Extremely randomized trees,” Machine
-Learning, vol. 63 (1), pp. 3–42, 2006.</p>
-</li></ol>
-</li></ul>
+<p>MLPClassifier is a class that implements classifier based on multi-layer
+perceptron. MLPClassifier use ReLu as the activation function and Adam as
+the optimization method and softmax cross entropy as the loss function.</p>
 
 
   </div>
@@ -125,9 +122,7 @@ Learning, vol. 63 (1), pp. 3–42, 2006.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_estimator'>estimator</span> <span class='op'>=</span>
-  <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Tree.html" title="Rumale::Tree (module)">Tree</a></span></span><span class='op'>::</span><span class='const'>ExtraTreeClassifier</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::Tree::ExtraTreeClassifier#initialize (method)">new</a></span></span><span class='lparen'>(</span>
-    <span class='label'>criterion:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>gini</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>max_depth:</span> <span class='int'>3</span><span class='comma'>,</span> <span class='label'>max_leaf_nodes:</span> <span class='int'>10</span><span class='comma'>,</span> <span class='label'>min_samples_leaf:</span> <span class='int'>5</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='int'>1</span><span class='rparen'>)</span>
+      <pre class="example code"><code><span class='id identifier rubyid_estimator'>estimator</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../NeuralNetwork.html" title="Rumale::NeuralNetwork (module)">NeuralNetwork</a></span></span><span class='op'>::</span><span class='const'>MLPClassifier</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::NeuralNetwork::MLPClassifier#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>hidden_units:</span> <span class='lbracket'>[</span><span class='int'>100</span><span class='comma'>,</span> <span class='int'>100</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>dropout_rate:</span> <span class='float'>0.3</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_estimator'>estimator</span><span class='period'>.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_training_samples'>training_samples</span><span class='comma'>,</span> <span class='id identifier rubyid_traininig_labels'>traininig_labels</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_estimator'>estimator</span><span class='period'>.</span><span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_testing_samples'>testing_samples</span><span class='rparen'>)</span></code></pre>
     
@@ -173,7 +168,7 @@ Learning, vol. 63 (1), pp. 3–42, 2006.</p>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#feature_importances-instance_method" title="#feature_importances (instance method)">#<strong>feature_importances</strong>  &#x21d2; Numo::DFloat </a>
+      <a href="#n_iter-instance_method" title="#n_iter (instance method)">#<strong>n_iter</strong>  &#x21d2; Integer </a>
     
 
     
@@ -193,7 +188,7 @@ Learning, vol. 63 (1), pp. 3–42, 2006.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Return the importance for each feature.</p>
+<p>Return the number of iterations run for optimization.</p>
 </div></span>
   
 </li>
@@ -202,7 +197,7 @@ Learning, vol. 63 (1), pp. 3–42, 2006.</p>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#leaf_labels-instance_method" title="#leaf_labels (instance method)">#<strong>leaf_labels</strong>  &#x21d2; Numo::Int32 </a>
+      <a href="#network-instance_method" title="#network (instance method)">#<strong>network</strong>  &#x21d2; Rumale::NeuralNetwork::Model::Sequential </a>
     
 
     
@@ -222,7 +217,7 @@ Learning, vol. 63 (1), pp. 3–42, 2006.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Return the labels assigned each leaf.</p>
+<p>Return the network.</p>
 </div></span>
   
 </li>
@@ -251,36 +246,7 @@ Learning, vol. 63 (1), pp. 3–42, 2006.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Return the random generator for random selection of feature index.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#tree-instance_method" title="#tree (instance method)">#<strong>tree</strong>  &#x21d2; Node </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-      <span class="note title readonly">readonly</span>
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Return the learned tree.</p>
+<p>Return the random generator.</p>
 </div></span>
   
 </li>
@@ -307,7 +273,7 @@ Learning, vol. 63 (1), pp. 3–42, 2006.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#fit-instance_method" title="#fit (instance method)">#<strong>fit</strong>(x, y)  &#x21d2; ExtraTreeClassifier </a>
+      <a href="#fit-instance_method" title="#fit (instance method)">#<strong>fit</strong>(x, y)  &#x21d2; MLPClassifier </a>
     
 
     
@@ -331,7 +297,7 @@ Learning, vol. 63 (1), pp. 3–42, 2006.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(criterion: &#39;gini&#39;, max_depth: nil, max_leaf_nodes: nil, min_samples_leaf: 1, max_features: nil, random_seed: nil)  &#x21d2; ExtraTreeClassifier </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(hidden_units: [128, 128], dropout_rate: 0.4, learning_rate: 0.001, decay1: 0.9, decay2: 0.999, max_iter: 10000, batch_size: 50, tol: 1e-4, verbose: false, random_seed: nil)  &#x21d2; MLPClassifier </a>
     
 
     
@@ -348,55 +314,7 @@ Learning, vol. 63 (1), pp. 3–42, 2006.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Create a new classifier with extra randomized tree algorithm.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#marshal_dump-instance_method" title="#marshal_dump (instance method)">#<strong>marshal_dump</strong>  &#x21d2; Hash </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Dump marshal data.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#marshal_load-instance_method" title="#marshal_load (instance method)">#<strong>marshal_load</strong>(obj)  &#x21d2; nil </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Load marshal data.</p>
+<p>Create a new classifier with multi-layer preceptron.</p>
 </div></span>
   
 </li>
@@ -462,18 +380,6 @@ Learning, vol. 63 (1), pp. 3–42, 2006.</p>
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   <h3 class="inherited">Methods included from <span class='object_link'><a href="../Base/Classifier.html" title="Rumale::Base::Classifier (module)">Base::Classifier</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="../Base/Classifier.html#score-instance_method" title="Rumale::Base::Classifier#score (method)">#score</a></span></p>
 
@@ -491,11 +397,6 @@ Learning, vol. 63 (1), pp. 3–42, 2006.</p>
   
   
   
-  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="BaseDecisionTree.html" title="Rumale::Tree::BaseDecisionTree (class)">BaseDecisionTree</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="BaseDecisionTree.html#apply-instance_method" title="Rumale::Tree::BaseDecisionTree#apply (method)">#apply</a></span></p>
-
-  
-  
   
   
   
@@ -505,7 +406,7 @@ Learning, vol. 63 (1), pp. 3–42, 2006.</p>
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(criterion: &#39;gini&#39;, max_depth: nil, max_leaf_nodes: nil, min_samples_leaf: 1, max_features: nil, random_seed: nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::Tree::ExtraTreeClassifier (class)">ExtraTreeClassifier</a></span></tt> 
+    #<strong>initialize</strong>(hidden_units: [128, 128], dropout_rate: 0.4, learning_rate: 0.001, decay1: 0.9, decay2: 0.999, max_iter: 10000, batch_size: 50, tol: 1e-4, verbose: false, random_seed: nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::NeuralNetwork::MLPClassifier (class)">MLPClassifier</a></span></tt> 
   
 
   
@@ -514,7 +415,7 @@ Learning, vol. 63 (1), pp. 3–42, 2006.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Create a new classifier with extra randomized tree algorithm.</p>
+<p>Create a new classifier with multi-layer preceptron.</p>
 
 
   </div>
@@ -525,24 +426,87 @@ Learning, vol. 63 (1), pp. 3–42, 2006.</p>
   
     <li>
       
-        <span class='name'>criterion</span>
+        <span class='name'>hidden_units</span>
       
       
-        <span class='type'>(<tt>String</tt>)</span>
+        <span class='type'>(<tt>Array</tt>)</span>
       
       
       
         &mdash;
         <div class='inline'>
-<p>The function to evaluate spliting point. Supported criteria are
-&#39;gini&#39; and &#39;entropy&#39;.</p>
+<p>The number of units in the i-th hidden layer.</p>
 </div>
       
     </li>
   
     <li>
       
-        <span class='name'>max_depth</span>
+        <span class='name'>dropout_rate</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The rate of the units to drop.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>learning_rate</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The initial value of learning rate in Adam optimizer.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>decay1</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The smoothing parameter for the first moment in Adam optimizer.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>decay2</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The smoothing parameter for the second moment in Adam optimizer.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>max_iter</span>
       
       
         <span class='type'>(<tt>Integer</tt>)</span>
@@ -551,58 +515,55 @@ Learning, vol. 63 (1), pp. 3–42, 2006.</p>
       
         &mdash;
         <div class='inline'>
-<p>The maximum depth of the tree. If nil is given, extra tree grows without
-concern for depth.</p>
+<p>The maximum number of iterations.</p>
 </div>
       
     </li>
   
     <li>
       
-        <span class='name'>max_leaf_nodes</span>
+        <span class='name'>batch_size</span>
       
       
-        <span class='type'>(<tt>Integer</tt>)</span>
+        <span class='type'>(<tt>Intger</tt>)</span>
       
       
       
         &mdash;
         <div class='inline'>
-<p>The maximum number of leaves on extra tree. If nil is given, number of
-leaves is not limited.</p>
+<p>The size of the mini batches.</p>
 </div>
       
     </li>
   
     <li>
       
-        <span class='name'>min_samples_leaf</span>
+        <span class='name'>tol</span>
       
       
-        <span class='type'>(<tt>Integer</tt>)</span>
+        <span class='type'>(<tt>Float</tt>)</span>
       
       
       
         &mdash;
         <div class='inline'>
-<p>The minimum number of samples at a leaf node.</p>
+<p>The tolerance of loss for terminating optimization.</p>
 </div>
       
     </li>
   
     <li>
       
-        <span class='name'>max_features</span>
+        <span class='name'>verbose</span>
       
       
-        <span class='type'>(<tt>Integer</tt>)</span>
+        <span class='type'>(<tt>Boolean</tt>)</span>
       
       
       
         &mdash;
         <div class='inline'>
-<p>The number of features to consider when searching optimal split point. If
-nil is given, split process considers all features.</p>
+<p>The flag indicating whether to output loss during iteration.</p>
 </div>
       
     </li>
@@ -618,8 +579,7 @@ nil is given, split process considers all features.</p>
       
         &mdash;
         <div class='inline'>
-<p>The seed value using to initialize the random generator. It is used to
-randomly determine the order of features when deciding spliting point.</p>
+<p>The seed value using to initialize the random generator.</p>
 </div>
       
     </li>
@@ -633,6 +593,9 @@ randomly determine the order of features when deciding spliting point.</p>
       <pre class="lines">
 
 
+48
+49
+50
 51
 52
 53
@@ -640,22 +603,21 @@ randomly determine the order of features when deciding spliting point.</p>
 55
 56
 57
-58
-59
-60</pre>
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/extra_tree_classifier.rb', line 51</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/neural_network/mlp_classifier.rb', line 48</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>criterion:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>gini</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>max_depth:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>max_leaf_nodes:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>min_samples_leaf:</span> <span class='int'>1</span><span class='comma'>,</span> <span class='label'>max_features:</span> <span class='kw'>nil</span><span class='comma'>,</span>
-               <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_numeric_or_nil'>check_params_numeric_or_nil</span><span class='lparen'>(</span><span class='label'>max_depth:</span> <span class='id identifier rubyid_max_depth'>max_depth</span><span class='comma'>,</span> <span class='label'>max_leaf_nodes:</span> <span class='id identifier rubyid_max_leaf_nodes'>max_leaf_nodes</span><span class='comma'>,</span>
-                              <span class='label'>max_features:</span> <span class='id identifier rubyid_max_features'>max_features</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='id identifier rubyid_random_seed'>random_seed</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_numeric'>check_params_numeric</span><span class='lparen'>(</span><span class='label'>min_samples_leaf:</span> <span class='id identifier rubyid_min_samples_leaf'>min_samples_leaf</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_string'>check_params_string</span><span class='lparen'>(</span><span class='label'>criterion:</span> <span class='id identifier rubyid_criterion'>criterion</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_positive'>check_params_positive</span><span class='lparen'>(</span><span class='label'>max_depth:</span> <span class='id identifier rubyid_max_depth'>max_depth</span><span class='comma'>,</span> <span class='label'>max_leaf_nodes:</span> <span class='id identifier rubyid_max_leaf_nodes'>max_leaf_nodes</span><span class='comma'>,</span>
-                        <span class='label'>min_samples_leaf:</span> <span class='id identifier rubyid_min_samples_leaf'>min_samples_leaf</span><span class='comma'>,</span> <span class='label'>max_features:</span> <span class='id identifier rubyid_max_features'>max_features</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>hidden_units:</span> <span class='lbracket'>[</span><span class='int'>128</span><span class='comma'>,</span> <span class='int'>128</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>dropout_rate:</span> <span class='float'>0.4</span><span class='comma'>,</span> <span class='label'>learning_rate:</span> <span class='float'>0.001</span><span class='comma'>,</span> <span class='label'>decay1:</span> <span class='float'>0.9</span><span class='comma'>,</span> <span class='label'>decay2:</span> <span class='float'>0.999</span><span class='comma'>,</span>
+               <span class='label'>max_iter:</span> <span class='int'>10000</span><span class='comma'>,</span> <span class='label'>batch_size:</span> <span class='int'>50</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='float'>1e-4</span><span class='comma'>,</span> <span class='label'>verbose:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_params_type'>check_params_type</span><span class='lparen'>(</span><span class='const'>Array</span><span class='comma'>,</span> <span class='label'>hidden_units:</span> <span class='id identifier rubyid_hidden_units'>hidden_units</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_params_numeric'>check_params_numeric</span><span class='lparen'>(</span><span class='label'>dropout_rate:</span> <span class='id identifier rubyid_dropout_rate'>dropout_rate</span><span class='comma'>,</span> <span class='label'>learning_rate:</span> <span class='id identifier rubyid_learning_rate'>learning_rate</span><span class='comma'>,</span> <span class='label'>decay1:</span> <span class='id identifier rubyid_decay1'>decay1</span><span class='comma'>,</span> <span class='label'>decay2:</span> <span class='id identifier rubyid_decay2'>decay2</span><span class='comma'>,</span>
+                       <span class='label'>max_iter:</span> <span class='id identifier rubyid_max_iter'>max_iter</span><span class='comma'>,</span> <span class='label'>batch_size:</span> <span class='id identifier rubyid_batch_size'>batch_size</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='id identifier rubyid_tol'>tol</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_params_boolean'>check_params_boolean</span><span class='lparen'>(</span><span class='label'>verbose:</span> <span class='id identifier rubyid_verbose'>verbose</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_params_numeric_or_nil'>check_params_numeric_or_nil</span><span class='lparen'>(</span><span class='label'>random_seed:</span> <span class='id identifier rubyid_random_seed'>random_seed</span><span class='rparen'>)</span>
   <span class='kw'>super</span>
+  <span class='ivar'>@classes</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@network</span> <span class='op'>=</span> <span class='kw'>nil</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -713,12 +675,12 @@ randomly determine the order of features when deciding spliting point.</p>
       <pre class="lines">
 
 
-21
-22
-23</pre>
+26
+27
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/extra_tree_classifier.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/neural_network/mlp_classifier.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_classes'>classes</span>
   <span class='ivar'>@classes</span>
@@ -731,9 +693,9 @@ randomly determine the order of features when deciding spliting point.</p>
       
       <span id=""></span>
       <div class="method_details ">
-  <h3 class="signature " id="feature_importances-instance_method">
+  <h3 class="signature " id="n_iter-instance_method">
   
-    #<strong>feature_importances</strong>  &#x21d2; <tt>Numo::DFloat</tt>  <span class="extras">(readonly)</span>
+    #<strong>n_iter</strong>  &#x21d2; <tt>Integer</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -742,7 +704,7 @@ randomly determine the order of features when deciding spliting point.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Return the importance for each feature.</p>
+<p>Return the number of iterations run for optimization</p>
 
 
   </div>
@@ -755,14 +717,9 @@ randomly determine the order of features when deciding spliting point.</p>
     <li>
       
       
-        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
-      
-        &mdash;
-        <div class='inline'>
-<p>(size: n_features)</p>
-</div>
       
     </li>
   
@@ -774,15 +731,15 @@ randomly determine the order of features when deciding spliting point.</p>
       <pre class="lines">
 
 
-25
-26
-27</pre>
+30
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/extra_tree_classifier.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/neural_network/mlp_classifier.rb', line 30</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_feature_importances'>feature_importances</span>
-  <span class='ivar'>@feature_importances</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_n_iter'>n_iter</span>
+  <span class='ivar'>@n_iter</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -792,9 +749,9 @@ randomly determine the order of features when deciding spliting point.</p>
       
       <span id=""></span>
       <div class="method_details ">
-  <h3 class="signature " id="leaf_labels-instance_method">
+  <h3 class="signature " id="network-instance_method">
   
-    #<strong>leaf_labels</strong>  &#x21d2; <tt>Numo::Int32</tt>  <span class="extras">(readonly)</span>
+    #<strong>network</strong>  &#x21d2; <tt><span class='object_link'>Rumale::NeuralNetwork::Model::Sequential</span></tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -803,7 +760,7 @@ randomly determine the order of features when deciding spliting point.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Return the labels assigned each leaf.</p>
+<p>Return the network.</p>
 
 
   </div>
@@ -816,14 +773,9 @@ randomly determine the order of features when deciding spliting point.</p>
     <li>
       
       
-        <span class='type'>(<tt>Numo::Int32</tt>)</span>
+        <span class='type'>(<tt><span class='object_link'>Rumale::NeuralNetwork::Model::Sequential</span></tt>)</span>
       
       
-      
-        &mdash;
-        <div class='inline'>
-<p>(size: n_leafs)</p>
-</div>
       
     </li>
   
@@ -835,15 +787,15 @@ randomly determine the order of features when deciding spliting point.</p>
       <pre class="lines">
 
 
-37
-38
-39</pre>
+22
+23
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/extra_tree_classifier.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/neural_network/mlp_classifier.rb', line 22</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_leaf_labels'>leaf_labels</span>
-  <span class='ivar'>@leaf_labels</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_network'>network</span>
+  <span class='ivar'>@network</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -864,7 +816,7 @@ randomly determine the order of features when deciding spliting point.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Return the random generator for random selection of feature index.</p>
+<p>Return the random generator.</p>
 
 
   </div>
@@ -891,71 +843,15 @@ randomly determine the order of features when deciding spliting point.</p>
       <pre class="lines">
 
 
-33
 34
-35</pre>
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/extra_tree_classifier.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/neural_network/mlp_classifier.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rng'>rng</span>
   <span class='ivar'>@rng</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id=""></span>
-      <div class="method_details ">
-  <h3 class="signature " id="tree-instance_method">
-  
-    #<strong>tree</strong>  &#x21d2; <tt><span class='object_link'><a href="Node.html" title="Rumale::Tree::Node (class)">Node</a></span></tt>  <span class="extras">(readonly)</span>
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Return the learned tree.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt><span class='object_link'><a href="Node.html" title="Rumale::Tree::Node (class)">Node</a></span></tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-29
-30
-31</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/extra_tree_classifier.rb', line 29</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_tree'>tree</span>
-  <span class='ivar'>@tree</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -972,7 +868,7 @@ randomly determine the order of features when deciding spliting point.</p>
       <div class="method_details first">
   <h3 class="signature first" id="fit-instance_method">
   
-    #<strong>fit</strong>(x, y)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::Tree::ExtraTreeClassifier (class)">ExtraTreeClassifier</a></span></tt> 
+    #<strong>fit</strong>(x, y)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::NeuralNetwork::MLPClassifier (class)">MLPClassifier</a></span></tt> 
   
 
   
@@ -1031,7 +927,7 @@ the model.</p>
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="" title="Rumale::Tree::ExtraTreeClassifier (class)">ExtraTreeClassifier</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Rumale::NeuralNetwork::MLPClassifier (class)">MLPClassifier</a></span></tt>)</span>
       
       
       
@@ -1050,134 +946,43 @@ the model.</p>
       <pre class="lines">
 
 
+65
+66
 67
 68
 69
 70
 71
-72</pre>
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/extra_tree_classifier.rb', line 67</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/neural_network/mlp_classifier.rb', line 65</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_label_array'>check_convert_label_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_sample_label_size'>check_sample_label_size</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-  <span class='kw'>super</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="marshal_dump-instance_method">
-  
-    #<strong>marshal_dump</strong>  &#x21d2; <tt>Hash</tt> 
-  
 
-  
+  <span class='ivar'>@classes</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='lbracket'>[</span><span class='op'>*</span><span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span><span class='period'>.</span><span class='id identifier rubyid_uniq'>uniq</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_n_labels'>n_labels</span> <span class='op'>=</span> <span class='ivar'>@classes</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
+  <span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_sub_rng'>sub_rng</span> <span class='op'>=</span> <span class='ivar'>@rng</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
 
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Dump marshal data.</p>
+  <span class='id identifier rubyid_loss'>loss</span> <span class='op'>=</span> <span class='const'>Loss</span><span class='op'>::</span><span class='const'>SoftmaxCrossEntropy</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='ivar'>@network</span> <span class='op'>=</span> <span class='id identifier rubyid_buld_network'>buld_network</span><span class='lparen'>(</span><span class='id identifier rubyid_n_features'>n_features</span><span class='comma'>,</span> <span class='id identifier rubyid_n_labels'>n_labels</span><span class='comma'>,</span> <span class='id identifier rubyid_sub_rng'>sub_rng</span><span class='rparen'>)</span>
+  <span class='ivar'>@network</span> <span class='op'>=</span> <span class='id identifier rubyid_train'>train</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_one_hot_encode'>one_hot_encode</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='ivar'>@network</span><span class='comma'>,</span> <span class='id identifier rubyid_loss'>loss</span><span class='comma'>,</span> <span class='id identifier rubyid_sub_rng'>sub_rng</span><span class='rparen'>)</span>
+  <span class='ivar'>@network</span><span class='period'>.</span><span class='id identifier rubyid_delete_dropout'>delete_dropout</span>
 
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The marshal data about ExtraTreeClassifier</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-94
-95
-96</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/extra_tree_classifier.rb', line 94</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_marshal_dump'>marshal_dump</span>
-  <span class='kw'>super</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="marshal_load-instance_method">
-  
-    #<strong>marshal_load</strong>(obj)  &#x21d2; <tt>nil</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Load marshal data.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>nil</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-100
-101
-102</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/extra_tree_classifier.rb', line 100</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_marshal_load'>marshal_load</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
-  <span class='kw'>super</span>
+  <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1248,17 +1053,23 @@ the model.</p>
       <pre class="lines">
 
 
-78
-79
-80
-81</pre>
+87
+88
+89
+90
+91
+92
+93</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/extra_tree_classifier.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/neural_network/mlp_classifier.rb', line 87</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='kw'>super</span>
+  <span class='id identifier rubyid_n_samples'>n_samples</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_decision_values'>decision_values</span> <span class='op'>=</span> <span class='id identifier rubyid_predict_proba'>predict_proba</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_predicted'>predicted</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_n_samples'>n_samples</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='ivar'>@classes</span><span class='lbracket'>[</span><span class='id identifier rubyid_decision_values'>decision_values</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max_index'>max_index</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+  <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='period'>.</span><span class='id identifier rubyid_asarray'>asarray</span><span class='lparen'>(</span><span class='id identifier rubyid_predicted'>predicted</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1330,17 +1141,19 @@ sample.</p>
       <pre class="lines">
 
 
-87
-88
-89
-90</pre>
+99
+100
+101
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/extra_tree_classifier.rb', line 87</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/neural_network/mlp_classifier.rb', line 99</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict_proba'>predict_proba</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='kw'>super</span>
+  <span class='id identifier rubyid_out'>out</span><span class='comma'>,</span> <span class='op'>=</span> <span class='ivar'>@network</span><span class='period'>.</span><span class='id identifier rubyid_forward'>forward</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_softmax'>softmax</span><span class='lparen'>(</span><span class='id identifier rubyid_out'>out</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1352,7 +1165,7 @@ sample.</p>
 </div>
 
       <div id="footer">
-  Generated on Sat Nov 16 18:20:38 2019 by
+  Generated on Sat Nov 16 18:20:41 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.4.9).
 </div>

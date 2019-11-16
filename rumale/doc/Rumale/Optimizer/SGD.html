@@ -354,7 +354,7 @@
       <pre class="code"><span class="info file"># File 'lib/rumale/optimizer/sgd.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>learning_rate:</span> <span class='float'>0.01</span><span class='comma'>,</span> <span class='label'>momentum:</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='label'>decay:</span> <span class='float'>0.0</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_float'>check_params_float</span><span class='lparen'>(</span><span class='label'>learning_rate:</span> <span class='id identifier rubyid_learning_rate'>learning_rate</span><span class='comma'>,</span> <span class='label'>momentum:</span> <span class='id identifier rubyid_momentum'>momentum</span><span class='comma'>,</span> <span class='label'>decay:</span> <span class='id identifier rubyid_decay'>decay</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_params_numeric'>check_params_numeric</span><span class='lparen'>(</span><span class='label'>learning_rate:</span> <span class='id identifier rubyid_learning_rate'>learning_rate</span><span class='comma'>,</span> <span class='label'>momentum:</span> <span class='id identifier rubyid_momentum'>momentum</span><span class='comma'>,</span> <span class='label'>decay:</span> <span class='id identifier rubyid_decay'>decay</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_positive'>check_params_positive</span><span class='lparen'>(</span><span class='label'>learning_rate:</span> <span class='id identifier rubyid_learning_rate'>learning_rate</span><span class='comma'>,</span> <span class='label'>momentum:</span> <span class='id identifier rubyid_momentum'>momentum</span><span class='comma'>,</span> <span class='label'>decay:</span> <span class='id identifier rubyid_decay'>decay</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:learning_rate</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_learning_rate'>learning_rate</span>
@@ -606,7 +606,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Nov  8 11:13:33 2019 by
+  Generated on Sat Nov 16 18:20:31 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.4.9).
 </div>

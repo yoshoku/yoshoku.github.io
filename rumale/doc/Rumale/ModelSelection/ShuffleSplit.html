@@ -381,18 +381,14 @@ end</code></pre>
 43
 44
 45
-46
-47
-48</pre>
+46</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rumale/model_selection/shuffle_split.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>n_splits:</span> <span class='int'>3</span><span class='comma'>,</span> <span class='label'>test_size:</span> <span class='float'>0.1</span><span class='comma'>,</span> <span class='label'>train_size:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_integer'>check_params_integer</span><span class='lparen'>(</span><span class='label'>n_splits:</span> <span class='id identifier rubyid_n_splits'>n_splits</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_float'>check_params_float</span><span class='lparen'>(</span><span class='label'>test_size:</span> <span class='id identifier rubyid_test_size'>test_size</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_type_or_nil'>check_params_type_or_nil</span><span class='lparen'>(</span><span class='const'>Float</span><span class='comma'>,</span> <span class='label'>train_size:</span> <span class='id identifier rubyid_train_size'>train_size</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_type_or_nil'>check_params_type_or_nil</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='id identifier rubyid_random_seed'>random_seed</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_params_numeric'>check_params_numeric</span><span class='lparen'>(</span><span class='label'>n_splits:</span> <span class='id identifier rubyid_n_splits'>n_splits</span><span class='comma'>,</span> <span class='label'>test_size:</span> <span class='id identifier rubyid_test_size'>test_size</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_params_numeric_or_nil'>check_params_numeric_or_nil</span><span class='lparen'>(</span><span class='label'>train_size:</span> <span class='id identifier rubyid_train_size'>train_size</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='id identifier rubyid_random_seed'>random_seed</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_positive'>check_params_positive</span><span class='lparen'>(</span><span class='label'>n_splits:</span> <span class='id identifier rubyid_n_splits'>n_splits</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_positive'>check_params_positive</span><span class='lparen'>(</span><span class='label'>test_size:</span> <span class='id identifier rubyid_test_size'>test_size</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_positive'>check_params_positive</span><span class='lparen'>(</span><span class='label'>train_size:</span> <span class='id identifier rubyid_train_size'>train_size</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_train_size'>train_size</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -598,6 +594,8 @@ in each fold.</p>
       <pre class="lines">
 
 
+53
+54
 55
 56
 57
@@ -630,15 +628,13 @@ in each fold.</p>
 84
 85
 86
-87
-88
-89</pre>
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/model_selection/shuffle_split.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/model_selection/shuffle_split.rb', line 53</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid__y'>_y</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='comment'># Initialize and check some variables.
 </span>  <span class='id identifier rubyid_n_samples'>n_samples</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_n_test_samples'>n_test_samples</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='ivar'>@test_size</span> <span class='op'>*</span> <span class='id identifier rubyid_n_samples'>n_samples</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
@@ -682,7 +678,7 @@ in each fold.</p>
 </div>
 
       <div id="footer">
-  Generated on Fri Nov  8 11:13:42 2019 by
+  Generated on Sat Nov 16 18:20:41 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.4.9).
 </div>
