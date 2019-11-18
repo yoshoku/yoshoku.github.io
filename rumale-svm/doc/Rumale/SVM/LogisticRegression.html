@@ -560,28 +560,26 @@ is ignored if penalty = &#39;l1&#39;.</p>
 55
 56
 57
-58
-59</pre>
+58</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rumale/svm/logistic_regression.rb', line 40</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>penalty:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>l2</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>dual:</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='label'>reg_param:</span> <span class='float'>1.0</span><span class='comma'>,</span>
-               <span class='label'>fit_bias:</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='label'>bias_scale:</span> <span class='float'>1.0</span><span class='comma'>,</span>
-               <span class='label'>tol:</span> <span class='float'>1e-3</span><span class='comma'>,</span> <span class='label'>verbose:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+               <span class='label'>fit_bias:</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='label'>bias_scale:</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='float'>1e-3</span><span class='comma'>,</span> <span class='label'>verbose:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_string'>check_params_string</span><span class='lparen'>(</span><span class='label'>penalty:</span> <span class='id identifier rubyid_penalty'>penalty</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_float'>check_params_float</span><span class='lparen'>(</span><span class='label'>reg_param:</span> <span class='id identifier rubyid_reg_param'>reg_param</span><span class='comma'>,</span> <span class='label'>bias_scale:</span> <span class='id identifier rubyid_bias_scale'>bias_scale</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='id identifier rubyid_tol'>tol</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_params_numeric'>check_params_numeric</span><span class='lparen'>(</span><span class='label'>reg_param:</span> <span class='id identifier rubyid_reg_param'>reg_param</span><span class='comma'>,</span> <span class='label'>bias_scale:</span> <span class='id identifier rubyid_bias_scale'>bias_scale</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='id identifier rubyid_tol'>tol</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_boolean'>check_params_boolean</span><span class='lparen'>(</span><span class='label'>dual:</span> <span class='id identifier rubyid_dual'>dual</span><span class='comma'>,</span> <span class='label'>fit_bias:</span> <span class='id identifier rubyid_fit_bias'>fit_bias</span><span class='comma'>,</span> <span class='label'>verbose:</span> <span class='id identifier rubyid_verbose'>verbose</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_type_or_nil'>check_params_type_or_nil</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='id identifier rubyid_random_seed'>random_seed</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_params_numeric_or_nil'>check_params_numeric_or_nil</span><span class='lparen'>(</span><span class='label'>random_seed:</span> <span class='id identifier rubyid_random_seed'>random_seed</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:penalty</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_penalty'>penalty</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>l1</span><span class='tstring_end'>&#39;</span></span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>l1</span><span class='tstring_end'>&#39;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>l2</span><span class='tstring_end'>&#39;</span></span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:dual</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_dual'>dual</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:reg_param</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_reg_param'>reg_param</span>
+  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:reg_param</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_reg_param'>reg_param</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:fit_bias</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_fit_bias'>fit_bias</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:bias_scale</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_bias_scale'>bias_scale</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:tol</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_tol'>tol</span>
+  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:bias_scale</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_bias_scale'>bias_scale</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
+  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:tol</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_tol'>tol</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:verbose</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_verbose'>verbose</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:random_seed</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_random_seed'>random_seed</span>
+  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:random_seed</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_random_seed'>random_seed</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>?</span> <span class='kw'>nil</span> <span class='op'>:</span> <span class='id identifier rubyid_random_seed'>random_seed</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
   <span class='ivar'>@model</span> <span class='op'>=</span> <span class='kw'>nil</span>
   <span class='ivar'>@weight_vec</span> <span class='op'>=</span> <span class='kw'>nil</span>
   <span class='ivar'>@bias_term</span> <span class='op'>=</span> <span class='kw'>nil</span>
@@ -789,17 +787,17 @@ is ignored if penalty = &#39;l1&#39;.</p>
       <pre class="lines">
 
 
+79
 80
 81
 82
-83
-84</pre>
+83</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/svm/logistic_regression.rb', line 80</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/svm/logistic_regression.rb', line 79</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_decision_function'>decision_function</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_xx'>xx</span> <span class='op'>=</span> <span class='id identifier rubyid_fit_bias?'>fit_bias?</span> <span class='op'>?</span> <span class='id identifier rubyid_expand_feature'>expand_feature</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id identifier rubyid_x'>x</span>
   <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Liblinear</span><span class='period'>.</span><span class='id identifier rubyid_decision_function'>decision_function</span><span class='lparen'>(</span><span class='id identifier rubyid_xx'>xx</span><span class='comma'>,</span> <span class='id identifier rubyid_liblinear_params'>liblinear_params</span><span class='comma'>,</span> <span class='ivar'>@model</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -889,6 +887,7 @@ the model.</p>
       <pre class="lines">
 
 
+65
 66
 67
 68
@@ -896,15 +895,14 @@ the model.</p>
 70
 71
 72
-73
-74</pre>
+73</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/svm/logistic_regression.rb', line 66</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/svm/logistic_regression.rb', line 65</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_label_array'>check_label_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_label_array'>check_convert_label_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_sample_label_size'>check_sample_label_size</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_xx'>xx</span> <span class='op'>=</span> <span class='id identifier rubyid_fit_bias?'>fit_bias?</span> <span class='op'>?</span> <span class='id identifier rubyid_expand_feature'>expand_feature</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id identifier rubyid_x'>x</span>
   <span class='ivar'>@model</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Liblinear</span><span class='period'>.</span><span class='id identifier rubyid_train'>train</span><span class='lparen'>(</span><span class='id identifier rubyid_xx'>xx</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='id identifier rubyid_liblinear_params'>liblinear_params</span><span class='rparen'>)</span>
@@ -960,15 +958,15 @@ the model.</p>
       <pre class="lines">
 
 
+108
 109
 110
 111
 112
-113
-114</pre>
+113</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/svm/logistic_regression.rb', line 109</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/svm/logistic_regression.rb', line 108</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_marshal_dump'>marshal_dump</span>
   <span class='lbrace'>{</span> <span class='label'>params:</span> <span class='ivar'>@params</span><span class='comma'>,</span>
@@ -1020,16 +1018,16 @@ the model.</p>
       <pre class="lines">
 
 
+117
 118
 119
 120
 121
 122
-123
-124</pre>
+123</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/svm/logistic_regression.rb', line 118</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/svm/logistic_regression.rb', line 117</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_marshal_load'>marshal_load</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:params</span><span class='rbracket'>]</span>
@@ -1107,17 +1105,17 @@ the model.</p>
       <pre class="lines">
 
 
+89
 90
 91
 92
-93
-94</pre>
+93</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/svm/logistic_regression.rb', line 90</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/svm/logistic_regression.rb', line 89</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_xx'>xx</span> <span class='op'>=</span> <span class='id identifier rubyid_fit_bias?'>fit_bias?</span> <span class='op'>?</span> <span class='id identifier rubyid_expand_feature'>expand_feature</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id identifier rubyid_x'>x</span>
   <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='period'>.</span><span class='id identifier rubyid_cast'>cast</span><span class='lparen'>(</span><span class='const'>Numo</span><span class='op'>::</span><span class='const'>Liblinear</span><span class='period'>.</span><span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_xx'>xx</span><span class='comma'>,</span> <span class='id identifier rubyid_liblinear_params'>liblinear_params</span><span class='comma'>,</span> <span class='ivar'>@model</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -1192,17 +1190,17 @@ sample.</p>
       <pre class="lines">
 
 
+100
 101
 102
 103
-104
-105</pre>
+104</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/svm/logistic_regression.rb', line 101</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/svm/logistic_regression.rb', line 100</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict_proba'>predict_proba</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_sample_array'>check_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_xx'>xx</span> <span class='op'>=</span> <span class='id identifier rubyid_fit_bias?'>fit_bias?</span> <span class='op'>?</span> <span class='id identifier rubyid_expand_feature'>expand_feature</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id identifier rubyid_x'>x</span>
   <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Liblinear</span><span class='period'>.</span><span class='id identifier rubyid_predict_proba'>predict_proba</span><span class='lparen'>(</span><span class='id identifier rubyid_xx'>xx</span><span class='comma'>,</span> <span class='id identifier rubyid_liblinear_params'>liblinear_params</span><span class='comma'>,</span> <span class='ivar'>@model</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -1216,7 +1214,7 @@ sample.</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Oct 22 12:17:06 2019 by
+  Generated on Mon Nov 18 18:04:14 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.4.9).
 </div>
