@@ -613,7 +613,7 @@ Parallel gem is not loaded.</p>
                         <span class='label'>max_iter:</span> <span class='id identifier rubyid_max_iter'>max_iter</span><span class='comma'>,</span> <span class='label'>batch_size:</span> <span class='id identifier rubyid_batch_size'>batch_size</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_keywd_args'>keywd_args</span> <span class='op'>=</span> <span class='id identifier rubyid_method'>method</span><span class='lparen'>(</span><span class='symbol'>:initialize</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_parameters'>parameters</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid__t'>_t</span><span class='comma'>,</span> <span class='id identifier rubyid_arg'>arg</span><span class='op'>|</span> <span class='lbracket'>[</span><span class='id identifier rubyid_arg'>arg</span><span class='comma'>,</span> <span class='id identifier rubyid_binding'>binding</span><span class='period'>.</span><span class='id identifier rubyid_local_variable_get'>local_variable_get</span><span class='lparen'>(</span><span class='id identifier rubyid_arg'>arg</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span>
   <span class='id identifier rubyid_keywd_args'>keywd_args</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='symbol'>:epsilon</span><span class='rparen'>)</span>
-  <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_keywd_args'>keywd_args</span><span class='rparen'>)</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='op'>**</span><span class='id identifier rubyid_keywd_args'>keywd_args</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:epsilon</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_epsilon'>epsilon</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1161,7 +1161,7 @@ the model.</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Dec 24 00:21:03 2019 by
+  Generated on Sun Dec 29 00:56:30 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.4.9).
 </div>
