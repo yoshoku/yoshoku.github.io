@@ -268,7 +268,7 @@ the optimization method and mean squared error as the loss function.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(hidden_units: [128, 128], dropout_rate: 0.4, learning_rate: 0.001, decay1: 0.9, decay2: 0.999, max_iter: 10000, batch_size: 50, tol: 1e-4, verbose: false, random_seed: nil)  &#x21d2; MLPRegressor </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(hidden_units: [128, 128], dropout_rate: 0.4, learning_rate: 0.001, decay1: 0.9, decay2: 0.999, max_iter: 200, batch_size: 50, tol: 1e-4, verbose: false, random_seed: nil)  &#x21d2; MLPRegressor </a>
     
 
     
@@ -353,7 +353,7 @@ the optimization method and mean squared error as the loss function.</p>
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(hidden_units: [128, 128], dropout_rate: 0.4, learning_rate: 0.001, decay1: 0.9, decay2: 0.999, max_iter: 10000, batch_size: 50, tol: 1e-4, verbose: false, random_seed: nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::NeuralNetwork::MLPRegressor (class)">MLPRegressor</a></span></tt> 
+    #<strong>initialize</strong>(hidden_units: [128, 128], dropout_rate: 0.4, learning_rate: 0.001, decay1: 0.9, decay2: 0.999, max_iter: 200, batch_size: 50, tol: 1e-4, verbose: false, random_seed: nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::NeuralNetwork::MLPRegressor (class)">MLPRegressor</a></span></tt> 
   
 
   
@@ -462,7 +462,8 @@ the optimization method and mean squared error as the loss function.</p>
       
         &mdash;
         <div class='inline'>
-<p>The maximum number of iterations.</p>
+<p>The maximum number of epochs that indicates how many times the whole data
+is given to the training process.</p>
 </div>
       
     </li>
@@ -540,7 +541,6 @@ the optimization method and mean squared error as the loss function.</p>
       <pre class="lines">
 
 
-43
 44
 45
 46
@@ -549,13 +549,14 @@ the optimization method and mean squared error as the loss function.</p>
 49
 50
 51
-52</pre>
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/neural_network/mlp_regressor.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/neural_network/mlp_regressor.rb', line 44</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>hidden_units:</span> <span class='lbracket'>[</span><span class='int'>128</span><span class='comma'>,</span> <span class='int'>128</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>dropout_rate:</span> <span class='float'>0.4</span><span class='comma'>,</span> <span class='label'>learning_rate:</span> <span class='float'>0.001</span><span class='comma'>,</span> <span class='label'>decay1:</span> <span class='float'>0.9</span><span class='comma'>,</span> <span class='label'>decay2:</span> <span class='float'>0.999</span><span class='comma'>,</span>
-               <span class='label'>max_iter:</span> <span class='int'>10000</span><span class='comma'>,</span> <span class='label'>batch_size:</span> <span class='int'>50</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='float'>1e-4</span><span class='comma'>,</span> <span class='label'>verbose:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+               <span class='label'>max_iter:</span> <span class='int'>200</span><span class='comma'>,</span> <span class='label'>batch_size:</span> <span class='int'>50</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='float'>1e-4</span><span class='comma'>,</span> <span class='label'>verbose:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_type'>check_params_type</span><span class='lparen'>(</span><span class='const'>Array</span><span class='comma'>,</span> <span class='label'>hidden_units:</span> <span class='id identifier rubyid_hidden_units'>hidden_units</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_numeric'>check_params_numeric</span><span class='lparen'>(</span><span class='label'>dropout_rate:</span> <span class='id identifier rubyid_dropout_rate'>dropout_rate</span><span class='comma'>,</span> <span class='label'>learning_rate:</span> <span class='id identifier rubyid_learning_rate'>learning_rate</span><span class='comma'>,</span> <span class='label'>decay1:</span> <span class='id identifier rubyid_decay1'>decay1</span><span class='comma'>,</span> <span class='label'>decay2:</span> <span class='id identifier rubyid_decay2'>decay2</span><span class='comma'>,</span>
                        <span class='label'>max_iter:</span> <span class='id identifier rubyid_max_iter'>max_iter</span><span class='comma'>,</span> <span class='label'>batch_size:</span> <span class='id identifier rubyid_batch_size'>batch_size</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='id identifier rubyid_tol'>tol</span><span class='rparen'>)</span>
@@ -831,7 +832,6 @@ model.</p>
       <pre class="lines">
 
 
-59
 60
 61
 62
@@ -847,10 +847,11 @@ model.</p>
 72
 73
 74
-75</pre>
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/neural_network/mlp_regressor.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/neural_network/mlp_regressor.rb', line 60</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -938,15 +939,15 @@ model.</p>
       <pre class="lines">
 
 
-81
 82
 83
 84
 85
-86</pre>
+86
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/neural_network/mlp_regressor.rb', line 81</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/neural_network/mlp_regressor.rb', line 82</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -964,7 +965,7 @@ model.</p>
 </div>
 
       <div id="footer">
-  Generated on Wed Jan  1 17:50:15 2020 by
+  Generated on Sun Jan  5 01:26:40 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.4.9).
 </div>

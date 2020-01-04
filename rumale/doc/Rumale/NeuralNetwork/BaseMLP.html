@@ -143,7 +143,7 @@ estimator. This class is used internally.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(hidden_units: [128, 128], dropout_rate: 0.4, learning_rate: 0.001, decay1: 0.9, decay2: 0.999, max_iter: 10000, batch_size: 50, tol: 1e-4, verbose: false, random_seed: nil)  &#x21d2; BaseMLP </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(hidden_units: [128, 128], dropout_rate: 0.4, learning_rate: 0.001, decay1: 0.9, decay2: 0.999, max_iter: 200, batch_size: 50, tol: 1e-4, verbose: false, random_seed: nil)  &#x21d2; BaseMLP </a>
     
 
     
@@ -181,7 +181,7 @@ estimator. This class is used internally.</p>
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(hidden_units: [128, 128], dropout_rate: 0.4, learning_rate: 0.001, decay1: 0.9, decay2: 0.999, max_iter: 10000, batch_size: 50, tol: 1e-4, verbose: false, random_seed: nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::NeuralNetwork::BaseMLP (class)">BaseMLP</a></span></tt> 
+    #<strong>initialize</strong>(hidden_units: [128, 128], dropout_rate: 0.4, learning_rate: 0.001, decay1: 0.9, decay2: 0.999, max_iter: 200, batch_size: 50, tol: 1e-4, verbose: false, random_seed: nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::NeuralNetwork::BaseMLP (class)">BaseMLP</a></span></tt> 
   
 
   
@@ -290,7 +290,8 @@ estimator. This class is used internally.</p>
       
         &mdash;
         <div class='inline'>
-<p>The maximum number of iterations.</p>
+<p>The maximum number of epochs that indicates how many times the whole data
+is given to the training process.</p>
 </div>
       
     </li>
@@ -368,7 +369,6 @@ estimator. This class is used internally.</p>
       <pre class="lines">
 
 
-185
 186
 187
 188
@@ -384,13 +384,14 @@ estimator. This class is used internally.</p>
 198
 199
 200
-201</pre>
+201
+202</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/neural_network/base_mlp.rb', line 185</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/neural_network/base_mlp.rb', line 186</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>hidden_units:</span> <span class='lbracket'>[</span><span class='int'>128</span><span class='comma'>,</span> <span class='int'>128</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>dropout_rate:</span> <span class='float'>0.4</span><span class='comma'>,</span> <span class='label'>learning_rate:</span> <span class='float'>0.001</span><span class='comma'>,</span> <span class='label'>decay1:</span> <span class='float'>0.9</span><span class='comma'>,</span> <span class='label'>decay2:</span> <span class='float'>0.999</span><span class='comma'>,</span>
-               <span class='label'>max_iter:</span> <span class='int'>10000</span><span class='comma'>,</span> <span class='label'>batch_size:</span> <span class='int'>50</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='float'>1e-4</span><span class='comma'>,</span> <span class='label'>verbose:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+               <span class='label'>max_iter:</span> <span class='int'>200</span><span class='comma'>,</span> <span class='label'>batch_size:</span> <span class='int'>50</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='float'>1e-4</span><span class='comma'>,</span> <span class='label'>verbose:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:hidden_units</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_hidden_units'>hidden_units</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:dropout_rate</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_dropout_rate'>dropout_rate</span>
@@ -417,7 +418,7 @@ estimator. This class is used internally.</p>
 </div>
 
       <div id="footer">
-  Generated on Wed Jan  1 17:50:13 2020 by
+  Generated on Sun Jan  5 01:26:36 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.4.9).
 </div>
