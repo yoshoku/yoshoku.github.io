@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::ModelSelection::GridSearchCV
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::ModelSelection::GridSearchCV";
   relpath = '../../';
 </script>
@@ -107,8 +107,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>GridSearchCV is a class that performs hyperparameter optimization with grid
-search method.</p>
+<p>GridSearchCV is a class that performs hyperparameter optimization with grid search method.</p>
 
 
   </div>
@@ -329,8 +328,7 @@ search method.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Call the decision_function method of learned estimator with the best
-parameter.</p>
+<p>Call the decision_function method of learned estimator with the best parameter.</p>
 </div></span>
   
 </li>
@@ -476,8 +474,7 @@ parameter.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Call the predict_log_proba method of learned estimator with the best
-parameter.</p>
+<p>Call the predict_log_proba method of learned estimator with the best parameter.</p>
 </div></span>
   
 </li>
@@ -578,11 +575,12 @@ parameter.</p>
         <span class='type'>(<tt>Classifier/Regresor</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The estimator to be searched for optimal parameters with grid search
-method.</p>
+<p>The estimator to be searched for optimal parameters with grid search method.</p>
 </div>
       
     </li>
@@ -595,11 +593,12 @@ method.</p>
         <span class='type'>(<tt>Array&lt;Hash&gt;</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The parameter sets is represented with array of hash that consists of
-parameter names as keys and array of parameter values as values.</p>
+<p>The parameter sets is represented with array of hash that consists of parameter names as keys and array of parameter values as values.</p>
 </div>
       
     </li>
@@ -612,11 +611,12 @@ parameter names as keys and array of parameter values as values.</p>
         <span class='type'>(<tt>Splitter</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The splitter that divides dataset to training and testing dataset on cross
-validation.</p>
+<p>The splitter that divides dataset to training and testing dataset on cross validation.</p>
 </div>
       
     </li>
@@ -629,12 +629,12 @@ validation.</p>
         <span class='type'>(<tt>Evaluator</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The evaluator that calculates score of estimator results on cross
-validation. If nil is given, the score method of estimator is used to
-evaluation.</p>
+<p>The evaluator that calculates score of estimator results on cross validation. If nil is given, the score method of estimator is used to evaluation.</p>
 </div>
       
     </li>
@@ -647,11 +647,12 @@ evaluation.</p>
         <span class='type'>(<tt>Boolean</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>true</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The flag that indicates whether the estimator is better as evaluation score
-is larger.</p>
+<p>The flag that indicates whether the estimator is better as evaluation score is larger.</p>
 </div>
       
     </li>
@@ -1012,8 +1013,7 @@ is larger.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Call the decision_function method of learned estimator with the best
-parameter.</p>
+<p>Call the decision_function method of learned estimator with the best parameter.</p>
 
 
   </div>
@@ -1114,8 +1114,7 @@ parameter.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for fitting
-the model.</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for fitting the model.</p>
 </div>
       
     </li>
@@ -1131,8 +1130,7 @@ the model.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_outputs]) The target values or labels to be used for
-fitting the model.</p>
+<p>(shape: [n_samples, n_outputs]) The target values or labels to be used for fitting the model.</p>
 </div>
       
     </li>
@@ -1437,8 +1435,7 @@ fitting the model.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Call the predict_log_proba method of learned estimator with the best
-parameter.</p>
+<p>Call the predict_log_proba method of learned estimator with the best parameter.</p>
 
 
   </div>
@@ -1458,8 +1455,7 @@ parameter.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The samples to predict the
-log-probailities.</p>
+<p>(shape: [n_samples, n_features]) The samples to predict the log-probailities.</p>
 </div>
       
     </li>
@@ -1478,8 +1474,7 @@ log-probailities.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_classes]) Predicted log-probability of each class per
-sample.</p>
+<p>(shape: [n_samples, n_classes]) Predicted log-probability of each class per sample.</p>
 </div>
       
     </li>
@@ -1560,8 +1555,7 @@ sample.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_classes]) Predicted probability of each class per
-sample.</p>
+<p>(shape: [n_samples, n_classes]) Predicted probability of each class per sample.</p>
 </div>
       
     </li>
@@ -1639,8 +1633,7 @@ sample.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_outputs]) True target values or labels for testing
-data.</p>
+<p>(shape: [n_samples, n_outputs]) True target values or labels for testing data.</p>
 </div>
       
     </li>
@@ -1694,9 +1687,9 @@ data.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:45 2020 by
+  Generated on Sat Jan 11 19:43:15 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

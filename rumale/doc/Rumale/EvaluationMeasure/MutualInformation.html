@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::EvaluationMeasure::MutualInformation
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::EvaluationMeasure::MutualInformation";
   relpath = '../../';
 </script>
@@ -111,9 +111,7 @@
 
 <p><strong>Reference</strong></p>
 <ul><li>
-<p>N X. Vinh, J. Epps, and J. Bailey, “Information Theoretic Measures for
-Clusterings Comparison: Variants, Properties, Normalization and Correction
-for Chance,” J. Machine Learning Research, vol. 11, pp. 2837–1854, 2010.</p>
+<p>N X. Vinh, J. Epps, and J. Bailey, “Information Theoretic Measures for Clusterings Comparison: Variants, Properties, Normalization and Correction for Chance,” J. Machine Learning Research, vol. 11, pp. 2837–1854, 2010.</p>
 </li></ul>
 
 
@@ -301,14 +299,14 @@ for Chance,” J. Machine Learning Research, vol. 11, pp. 2837–1854, 2010.</p>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_score'>score</span><span class='lparen'>(</span><span class='id identifier rubyid_y_true'>y_true</span><span class='comma'>,</span> <span class='id identifier rubyid_y_pred'>y_pred</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_y_true'>y_true</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_label_array'>check_convert_label_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y_true'>y_true</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_y_pred'>y_pred</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_label_array'>check_convert_label_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y_pred'>y_pred</span><span class='rparen'>)</span>
-  <span class='comment'># initiazlie some variables.
-</span>  <span class='id identifier rubyid_mutual_information'>mutual_information</span> <span class='op'>=</span> <span class='float'>0.0</span>
+  <span class='id identifier rubyid_y_pred'>y_pred</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_label_array'>check_convert_label_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y_pred'>y_pred</span><span class='rparen'>)</span>  <span class='comment'># initiazlie some variables.
+</span>
+  <span class='id identifier rubyid_mutual_information'>mutual_information</span> <span class='op'>=</span> <span class='float'>0.0</span>
   <span class='id identifier rubyid_n_samples'>n_samples</span> <span class='op'>=</span> <span class='id identifier rubyid_y_pred'>y_pred</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
   <span class='id identifier rubyid_class_ids'>class_ids</span> <span class='op'>=</span> <span class='id identifier rubyid_y_true'>y_true</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span><span class='period'>.</span><span class='id identifier rubyid_uniq'>uniq</span>
-  <span class='id identifier rubyid_cluster_ids'>cluster_ids</span> <span class='op'>=</span> <span class='id identifier rubyid_y_pred'>y_pred</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span><span class='period'>.</span><span class='id identifier rubyid_uniq'>uniq</span>
-  <span class='comment'># calculate mutual information.
-</span>  <span class='id identifier rubyid_cluster_ids'>cluster_ids</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span>
+  <span class='id identifier rubyid_cluster_ids'>cluster_ids</span> <span class='op'>=</span> <span class='id identifier rubyid_y_pred'>y_pred</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span><span class='period'>.</span><span class='id identifier rubyid_uniq'>uniq</span>  <span class='comment'># calculate mutual information.
+</span>
+  <span class='id identifier rubyid_cluster_ids'>cluster_ids</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span>
     <span class='id identifier rubyid_pr_sample_ids'>pr_sample_ids</span> <span class='op'>=</span> <span class='id identifier rubyid_y_pred'>y_pred</span><span class='period'>.</span><span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='id identifier rubyid_k'>k</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span>
     <span class='id identifier rubyid_n_pr_samples'>n_pr_samples</span> <span class='op'>=</span> <span class='id identifier rubyid_pr_sample_ids'>pr_sample_ids</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
     <span class='id identifier rubyid_class_ids'>class_ids</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_j'>j</span><span class='op'>|</span>
@@ -333,9 +331,9 @@ for Chance,” J. Machine Learning Research, vol. 11, pp. 2837–1854, 2010.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:47 2020 by
+  Generated on Sat Jan 11 19:43:17 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

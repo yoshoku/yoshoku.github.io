@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::Ensemble::ExtraTreesClassifier
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::Ensemble::ExtraTreesClassifier";
   relpath = '../../';
 </script>
@@ -104,16 +104,11 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>ExtraTreesClassifier is a class that implements extremely randomized trees
-for classification. The algorithm of extremely randomized trees is similar
-to random forest. The features of the algorithm of extremely randomized
-trees are not to apply the bagging procedure and to randomly select the
-threshold for splitting feature space.</p>
+<p>ExtraTreesClassifier is a class that implements extremely randomized trees for classification. The algorithm of extremely randomized trees is similar to random forest. The features of the algorithm of extremely randomized trees are not to apply the bagging procedure and to randomly select the threshold for splitting feature space.</p>
 
 <p><strong>Reference</strong></p>
 <ul><li><ol style="list-style-type: upper-alpha"><li>
-<p>Geurts, D. Ernst, and L. Wehenkel, “Extremely randomized trees,” Machine
-Learning, vol. 63 (1), pp. 3–42, 2006.</p>
+<p>Geurts, D. Ernst, and L. Wehenkel, “Extremely randomized trees,” Machine Learning, vol. 63 (1), pp. 3–42, 2006.</p>
 </li></ol>
 </li></ul>
 
@@ -510,6 +505,8 @@ Learning, vol. 63 (1), pp. 3–42, 2006.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>10</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -526,11 +523,12 @@ Learning, vol. 63 (1), pp. 3–42, 2006.</p>
         <span class='type'>(<tt>String</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>&#39;gini&#39;</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The function to evalue spliting point. Supported criteria are
-&#39;gini&#39; and &#39;entropy&#39;.</p>
+<p>The function to evalue spliting point. Supported criteria are &#39;gini&#39; and &#39;entropy&#39;.</p>
 </div>
       
     </li>
@@ -543,11 +541,12 @@ Learning, vol. 63 (1), pp. 3–42, 2006.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The maximum depth of the tree. If nil is given, extra tree grows without
-concern for depth.</p>
+<p>The maximum depth of the tree. If nil is given, extra tree grows without concern for depth.</p>
 </div>
       
     </li>
@@ -560,11 +559,12 @@ concern for depth.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The maximum number of leaves on extra tree. If nil is given, number of
-leaves is not limited.</p>
+<p>The maximum number of leaves on extra tree. If nil is given, number of leaves is not limited.</p>
 </div>
       
     </li>
@@ -576,6 +576,8 @@ leaves is not limited.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>1</tt>)</em>
       
       
         &mdash;
@@ -593,12 +595,12 @@ leaves is not limited.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The number of features to consider when searching optimal split point. If
-nil is given, split process considers &#39;Math.sqrt(n_features)&#39;
-features.</p>
+<p>The number of features to consider when searching optimal split point. If nil is given, split process considers &#39;Math.sqrt(n_features)&#39; features.</p>
 </div>
       
     </li>
@@ -611,13 +613,12 @@ features.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The number of jobs for running the fit method in parallel. If nil is given,
-the method does not execute in parallel. If zero or less is given, it
-becomes equal to the number of processors. This parameter is ignored if the
-Parallel gem is not loaded.</p>
+<p>The number of jobs for running the fit method in parallel. If nil is given, the method does not execute in parallel. If zero or less is given, it becomes equal to the number of processors. This parameter is ignored if the Parallel gem is not loaded.</p>
 </div>
       
     </li>
@@ -630,11 +631,12 @@ Parallel gem is not loaded.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The seed value using to initialize the random generator. It is used to
-randomly determine the order of features when deciding spliting point.</p>
+<p>The seed value using to initialize the random generator. It is used to randomly determine the order of features when deciding spliting point.</p>
 </div>
       
     </li>
@@ -1040,8 +1042,7 @@ randomly determine the order of features when deciding spliting point.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for fitting
-the model.</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for fitting the model.</p>
 </div>
       
     </li>
@@ -1122,15 +1123,15 @@ the model.</p>
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_label_array'>check_convert_label_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_sample_label_size'>check_sample_label_size</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-  <span class='comment'># Initialize some variables.
-</span>  <span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_check_sample_label_size'>check_sample_label_size</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>  <span class='comment'># Initialize some variables.
+</span>
+  <span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_features</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_sqrt'>sqrt</span><span class='lparen'>(</span><span class='id identifier rubyid_n_features'>n_features</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span> <span class='kw'>if</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_features</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_features</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_features</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span><span class='comma'>,</span> <span class='id identifier rubyid_n_features'>n_features</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span>
   <span class='ivar'>@classes</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='period'>.</span><span class='id identifier rubyid_asarray'>asarray</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span><span class='period'>.</span><span class='id identifier rubyid_uniq'>uniq</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_sub_rng'>sub_rng</span> <span class='op'>=</span> <span class='ivar'>@rng</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
-  <span class='comment'># Construct trees.
-</span>  <span class='id identifier rubyid_rng_seeds'>rng_seeds</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_estimators</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_sub_rng'>sub_rng</span><span class='period'>.</span><span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Values</span><span class='period'>.</span><span class='id identifier rubyid_int_max'>int_max</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_sub_rng'>sub_rng</span> <span class='op'>=</span> <span class='ivar'>@rng</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>  <span class='comment'># Construct trees.
+</span>
+  <span class='id identifier rubyid_rng_seeds'>rng_seeds</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_estimators</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_sub_rng'>sub_rng</span><span class='period'>.</span><span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Values</span><span class='period'>.</span><span class='id identifier rubyid_int_max'>int_max</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
   <span class='ivar'>@estimators</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='id identifier rubyid_enable_parallel?'>enable_parallel?</span>
                   <span class='id identifier rubyid_parallel_map'>parallel_map</span><span class='lparen'>(</span><span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_estimators</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='id identifier rubyid_plant_tree'>plant_tree</span><span class='lparen'>(</span><span class='id identifier rubyid_rng_seeds'>rng_seeds</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
                 <span class='kw'>else</span>
@@ -1395,8 +1396,7 @@ the model.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_classes]) Predicted probability of each class per
-sample.</p>
+<p>(shape: [n_samples, n_classes]) Predicted probability of each class per sample.</p>
 </div>
       
     </li>
@@ -1431,9 +1431,9 @@ sample.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:45 2020 by
+  Generated on Sat Jan 11 19:43:15 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

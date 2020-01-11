@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::PolynomialModel::FactorizationMachineRegressor
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::PolynomialModel::FactorizationMachineRegressor";
   relpath = '../../';
 </script>
@@ -109,13 +109,11 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>FactorizationMachineRegressor is a class that implements Factorization
-Machine with stochastic gradient descent (SGD) optimization.</p>
+<p>FactorizationMachineRegressor is a class that implements Factorization Machine with stochastic gradient descent (SGD) optimization.</p>
 
 <p><strong>Reference</strong></p>
 <ul><li><ol style="list-style-type: upper-alpha"><li>
-<p>Rendle, “Factorization Machines with libFM,” ACM TIST, vol. 3 (3), pp.
-57:1–57:22, 2012.</p>
+<p>Rendle, “Factorization Machines with libFM,” ACM TIST, vol. 3 (3), pp. 57:1–57:22, 2012.</p>
 </li></ol>
 </li><li><ol style="list-style-type: upper-alpha"><li>
 <p>Rendle, “Factorization Machines,” Proc. ICDM&#39;10, pp. 995–1000, 2010.</p>
@@ -468,6 +466,8 @@ Machine with stochastic gradient descent (SGD) optimization.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>2</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -483,6 +483,8 @@ Machine with stochastic gradient descent (SGD) optimization.</p>
       
         <span class='type'>(<tt>Float</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>1.0</tt>)</em>
       
       
         &mdash;
@@ -500,6 +502,8 @@ Machine with stochastic gradient descent (SGD) optimization.</p>
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>1.0</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -515,6 +519,8 @@ Machine with stochastic gradient descent (SGD) optimization.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>1000</tt>)</em>
       
       
         &mdash;
@@ -532,6 +538,8 @@ Machine with stochastic gradient descent (SGD) optimization.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>10</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -548,11 +556,12 @@ Machine with stochastic gradient descent (SGD) optimization.</p>
         <span class='type'>(<tt><span class='object_link'><a href="../Optimizer.html" title="Rumale::Optimizer (module)">Optimizer</a></span></tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The optimizer to calculate adaptive learning rate. If nil is given, Nadam
-is used.</p>
+<p>The optimizer to calculate adaptive learning rate. If nil is given, Nadam is used.</p>
 </div>
       
     </li>
@@ -565,13 +574,12 @@ is used.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The number of jobs for running the fit method in parallel. If nil is given,
-the method does not execute in parallel. If zero or less is given, it
-becomes equal to the number of processors. This parameter is ignored if the
-Parallel gem is not loaded.</p>
+<p>The number of jobs for running the fit method in parallel. If nil is given, the method does not execute in parallel. If zero or less is given, it becomes equal to the number of processors. This parameter is ignored if the Parallel gem is not loaded.</p>
 </div>
       
     </li>
@@ -583,6 +591,8 @@ Parallel gem is not loaded.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
         &mdash;
@@ -913,8 +923,7 @@ Parallel gem is not loaded.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for fitting
-the model.</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for fitting the model.</p>
 </div>
       
     </li>
@@ -930,8 +939,7 @@ the model.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_outputs]) The target values to be used for fitting
-the model.</p>
+<p>(shape: [n_samples, n_outputs]) The target values to be used for fitting the model.</p>
 </div>
       
     </li>
@@ -1249,9 +1257,9 @@ the model.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:49 2020 by
+  Generated on Sat Jan 11 19:43:18 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

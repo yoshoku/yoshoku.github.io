@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::Clustering::PowerIteration
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::Clustering::PowerIteration";
   relpath = '../../';
 </script>
@@ -111,8 +111,7 @@
 
 <p><strong>Reference</strong></p>
 <ul><li><ol style="list-style-type: upper-alpha"><li>
-<p>Lin and W W. Cohen, “Power Iteration Clustering,” Proc. ICML&#39;10, pp.
-655–662, 2010.</p>
+<p>Lin and W W. Cohen, “Power Iteration Clustering,” Proc. ICML&#39;10, pp. 655–662, 2010.</p>
 </li></ol>
 </li></ul>
 
@@ -423,6 +422,8 @@
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>8</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -439,11 +440,12 @@
         <span class='type'>(<tt>String</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>&#39;rbf&#39;</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The representation of affinity matrix (&#39;rbf&#39; or
-&#39;precomputed&#39;).</p>
+<p>The representation of affinity matrix (&#39;rbf&#39; or &#39;precomputed&#39;).</p>
 </div>
       
     </li>
@@ -456,11 +458,12 @@
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The parameter of rbf kernel, if nil it is 1 / n_features. If affinity =
-&#39;precomputed&#39;, this parameter is ignored.</p>
+<p>The parameter of rbf kernel, if nil it is 1 / n_features. If affinity = &#39;precomputed&#39;, this parameter is ignored.</p>
 </div>
       
     </li>
@@ -473,11 +476,12 @@
         <span class='type'>(<tt>String</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>&#39;k-means++&#39;</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The initialization method for centroids of K-Means clustering
-(&#39;random&#39; or &#39;k-means++&#39;).</p>
+<p>The initialization method for centroids of K-Means clustering (&#39;random&#39; or &#39;k-means++&#39;).</p>
 </div>
       
     </li>
@@ -489,6 +493,8 @@
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>1000</tt>)</em>
       
       
         &mdash;
@@ -506,6 +512,8 @@
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>1.0e-8</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -522,6 +530,8 @@
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>1.0e-5</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -537,6 +547,8 @@
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
         &mdash;
@@ -826,9 +838,7 @@
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for cluster
-analysis. If the metric is &#39;precomputed&#39;, x must be a square
-affinity matrix (shape: [n_samples, n_samples]).</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for cluster analysis. If the metric is &#39;precomputed&#39;, x must be a square affinity matrix (shape: [n_samples, n_samples]).</p>
 </div>
       
     </li>
@@ -926,9 +936,7 @@ affinity matrix (shape: [n_samples, n_samples]).</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for cluster
-analysis. If the metric is &#39;precomputed&#39;, x must be a square
-affinity matrix (shape: [n_samples, n_samples]).</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for cluster analysis. If the metric is &#39;precomputed&#39;, x must be a square affinity matrix (shape: [n_samples, n_samples]).</p>
 </div>
       
     </li>
@@ -1130,9 +1138,9 @@ affinity matrix (shape: [n_samples, n_samples]).</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:38 2020 by
+  Generated on Sat Jan 11 19:43:11 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

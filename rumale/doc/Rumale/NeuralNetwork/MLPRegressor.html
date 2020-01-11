@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::NeuralNetwork::MLPRegressor
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::NeuralNetwork::MLPRegressor";
   relpath = '../../';
 </script>
@@ -109,9 +109,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>MLPRegressor is a class that implements regressor based on multi-layer
-perceptron. MLPRegressor use ReLu as the activation function and Adam as
-the optimization method and mean squared error as the loss function.</p>
+<p>MLPRegressor is a class that implements regressor based on multi-layer perceptron. MLPRegressor use ReLu as the activation function and Adam as the optimization method and mean squared error as the loss function.</p>
 
 
   </div>
@@ -379,6 +377,8 @@ the optimization method and mean squared error as the loss function.</p>
         <span class='type'>(<tt>Array</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>[128, 128]</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -394,6 +394,8 @@ the optimization method and mean squared error as the loss function.</p>
       
         <span class='type'>(<tt>Float</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>0.4</tt>)</em>
       
       
         &mdash;
@@ -411,6 +413,8 @@ the optimization method and mean squared error as the loss function.</p>
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>0.001</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -426,6 +430,8 @@ the optimization method and mean squared error as the loss function.</p>
       
         <span class='type'>(<tt>Float</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>0.9</tt>)</em>
       
       
         &mdash;
@@ -443,6 +449,8 @@ the optimization method and mean squared error as the loss function.</p>
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>0.999</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -459,11 +467,12 @@ the optimization method and mean squared error as the loss function.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>200</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The maximum number of epochs that indicates how many times the whole data
-is given to the training process.</p>
+<p>The maximum number of epochs that indicates how many times the whole data is given to the training process.</p>
 </div>
       
     </li>
@@ -475,6 +484,8 @@ is given to the training process.</p>
       
         <span class='type'>(<tt>Intger</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>50</tt>)</em>
       
       
         &mdash;
@@ -492,6 +503,8 @@ is given to the training process.</p>
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>1e-4</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -508,6 +521,8 @@ is given to the training process.</p>
         <span class='type'>(<tt>Boolean</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -523,6 +538,8 @@ is given to the training process.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
         &mdash;
@@ -782,8 +799,7 @@ is given to the training process.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for fitting
-the model.</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for fitting the model.</p>
 </div>
       
     </li>
@@ -799,8 +815,7 @@ the model.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_outputs]) The taget values to be used for fitting the
-model.</p>
+<p>(shape: [n_samples, n_outputs]) The taget values to be used for fitting the model.</p>
 </div>
       
     </li>
@@ -965,9 +980,9 @@ model.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:40 2020 by
+  Generated on Sat Jan 11 19:43:12 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

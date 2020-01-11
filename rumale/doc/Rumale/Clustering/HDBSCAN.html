@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::Clustering::HDBSCAN
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::Clustering::HDBSCAN";
   relpath = '../../';
 </script>
@@ -111,16 +111,11 @@
 
 <p><strong>Reference</strong></p>
 <ul><li>
-<p>R J. G. B. Campello, D. Moulavi, A. Zimek, and J. Sander, “Hierarchical
-Density Estimates for Data Clustering, Visualization, and Outlier
-Detection,” TKDD, Vol. 10 (1), pp. 5:1–5:51, 2015.</p>
+<p>R J. G. B. Campello, D. Moulavi, A. Zimek, and J. Sander, “Hierarchical Density Estimates for Data Clustering, Visualization, and Outlier Detection,” TKDD, Vol. 10 (1), pp. 5:1–5:51, 2015.</p>
 </li><li>
-<p>R J. G. B. Campello, D. Moulavi, and J Sander, “Density-Based Clustering
-Based on Hierarchical Density Estimates,” Proc. PAKDD&#39;13, pp. 160–172,
-2013.</p>
+<p>R J. G. B. Campello, D. Moulavi, and J Sander, “Density-Based Clustering Based on Hierarchical Density Estimates,” Proc. PAKDD&#39;13, pp. 160–172, 2013.</p>
 </li><li><ol style="list-style-type: upper-alpha"><li>
-<p>Lelis and J. Sander, “Semi-Supervised Density-Based Clustering,” Proc.
-ICDM&#39;09, pp. 842–847, 2009.</p>
+<p>Lelis and J. Sander, “Semi-Supervised Density-Based Clustering,” Proc. ICDM&#39;09, pp. 842–847, 2009.</p>
 </li></ol>
 </li></ul>
 
@@ -373,11 +368,12 @@ ICDM&#39;09, pp. 842–847, 2009.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>10</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The number of neighbor samples to be used for the criterion whether a point
-is a core point.</p>
+<p>The number of neighbor samples to be used for the criterion whether a point is a core point.</p>
 </div>
       
     </li>
@@ -390,11 +386,12 @@ is a core point.</p>
         <span class='type'>(<tt>Integer/Nil</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The minimum size of cluster. If nil is given, it is set equal to
-min_samples.</p>
+<p>The minimum size of cluster. If nil is given, it is set equal to min_samples.</p>
 </div>
       
     </li>
@@ -407,13 +404,12 @@ min_samples.</p>
         <span class='type'>(<tt>String</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>&#39;euclidean&#39;</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The metric to calculate the distances. If metric is &#39;euclidean&#39;,
-Euclidean distance is calculated for distance between points. If metric is
-&#39;precomputed&#39;, the fit and fit_transform methods expect to be given
-a distance matrix.</p>
+<p>The metric to calculate the distances. If metric is &#39;euclidean&#39;, Euclidean distance is calculated for distance between points. If metric is &#39;precomputed&#39;, the fit and fit_transform methods expect to be given a distance matrix.</p>
 </div>
       
     </li>
@@ -477,8 +473,7 @@ a distance matrix.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Return the cluster labels. The negative cluster label indicates that the
-point is noise.</p>
+<p>Return the cluster labels. The negative cluster label indicates that the point is noise.</p>
 
 
   </div>
@@ -566,9 +561,7 @@ point is noise.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for cluster
-analysis. If the metric is &#39;precomputed&#39;, x must be a square
-distance matrix (shape: [n_samples, n_samples]).</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for cluster analysis. If the metric is &#39;precomputed&#39;, x must be a square distance matrix (shape: [n_samples, n_samples]).</p>
 </div>
       
     </li>
@@ -666,9 +659,7 @@ distance matrix (shape: [n_samples, n_samples]).</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The samples to be used for cluster
-analysis. If the metric is &#39;precomputed&#39;, x must be a square
-distance matrix (shape: [n_samples, n_samples]).</p>
+<p>(shape: [n_samples, n_features]) The samples to be used for cluster analysis. If the metric is &#39;precomputed&#39;, x must be a square distance matrix (shape: [n_samples, n_samples]).</p>
 </div>
       
     </li>
@@ -858,9 +849,9 @@ distance matrix (shape: [n_samples, n_samples]).</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:34 2020 by
+  Generated on Sat Jan 11 19:43:07 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

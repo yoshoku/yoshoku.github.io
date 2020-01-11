@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::EvaluationMeasure::NormalizedMutualInformation
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::EvaluationMeasure::NormalizedMutualInformation";
   relpath = '../../';
 </script>
@@ -107,17 +107,13 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>NormalizedMutualInformation is a class that calculates the normalized
-mutual information.</p>
+<p>NormalizedMutualInformation is a class that calculates the normalized mutual information.</p>
 
 <p><strong>Reference</strong></p>
 <ul><li>
-<p>C D. Manning, P. Raghavan, and H. Schutze, “Introduction to Information
-Retrieval,” Cambridge University Press., 2008.</p>
+<p>C D. Manning, P. Raghavan, and H. Schutze, “Introduction to Information Retrieval,” Cambridge University Press., 2008.</p>
 </li><li>
-<p>N X. Vinh, J. Epps, and J. Bailey, “Information Theoretic Measures for
-Clusterings Comparison: Variants, Properties, Normalization and Correction
-for Chance,” J. Machine Learning Research, vol. 11, pp. 2837–1854, 2010.</p>
+<p>N X. Vinh, J. Epps, and J. Bailey, “Information Theoretic Measures for Clusterings Comparison: Variants, Properties, Normalization and Correction for Chance,” J. Machine Learning Research, vol. 11, pp. 2837–1854, 2010.</p>
 </li></ul>
 
 
@@ -293,14 +289,14 @@ for Chance,” J. Machine Learning Research, vol. 11, pp. 2837–1854, 2010.</p>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_score'>score</span><span class='lparen'>(</span><span class='id identifier rubyid_y_true'>y_true</span><span class='comma'>,</span> <span class='id identifier rubyid_y_pred'>y_pred</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_y_true'>y_true</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_label_array'>check_convert_label_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y_true'>y_true</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_y_pred'>y_pred</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_label_array'>check_convert_label_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y_pred'>y_pred</span><span class='rparen'>)</span>
-  <span class='comment'># calculate entropies.
-</span>  <span class='id identifier rubyid_class_entropy'>class_entropy</span> <span class='op'>=</span> <span class='id identifier rubyid_entropy'>entropy</span><span class='lparen'>(</span><span class='id identifier rubyid_y_true'>y_true</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_y_pred'>y_pred</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_label_array'>check_convert_label_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y_pred'>y_pred</span><span class='rparen'>)</span>  <span class='comment'># calculate entropies.
+</span>
+  <span class='id identifier rubyid_class_entropy'>class_entropy</span> <span class='op'>=</span> <span class='id identifier rubyid_entropy'>entropy</span><span class='lparen'>(</span><span class='id identifier rubyid_y_true'>y_true</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='float'>0.0</span> <span class='kw'>if</span> <span class='id identifier rubyid_class_entropy'>class_entropy</span><span class='period'>.</span><span class='id identifier rubyid_zero?'>zero?</span>
   <span class='id identifier rubyid_cluster_entropy'>cluster_entropy</span> <span class='op'>=</span> <span class='id identifier rubyid_entropy'>entropy</span><span class='lparen'>(</span><span class='id identifier rubyid_y_pred'>y_pred</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='float'>0.0</span> <span class='kw'>if</span> <span class='id identifier rubyid_cluster_entropy'>cluster_entropy</span><span class='period'>.</span><span class='id identifier rubyid_zero?'>zero?</span>
-  <span class='comment'># calculate mutual information.
-</span>  <span class='id identifier rubyid_mi'>mi</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="MutualInformation.html" title="Rumale::EvaluationMeasure::MutualInformation (class)">MutualInformation</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='kw'>return</span> <span class='float'>0.0</span> <span class='kw'>if</span> <span class='id identifier rubyid_cluster_entropy'>cluster_entropy</span><span class='period'>.</span><span class='id identifier rubyid_zero?'>zero?</span>  <span class='comment'># calculate mutual information.
+</span>
+  <span class='id identifier rubyid_mi'>mi</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="MutualInformation.html" title="Rumale::EvaluationMeasure::MutualInformation (class)">MutualInformation</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
   <span class='id identifier rubyid_mi'>mi</span><span class='period'>.</span><span class='id identifier rubyid_score'>score</span><span class='lparen'>(</span><span class='id identifier rubyid_y_true'>y_true</span><span class='comma'>,</span> <span class='id identifier rubyid_y_pred'>y_pred</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_sqrt'>sqrt</span><span class='lparen'>(</span><span class='id identifier rubyid_class_entropy'>class_entropy</span> <span class='op'>*</span> <span class='id identifier rubyid_cluster_entropy'>cluster_entropy</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -313,9 +309,9 @@ for Chance,” J. Machine Learning Research, vol. 11, pp. 2837–1854, 2010.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:49 2020 by
+  Generated on Sat Jan 11 19:43:18 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

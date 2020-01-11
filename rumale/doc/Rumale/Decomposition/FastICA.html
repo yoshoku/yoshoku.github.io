@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::Decomposition::FastICA
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::Decomposition::FastICA";
   relpath = '../../';
 </script>
@@ -111,12 +111,10 @@
 
 <p><strong>Reference</strong></p>
 <ul><li><ol style="list-style-type: upper-alpha"><li>
-<p>Hyvarinen “Fast and Robust Fixed-Point Algorithms for Independent Component
-Analysis,” IEEE Trans. Neural Networks, Vol. 10 (3), pp. 626–634, 1999.</p>
+<p>Hyvarinen “Fast and Robust Fixed-Point Algorithms for Independent Component Analysis,” IEEE Trans. Neural Networks, Vol. 10 (3), pp. 626–634, 1999.</p>
 </li></ol>
 </li><li><ol style="list-style-type: upper-alpha"><li>
-<p>Hyvarinen and E. Oja, “Independent Component Analysis: Algorithms and
-Applications,” Neural Networks, Vol. 13 (4-5), pp. 411–430, 2000.</p>
+<p>Hyvarinen and E. Oja, “Independent Component Analysis: Algorithms and Applications,” Neural Networks, Vol. 13 (4-5), pp. 411–430, 2000.</p>
 </li></ol>
 </li></ul>
 
@@ -320,8 +318,7 @@ Applications,” Neural Networks, Vol. 13 (4-5), pp. 411–430, 2000.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Fit the model with training data, and then transform them with the learned
-model.</p>
+<p>Fit the model with training data, and then transform them with the learned model.</p>
 </div></span>
   
 </li>
@@ -502,6 +499,8 @@ model.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>2</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -517,6 +516,8 @@ model.</p>
       
         <span class='type'>(<tt>Boolean</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>true</tt>)</em>
       
       
         &mdash;
@@ -534,11 +535,12 @@ model.</p>
         <span class='type'>(<tt>String</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>&#39;logcosh&#39;</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The type of contrast function (&#39;logcosh&#39;, &#39;exp&#39;, or
-&#39;cube&#39;).</p>
+<p>The type of contrast function (&#39;logcosh&#39;, &#39;exp&#39;, or &#39;cube&#39;).</p>
 </div>
       
     </li>
@@ -551,11 +553,12 @@ model.</p>
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>1.0</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The parameter of contrast function for &#39;logcosh&#39; and &#39;exp&#39;.
-If fun = &#39;cube&#39;, this parameter is ignored.</p>
+<p>The parameter of contrast function for &#39;logcosh&#39; and &#39;exp&#39;. If fun = &#39;cube&#39;, this parameter is ignored.</p>
 </div>
       
     </li>
@@ -567,6 +570,8 @@ If fun = &#39;cube&#39;, this parameter is ignored.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>200</tt>)</em>
       
       
         &mdash;
@@ -584,6 +589,8 @@ If fun = &#39;cube&#39;, this parameter is ignored.</p>
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>1e-4</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -599,6 +606,8 @@ If fun = &#39;cube&#39;, this parameter is ignored.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
         &mdash;
@@ -954,8 +963,7 @@ If fun = &#39;cube&#39;, this parameter is ignored.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for fitting
-the model.</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for fitting the model.</p>
 </div>
       
     </li>
@@ -1041,8 +1049,7 @@ the model.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Fit the model with training data, and then transform them with the learned
-model.</p>
+<p>Fit the model with training data, and then transform them with the learned model.</p>
 
 
   </div>
@@ -1070,8 +1077,7 @@ model.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for fitting
-the model.</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for fitting the model.</p>
 </div>
       
     </li>
@@ -1159,8 +1165,7 @@ the model.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_components]) The source data reconstructed to the
-mixed data.</p>
+<p>(shape: [n_samples, n_components]) The source data reconstructed to the mixed data.</p>
 </div>
       
     </li>
@@ -1382,8 +1387,7 @@ mixed data.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The data to be transformed with the
-learned model.</p>
+<p>(shape: [n_samples, n_features]) The data to be transformed with the learned model.</p>
 </div>
       
     </li>
@@ -1439,9 +1443,9 @@ learned model.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:36 2020 by
+  Generated on Sat Jan 11 19:43:09 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

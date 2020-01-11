@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::KernelMachine::KernelPCA
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::KernelMachine::KernelPCA";
   relpath = '../../';
 </script>
@@ -111,9 +111,7 @@
 
 <p><strong>Reference</strong></p>
 <ul><li><ol style="list-style-type: upper-alpha"><li>
-<p>Scholkopf, A. Smola, and K-R. Muller, “Nonlinear Component Analysis as a
-Kernel Eigenvalue Problem,” Neural Computation, Vol. 10 (5), pp. 1299–1319,
-1998.</p>
+<p>Scholkopf, A. Smola, and K-R. Muller, “Nonlinear Component Analysis as a Kernel Eigenvalue Problem,” Neural Computation, Vol. 10 (5), pp. 1299–1319, 1998.</p>
 </li></ol>
 </li></ul>
 
@@ -263,8 +261,7 @@ Kernel Eigenvalue Problem,” Neural Computation, Vol. 10 (5), pp. 1299–1319,
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Fit the model with training data, and then transform them with the learned
-model.</p>
+<p>Fit the model with training data, and then transform them with the learned model.</p>
 </div></span>
   
 </li>
@@ -420,6 +417,8 @@ model.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>2</tt>)</em>
       
       
         &mdash;
@@ -611,8 +610,7 @@ model.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Fit the model with given training data. To execute this method,
-Numo::Linalg must be loaded.</p>
+<p>Fit the model with given training data. To execute this method, Numo::Linalg must be loaded.</p>
 
 
   </div>
@@ -640,8 +638,7 @@ Numo::Linalg must be loaded.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_training_samples, n_training_samples]) The kernel matrix of the
-training data to be used for fitting the model.</p>
+<p>(shape: [n_training_samples, n_training_samples]) The kernel matrix of the training data to be used for fitting the model.</p>
 </div>
       
     </li>
@@ -738,8 +735,7 @@ training data to be used for fitting the model.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Fit the model with training data, and then transform them with the learned
-model. To execute this method, Numo::Linalg must be loaded.</p>
+<p>Fit the model with training data, and then transform them with the learned model. To execute this method, Numo::Linalg must be loaded.</p>
 
 
   </div>
@@ -767,8 +763,7 @@ model. To execute this method, Numo::Linalg must be loaded.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_samples]) The kernel matrix of the training data to
-be used for fitting the model and transformed.</p>
+<p>(shape: [n_samples, n_samples]) The kernel matrix of the training data to be used for fitting the model and transformed.</p>
 </div>
       
     </li>
@@ -983,8 +978,7 @@ be used for fitting the model and transformed.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_testing_samples, n_training_samples]) The kernel matrix between
-testing samples and training samples to be transformed.</p>
+<p>(shape: [n_testing_samples, n_training_samples]) The kernel matrix between testing samples and training samples to be transformed.</p>
 </div>
       
     </li>
@@ -1046,9 +1040,9 @@ testing samples and training samples to be transformed.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:37 2020 by
+  Generated on Sat Jan 11 19:43:10 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::Decomposition::PCA
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::Decomposition::PCA";
   relpath = '../../';
 </script>
@@ -111,9 +111,7 @@
 
 <p><strong>Reference</strong></p>
 <ul><li><ol style="list-style-type: upper-alpha"><li>
-<p>Sharma and K K. Paliwal, “Fast principal component analysis using
-fixed-point algorithm,” Pattern Recognition Letters, 28, pp. 1151–1155,
-2007.</p>
+<p>Sharma and K K. Paliwal, “Fast principal component analysis using fixed-point algorithm,” Pattern Recognition Letters, 28, pp. 1151–1155, 2007.</p>
 </li></ol>
 </li></ul>
 
@@ -291,8 +289,7 @@ fixed-point algorithm,” Pattern Recognition Letters, 28, pp. 1151–1155,
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Fit the model with training data, and then transform them with the learned
-model.</p>
+<p>Fit the model with training data, and then transform them with the learned model.</p>
 </div></span>
   
 </li>
@@ -473,6 +470,8 @@ model.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>2</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -489,12 +488,12 @@ model.</p>
         <span class='type'>(<tt>String</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>&#39;fpt&#39;</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The algorithm for the optimization (&#39;fpt&#39; or &#39;evd&#39;).
-&#39;fpt&#39; uses the fixed-point algorithm. &#39;evd&#39; performs eigen
-value decomposition of the covariance matrix of samples.</p>
+<p>The algorithm for the optimization (&#39;fpt&#39; or &#39;evd&#39;). &#39;fpt&#39; uses the fixed-point algorithm. &#39;evd&#39; performs eigen value decomposition of the covariance matrix of samples.</p>
 </div>
       
     </li>
@@ -507,11 +506,12 @@ value decomposition of the covariance matrix of samples.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>100</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The maximum number of iterations. If solver = &#39;evd&#39;, this parameter
-is ignored.</p>
+<p>The maximum number of iterations. If solver = &#39;evd&#39;, this parameter is ignored.</p>
 </div>
       
     </li>
@@ -524,11 +524,12 @@ is ignored.</p>
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>1.0e-4</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The tolerance of termination criterion. If solver = &#39;evd&#39;, this
-parameter is ignored.</p>
+<p>The tolerance of termination criterion. If solver = &#39;evd&#39;, this parameter is ignored.</p>
 </div>
       
     </li>
@@ -540,6 +541,8 @@ parameter is ignored.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
         &mdash;
@@ -823,8 +826,7 @@ parameter is ignored.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for fitting
-the model.</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for fitting the model.</p>
 </div>
       
     </li>
@@ -889,16 +891,16 @@ the model.</p>
       <pre class="code"><span class="info file"># File 'lib/rumale/decomposition/pca.rb', line 69</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid__y'>_y</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='comment'># initialize some variables.
-</span>  <span class='ivar'>@components</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>  <span class='comment'># initialize some variables.
+</span>
+  <span class='ivar'>@components</span> <span class='op'>=</span> <span class='kw'>nil</span>
   <span class='id identifier rubyid_n_samples'>n_samples</span><span class='comma'>,</span> <span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span>
-  <span class='id identifier rubyid_sub_rng'>sub_rng</span> <span class='op'>=</span> <span class='ivar'>@rng</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
-  <span class='comment'># centering.
-</span>  <span class='ivar'>@mean</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_mean'>mean</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_centered_x'>centered_x</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span> <span class='op'>-</span> <span class='ivar'>@mean</span>
-  <span class='comment'># optimization.
-</span>  <span class='id identifier rubyid_covariance_mat'>covariance_mat</span> <span class='op'>=</span> <span class='id identifier rubyid_centered_x'>centered_x</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='id identifier rubyid_centered_x'>centered_x</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='id identifier rubyid_n_samples'>n_samples</span> <span class='op'>-</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_sub_rng'>sub_rng</span> <span class='op'>=</span> <span class='ivar'>@rng</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>  <span class='comment'># centering.
+</span>
+  <span class='ivar'>@mean</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_mean'>mean</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_centered_x'>centered_x</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span> <span class='op'>-</span> <span class='ivar'>@mean</span>  <span class='comment'># optimization.
+</span>
+  <span class='id identifier rubyid_covariance_mat'>covariance_mat</span> <span class='op'>=</span> <span class='id identifier rubyid_centered_x'>centered_x</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='id identifier rubyid_centered_x'>centered_x</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='id identifier rubyid_n_samples'>n_samples</span> <span class='op'>-</span> <span class='int'>1</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:solver</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>evd</span><span class='tstring_end'>&#39;</span></span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_enable_linalg?'>enable_linalg?</span>
     <span class='id identifier rubyid__'>_</span><span class='comma'>,</span> <span class='id identifier rubyid_evecs'>evecs</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Linalg</span><span class='period'>.</span><span class='id identifier rubyid_eigh'>eigh</span><span class='lparen'>(</span><span class='id identifier rubyid_covariance_mat'>covariance_mat</span><span class='comma'>,</span> <span class='label'>vals_range:</span> <span class='lparen'>(</span><span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>-</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_components</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='op'>...</span><span class='id identifier rubyid_n_features'>n_features</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_comps'>comps</span> <span class='op'>=</span> <span class='id identifier rubyid_evecs'>evecs</span><span class='period'>.</span><span class='id identifier rubyid_reverse'>reverse</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span>
@@ -933,8 +935,7 @@ the model.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Fit the model with training data, and then transform them with the learned
-model.</p>
+<p>Fit the model with training data, and then transform them with the learned model.</p>
 
 
   </div>
@@ -956,8 +957,7 @@ model.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for fitting
-the model.</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for fitting the model.</p>
 </div>
       
     </li>
@@ -1038,8 +1038,7 @@ the model.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_components]) The data to be restored into original
-space with the learned model.</p>
+<p>(shape: [n_samples, n_components]) The data to be restored into original space with the learned model.</p>
 </div>
       
     </li>
@@ -1249,8 +1248,7 @@ space with the learned model.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The data to be transformed with the
-learned model.</p>
+<p>(shape: [n_samples, n_features]) The data to be transformed with the learned model.</p>
 </div>
       
     </li>
@@ -1304,9 +1302,9 @@ learned model.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:34 2020 by
+  Generated on Sat Jan 11 19:43:07 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::NearestNeighbors::KNeighborsClassifier
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::NearestNeighbors::KNeighborsClassifier";
   relpath = '../../';
 </script>
@@ -107,9 +107,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>KNeighborsClassifier is a class that implements the classifier with the
-k-nearest neighbors rule. The current implementation uses the Euclidean
-distance for finding the neighbors.</p>
+<p>KNeighborsClassifier is a class that implements the classifier with the k-nearest neighbors rule. The current implementation uses the Euclidean distance for finding the neighbors.</p>
 
 
   </div>
@@ -444,6 +442,8 @@ distance for finding the neighbors.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>5</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -460,13 +460,12 @@ distance for finding the neighbors.</p>
         <span class='type'>(<tt>String</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>&#39;brute&#39;</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The algorithm is used for finding the nearest neighbors. If algorithm is
-&#39;brute&#39;, brute-force search will be used. If algorithm is
-&#39;vptree&#39;, vantage point tree will be used. This parameter is
-ignored when metric parameter is &#39;precomputed&#39;.</p>
+<p>The algorithm is used for finding the nearest neighbors. If algorithm is &#39;brute&#39;, brute-force search will be used. If algorithm is &#39;vptree&#39;, vantage point tree will be used. This parameter is ignored when metric parameter is &#39;precomputed&#39;.</p>
 </div>
       
     </li>
@@ -479,13 +478,12 @@ ignored when metric parameter is &#39;precomputed&#39;.</p>
         <span class='type'>(<tt>String</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>&#39;euclidean&#39;</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The metric to calculate the distances. If metric is &#39;euclidean&#39;,
-Euclidean distance is calculated for distance between points. If metric is
-&#39;precomputed&#39;, the fit and predict methods expect to be given a
-distance matrix.</p>
+<p>The metric to calculate the distances. If metric is &#39;euclidean&#39;, Euclidean distance is calculated for distance between points. If metric is &#39;precomputed&#39;, the fit and predict methods expect to be given a distance matrix.</p>
 </div>
       
     </li>
@@ -673,9 +671,7 @@ distance matrix.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Return the prototypes for the nearest neighbor classifier. If the metric is
-&#39;precomputed&#39;, that returns nil. If the algorithm is
-&#39;vptree&#39;, that returns Rumale::NearestNeighbors::VPTree.</p>
+<p>Return the prototypes for the nearest neighbor classifier. If the metric is &#39;precomputed&#39;, that returns nil. If the algorithm is &#39;vptree&#39;, that returns Rumale::NearestNeighbors::VPTree.</p>
 
 
   </div>
@@ -761,9 +757,7 @@ distance matrix.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_testing_samples, n_features]) The samples to compute the scores.
-If the metric is &#39;precomputed&#39;, x must be a square distance matrix
-(shape: [n_testing_samples, n_training_samples]).</p>
+<p>(shape: [n_testing_samples, n_features]) The samples to compute the scores. If the metric is &#39;precomputed&#39;, x must be a square distance matrix (shape: [n_testing_samples, n_training_samples]).</p>
 </div>
       
     </li>
@@ -782,8 +776,7 @@ If the metric is &#39;precomputed&#39;, x must be a square distance matrix
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_testing_samples, n_classes]) Confidence scores per sample for
-each class.</p>
+<p>(shape: [n_testing_samples, n_classes]) Confidence scores per sample for each class.</p>
 </div>
       
     </li>
@@ -891,9 +884,7 @@ each class.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_training_samples, n_features]) The training data to be used for
-fitting the model. If the metric is &#39;precomputed&#39;, x must be a
-square distance matrix (shape: [n_training_samples, n_training_samples]).</p>
+<p>(shape: [n_training_samples, n_features]) The training data to be used for fitting the model. If the metric is &#39;precomputed&#39;, x must be a square distance matrix (shape: [n_training_samples, n_training_samples]).</p>
 </div>
       
     </li>
@@ -1154,9 +1145,7 @@ square distance matrix (shape: [n_training_samples, n_training_samples]).</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_testing_samples, n_features]) The samples to predict the labels.
-If the metric is &#39;precomputed&#39;, x must be a square distance matrix
-(shape: [n_testing_samples, n_training_samples]).</p>
+<p>(shape: [n_testing_samples, n_features]) The samples to predict the labels. If the metric is &#39;precomputed&#39;, x must be a square distance matrix (shape: [n_testing_samples, n_training_samples]).</p>
 </div>
       
     </li>
@@ -1222,9 +1211,9 @@ If the metric is &#39;precomputed&#39;, x must be a square distance matrix
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:48 2020 by
+  Generated on Sat Jan 11 19:43:18 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

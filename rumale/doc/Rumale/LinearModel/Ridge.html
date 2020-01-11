@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::LinearModel::Ridge
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::LinearModel::Ridge";
   relpath = '../../';
 </script>
@@ -109,8 +109,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Ridge is a class that implements Ridge Regression with mini-batch
-stochastic gradient descent optimization or singular value decomposition.</p>
+<p>Ridge is a class that implements Ridge Regression with mini-batch stochastic gradient descent optimization or singular value decomposition.</p>
 
 
   </div>
@@ -433,6 +432,8 @@ stochastic gradient descent optimization or singular value decomposition.</p>
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>1.0</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -448,6 +449,8 @@ stochastic gradient descent optimization or singular value decomposition.</p>
       
         <span class='type'>(<tt>Boolean</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
       
       
         &mdash;
@@ -465,6 +468,8 @@ stochastic gradient descent optimization or singular value decomposition.</p>
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>1.0</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -481,11 +486,12 @@ stochastic gradient descent optimization or singular value decomposition.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>1000</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The maximum number of iterations. If solver = &#39;svd&#39;, this parameter
-is ignored.</p>
+<p>The maximum number of iterations. If solver = &#39;svd&#39;, this parameter is ignored.</p>
 </div>
       
     </li>
@@ -498,11 +504,12 @@ is ignored.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>10</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The size of the mini batches. If solver = &#39;svd&#39;, this parameter is
-ignored.</p>
+<p>The size of the mini batches. If solver = &#39;svd&#39;, this parameter is ignored.</p>
 </div>
       
     </li>
@@ -512,14 +519,15 @@ ignored.</p>
         <span class='name'>optimizer</span>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="../Optimizer.html" title="Rumale::Optimizer (module)">Optimizer</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'>Optimizer</span></tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
         &mdash;
         <div class='inline'>
-<p>The optimizer to calculate adaptive learning rate. If nil is given, Nadam
-is used. If solver = &#39;svd&#39;, this parameter is ignored.</p>
+<p>The optimizer to calculate adaptive learning rate. If nil is given, Nadam is used. If solver = &#39;svd&#39;, this parameter is ignored.</p>
 </div>
       
     </li>
@@ -532,12 +540,12 @@ is used. If solver = &#39;svd&#39;, this parameter is ignored.</p>
         <span class='type'>(<tt>String</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>&#39;sgd&#39;</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The algorithm to calculate weights. (&#39;sgd&#39; or &#39;svd&#39;).
-&#39;sgd&#39; uses the stochastic gradient descent optimization.
-&#39;svd&#39; performs singular value decomposition of samples.</p>
+<p>The algorithm to calculate weights. (&#39;sgd&#39; or &#39;svd&#39;). &#39;sgd&#39; uses the stochastic gradient descent optimization. &#39;svd&#39; performs singular value decomposition of samples.</p>
 </div>
       
     </li>
@@ -550,13 +558,12 @@ is used. If solver = &#39;svd&#39;, this parameter is ignored.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The number of jobs for running the fit method in parallel. If nil is given,
-the method does not execute in parallel. If zero or less is given, it
-becomes equal to the number of processors. This parameter is ignored if the
-Parallel gem is not loaded or the solver is &#39;svd&#39;.</p>
+<p>The number of jobs for running the fit method in parallel. If nil is given, the method does not execute in parallel. If zero or less is given, it becomes equal to the number of processors. This parameter is ignored if the Parallel gem is not loaded or the solver is &#39;svd&#39;.</p>
 </div>
       
     </li>
@@ -568,6 +575,8 @@ Parallel gem is not loaded or the solver is &#39;svd&#39;.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
         &mdash;
@@ -841,8 +850,7 @@ Parallel gem is not loaded or the solver is &#39;svd&#39;.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for fitting
-the model.</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for fitting the model.</p>
 </div>
       
     </li>
@@ -858,8 +866,7 @@ the model.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_outputs]) The target values to be used for fitting
-the model.</p>
+<p>(shape: [n_samples, n_outputs]) The target values to be used for fitting the model.</p>
 </div>
       
     </li>
@@ -1139,9 +1146,9 @@ the model.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:35 2020 by
+  Generated on Sat Jan 11 19:43:08 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

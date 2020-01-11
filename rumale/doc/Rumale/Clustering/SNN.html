@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::Clustering::SNN
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::Clustering::SNN";
   relpath = '../../';
 </script>
@@ -104,20 +104,14 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>SNN is a class that implements Shared Nearest Neighbor cluster analysis.
-The SNN method is a variation of DBSCAN that uses similarity based on
-k-nearest neighbors as a metric.</p>
+<p>SNN is a class that implements Shared Nearest Neighbor cluster analysis. The SNN method is a variation of DBSCAN that uses similarity based on k-nearest neighbors as a metric.</p>
 
 <p><strong>Reference</strong></p>
 <ul><li><ol style="list-style-type: upper-alpha"><li>
-<p>Ertoz, M. Steinbach, and V. Kumar, “Finding Clusters of Different Sizes,
-Shapes, and Densities in Noisy, High Dimensional Data,” Proc. SDM&#39;03,
-pp. 47–58, 2003.</p>
+<p>Ertoz, M. Steinbach, and V. Kumar, “Finding Clusters of Different Sizes, Shapes, and Densities in Noisy, High Dimensional Data,” Proc. SDM&#39;03, pp. 47–58, 2003.</p>
 </li></ol>
 </li><li>
-<p>M E. Houle, H-P. Kriegel, P. Kroger, E. Schubert, and A. Zimek, “Can
-Shared-Neighbor Distances Defeat the Curse of Dimensionality?,” Proc.
-SSDBM&#39;10, pp. 482–500, 2010.</p>
+<p>M E. Houle, H-P. Kriegel, P. Kroger, E. Schubert, and A. Zimek, “Can Shared-Neighbor Distances Defeat the Curse of Dimensionality?,” Proc. SSDBM&#39;10, pp. 482–500, 2010.</p>
 </li></ul>
 
 
@@ -303,6 +297,8 @@ SSDBM&#39;10, pp. 482–500, 2010.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>10</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -318,6 +314,8 @@ SSDBM&#39;10, pp. 482–500, 2010.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>5</tt>)</em>
       
       
         &mdash;
@@ -335,11 +333,12 @@ SSDBM&#39;10, pp. 482–500, 2010.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>5</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The number of neighbor samples to be used for the criterion whether a point
-is a core point.</p>
+<p>The number of neighbor samples to be used for the criterion whether a point is a core point.</p>
 </div>
       
     </li>
@@ -352,13 +351,12 @@ is a core point.</p>
         <span class='type'>(<tt>String</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>&#39;euclidean&#39;</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The metric to calculate the distances. If metric is &#39;euclidean&#39;,
-Euclidean distance is calculated for distance between points. If metric is
-&#39;precomputed&#39;, the fit and fit_transform methods expect to be given
-a distance matrix.</p>
+<p>The metric to calculate the distances. If metric is &#39;euclidean&#39;, Euclidean distance is calculated for distance between points. If metric is &#39;precomputed&#39;, the fit and fit_transform methods expect to be given a distance matrix.</p>
 </div>
       
     </li>
@@ -450,9 +448,7 @@ a distance matrix.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for cluster
-analysis. If the metric is &#39;precomputed&#39;, x must be a square
-distance matrix (shape: [n_samples, n_samples]).</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for cluster analysis. If the metric is &#39;precomputed&#39;, x must be a square distance matrix (shape: [n_samples, n_samples]).</p>
 </div>
       
     </li>
@@ -534,9 +530,7 @@ distance matrix (shape: [n_samples, n_samples]).</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The samples to be used for cluster
-analysis. If the metric is &#39;precomputed&#39;, x must be a square
-distance matrix (shape: [n_samples, n_samples]).</p>
+<p>(shape: [n_samples, n_features]) The samples to be used for cluster analysis. If the metric is &#39;precomputed&#39;, x must be a square distance matrix (shape: [n_samples, n_samples]).</p>
 </div>
       
     </li>
@@ -588,9 +582,9 @@ distance matrix (shape: [n_samples, n_samples]).</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:32 2020 by
+  Generated on Sat Jan 11 19:43:06 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

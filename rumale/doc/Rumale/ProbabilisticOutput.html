@@ -6,15 +6,15 @@
 <title>
   Module: Rumale::ProbabilisticOutput
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::ProbabilisticOutput";
   relpath = '../';
 </script>
@@ -86,18 +86,13 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Module for calculating posterior class probabilities with SVM outputs. This
-module is used for internal processes.</p>
+<p>Module for calculating posterior class probabilities with SVM outputs. This module is used for internal processes.</p>
 
 <p><strong>Reference</strong></p>
 <ol><li>
-<p>J C. Platt, “Probabilistic Outputs for Support Vector Machines and
-Comparisons to Regularized Likelihood Methods,” Adv. Large Margin
-Classifiers, pp. 61–74, 2000.</p>
+<p>J C. Platt, “Probabilistic Outputs for Support Vector Machines and Comparisons to Regularized Likelihood Methods,” Adv. Large Margin Classifiers, pp. 61–74, 2000.</p>
 </li><li>
-<p>H-T Lin, C-J Lin, and R C.Weng, “A Note on Platt&#39;s Probabilistic
-Outputs for Support Vector Machines,” J. Machine Learning, Vol. 63 (3), pp.
-267–276, 2007.</p>
+<p>H-T Lin, C-J Lin, and R C.Weng, “A Note on Platt&#39;s Probabilistic Outputs for Support Vector Machines,” J. Machine Learning, Vol. 63 (3), pp. 267–276, 2007.</p>
 </li></ol>
 
 
@@ -198,8 +193,7 @@ Outputs for Support Vector Machines,” J. Machine Learning, Vol. 63 (3), pp.
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples]) The outputs of decision function to be used for
-fitting the model.</p>
+<p>(shape: [n_samples]) The outputs of decision function to be used for fitting the model.</p>
 </div>
       
     </li>
@@ -360,9 +354,9 @@ fitting the model.</p>
   <span class='id identifier rubyid_target_probs'>target_probs</span><span class='lbracket'>[</span><span class='id identifier rubyid_neg'>neg</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='int'>1</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='id identifier rubyid_n_neg_samples'>n_neg_samples</span> <span class='op'>+</span> <span class='float'>2.0</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_alpha'>alpha</span> <span class='op'>=</span> <span class='float'>0.0</span>
   <span class='id identifier rubyid_beta'>beta</span> <span class='op'>=</span> <span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='lparen'>(</span><span class='id identifier rubyid_n_neg_samples'>n_neg_samples</span> <span class='op'>+</span> <span class='int'>1</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='id identifier rubyid_n_pos_samples'>n_pos_samples</span> <span class='op'>+</span> <span class='float'>1.0</span><span class='rparen'>)</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_err'>err</span> <span class='op'>=</span> <span class='id identifier rubyid_error_function'>error_function</span><span class='lparen'>(</span><span class='id identifier rubyid_target_probs'>target_probs</span><span class='comma'>,</span> <span class='id identifier rubyid_df'>df</span><span class='comma'>,</span> <span class='id identifier rubyid_alpha'>alpha</span><span class='comma'>,</span> <span class='id identifier rubyid_beta'>beta</span><span class='rparen'>)</span>
-  <span class='comment'># Optimize parameters for class porbability calculation.
-</span>  <span class='id identifier rubyid_old_grad_vec'>old_grad_vec</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_err'>err</span> <span class='op'>=</span> <span class='id identifier rubyid_error_function'>error_function</span><span class='lparen'>(</span><span class='id identifier rubyid_target_probs'>target_probs</span><span class='comma'>,</span> <span class='id identifier rubyid_df'>df</span><span class='comma'>,</span> <span class='id identifier rubyid_alpha'>alpha</span><span class='comma'>,</span> <span class='id identifier rubyid_beta'>beta</span><span class='rparen'>)</span>  <span class='comment'># Optimize parameters for class porbability calculation.
+</span>
+  <span class='id identifier rubyid_old_grad_vec'>old_grad_vec</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_max_iter'>max_iter</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span>
     <span class='comment'># Calculate gradient and hessian matrix.
 </span>    <span class='id identifier rubyid_probs'>probs</span> <span class='op'>=</span> <span class='id identifier rubyid_predicted_probs'>predicted_probs</span><span class='lparen'>(</span><span class='id identifier rubyid_df'>df</span><span class='comma'>,</span> <span class='id identifier rubyid_alpha'>alpha</span><span class='comma'>,</span> <span class='id identifier rubyid_beta'>beta</span><span class='rparen'>)</span>
@@ -370,9 +364,9 @@ fitting the model.</p>
     <span class='id identifier rubyid_hess_mat'>hess_mat</span> <span class='op'>=</span> <span class='id identifier rubyid_hessian_matrix'>hessian_matrix</span><span class='lparen'>(</span><span class='id identifier rubyid_probs'>probs</span><span class='comma'>,</span> <span class='id identifier rubyid_df'>df</span><span class='comma'>,</span> <span class='id identifier rubyid_sigma'>sigma</span><span class='rparen'>)</span>
     <span class='kw'>break</span> <span class='kw'>if</span> <span class='id identifier rubyid_grad_vec'>grad_vec</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span><span class='period'>.</span><span class='id identifier rubyid_lt'>lt</span><span class='lparen'>(</span><span class='float'>1e-5</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span> <span class='op'>==</span> <span class='int'>2</span>
     <span class='kw'>break</span> <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_old_grad_vec'>old_grad_vec</span> <span class='op'>-</span> <span class='id identifier rubyid_grad_vec'>grad_vec</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span> <span class='op'>&lt;</span> <span class='float'>1e-5</span>
-    <span class='id identifier rubyid_old_grad_vec'>old_grad_vec</span> <span class='op'>=</span> <span class='id identifier rubyid_grad_vec'>grad_vec</span>
-    <span class='comment'># Calculate Newton directions.
-</span>    <span class='id identifier rubyid_dirs_vec'>dirs_vec</span> <span class='op'>=</span> <span class='id identifier rubyid_directions'>directions</span><span class='lparen'>(</span><span class='id identifier rubyid_grad_vec'>grad_vec</span><span class='comma'>,</span> <span class='id identifier rubyid_hess_mat'>hess_mat</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_old_grad_vec'>old_grad_vec</span> <span class='op'>=</span> <span class='id identifier rubyid_grad_vec'>grad_vec</span>    <span class='comment'># Calculate Newton directions.
+</span>
+    <span class='id identifier rubyid_dirs_vec'>dirs_vec</span> <span class='op'>=</span> <span class='id identifier rubyid_directions'>directions</span><span class='lparen'>(</span><span class='id identifier rubyid_grad_vec'>grad_vec</span><span class='comma'>,</span> <span class='id identifier rubyid_hess_mat'>hess_mat</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_grad_dir'>grad_dir</span> <span class='op'>=</span> <span class='id identifier rubyid_grad_vec'>grad_vec</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='id identifier rubyid_dirs_vec'>dirs_vec</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_stepsize'>stepsize</span> <span class='op'>=</span> <span class='float'>2.0</span>
     <span class='kw'>while</span> <span class='id identifier rubyid_stepsize'>stepsize</span> <span class='op'>&gt;=</span> <span class='id identifier rubyid_min_step'>min_step</span>
@@ -399,9 +393,9 @@ fitting the model.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:31 2020 by
+  Generated on Sat Jan 11 19:43:05 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

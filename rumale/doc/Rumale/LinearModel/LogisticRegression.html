@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::LinearModel::LogisticRegression
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::LinearModel::LogisticRegression";
   relpath = '../../';
 </script>
@@ -109,19 +109,13 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>LogisticRegression is a class that implements Logistic Regression with
-mini-batch stochastic gradient descent optimization. For multiclass
-classification problem, it uses one-vs-the-rest strategy.</p>
+<p>LogisticRegression is a class that implements Logistic Regression with mini-batch stochastic gradient descent optimization. For multiclass classification problem, it uses one-vs-the-rest strategy.</p>
 
-<p>Rumale::SVM provides Logistic Regression based on LIBLINEAR. If you prefer
-execution speed, you should use Rumale::SVM::LogisticRegression. <a
-href="https://github.com/yoshoku/rumale-svm">github.com/yoshoku/rumale-svm</a></p>
+<p>Rumale::SVM provides Logistic Regression based on LIBLINEAR. If you prefer execution speed, you should use Rumale::SVM::LogisticRegression. <a href="https://github.com/yoshoku/rumale-svm">github.com/yoshoku/rumale-svm</a></p>
 
 <p><strong>Reference</strong></p>
 <ul><li><ol style="list-style-type: upper-alpha"><li>
-<p>Shalev-Shwartz, Y. Singer, N. Srebro, and A. Cotter, “Pegasos: Primal
-Estimated sub-GrAdient SOlver for SVM,” Mathematical Programming, vol. 127
-(1), pp. 3–30, 2011.</p>
+<p>Shalev-Shwartz, Y. Singer, N. Srebro, and A. Cotter, “Pegasos: Primal Estimated sub-GrAdient SOlver for SVM,” Mathematical Programming, vol. 127 (1), pp. 3–30, 2011.</p>
 </li></ol>
 </li></ul>
 
@@ -517,6 +511,8 @@ Estimated sub-GrAdient SOlver for SVM,” Mathematical Programming, vol. 127
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>1.0</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -532,6 +528,8 @@ Estimated sub-GrAdient SOlver for SVM,” Mathematical Programming, vol. 127
       
         <span class='type'>(<tt>Boolean</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
       
       
         &mdash;
@@ -549,11 +547,12 @@ Estimated sub-GrAdient SOlver for SVM,” Mathematical Programming, vol. 127
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>1.0</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The scale of the bias term. If fit_bias is true, the feature vector v
-becoms [v; bias_scale].</p>
+<p>The scale of the bias term. If fit_bias is true, the feature vector v becoms [v; bias_scale].</p>
 </div>
       
     </li>
@@ -565,6 +564,8 @@ becoms [v; bias_scale].</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>1000</tt>)</em>
       
       
         &mdash;
@@ -582,6 +583,8 @@ becoms [v; bias_scale].</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>20</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -595,14 +598,15 @@ becoms [v; bias_scale].</p>
         <span class='name'>optimizer</span>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="../Optimizer.html" title="Rumale::Optimizer (module)">Optimizer</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'>Optimizer</span></tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
         &mdash;
         <div class='inline'>
-<p>The optimizer to calculate adaptive learning rate. If nil is given, Nadam
-is used.</p>
+<p>The optimizer to calculate adaptive learning rate. If nil is given, Nadam is used.</p>
 </div>
       
     </li>
@@ -615,13 +619,12 @@ is used.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The number of jobs for running the fit and predict methods in parallel. If
-nil is given, the methods do not execute in parallel. If zero or less is
-given, it becomes equal to the number of processors. This parameter is
-ignored if the Parallel gem is not loaded.</p>
+<p>The number of jobs for running the fit and predict methods in parallel. If nil is given, the methods do not execute in parallel. If zero or less is given, it becomes equal to the number of processors. This parameter is ignored if the Parallel gem is not loaded.</p>
 </div>
       
     </li>
@@ -633,6 +636,8 @@ ignored if the Parallel gem is not loaded.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
         &mdash;
@@ -1042,8 +1047,7 @@ ignored if the Parallel gem is not loaded.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for fitting
-the model.</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for fitting the model.</p>
 </div>
       
     </li>
@@ -1141,14 +1145,14 @@ the model.</p>
     <span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
     <span class='ivar'>@weight_vec</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='id identifier rubyid_n_classes'>n_classes</span><span class='comma'>,</span> <span class='id identifier rubyid_n_features'>n_features</span><span class='rparen'>)</span>
     <span class='ivar'>@bias_term</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='id identifier rubyid_n_classes'>n_classes</span><span class='rparen'>)</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_enable_parallel?'>enable_parallel?</span>
-      <span class='comment'># :nocov:
-</span>      <span class='id identifier rubyid_models'>models</span> <span class='op'>=</span> <span class='id identifier rubyid_parallel_map'>parallel_map</span><span class='lparen'>(</span><span class='id identifier rubyid_n_classes'>n_classes</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_enable_parallel?'>enable_parallel?</span>      <span class='comment'># :nocov:
+</span>
+      <span class='id identifier rubyid_models'>models</span> <span class='op'>=</span> <span class='id identifier rubyid_parallel_map'>parallel_map</span><span class='lparen'>(</span><span class='id identifier rubyid_n_classes'>n_classes</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span>
         <span class='id identifier rubyid_bin_y'>bin_y</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='period'>.</span><span class='id identifier rubyid_cast'>cast</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='ivar'>@classes</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='int'>2</span> <span class='op'>-</span> <span class='int'>1</span>
         <span class='id identifier rubyid_partial_fit'>partial_fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_bin_y'>bin_y</span><span class='rparen'>)</span>
-      <span class='kw'>end</span>
-      <span class='comment'># :nocov:
-</span>      <span class='id identifier rubyid_n_classes'>n_classes</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='ivar'>@weight_vec</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='ivar'>@bias_term</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_models'>models</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+      <span class='kw'>end</span>      <span class='comment'># :nocov:
+</span>
+      <span class='id identifier rubyid_n_classes'>n_classes</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='ivar'>@weight_vec</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='ivar'>@bias_term</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_models'>models</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
     <span class='kw'>else</span>
       <span class='id identifier rubyid_n_classes'>n_classes</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span>
         <span class='id identifier rubyid_bin_y'>bin_y</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='period'>.</span><span class='id identifier rubyid_cast'>cast</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='ivar'>@classes</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='int'>2</span> <span class='op'>-</span> <span class='int'>1</span>
@@ -1447,8 +1451,7 @@ the model.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_classes]) Predicted probability of each class per
-sample.</p>
+<p>(shape: [n_samples, n_classes]) Predicted probability of each class per sample.</p>
 </div>
       
     </li>
@@ -1499,9 +1502,9 @@ sample.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:45 2020 by
+  Generated on Sat Jan 11 19:43:16 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

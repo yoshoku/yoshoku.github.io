@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::LinearModel::Lasso
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::LinearModel::Lasso";
   relpath = '../../';
 </script>
@@ -109,17 +109,14 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Lasso is a class that implements Lasso Regression with stochastic gradient
-descent (SGD) optimization.</p>
+<p>Lasso is a class that implements Lasso Regression with stochastic gradient descent (SGD) optimization.</p>
 
 <p><strong>Reference</strong></p>
 <ul><li><ol style="list-style-type: upper-alpha"><li>
-<p>Shalev-Shwartz and Y. Singer, “Pegasos: Primal Estimated sub-GrAdient
-SOlver for SVM,” Proc. ICML&#39;07, pp. 807–814, 2007.</p>
+<p>Shalev-Shwartz and Y. Singer, “Pegasos: Primal Estimated sub-GrAdient SOlver for SVM,” Proc. ICML&#39;07, pp. 807–814, 2007.</p>
 </li></ol>
 </li><li><ol style="list-style-type: upper-alpha"><li>
-<p>Bottou, “Large-Scale Machine Learning with Stochastic Gradient Descent,”
-Proc. COMPSTAT&#39;10, pp. 177–186, 2010.</p>
+<p>Bottou, “Large-Scale Machine Learning with Stochastic Gradient Descent,” Proc. COMPSTAT&#39;10, pp. 177–186, 2010.</p>
 </li></ol>
 </li></ul>
 
@@ -438,6 +435,8 @@ Proc. COMPSTAT&#39;10, pp. 177–186, 2010.</p>
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>1.0</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -453,6 +452,8 @@ Proc. COMPSTAT&#39;10, pp. 177–186, 2010.</p>
       
         <span class='type'>(<tt>Boolean</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
       
       
         &mdash;
@@ -470,6 +471,8 @@ Proc. COMPSTAT&#39;10, pp. 177–186, 2010.</p>
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>1.0</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -485,6 +488,8 @@ Proc. COMPSTAT&#39;10, pp. 177–186, 2010.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>1000</tt>)</em>
       
       
         &mdash;
@@ -502,6 +507,8 @@ Proc. COMPSTAT&#39;10, pp. 177–186, 2010.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>10</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -515,14 +522,15 @@ Proc. COMPSTAT&#39;10, pp. 177–186, 2010.</p>
         <span class='name'>optimizer</span>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="../Optimizer.html" title="Rumale::Optimizer (module)">Optimizer</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'>Optimizer</span></tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
         &mdash;
         <div class='inline'>
-<p>The optimizer to calculate adaptive learning rate. If nil is given, Nadam
-is used.</p>
+<p>The optimizer to calculate adaptive learning rate. If nil is given, Nadam is used.</p>
 </div>
       
     </li>
@@ -535,13 +543,12 @@ is used.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The number of jobs for running the fit method in parallel. If nil is given,
-the method does not execute in parallel. If zero or less is given, it
-becomes equal to the number of processors. This parameter is ignored if the
-Parallel gem is not loaded.</p>
+<p>The number of jobs for running the fit method in parallel. If nil is given, the method does not execute in parallel. If zero or less is given, it becomes equal to the number of processors. This parameter is ignored if the Parallel gem is not loaded.</p>
 </div>
       
     </li>
@@ -553,6 +560,8 @@ Parallel gem is not loaded.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
         &mdash;
@@ -818,8 +827,7 @@ Parallel gem is not loaded.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for fitting
-the model.</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for fitting the model.</p>
 </div>
       
     </li>
@@ -835,8 +843,7 @@ the model.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_outputs]) The target values to be used for fitting
-the model.</p>
+<p>(shape: [n_samples, n_outputs]) The target values to be used for fitting the model.</p>
 </div>
       
     </li>
@@ -1134,9 +1141,9 @@ the model.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:35 2020 by
+  Generated on Sat Jan 11 19:43:08 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

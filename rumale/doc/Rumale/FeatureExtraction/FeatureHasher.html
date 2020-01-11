@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::FeatureExtraction::FeatureHasher
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::FeatureExtraction::FeatureHasher";
   relpath = '../../';
 </script>
@@ -107,10 +107,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Encode array of feature-value hash to vectors with feature hashing (hashing
-trick). This encoder turns array of mappings (Array&lt;Hash&gt;) with pairs
-of feature names and values into Numo::NArray. This encoder employs signed
-32-bit Murmurhash3 as the hash function.</p>
+<p>Encode array of feature-value hash to vectors with feature hashing (hashing trick). This encoder turns array of mappings (Array&lt;Hash&gt;) with pairs of feature names and values into Numo::NArray. This encoder employs signed 32-bit Murmurhash3 as the hash function.</p>
 
 
   </div>
@@ -125,11 +122,11 @@ of feature names and values into Numo::NArray. This encoder employs signed
 <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_encoder'>encoder</span><span class='period'>.</span><span class='id identifier rubyid_transform'>transform</span><span class='lparen'>(</span><span class='lbracket'>[</span>
   <span class='lbrace'>{</span> <span class='label'>dog:</span> <span class='int'>1</span><span class='comma'>,</span> <span class='label'>cat:</span> <span class='int'>2</span><span class='comma'>,</span> <span class='label'>elephant:</span> <span class='int'>4</span> <span class='rbrace'>}</span><span class='comma'>,</span>
   <span class='lbrace'>{</span> <span class='label'>dog:</span> <span class='int'>2</span><span class='comma'>,</span> <span class='label'>run:</span> <span class='int'>5</span> <span class='rbrace'>}</span>
-<span class='rbracket'>]</span><span class='rparen'>)</span>
-<span class='comment'># &gt; pp x
+<span class='rbracket'>]</span><span class='rparen'>)</span><span class='comment'># &gt; pp x
 </span><span class='comment'># Numo::DFloat#shape=[2,10]
 </span><span class='comment'># [[0, 0, -4, -1, 0, 0, 0, 0, 0, 2],
-</span><span class='comment'>#  [0, 0, 0, -2, -5, 0, 0, 0, 0, 0]]</span></code></pre>
+</span><span class='comment'>#  [0, 0, 0, -2, -5, 0, 0, 0, 0, 0]]</span>
+</code></pre>
     
   </div>
 
@@ -222,8 +219,7 @@ of feature names and values into Numo::NArray. This encoder employs signed
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Create a new encoder for converting array of hash consisting of feature
-names and values to vectors with feature hashing algorith.</p>
+<p>Create a new encoder for converting array of hash consisting of feature names and values to vectors with feature hashing algorith.</p>
 </div></span>
   
 </li>
@@ -289,8 +285,7 @@ names and values to vectors with feature hashing algorith.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Create a new encoder for converting array of hash consisting of feature
-names and values to vectors with feature hashing algorith.</p>
+<p>Create a new encoder for converting array of hash consisting of feature names and values to vectors with feature hashing algorith.</p>
 
 
   </div>
@@ -306,6 +301,8 @@ names and values to vectors with feature hashing algorith.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>1024</tt>)</em>
       
       
         &mdash;
@@ -323,11 +320,12 @@ names and values to vectors with feature hashing algorith.</p>
         <span class='type'>(<tt>Boolean</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>true</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The flag indicating whether to reflect the sign of the hash value to the
-feature value.</p>
+<p>The flag indicating whether to reflect the sign of the hash value to the feature value.</p>
 </div>
       
     </li>
@@ -411,8 +409,7 @@ feature value.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples]) The array of hash consisting of feature names and
-values.</p>
+<p>(shape: [n_samples]) The array of hash consisting of feature names and values.</p>
 </div>
       
     </li>
@@ -469,9 +466,7 @@ values.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Encode given the array of feature-value hash. This method has the same
-output as the transform method because the encoder does not require
-training.</p>
+<p>Encode given the array of feature-value hash. This method has the same output as the transform method because the encoder does not require training.</p>
 
 
   </div>
@@ -501,8 +496,7 @@ training.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples]) The array of hash consisting of feature names and
-values.</p>
+<p>(shape: [n_samples]) The array of hash consisting of feature names and values.</p>
 </div>
       
     </li>
@@ -584,8 +578,7 @@ values.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples]) The array of hash consisting of feature names and
-values.</p>
+<p>(shape: [n_samples]) The array of hash consisting of feature names and values.</p>
 </div>
       
     </li>
@@ -673,9 +666,9 @@ values.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:46 2020 by
+  Generated on Sat Jan 11 19:43:16 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

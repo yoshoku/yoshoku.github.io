@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::Preprocessing::OneHotEncoder
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::Preprocessing::OneHotEncoder";
   relpath = '../../';
 </script>
@@ -120,15 +120,15 @@
       
       <pre class="example code"><code><span class='id identifier rubyid_encoder'>encoder</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Preprocessing.html" title="Rumale::Preprocessing (module)">Preprocessing</a></span></span><span class='op'>::</span><span class='const'>OneHotEncoder</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::Preprocessing::OneHotEncoder#initialize (method)">new</a></span></span>
 <span class='id identifier rubyid_labels'>labels</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span>
-<span class='id identifier rubyid_one_hot_vectors'>one_hot_vectors</span> <span class='op'>=</span> <span class='id identifier rubyid_encoder'>encoder</span><span class='period'>.</span><span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_labels'>labels</span><span class='rparen'>)</span>
-<span class='comment'># &gt; pp one_hot_vectors
+<span class='id identifier rubyid_one_hot_vectors'>one_hot_vectors</span> <span class='op'>=</span> <span class='id identifier rubyid_encoder'>encoder</span><span class='period'>.</span><span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_labels'>labels</span><span class='rparen'>)</span><span class='comment'># &gt; pp one_hot_vectors
 </span><span class='comment'># Numo::DFloat#shape[6, 4]
 </span><span class='comment'># [[1, 0, 0, 0],
 </span><span class='comment'>#  [1, 0, 0, 0],
 </span><span class='comment'>#  [0, 0, 1, 0],
 </span><span class='comment'>#  [0, 0, 0, 1],
 </span><span class='comment'>#  [0, 0, 1, 0],
-</span><span class='comment'>#  [0, 1, 0, 0]]</span></code></pre>
+</span><span class='comment'>#  [0, 1, 0, 0]]</span>
+</code></pre>
     
   </div>
 
@@ -163,8 +163,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Return the indices for feature values that actually occur in the training
-set.</p>
+<p>Return the indices for feature values that actually occur in the training set.</p>
 </div></span>
   
 </li>
@@ -314,8 +313,7 @@ set.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Create a new encoder for encoding categorical integer features to
-one-hot-vectors.</p>
+<p>Create a new encoder for encoding categorical integer features to one-hot-vectors.</p>
 </div></span>
   
 </li>
@@ -429,8 +427,7 @@ one-hot-vectors.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Create a new encoder for encoding categorical integer features to
-one-hot-vectors</p>
+<p>Create a new encoder for encoding categorical integer features to one-hot-vectors</p>
 
 
   </div>
@@ -484,8 +481,7 @@ one-hot-vectors</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Return the indices for feature values that actually occur in the training
-set.</p>
+<p>Return the indices for feature values that actually occur in the training set.</p>
 
 
   </div>
@@ -798,8 +794,7 @@ set.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The samples to encode into
-one-hot-vectors.</p>
+<p>(shape: [n_samples, n_features]) The samples to encode into one-hot-vectors.</p>
 </div>
       
     </li>
@@ -1024,8 +1019,7 @@ one-hot-vectors.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The samples to encode into
-one-hot-vectors.</p>
+<p>(shape: [n_samples, n_features]) The samples to encode into one-hot-vectors.</p>
 </div>
       
     </li>
@@ -1096,9 +1090,9 @@ one-hot-vectors.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:43 2020 by
+  Generated on Sat Jan 11 19:43:14 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

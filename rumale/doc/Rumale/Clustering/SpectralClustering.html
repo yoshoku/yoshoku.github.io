@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::Clustering::SpectralClustering
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::Clustering::SpectralClustering";
   relpath = '../../';
 </script>
@@ -107,16 +107,13 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>SpectralClustering is a class that implements the normalized spectral
-clustering.</p>
+<p>SpectralClustering is a class that implements the normalized spectral clustering.</p>
 
 <p><strong>Reference</strong></p>
 <ul><li>
-<p>A Y. Ng, M I. Jordan, and Y. Weiss, “On Spectral Clustering: Analyssi and
-an algorithm,” Proc. NIPS&#39;01, pp. 849–856, 2001.</p>
+<p>A Y. Ng, M I. Jordan, and Y. Weiss, “On Spectral Clustering: Analyssi and an algorithm,” Proc. NIPS&#39;01, pp. 849–856, 2001.</p>
 </li><li>
-<p>U von Luxburg, “A tutorial on spectral clustering,” Statistics and
-Computing, Vol. 17 (4), pp. 395–416, 2007.</p>
+<p>U von Luxburg, “A tutorial on spectral clustering,” Statistics and Computing, Vol. 17 (4), pp. 395–416, 2007.</p>
 </li></ul>
 
 
@@ -399,6 +396,8 @@ Computing, Vol. 17 (4), pp. 395–416, 2007.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>2</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -415,13 +414,12 @@ Computing, Vol. 17 (4), pp. 395–416, 2007.</p>
         <span class='type'>(<tt>String</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>&#39;rbf&#39;</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The representation of affinity matrix (&#39;rbf&#39; or
-&#39;precomputed&#39;). If affinity = &#39;rbf&#39;, the class performs the
-normalized spectral clustering with the fully connected graph weighted by
-rbf kernel.</p>
+<p>The representation of affinity matrix (&#39;rbf&#39; or &#39;precomputed&#39;). If affinity = &#39;rbf&#39;, the class performs the normalized spectral clustering with the fully connected graph weighted by rbf kernel.</p>
 </div>
       
     </li>
@@ -434,11 +432,12 @@ rbf kernel.</p>
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The parameter of rbf kernel, if nil it is 1 / n_features. If affinity =
-&#39;precomputed&#39;, this parameter is ignored.</p>
+<p>The parameter of rbf kernel, if nil it is 1 / n_features. If affinity = &#39;precomputed&#39;, this parameter is ignored.</p>
 </div>
       
     </li>
@@ -451,11 +450,12 @@ rbf kernel.</p>
         <span class='type'>(<tt>String</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>&#39;k-means++&#39;</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The initialization method for centroids of K-Means clustering
-(&#39;random&#39; or &#39;k-means++&#39;).</p>
+<p>The initialization method for centroids of K-Means clustering (&#39;random&#39; or &#39;k-means++&#39;).</p>
 </div>
       
     </li>
@@ -467,6 +467,8 @@ rbf kernel.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>10</tt>)</em>
       
       
         &mdash;
@@ -484,6 +486,8 @@ rbf kernel.</p>
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>1.0e-8</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -499,6 +503,8 @@ rbf kernel.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
         &mdash;
@@ -706,8 +712,7 @@ rbf kernel.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Analysis clusters with given training data. To execute this method,
-Numo::Linalg must be loaded.</p>
+<p>Analysis clusters with given training data. To execute this method, Numo::Linalg must be loaded.</p>
 
 
   </div>
@@ -735,9 +740,7 @@ Numo::Linalg must be loaded.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for cluster
-analysis. If the metric is &#39;precomputed&#39;, x must be a square
-affinity matrix (shape: [n_samples, n_samples]).</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for cluster analysis. If the metric is &#39;precomputed&#39;, x must be a square affinity matrix (shape: [n_samples, n_samples]).</p>
 </div>
       
     </li>
@@ -822,8 +825,7 @@ affinity matrix (shape: [n_samples, n_samples]).</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Analysis clusters and assign samples to clusters. To execute this method,
-Numo::Linalg must be loaded.</p>
+<p>Analysis clusters and assign samples to clusters. To execute this method, Numo::Linalg must be loaded.</p>
 
 
   </div>
@@ -843,9 +845,7 @@ Numo::Linalg must be loaded.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for cluster
-analysis. If the metric is &#39;precomputed&#39;, x must be a square
-affinity matrix (shape: [n_samples, n_samples]).</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for cluster analysis. If the metric is &#39;precomputed&#39;, x must be a square affinity matrix (shape: [n_samples, n_samples]).</p>
 </div>
       
     </li>
@@ -1047,9 +1047,9 @@ affinity matrix (shape: [n_samples, n_samples]).</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:44 2020 by
+  Generated on Sat Jan 11 19:43:14 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

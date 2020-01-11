@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::PolynomialModel::BaseFactorizationMachine
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::PolynomialModel::BaseFactorizationMachine";
   relpath = '../../';
 </script>
@@ -107,8 +107,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>BaseFactorizationMachine is an abstract class for implementation of
-Factorization Machine-based estimators. This class is used internally.</p>
+<p>BaseFactorizationMachine is an abstract class for implementation of Factorization Machine-based estimators. This class is used internally.</p>
 
 
   </div>
@@ -207,6 +206,8 @@ Factorization Machine-based estimators. This class is used internally.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>2</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -222,6 +223,8 @@ Factorization Machine-based estimators. This class is used internally.</p>
       
         <span class='type'>(<tt>String</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
         &mdash;
@@ -239,6 +242,8 @@ Factorization Machine-based estimators. This class is used internally.</p>
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>1.0</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -254,6 +259,8 @@ Factorization Machine-based estimators. This class is used internally.</p>
       
         <span class='type'>(<tt>Float</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>1.0</tt>)</em>
       
       
         &mdash;
@@ -271,6 +278,8 @@ Factorization Machine-based estimators. This class is used internally.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>1000</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -286,6 +295,8 @@ Factorization Machine-based estimators. This class is used internally.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>10</tt>)</em>
       
       
         &mdash;
@@ -303,11 +314,12 @@ Factorization Machine-based estimators. This class is used internally.</p>
         <span class='type'>(<tt><span class='object_link'><a href="../Optimizer.html" title="Rumale::Optimizer (module)">Optimizer</a></span></tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The optimizer to calculate adaptive learning rate. If nil is given, Nadam
-is used.</p>
+<p>The optimizer to calculate adaptive learning rate. If nil is given, Nadam is used.</p>
 </div>
       
     </li>
@@ -320,13 +332,12 @@ is used.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The number of jobs for running the fit and predict methods in parallel. If
-nil is given, the methods do not execute in parallel. If zero or less is
-given, it becomes equal to the number of processors. This parameter is
-ignored if the Parallel gem is not loaded.</p>
+<p>The number of jobs for running the fit and predict methods in parallel. If nil is given, the methods do not execute in parallel. If zero or less is given, it becomes equal to the number of processors. This parameter is ignored if the Parallel gem is not loaded.</p>
 </div>
       
     </li>
@@ -338,6 +349,8 @@ ignored if the Parallel gem is not loaded.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
         &mdash;
@@ -409,9 +422,9 @@ ignored if the Parallel gem is not loaded.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:49 2020 by
+  Generated on Sat Jan 11 19:43:18 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

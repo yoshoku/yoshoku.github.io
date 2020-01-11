@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::ModelSelection::CrossValidation
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::ModelSelection::CrossValidation";
   relpath = '../../';
 </script>
@@ -102,8 +102,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>CrossValidation is a class that evaluates a given classifier with
-cross-validation method.</p>
+<p>CrossValidation is a class that evaluates a given classifier with cross-validation method.</p>
 
 
   </div>
@@ -211,8 +210,7 @@ cross-validation method.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Return the flag indicating whether to caculate the score of training
-dataset.</p>
+<p>Return the flag indicating whether to caculate the score of training dataset.</p>
 </div></span>
   
 </li>
@@ -351,6 +349,8 @@ dataset.</p>
         <span class='type'>(<tt>Classifier</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -366,6 +366,8 @@ dataset.</p>
       
         <span class='type'>(<tt>Splitter</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
         &mdash;
@@ -383,6 +385,8 @@ dataset.</p>
         <span class='type'>(<tt>Evaluator</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -398,6 +402,8 @@ dataset.</p>
       
         <span class='type'>(<tt>Boolean</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
       
       
         &mdash;
@@ -576,8 +582,7 @@ dataset.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Return the flag indicating whether to caculate the score of training
-dataset.</p>
+<p>Return the flag indicating whether to caculate the score of training dataset.</p>
 
 
   </div>
@@ -714,8 +719,7 @@ dataset.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The dataset to be used to evaluate the
-estimator.</p>
+<p>(shape: [n_samples, n_features]) The dataset to be used to evaluate the estimator.</p>
 </div>
       
     </li>
@@ -731,9 +735,7 @@ estimator.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples] / [n_samples, n_outputs]) The labels to be used to
-evaluate the classifier / The target values to be used to evaluate the
-regressor.</p>
+<p>(shape: [n_samples] / [n_samples, n_outputs]) The labels to be used to evaluate the classifier / The target values to be used to evaluate the regressor.</p>
 </div>
       
     </li>
@@ -754,14 +756,11 @@ regressor.</p>
         <div class='inline'>
 <p>The report summarizing the results of cross-validation.</p>
 <ul><li>
-<p>:fit_time (Array&lt;Float&gt;) The calculation times of fitting the
-estimator for each split.</p>
+<p>:fit_time (Array&lt;Float&gt;) The calculation times of fitting the estimator for each split.</p>
 </li><li>
-<p>:test_score (Array&lt;Float&gt;) The scores of testing dataset for each
-split.</p>
+<p>:test_score (Array&lt;Float&gt;) The scores of testing dataset for each split.</p>
 </li><li>
-<p>:train_score (Array&lt;Float&gt;) The scores of training dataset for each
-split. This option is nil if the return_train_score is false.</p>
+<p>:train_score (Array&lt;Float&gt;) The scores of training dataset for each split. This option is nil if the return_train_score is false.</p>
 </li></ul>
 </div>
       
@@ -829,23 +828,23 @@ split. This option is nil if the return_train_score is false.</p>
     <span class='id identifier rubyid_check_sample_tvalue_size'>check_sample_tvalue_size</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='kw'>else</span>
     <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>NArray</span><span class='period'>.</span><span class='id identifier rubyid_asarray'>asarray</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-  <span class='kw'>end</span>
-  <span class='comment'># Initialize the report of cross validation.
-</span>  <span class='id identifier rubyid_report'>report</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='label'>test_score:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>train_score:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>fit_time:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
-  <span class='id identifier rubyid_report'>report</span><span class='lbracket'>[</span><span class='symbol'>:train_score</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='ivar'>@return_train_score</span>
-  <span class='comment'># Evaluate the estimator on each split.
-</span>  <span class='ivar'>@splitter</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_train_ids'>train_ids</span><span class='comma'>,</span> <span class='id identifier rubyid_test_ids'>test_ids</span><span class='op'>|</span>
+  <span class='kw'>end</span>  <span class='comment'># Initialize the report of cross validation.
+</span>
+  <span class='id identifier rubyid_report'>report</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='label'>test_score:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>train_score:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>fit_time:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_report'>report</span><span class='lbracket'>[</span><span class='symbol'>:train_score</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='ivar'>@return_train_score</span>  <span class='comment'># Evaluate the estimator on each split.
+</span>
+  <span class='ivar'>@splitter</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_train_ids'>train_ids</span><span class='comma'>,</span> <span class='id identifier rubyid_test_ids'>test_ids</span><span class='op'>|</span>
     <span class='comment'># Split dataset into training and testing dataset.
 </span>    <span class='id identifier rubyid_feature_ids'>feature_ids</span> <span class='op'>=</span> <span class='op'>!</span><span class='id identifier rubyid_kernel_machine?'>kernel_machine?</span> <span class='op'>||</span> <span class='id identifier rubyid_train_ids'>train_ids</span>
     <span class='id identifier rubyid_train_x'>train_x</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='lbracket'>[</span><span class='id identifier rubyid_train_ids'>train_ids</span><span class='comma'>,</span> <span class='id identifier rubyid_feature_ids'>feature_ids</span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_train_y'>train_y</span> <span class='op'>=</span> <span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>?</span> <span class='id identifier rubyid_y'>y</span><span class='lbracket'>[</span><span class='id identifier rubyid_train_ids'>train_ids</span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='id identifier rubyid_y'>y</span><span class='lbracket'>[</span><span class='id identifier rubyid_train_ids'>train_ids</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_test_x'>test_x</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='lbracket'>[</span><span class='id identifier rubyid_test_ids'>test_ids</span><span class='comma'>,</span> <span class='id identifier rubyid_feature_ids'>feature_ids</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_test_y'>test_y</span> <span class='op'>=</span> <span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>?</span> <span class='id identifier rubyid_y'>y</span><span class='lbracket'>[</span><span class='id identifier rubyid_test_ids'>test_ids</span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='id identifier rubyid_y'>y</span><span class='lbracket'>[</span><span class='id identifier rubyid_test_ids'>test_ids</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span>
-    <span class='comment'># Fit the estimator.
-</span>    <span class='id identifier rubyid_start_time'>start_time</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
-    <span class='ivar'>@estimator</span><span class='period'>.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_train_x'>train_x</span><span class='comma'>,</span> <span class='id identifier rubyid_train_y'>train_y</span><span class='rparen'>)</span>
-    <span class='comment'># Calculate scores and prepare the report.
-</span>    <span class='id identifier rubyid_report'>report</span><span class='lbracket'>[</span><span class='symbol'>:fit_time</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span> <span class='op'>-</span> <span class='id identifier rubyid_start_time'>start_time</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_test_y'>test_y</span> <span class='op'>=</span> <span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>?</span> <span class='id identifier rubyid_y'>y</span><span class='lbracket'>[</span><span class='id identifier rubyid_test_ids'>test_ids</span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='id identifier rubyid_y'>y</span><span class='lbracket'>[</span><span class='id identifier rubyid_test_ids'>test_ids</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span>    <span class='comment'># Fit the estimator.
+</span>
+    <span class='id identifier rubyid_start_time'>start_time</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+    <span class='ivar'>@estimator</span><span class='period'>.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_train_x'>train_x</span><span class='comma'>,</span> <span class='id identifier rubyid_train_y'>train_y</span><span class='rparen'>)</span>    <span class='comment'># Calculate scores and prepare the report.
+</span>
+    <span class='id identifier rubyid_report'>report</span><span class='lbracket'>[</span><span class='symbol'>:fit_time</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span> <span class='op'>-</span> <span class='id identifier rubyid_start_time'>start_time</span><span class='rparen'>)</span>
     <span class='kw'>if</span> <span class='ivar'>@evaluator</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
       <span class='id identifier rubyid_report'>report</span><span class='lbracket'>[</span><span class='symbol'>:test_score</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='ivar'>@estimator</span><span class='period'>.</span><span class='id identifier rubyid_score'>score</span><span class='lparen'>(</span><span class='id identifier rubyid_test_x'>test_x</span><span class='comma'>,</span> <span class='id identifier rubyid_test_y'>test_y</span><span class='rparen'>)</span><span class='rparen'>)</span>
       <span class='id identifier rubyid_report'>report</span><span class='lbracket'>[</span><span class='symbol'>:train_score</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='ivar'>@estimator</span><span class='period'>.</span><span class='id identifier rubyid_score'>score</span><span class='lparen'>(</span><span class='id identifier rubyid_train_x'>train_x</span><span class='comma'>,</span> <span class='id identifier rubyid_train_y'>train_y</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@return_train_score</span>
@@ -869,9 +868,9 @@ split. This option is nil if the return_train_score is false.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:46 2020 by
+  Generated on Sat Jan 11 19:43:16 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

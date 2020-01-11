@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::Preprocessing::OrdinalEncoder
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::Preprocessing::OrdinalEncoder";
   relpath = '../../';
 </script>
@@ -122,19 +122,19 @@
 <span class='id identifier rubyid_training_samples'>training_samples</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>left</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='int'>10</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>right</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='int'>15</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>right</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='int'>20</span><span class='rbracket'>]</span><span class='rbracket'>]</span>
 <span class='id identifier rubyid_training_samples'>training_samples</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>NArray</span><span class='period'>.</span><span class='id identifier rubyid_asarray'>asarray</span><span class='lparen'>(</span><span class='id identifier rubyid_training_samples'>training_samples</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_encoder'>encoder</span><span class='period'>.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_training_samples'>training_samples</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_encoder'>encoder</span><span class='period'>.</span><span class='id identifier rubyid_categories'>categories</span>
-<span class='comment'># [[&quot;left&quot;, &quot;right&quot;], [10, 15, 20]]
-</span><span class='id identifier rubyid_testing_samples'>testing_samples</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>left</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='int'>20</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>right</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='int'>10</span><span class='rbracket'>]</span><span class='rbracket'>]</span>
+<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_encoder'>encoder</span><span class='period'>.</span><span class='id identifier rubyid_categories'>categories</span><span class='comment'># [[&quot;left&quot;, &quot;right&quot;], [10, 15, 20]]
+</span>
+<span class='id identifier rubyid_testing_samples'>testing_samples</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>left</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='int'>20</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>right</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='int'>10</span><span class='rbracket'>]</span><span class='rbracket'>]</span>
 <span class='id identifier rubyid_testing_samples'>testing_samples</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>NArray</span><span class='period'>.</span><span class='id identifier rubyid_asarray'>asarray</span><span class='lparen'>(</span><span class='id identifier rubyid_testing_samples'>testing_samples</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_encoded'>encoded</span> <span class='op'>=</span> <span class='id identifier rubyid_encoder'>encoder</span><span class='period'>.</span><span class='id identifier rubyid_transform'>transform</span><span class='lparen'>(</span><span class='id identifier rubyid_testing_samples'>testing_samples</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_encoded'>encoded</span>
-<span class='comment'># Numo::DFloat#shape=[2,2]
+<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_encoded'>encoded</span><span class='comment'># Numo::DFloat#shape=[2,2]
 </span><span class='comment'># [[0, 2],
 </span><span class='comment'>#  [1, 0]]
-</span><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_encoder'>encoder</span><span class='period'>.</span><span class='id identifier rubyid_inverse_transform'>inverse_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_encoded'>encoded</span><span class='rparen'>)</span>
-<span class='comment'># Numo::RObject#shape=[2,2]
+</span>
+<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_encoder'>encoder</span><span class='period'>.</span><span class='id identifier rubyid_inverse_transform'>inverse_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_encoded'>encoded</span><span class='rparen'>)</span><span class='comment'># Numo::RObject#shape=[2,2]
 </span><span class='comment'># [[&quot;left&quot;, 20],
-</span><span class='comment'>#  [&quot;right&quot;, 10]]</span></code></pre>
+</span><span class='comment'>#  [&quot;right&quot;, 10]]</span>
+</code></pre>
     
   </div>
 
@@ -416,11 +416,12 @@
         <span class='type'>(<tt>Nil/Array</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The category list for each feature. If nil is given, extracted categories
-from the training data by calling the fit method are used.</p>
+<p>The category list for each feature. If nil is given, extracted categories from the training data by calling the fit method are used.</p>
 </div>
       
     </li>
@@ -558,8 +559,7 @@ from the training data by calling the fit method are used.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The samples consisting of categorical
-features.</p>
+<p>(shape: [n_samples, n_features]) The samples consisting of categorical features.</p>
 </div>
       
     </li>
@@ -656,8 +656,7 @@ features.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The samples consisting of categorical
-features.</p>
+<p>(shape: [n_samples, n_features]) The samples consisting of categorical features.</p>
 </div>
       
     </li>
@@ -753,8 +752,7 @@ features.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The samples consisting of values
-transformed from categorical features.</p>
+<p>(shape: [n_samples, n_features]) The samples consisting of values transformed from categorical features.</p>
 </div>
       
     </li>
@@ -979,8 +977,7 @@ transformed from categorical features.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The samples consisting of categorical
-features.</p>
+<p>(shape: [n_samples, n_features]) The samples consisting of categorical features.</p>
 </div>
       
     </li>
@@ -1065,9 +1062,9 @@ features.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:43 2020 by
+  Generated on Sat Jan 11 19:43:14 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

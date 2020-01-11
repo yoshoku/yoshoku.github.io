@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::Manifold::TSNE
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::Manifold::TSNE";
   relpath = '../../';
 </script>
@@ -107,19 +107,14 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>TSNE is a class that implements t-Distributed Stochastic Neighbor Embedding
-(t-SNE) with fixed-point optimization algorithm. Fixed-point algorithm
-usually converges faster than gradient descent method and do not need the
-learning parameters such as the learning rate and momentum.</p>
+<p>TSNE is a class that implements t-Distributed Stochastic Neighbor Embedding (t-SNE) with fixed-point optimization algorithm. Fixed-point algorithm usually converges faster than gradient descent method and do not need the learning parameters such as the learning rate and momentum.</p>
 
 <p><strong>Reference</strong></p>
 <ul><li><ol style="list-style-type: upper-alpha"><li>
-<p>van der Maaten and G. Hinton, “Visualizing data using t-SNE,” J. of Machine
-Learning Research, vol. 9, pp. 2579–2605, 2008.</p>
+<p>van der Maaten and G. Hinton, “Visualizing data using t-SNE,” J. of Machine Learning Research, vol. 9, pp. 2579–2605, 2008.</p>
 </li></ol>
 </li><li><ol style="list-style-type: upper-alpha"><li>
-<p>Yang, I. King, Z. Xu, and E. Oja, “Heavy-Tailed Symmetric Stochastic
-Neighbor Embedding,” Proc. NIPS&#39;09, pp. 2169–2177, 2009.</p>
+<p>Yang, I. King, Z. Xu, and E. Oja, “Heavy-Tailed Symmetric Stochastic Neighbor Embedding,” Proc. NIPS&#39;09, pp. 2169–2177, 2009.</p>
 </li></ol>
 </li></ul>
 
@@ -321,8 +316,7 @@ Neighbor Embedding,” Proc. NIPS&#39;09, pp. 2169–2177, 2009.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Fit the model with training data, and then transform them with the learned
-model.</p>
+<p>Fit the model with training data, and then transform them with the learned model.</p>
 </div></span>
   
 </li>
@@ -455,6 +449,8 @@ model.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>2</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -471,11 +467,12 @@ model.</p>
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>30.0</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The effective number of neighbors for each point. Perplexity are typically
-set from 5 to 50.</p>
+<p>The effective number of neighbors for each point. Perplexity are typically set from 5 to 50.</p>
 </div>
       
     </li>
@@ -488,13 +485,12 @@ set from 5 to 50.</p>
         <span class='type'>(<tt>String</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>&#39;euclidean&#39;</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The metric to calculate the distances in original space. If metric is
-&#39;euclidean&#39;, Euclidean distance is calculated for distance in
-original space. If metric is &#39;precomputed&#39;, the fit and
-fit_transform methods expect to be given a distance matrix.</p>
+<p>The metric to calculate the distances in original space. If metric is &#39;euclidean&#39;, Euclidean distance is calculated for distance in original space. If metric is &#39;precomputed&#39;, the fit and fit_transform methods expect to be given a distance matrix.</p>
 </div>
       
     </li>
@@ -507,13 +503,12 @@ fit_transform methods expect to be given a distance matrix.</p>
         <span class='type'>(<tt>String</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>&#39;random&#39;</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The init is a method to initialize the representaion space. If init is
-&#39;random&#39;, the representaion space is initialized with normal random
-variables. If init is &#39;pca&#39;, the result of principal component
-analysis as the initial value of the representation space.</p>
+<p>The init is a method to initialize the representaion space. If init is &#39;random&#39;, the representaion space is initialized with normal random variables. If init is &#39;pca&#39;, the result of principal component analysis as the initial value of the representation space.</p>
 </div>
       
     </li>
@@ -525,6 +520,8 @@ analysis as the initial value of the representation space.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>500</tt>)</em>
       
       
         &mdash;
@@ -542,12 +539,12 @@ analysis as the initial value of the representation space.</p>
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The tolerance of KL-divergence for terminating optimization. If tol is nil,
-it does not use KL divergence as a criterion for terminating the
-optimization.</p>
+<p>The tolerance of KL-divergence for terminating optimization. If tol is nil,  it does not use KL divergence as a criterion for terminating the optimization.</p>
 </div>
       
     </li>
@@ -559,6 +556,8 @@ optimization.</p>
       
         <span class='type'>(<tt>Boolean</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
       
       
         &mdash;
@@ -575,6 +574,8 @@ optimization.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
         &mdash;
@@ -921,9 +922,7 @@ optimization.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for fitting
-the model. If the metric is &#39;precomputed&#39;, x must be a square
-distance matrix (shape: [n_samples, n_samples]).</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for fitting the model. If the metric is &#39;precomputed&#39;, x must be a square distance matrix (shape: [n_samples, n_samples]).</p>
 </div>
       
     </li>
@@ -1001,15 +1000,15 @@ distance matrix (shape: [n_samples, n_samples]).</p>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid__not_used'>_not_used</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect the input distance matrix to be square.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:metric</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>precomputed</span><span class='tstring_end'>&#39;</span></span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
-  <span class='comment'># initialize some varibales.
-</span>  <span class='ivar'>@n_iter</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect the input distance matrix to be square.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:metric</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>precomputed</span><span class='tstring_end'>&#39;</span></span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>  <span class='comment'># initialize some varibales.
+</span>
+  <span class='ivar'>@n_iter</span> <span class='op'>=</span> <span class='int'>0</span>
   <span class='id identifier rubyid_distance_mat'>distance_mat</span> <span class='op'>=</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:metric</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>precomputed</span><span class='tstring_end'>&#39;</span></span> <span class='op'>?</span> <span class='id identifier rubyid_x'>x</span><span class='op'>**</span><span class='int'>2</span> <span class='op'>:</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../PairwiseMetric.html" title="Rumale::PairwiseMetric (module)">PairwiseMetric</a></span></span><span class='period'>.</span><span class='id identifier rubyid_squared_error'><span class='object_link'><a href="../PairwiseMetric.html#squared_error-class_method" title="Rumale::PairwiseMetric.squared_error (method)">squared_error</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_hi_prob_mat'>hi_prob_mat</span> <span class='op'>=</span> <span class='id identifier rubyid_gaussian_distributed_probability_matrix'>gaussian_distributed_probability_matrix</span><span class='lparen'>(</span><span class='id identifier rubyid_distance_mat'>distance_mat</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='id identifier rubyid_init_embedding'>init_embedding</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_lo_prob_mat'>lo_prob_mat</span> <span class='op'>=</span> <span class='id identifier rubyid_t_distributed_probability_matrix'>t_distributed_probability_matrix</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-  <span class='comment'># perform fixed-point optimization.
-</span>  <span class='id identifier rubyid_one_vec'>one_vec</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_ones'>ones</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_expand_dims'>expand_dims</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_lo_prob_mat'>lo_prob_mat</span> <span class='op'>=</span> <span class='id identifier rubyid_t_distributed_probability_matrix'>t_distributed_probability_matrix</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>  <span class='comment'># perform fixed-point optimization.
+</span>
+  <span class='id identifier rubyid_one_vec'>one_vec</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_ones'>ones</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_expand_dims'>expand_dims</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_iter</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_t'>t</span><span class='op'>|</span>
     <span class='kw'>break</span> <span class='kw'>if</span> <span class='id identifier rubyid_terminate?'>terminate?</span><span class='lparen'>(</span><span class='id identifier rubyid_hi_prob_mat'>hi_prob_mat</span><span class='comma'>,</span> <span class='id identifier rubyid_lo_prob_mat'>lo_prob_mat</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_a'>a</span> <span class='op'>=</span> <span class='id identifier rubyid_hi_prob_mat'>hi_prob_mat</span> <span class='op'>*</span> <span class='id identifier rubyid_lo_prob_mat'>lo_prob_mat</span>
@@ -1020,9 +1019,9 @@ distance matrix (shape: [n_samples, n_samples]).</p>
     <span class='kw'>if</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:verbose</span><span class='rbracket'>]</span> <span class='op'>&amp;&amp;</span> <span class='lparen'>(</span><span class='ivar'>@n_iter</span> <span class='op'>%</span> <span class='int'>100</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_zero?'>zero?</span>
       <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>[t-SNE] KL divergence after </span><span class='embexpr_beg'>#{</span><span class='ivar'>@n_iter</span><span class='embexpr_end'>}</span><span class='tstring_content'> iterations: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_cost'>cost</span><span class='lparen'>(</span><span class='id identifier rubyid_hi_prob_mat'>hi_prob_mat</span><span class='comma'>,</span> <span class='id identifier rubyid_lo_prob_mat'>lo_prob_mat</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
     <span class='kw'>end</span>
-  <span class='kw'>end</span>
-  <span class='comment'># store results.
-</span>  <span class='ivar'>@embedding</span> <span class='op'>=</span> <span class='id identifier rubyid_y'>y</span>
+  <span class='kw'>end</span>  <span class='comment'># store results.
+</span>
+  <span class='ivar'>@embedding</span> <span class='op'>=</span> <span class='id identifier rubyid_y'>y</span>
   <span class='ivar'>@kl_divergence</span> <span class='op'>=</span> <span class='id identifier rubyid_cost'>cost</span><span class='lparen'>(</span><span class='id identifier rubyid_hi_prob_mat'>hi_prob_mat</span><span class='comma'>,</span> <span class='id identifier rubyid_lo_prob_mat'>lo_prob_mat</span><span class='rparen'>)</span>
   <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
@@ -1043,8 +1042,7 @@ distance matrix (shape: [n_samples, n_samples]).</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Fit the model with training data, and then transform them with the learned
-model.</p>
+<p>Fit the model with training data, and then transform them with the learned model.</p>
 
 
   </div>
@@ -1066,9 +1064,7 @@ model.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for fitting
-the model. If the metric is &#39;precomputed&#39;, x must be a square
-distance matrix (shape: [n_samples, n_samples]).</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for fitting the model. If the metric is &#39;precomputed&#39;, x must be a square distance matrix (shape: [n_samples, n_samples]).</p>
 </div>
       
     </li>
@@ -1253,9 +1249,9 @@ distance matrix (shape: [n_samples, n_samples]).</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:32 2020 by
+  Generated on Sat Jan 11 19:43:06 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

@@ -6,15 +6,15 @@
 <title>
   Module: Rumale::Dataset
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::Dataset";
   relpath = '../';
 </script>
@@ -199,8 +199,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Generate a two-dimensional data set consisting of an inner circle and an
-outer circle.</p>
+<p>Generate a two-dimensional data set consisting of an inner circle and an outer circle.</p>
 </div></span>
   
 </li>
@@ -316,6 +315,8 @@ outer circle.</p>
         <span class='type'>(<tt>Boolean</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -413,6 +414,8 @@ outer circle.</p>
         <span class='type'>(<tt>Boolean</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -428,6 +431,8 @@ outer circle.</p>
       
         <span class='type'>(<tt>Numo::NArray</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>Numo::DFloat</tt>)</em>
       
       
         &mdash;
@@ -451,8 +456,7 @@ outer circle.</p>
       
         &mdash;
         <div class='inline'>
-<p>Returns array containing the (n_samples x n_features) matrix for feature
-vectors and (n_samples) vector for labels or target values.</p>
+<p>Returns array containing the (n_samples x n_features) matrix for feature vectors and (n_samples) vector for labels or target values.</p>
 </div>
       
     </li>
@@ -550,8 +554,7 @@ vectors and (n_samples) vector for labels or target values.</p>
       
         &mdash;
         <div class='inline'>
-<p>The number of features. If “centers” parameter is given as a Numo::DFloat
-array, this parameter is ignored.</p>
+<p>The number of features. If “centers” parameter is given as a Numo::DFloat array, this parameter is ignored.</p>
 </div>
       
     </li>
@@ -564,11 +567,12 @@ array, this parameter is ignored.</p>
         <span class='type'>(<tt>Integer/Numo::DFloat/Nil</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The number of cluster centroids or the fixed cluster centroids. If nil is
-given, the number of cluster centroids is set to 3.</p>
+<p>The number of cluster centroids or the fixed cluster centroids. If nil is given, the number of cluster centroids is set to 3.</p>
 </div>
       
     </li>
@@ -580,6 +584,8 @@ given, the number of cluster centroids is set to 3.</p>
       
         <span class='type'>(<tt>Float</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>1.0</tt>)</em>
       
       
         &mdash;
@@ -597,11 +603,12 @@ given, the number of cluster centroids is set to 3.</p>
         <span class='type'>(<tt>Array</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>[-10, 10]</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The bounding box for each cluster centroids. If “centers” parameter is
-given as a Numo::DFloat array, this parameter is ignored.</p>
+<p>The bounding box for each cluster centroids. If “centers” parameter is given as a Numo::DFloat array, this parameter is ignored.</p>
 </div>
       
     </li>
@@ -613,6 +620,8 @@ given as a Numo::DFloat array, this parameter is ignored.</p>
       
         <span class='type'>(<tt>Boolean</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>true</tt>)</em>
       
       
         &mdash;
@@ -629,6 +638,8 @@ given as a Numo::DFloat array, this parameter is ignored.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
         &mdash;
@@ -696,13 +707,13 @@ given as a Numo::DFloat array, this parameter is ignored.</p>
   <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_params_numeric'>check_params_numeric</span><span class='lparen'>(</span><span class='label'>n_samples:</span> <span class='id identifier rubyid_n_samples'>n_samples</span><span class='comma'>,</span> <span class='label'>n_features:</span> <span class='id identifier rubyid_n_features'>n_features</span><span class='comma'>,</span> <span class='label'>cluster_std:</span> <span class='id identifier rubyid_cluster_std'>cluster_std</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_params_type'>check_params_type</span><span class='lparen'>(</span><span class='const'>Array</span><span class='comma'>,</span> <span class='label'>center_box:</span> <span class='id identifier rubyid_center_box'>center_box</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_params_boolean'>check_params_boolean</span><span class='lparen'>(</span><span class='label'>shuffle:</span> <span class='id identifier rubyid_shuffle'>shuffle</span><span class='rparen'>)</span>
-  <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_params_numeric_or_nil'>check_params_numeric_or_nil</span><span class='lparen'>(</span><span class='label'>random_seed:</span> <span class='id identifier rubyid_random_seed'>random_seed</span><span class='rparen'>)</span>
-  <span class='comment'># initialize rng.
-</span>  <span class='id identifier rubyid_rs'>rs</span> <span class='op'>=</span> <span class='id identifier rubyid_random_seed'>random_seed</span>
+  <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_params_numeric_or_nil'>check_params_numeric_or_nil</span><span class='lparen'>(</span><span class='label'>random_seed:</span> <span class='id identifier rubyid_random_seed'>random_seed</span><span class='rparen'>)</span>  <span class='comment'># initialize rng.
+</span>
+  <span class='id identifier rubyid_rs'>rs</span> <span class='op'>=</span> <span class='id identifier rubyid_random_seed'>random_seed</span>
   <span class='id identifier rubyid_rs'>rs</span> <span class='op'>||=</span> <span class='id identifier rubyid_srand'>srand</span>
-  <span class='id identifier rubyid_rng'>rng</span> <span class='op'>=</span> <span class='const'>Random</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_rs'>rs</span><span class='rparen'>)</span>
-  <span class='comment'># initialize centers.
-</span>  <span class='kw'>if</span> <span class='id identifier rubyid_centers'>centers</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_rng'>rng</span> <span class='op'>=</span> <span class='const'>Random</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_rs'>rs</span><span class='rparen'>)</span>  <span class='comment'># initialize centers.
+</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_centers'>centers</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_n_centers'>n_centers</span> <span class='op'>=</span> <span class='id identifier rubyid_centers'>centers</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>=</span> <span class='id identifier rubyid_centers'>centers</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
   <span class='kw'>else</span>
@@ -712,9 +723,9 @@ given as a Numo::DFloat array, this parameter is ignored.</p>
     <span class='id identifier rubyid_centers'>centers</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_rand_uniform'>rand_uniform</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_n_centers'>n_centers</span><span class='comma'>,</span> <span class='id identifier rubyid_n_features'>n_features</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_rng'>rng</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_normalizer'>normalizer</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Preprocessing.html" title="Rumale::Preprocessing (module)">Preprocessing</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Preprocessing/MinMaxScaler.html" title="Rumale::Preprocessing::MinMaxScaler (class)">MinMaxScaler</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Preprocessing/MinMaxScaler.html#initialize-instance_method" title="Rumale::Preprocessing::MinMaxScaler#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>feature_range:</span> <span class='lbracket'>[</span><span class='id identifier rubyid_center_min'>center_min</span><span class='comma'>,</span> <span class='id identifier rubyid_center_max'>center_max</span><span class='rbracket'>]</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_centers'>centers</span> <span class='op'>=</span> <span class='id identifier rubyid_normalizer'>normalizer</span><span class='period'>.</span><span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_centers'>centers</span><span class='rparen'>)</span>
-  <span class='kw'>end</span>
-  <span class='comment'># generate blobs.
-</span>  <span class='id identifier rubyid_sz_cluster'>sz_cluster</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_n_samples'>n_samples</span> <span class='op'>/</span> <span class='id identifier rubyid_n_centers'>n_centers</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_n_centers'>n_centers</span>
+  <span class='kw'>end</span>  <span class='comment'># generate blobs.
+</span>
+  <span class='id identifier rubyid_sz_cluster'>sz_cluster</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_n_samples'>n_samples</span> <span class='op'>/</span> <span class='id identifier rubyid_n_centers'>n_centers</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_n_centers'>n_centers</span>
   <span class='lparen'>(</span><span class='id identifier rubyid_n_samples'>n_samples</span> <span class='op'>%</span> <span class='id identifier rubyid_n_centers'>n_centers</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='id identifier rubyid_sz_cluster'>sz_cluster</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span> <span class='op'>+=</span> <span class='int'>1</span> <span class='rbrace'>}</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_rand_normal'>rand_normal</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_sz_cluster'>sz_cluster</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_n_features'>n_features</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_rng'>rng</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='id identifier rubyid_cluster_std'>cluster_std</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_centers'>centers</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='id identifier rubyid_sz_cluster'>sz_cluster</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -722,9 +733,9 @@ given as a Numo::DFloat array, this parameter is ignored.</p>
     <span class='id identifier rubyid_c'>c</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_rand_normal'>rand_normal</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_sz_cluster'>sz_cluster</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_n_features'>n_features</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_rng'>rng</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='id identifier rubyid_cluster_std'>cluster_std</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_centers'>centers</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_vstack'>vstack</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_c'>c</span><span class='rbracket'>]</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_concatenate'>concatenate</span><span class='lparen'>(</span><span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='id identifier rubyid_sz_cluster'>sz_cluster</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span>
-  <span class='kw'>end</span>
-  <span class='comment'># shuffle data.
-</span>  <span class='kw'>if</span> <span class='id identifier rubyid_shuffle'>shuffle</span>
+  <span class='kw'>end</span>  <span class='comment'># shuffle data.
+</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_shuffle'>shuffle</span>
     <span class='id identifier rubyid_rand_ids'>rand_ids</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='op'>*</span><span class='int'>0</span><span class='op'>...</span><span class='id identifier rubyid_n_samples'>n_samples</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_shuffle'>shuffle</span><span class='lparen'>(</span><span class='label'>random:</span> <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='lbracket'>[</span><span class='id identifier rubyid_rand_ids'>rand_ids</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
     <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='id identifier rubyid_y'>y</span><span class='lbracket'>[</span><span class='id identifier rubyid_rand_ids'>rand_ids</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
@@ -748,8 +759,7 @@ given as a Numo::DFloat array, this parameter is ignored.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Generate a two-dimensional data set consisting of an inner circle and an
-outer circle.</p>
+<p>Generate a two-dimensional data set consisting of an inner circle and an outer circle.</p>
 
 
   </div>
@@ -782,6 +792,8 @@ outer circle.</p>
         <span class='type'>(<tt>Boolean</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>true</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -798,11 +810,12 @@ outer circle.</p>
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The standard deviaion of gaussian noise added to the data. If nil is given,
-no noise is added.</p>
+<p>The standard deviaion of gaussian noise added to the data. If nil is given, no noise is added.</p>
 </div>
       
     </li>
@@ -815,11 +828,12 @@ no noise is added.</p>
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>0.8</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The scale factor between inner and outer circles. The interval of factor is
-(0, 1).</p>
+<p>The scale factor between inner and outer circles. The interval of factor is (0, 1).</p>
 </div>
       
     </li>
@@ -831,6 +845,8 @@ no noise is added.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
         &mdash;
@@ -900,28 +916,28 @@ no noise is added.</p>
   <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_params_boolean'>check_params_boolean</span><span class='lparen'>(</span><span class='label'>shuffle:</span> <span class='id identifier rubyid_shuffle'>shuffle</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_params_numeric_or_nil'>check_params_numeric_or_nil</span><span class='lparen'>(</span><span class='label'>noise:</span> <span class='id identifier rubyid_noise'>noise</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='id identifier rubyid_random_seed'>random_seed</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>The number of samples must be more than 2.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_n_samples'>n_samples</span> <span class='op'>&lt;=</span> <span class='int'>1</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>RangeError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>The interval of factor is (0, 1).</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_factor'>factor</span> <span class='op'>&lt;=</span> <span class='int'>0</span> <span class='op'>||</span> <span class='id identifier rubyid_factor'>factor</span> <span class='op'>&gt;=</span> <span class='int'>1</span>
-  <span class='comment'># initialize some variables.
-</span>  <span class='id identifier rubyid_rs'>rs</span> <span class='op'>=</span> <span class='id identifier rubyid_random_seed'>random_seed</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>RangeError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>The interval of factor is (0, 1).</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_factor'>factor</span> <span class='op'>&lt;=</span> <span class='int'>0</span> <span class='op'>||</span> <span class='id identifier rubyid_factor'>factor</span> <span class='op'>&gt;=</span> <span class='int'>1</span>  <span class='comment'># initialize some variables.
+</span>
+  <span class='id identifier rubyid_rs'>rs</span> <span class='op'>=</span> <span class='id identifier rubyid_random_seed'>random_seed</span>
   <span class='id identifier rubyid_rs'>rs</span> <span class='op'>||=</span> <span class='id identifier rubyid_srand'>srand</span>
   <span class='id identifier rubyid_rng'>rng</span> <span class='op'>=</span> <span class='const'>Random</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_rs'>rs</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_n_samples_out'>n_samples_out</span> <span class='op'>=</span> <span class='id identifier rubyid_n_samples'>n_samples</span><span class='period'>.</span><span class='id identifier rubyid_fdiv'>fdiv</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
-  <span class='id identifier rubyid_n_samples_in'>n_samples_in</span> <span class='op'>=</span> <span class='id identifier rubyid_n_samples'>n_samples</span> <span class='op'>-</span> <span class='id identifier rubyid_n_samples_out'>n_samples_out</span>
-  <span class='comment'># make two circles.
-</span>  <span class='id identifier rubyid_linsp_out'>linsp_out</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_linspace'>linspace</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>2</span> <span class='op'>*</span> <span class='const'>Math</span><span class='op'>::</span><span class='const'>PI</span><span class='comma'>,</span> <span class='id identifier rubyid_n_samples_out'>n_samples_out</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_n_samples_in'>n_samples_in</span> <span class='op'>=</span> <span class='id identifier rubyid_n_samples'>n_samples</span> <span class='op'>-</span> <span class='id identifier rubyid_n_samples_out'>n_samples_out</span>  <span class='comment'># make two circles.
+</span>
+  <span class='id identifier rubyid_linsp_out'>linsp_out</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_linspace'>linspace</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>2</span> <span class='op'>*</span> <span class='const'>Math</span><span class='op'>::</span><span class='const'>PI</span><span class='comma'>,</span> <span class='id identifier rubyid_n_samples_out'>n_samples_out</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_linsp_in'>linsp_in</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_linspace'>linspace</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>2</span> <span class='op'>*</span> <span class='const'>Math</span><span class='op'>::</span><span class='const'>PI</span><span class='comma'>,</span> <span class='id identifier rubyid_n_samples_in'>n_samples_in</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_circle_out'>circle_out</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='lbracket'>[</span><span class='const'>Numo</span><span class='op'>::</span><span class='const'>NMath</span><span class='period'>.</span><span class='id identifier rubyid_cos'>cos</span><span class='lparen'>(</span><span class='id identifier rubyid_linsp_out'>linsp_out</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>NMath</span><span class='period'>.</span><span class='id identifier rubyid_sin'>sin</span><span class='lparen'>(</span><span class='id identifier rubyid_linsp_out'>linsp_out</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span>
   <span class='id identifier rubyid_circle_in'>circle_in</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='lbracket'>[</span><span class='const'>Numo</span><span class='op'>::</span><span class='const'>NMath</span><span class='period'>.</span><span class='id identifier rubyid_cos'>cos</span><span class='lparen'>(</span><span class='id identifier rubyid_linsp_in'>linsp_in</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>NMath</span><span class='period'>.</span><span class='id identifier rubyid_sin'>sin</span><span class='lparen'>(</span><span class='id identifier rubyid_linsp_in'>linsp_in</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_vstack'>vstack</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_circle_out'>circle_out</span><span class='comma'>,</span> <span class='id identifier rubyid_factor'>factor</span> <span class='op'>*</span> <span class='id identifier rubyid_circle_in'>circle_in</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='period'>.</span><span class='id identifier rubyid_hstack'>hstack</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='id identifier rubyid_n_samples_out'>n_samples_out</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='period'>.</span><span class='id identifier rubyid_ones'>ones</span><span class='lparen'>(</span><span class='id identifier rubyid_n_samples_in'>n_samples_in</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-  <span class='comment'># shuffle data indices.
-</span>  <span class='kw'>if</span> <span class='id identifier rubyid_shuffle'>shuffle</span>
+  <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='period'>.</span><span class='id identifier rubyid_hstack'>hstack</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='id identifier rubyid_n_samples_out'>n_samples_out</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='period'>.</span><span class='id identifier rubyid_ones'>ones</span><span class='lparen'>(</span><span class='id identifier rubyid_n_samples_in'>n_samples_in</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='rparen'>)</span>  <span class='comment'># shuffle data indices.
+</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_shuffle'>shuffle</span>
     <span class='id identifier rubyid_rand_ids'>rand_ids</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='op'>*</span><span class='int'>0</span><span class='op'>...</span><span class='id identifier rubyid_n_samples'>n_samples</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_shuffle'>shuffle</span><span class='lparen'>(</span><span class='label'>random:</span> <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='lbracket'>[</span><span class='id identifier rubyid_rand_ids'>rand_ids</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
     <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='id identifier rubyid_y'>y</span><span class='lbracket'>[</span><span class='id identifier rubyid_rand_ids'>rand_ids</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
-  <span class='kw'>end</span>
-  <span class='comment'># add gaussian noise.
-</span>  <span class='id identifier rubyid_x'>x</span> <span class='op'>+=</span> <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_rand_normal'>rand_normal</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='comma'>,</span> <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='id identifier rubyid_noise'>noise</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_noise'>noise</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='kw'>end</span>  <span class='comment'># add gaussian noise.
+</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>+=</span> <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_rand_normal'>rand_normal</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='comma'>,</span> <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='id identifier rubyid_noise'>noise</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_noise'>noise</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
   <span class='lbracket'>[</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -974,6 +990,8 @@ no noise is added.</p>
         <span class='type'>(<tt>Boolean</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>true</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -990,11 +1008,12 @@ no noise is added.</p>
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The standard deviaion of gaussian noise added to the data. If nil is given,
-no noise is added.</p>
+<p>The standard deviaion of gaussian noise added to the data. If nil is given, no noise is added.</p>
 </div>
       
     </li>
@@ -1006,6 +1025,8 @@ no noise is added.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
         &mdash;
@@ -1073,28 +1094,28 @@ no noise is added.</p>
   <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_params_numeric'>check_params_numeric</span><span class='lparen'>(</span><span class='label'>n_samples:</span> <span class='id identifier rubyid_n_samples'>n_samples</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_params_boolean'>check_params_boolean</span><span class='lparen'>(</span><span class='label'>shuffle:</span> <span class='id identifier rubyid_shuffle'>shuffle</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_params_numeric_or_nil'>check_params_numeric_or_nil</span><span class='lparen'>(</span><span class='label'>noise:</span> <span class='id identifier rubyid_noise'>noise</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='id identifier rubyid_random_seed'>random_seed</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>The number of samples must be more than 2.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_n_samples'>n_samples</span> <span class='op'>&lt;=</span> <span class='int'>1</span>
-  <span class='comment'># initialize some variables.
-</span>  <span class='id identifier rubyid_rs'>rs</span> <span class='op'>=</span> <span class='id identifier rubyid_random_seed'>random_seed</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>The number of samples must be more than 2.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_n_samples'>n_samples</span> <span class='op'>&lt;=</span> <span class='int'>1</span>  <span class='comment'># initialize some variables.
+</span>
+  <span class='id identifier rubyid_rs'>rs</span> <span class='op'>=</span> <span class='id identifier rubyid_random_seed'>random_seed</span>
   <span class='id identifier rubyid_rs'>rs</span> <span class='op'>||=</span> <span class='id identifier rubyid_srand'>srand</span>
   <span class='id identifier rubyid_rng'>rng</span> <span class='op'>=</span> <span class='const'>Random</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_rs'>rs</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_n_samples_out'>n_samples_out</span> <span class='op'>=</span> <span class='id identifier rubyid_n_samples'>n_samples</span><span class='period'>.</span><span class='id identifier rubyid_fdiv'>fdiv</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
-  <span class='id identifier rubyid_n_samples_in'>n_samples_in</span> <span class='op'>=</span> <span class='id identifier rubyid_n_samples'>n_samples</span> <span class='op'>-</span> <span class='id identifier rubyid_n_samples_out'>n_samples_out</span>
-  <span class='comment'># make two half circles.
-</span>  <span class='id identifier rubyid_linsp_out'>linsp_out</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_linspace'>linspace</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='const'>Math</span><span class='op'>::</span><span class='const'>PI</span><span class='comma'>,</span> <span class='id identifier rubyid_n_samples_out'>n_samples_out</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_n_samples_in'>n_samples_in</span> <span class='op'>=</span> <span class='id identifier rubyid_n_samples'>n_samples</span> <span class='op'>-</span> <span class='id identifier rubyid_n_samples_out'>n_samples_out</span>  <span class='comment'># make two half circles.
+</span>
+  <span class='id identifier rubyid_linsp_out'>linsp_out</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_linspace'>linspace</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='const'>Math</span><span class='op'>::</span><span class='const'>PI</span><span class='comma'>,</span> <span class='id identifier rubyid_n_samples_out'>n_samples_out</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_linsp_in'>linsp_in</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_linspace'>linspace</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='const'>Math</span><span class='op'>::</span><span class='const'>PI</span><span class='comma'>,</span> <span class='id identifier rubyid_n_samples_in'>n_samples_in</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_circle_out'>circle_out</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='lbracket'>[</span><span class='const'>Numo</span><span class='op'>::</span><span class='const'>NMath</span><span class='period'>.</span><span class='id identifier rubyid_cos'>cos</span><span class='lparen'>(</span><span class='id identifier rubyid_linsp_out'>linsp_out</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>NMath</span><span class='period'>.</span><span class='id identifier rubyid_sin'>sin</span><span class='lparen'>(</span><span class='id identifier rubyid_linsp_out'>linsp_out</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span>
   <span class='id identifier rubyid_circle_in'>circle_in</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='lbracket'>[</span><span class='int'>1</span> <span class='op'>-</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>NMath</span><span class='period'>.</span><span class='id identifier rubyid_cos'>cos</span><span class='lparen'>(</span><span class='id identifier rubyid_linsp_in'>linsp_in</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='int'>1</span> <span class='op'>-</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>NMath</span><span class='period'>.</span><span class='id identifier rubyid_sin'>sin</span><span class='lparen'>(</span><span class='id identifier rubyid_linsp_in'>linsp_in</span><span class='rparen'>)</span> <span class='op'>-</span> <span class='float'>0.5</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_vstack'>vstack</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_circle_out'>circle_out</span><span class='comma'>,</span> <span class='id identifier rubyid_circle_in'>circle_in</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='period'>.</span><span class='id identifier rubyid_hstack'>hstack</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='id identifier rubyid_n_samples_out'>n_samples_out</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='period'>.</span><span class='id identifier rubyid_ones'>ones</span><span class='lparen'>(</span><span class='id identifier rubyid_n_samples_in'>n_samples_in</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-  <span class='comment'># shuffle data indices.
-</span>  <span class='kw'>if</span> <span class='id identifier rubyid_shuffle'>shuffle</span>
+  <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='period'>.</span><span class='id identifier rubyid_hstack'>hstack</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='id identifier rubyid_n_samples_out'>n_samples_out</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='period'>.</span><span class='id identifier rubyid_ones'>ones</span><span class='lparen'>(</span><span class='id identifier rubyid_n_samples_in'>n_samples_in</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='rparen'>)</span>  <span class='comment'># shuffle data indices.
+</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_shuffle'>shuffle</span>
     <span class='id identifier rubyid_rand_ids'>rand_ids</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='op'>*</span><span class='int'>0</span><span class='op'>...</span><span class='id identifier rubyid_n_samples'>n_samples</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_shuffle'>shuffle</span><span class='lparen'>(</span><span class='label'>random:</span> <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='lbracket'>[</span><span class='id identifier rubyid_rand_ids'>rand_ids</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
     <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='id identifier rubyid_y'>y</span><span class='lbracket'>[</span><span class='id identifier rubyid_rand_ids'>rand_ids</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
-  <span class='kw'>end</span>
-  <span class='comment'># add gaussian noise.
-</span>  <span class='id identifier rubyid_x'>x</span> <span class='op'>+=</span> <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_rand_normal'>rand_normal</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='comma'>,</span> <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='id identifier rubyid_noise'>noise</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_noise'>noise</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='kw'>end</span>  <span class='comment'># add gaussian noise.
+</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>+=</span> <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_rand_normal'>rand_normal</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='comma'>,</span> <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='id identifier rubyid_noise'>noise</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_noise'>noise</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
   <span class='lbracket'>[</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1107,9 +1128,9 @@ no noise is added.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:30 2020 by
+  Generated on Sat Jan 11 19:43:04 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::Clustering::GaussianMixture
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::Clustering::GaussianMixture";
   relpath = '../../';
 </script>
@@ -107,8 +107,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>GaussianMixture is a class that implements cluster analysis with gaussian
-mixture model.</p>
+<p>GaussianMixture is a class that implements cluster analysis with gaussian mixture model.</p>
 
 
   </div>
@@ -475,6 +474,8 @@ mixture model.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>8</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -491,11 +492,12 @@ mixture model.</p>
         <span class='type'>(<tt>String</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>&#39;k-means++&#39;</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The initialization method for centroids (&#39;random&#39; or
-&#39;k-means++&#39;).</p>
+<p>The initialization method for centroids (&#39;random&#39; or &#39;k-means++&#39;).</p>
 </div>
       
     </li>
@@ -508,11 +510,12 @@ mixture model.</p>
         <span class='type'>(<tt>String</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>&#39;diag&#39;</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The type of covariance parameter to be used (&#39;diag&#39; or
-&#39;full&#39;).</p>
+<p>The type of covariance parameter to be used (&#39;diag&#39; or &#39;full&#39;).</p>
 </div>
       
     </li>
@@ -524,6 +527,8 @@ mixture model.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>50</tt>)</em>
       
       
         &mdash;
@@ -541,6 +546,8 @@ mixture model.</p>
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>1.0e-4</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -557,6 +564,8 @@ mixture model.</p>
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>1.0e-6</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -572,6 +581,8 @@ mixture model.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
         &mdash;
@@ -675,8 +686,7 @@ mixture model.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_clusters, n_features] if &#39;diag&#39;, [n_clusters,
-n_features, n_features] if &#39;full&#39;)</p>
+<p>(shape: [n_clusters, n_features] if &#39;diag&#39;, [n_clusters, n_features, n_features] if &#39;full&#39;)</p>
 </div>
       
     </li>
@@ -923,8 +933,7 @@ n_features, n_features] if &#39;full&#39;)</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for cluster
-analysis.</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for cluster analysis.</p>
 </div>
       
     </li>
@@ -1033,8 +1042,7 @@ analysis.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for cluster
-analysis.</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for cluster analysis.</p>
 </div>
       
     </li>
@@ -1310,9 +1318,9 @@ analysis.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:39 2020 by
+  Generated on Sat Jan 11 19:43:11 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

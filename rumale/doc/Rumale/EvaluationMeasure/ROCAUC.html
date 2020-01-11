@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::EvaluationMeasure::ROCAUC
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::EvaluationMeasure::ROCAUC";
   relpath = '../../';
 </script>
@@ -107,8 +107,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>ROCAUC is a class that calculate area under the receiver operation
-characteristic curve from predicted scores.</p>
+<p>ROCAUC is a class that calculate area under the receiver operation characteristic curve from predicted scores.</p>
 
 
   </div>
@@ -120,19 +119,19 @@ characteristic curve from predicted scores.</p>
     
       
       <pre class="example code"><code><span class='comment'># Encode labels to integer array.
-</span><span class='id identifier rubyid_labels'>labels</span> <span class='op'>=</span> <span class='qwords_beg'>%w[</span><span class='tstring_content'>A</span><span class='words_sep'> </span><span class='tstring_content'>B</span><span class='words_sep'> </span><span class='tstring_content'>B</span><span class='words_sep'> </span><span class='tstring_content'>C</span><span class='words_sep'> </span><span class='tstring_content'>A</span><span class='words_sep'> </span><span class='tstring_content'>A</span><span class='words_sep'> </span><span class='tstring_content'>C</span><span class='words_sep'> </span><span class='tstring_content'>C</span><span class='words_sep'> </span><span class='tstring_content'>C</span><span class='words_sep'> </span><span class='tstring_content'>A</span><span class='words_sep'>]</span>
+</span><span class='id identifier rubyid_labels'>labels</span> <span class='op'>=</span> <span class='qwords_beg'>%w[</span><span class='tstring_content'>A</span><span class='words_sep'> </span><span class='tstring_content'>B</span><span class='words_sep'> </span><span class='tstring_content'>B</span><span class='words_sep'> </span><span class='tstring_content'>C</span><span class='words_sep'> </span><span class='tstring_content'>A</span><span class='words_sep'> </span><span class='tstring_content'>A</span><span class='words_sep'> </span><span class='tstring_content'>C</span><span class='words_sep'> </span><span class='tstring_content'>C</span><span class='words_sep'> </span><span class='tstring_content'>C</span><span class='words_sep'> </span><span class='tstring_content'>A</span><span class='tstring_end'>]</span></span>
 <span class='id identifier rubyid_label_encoder'>label_encoder</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Preprocessing.html" title="Rumale::Preprocessing (module)">Preprocessing</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Preprocessing/LabelEncoder.html" title="Rumale::Preprocessing::LabelEncoder (class)">LabelEncoder</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Preprocessing/LabelEncoder.html#initialize-instance_method" title="Rumale::Preprocessing::LabelEncoder#initialize (method)">new</a></span></span>
-<span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='id identifier rubyid_label_encoder'>label_encoder</span><span class='period'>.</span><span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_labels'>labels</span><span class='rparen'>)</span>
-<span class='comment'># Fit classifier.
-</span><span class='id identifier rubyid_classifier'>classifier</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../LinearModel.html" title="Rumale::LinearModel (module)">LinearModel</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../LinearModel/LogisticRegression.html" title="Rumale::LinearModel::LogisticRegression (class)">LogisticRegression</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../LinearModel/LogisticRegression.html#initialize-instance_method" title="Rumale::LinearModel::LogisticRegression#initialize (method)">new</a></span></span>
-<span class='id identifier rubyid_classifier'>classifier</span><span class='period'>.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-<span class='comment'># Predict class probabilities.
-</span><span class='id identifier rubyid_y_score'>y_score</span> <span class='op'>=</span> <span class='id identifier rubyid_classifier'>classifier</span><span class='period'>.</span><span class='id identifier rubyid_predict_proba'>predict_proba</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-<span class='comment'># Encode labels to one-hot vectors.
-</span><span class='id identifier rubyid_one_hot_encoder'>one_hot_encoder</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Preprocessing.html" title="Rumale::Preprocessing (module)">Preprocessing</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Preprocessing/OneHotEncoder.html" title="Rumale::Preprocessing::OneHotEncoder (class)">OneHotEncoder</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Preprocessing/OneHotEncoder.html#initialize-instance_method" title="Rumale::Preprocessing::OneHotEncoder#initialize (method)">new</a></span></span>
-<span class='id identifier rubyid_y_onehot'>y_onehot</span> <span class='op'>=</span> <span class='id identifier rubyid_one_hot_encoder'>one_hot_encoder</span><span class='period'>.</span><span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-<span class='comment'># Calculate ROC AUC.
-</span><span class='id identifier rubyid_evaluator'>evaluator</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../EvaluationMeasure.html" title="Rumale::EvaluationMeasure (module)">EvaluationMeasure</a></span></span><span class='op'>::</span><span class='const'>ROCAUC</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+<span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='id identifier rubyid_label_encoder'>label_encoder</span><span class='period'>.</span><span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_labels'>labels</span><span class='rparen'>)</span><span class='comment'># Fit classifier.
+</span>
+<span class='id identifier rubyid_classifier'>classifier</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../LinearModel.html" title="Rumale::LinearModel (module)">LinearModel</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../LinearModel/LogisticRegression.html" title="Rumale::LinearModel::LogisticRegression (class)">LogisticRegression</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../LinearModel/LogisticRegression.html#initialize-instance_method" title="Rumale::LinearModel::LogisticRegression#initialize (method)">new</a></span></span>
+<span class='id identifier rubyid_classifier'>classifier</span><span class='period'>.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span><span class='comment'># Predict class probabilities.
+</span>
+<span class='id identifier rubyid_y_score'>y_score</span> <span class='op'>=</span> <span class='id identifier rubyid_classifier'>classifier</span><span class='period'>.</span><span class='id identifier rubyid_predict_proba'>predict_proba</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span><span class='comment'># Encode labels to one-hot vectors.
+</span>
+<span class='id identifier rubyid_one_hot_encoder'>one_hot_encoder</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Preprocessing.html" title="Rumale::Preprocessing (module)">Preprocessing</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Preprocessing/OneHotEncoder.html" title="Rumale::Preprocessing::OneHotEncoder (class)">OneHotEncoder</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Preprocessing/OneHotEncoder.html#initialize-instance_method" title="Rumale::Preprocessing::OneHotEncoder#initialize (method)">new</a></span></span>
+<span class='id identifier rubyid_y_onehot'>y_onehot</span> <span class='op'>=</span> <span class='id identifier rubyid_one_hot_encoder'>one_hot_encoder</span><span class='period'>.</span><span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span><span class='comment'># Calculate ROC AUC.
+</span>
+<span class='id identifier rubyid_evaluator'>evaluator</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../EvaluationMeasure.html" title="Rumale::EvaluationMeasure (module)">EvaluationMeasure</a></span></span><span class='op'>::</span><span class='const'>ROCAUC</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
 <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_evaluator'>evaluator</span><span class='period'>.</span><span class='id identifier rubyid_score'>score</span><span class='lparen'>(</span><span class='id identifier rubyid_y_onehot'>y_onehot</span><span class='comma'>,</span> <span class='id identifier rubyid_y_score'>y_score</span><span class='rparen'>)</span></code></pre>
     
   </div>
@@ -278,8 +277,7 @@ characteristic curve from predicted scores.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_elements]) x coordinates. These are expected to monotonously
-increase or decrease.</p>
+<p>(shape: [n_elements]) x coordinates. These are expected to monotonously increase or decrease.</p>
 </div>
       
     </li>
@@ -433,9 +431,7 @@ increase or decrease.</p>
       
         &mdash;
         <div class='inline'>
-<p>Label to be a positive label when binarizing the given labels. If nil is
-given, the method considers the maximum value of the label as a positive
-label.</p>
+<p>Label to be a positive label when binarizing the given labels. If nil is given, the method considers the maximum value of the label as a positive label.</p>
 </div>
       
     </li>
@@ -454,9 +450,7 @@ label.</p>
       
         &mdash;
         <div class='inline'>
-<p>fpr (Numo::DFloat): false positive rates. tpr (Numo::DFloat): true positive
-rates. thresholds (Numo::DFloat): thresholds on the decision function used
-to calculate fpr and tpr.</p>
+<p>fpr (Numo::DFloat): false positive rates. tpr (Numo::DFloat): true positive rates. thresholds (Numo::DFloat): thresholds on the decision function used to calculate fpr and tpr.</p>
 </div>
       
     </li>
@@ -573,8 +567,7 @@ to calculate fpr and tpr.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples] or [n_samples, n_classes]) Ground truth binary labels
-or one-hot encoded multi-labels.</p>
+<p>(shape: [n_samples] or [n_samples, n_classes]) Ground truth binary labels or one-hot encoded multi-labels.</p>
 </div>
       
     </li>
@@ -590,8 +583,7 @@ or one-hot encoded multi-labels.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples] or [n_samples, n_classes]) Predicted class
-probabilities or confidence scores.</p>
+<p>(shape: [n_samples] or [n_samples, n_classes]) Predicted class probabilities or confidence scores.</p>
 </div>
       
     </li>
@@ -686,9 +678,9 @@ probabilities or confidence scores.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:38 2020 by
+  Generated on Sat Jan 11 19:43:11 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

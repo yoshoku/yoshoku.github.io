@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::Clustering::SingleLinkage
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::Clustering::SingleLinkage";
   relpath = '../../';
 </script>
@@ -107,13 +107,11 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>SingleLinkage is a class that implements hierarchical cluster analysis with
-single linakge method. This class is used internally for HDBSCAN.</p>
+<p>SingleLinkage is a class that implements hierarchical cluster analysis with single linakge method. This class is used internally for HDBSCAN.</p>
 
 <p><strong>Reference</strong></p>
 <ul><li><ol style="list-style-type: upper-alpha"><li>
-<p>Mullner, “Modern hierarchical, agglomerative clustering algorithms,”
-arXiv:1109.2378, 2011.</p>
+<p>Mullner, “Modern hierarchical, agglomerative clustering algorithms,” arXiv:1109.2378, 2011.</p>
 </li></ol>
 </li></ul>
 
@@ -395,6 +393,8 @@ arXiv:1109.2378, 2011.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>2</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -411,13 +411,12 @@ arXiv:1109.2378, 2011.</p>
         <span class='type'>(<tt>String</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>&#39;euclidean&#39;</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The metric to calculate the distances. If metric is &#39;euclidean&#39;,
-Euclidean distance is calculated for distance between points. If metric is
-&#39;precomputed&#39;, the fit and fit_transform methods expect to be given
-a distance matrix.</p>
+<p>The metric to calculate the distances. If metric is &#39;euclidean&#39;, Euclidean distance is calculated for distance between points. If metric is &#39;precomputed&#39;, the fit and fit_transform methods expect to be given a distance matrix.</p>
 </div>
       
     </li>
@@ -626,9 +625,7 @@ a distance matrix.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for cluster
-analysis. If the metric is &#39;precomputed&#39;, x must be a square
-distance matrix (shape: [n_samples, n_samples]).</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for cluster analysis. If the metric is &#39;precomputed&#39;, x must be a square distance matrix (shape: [n_samples, n_samples]).</p>
 </div>
       
     </li>
@@ -726,9 +723,7 @@ distance matrix (shape: [n_samples, n_samples]).</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The samples to be used for cluster
-analysis. If the metric is &#39;precomputed&#39;, x must be a square
-distance matrix (shape: [n_samples, n_samples]).</p>
+<p>(shape: [n_samples, n_features]) The samples to be used for cluster analysis. If the metric is &#39;precomputed&#39;, x must be a square distance matrix (shape: [n_samples, n_samples]).</p>
 </div>
       
     </li>
@@ -922,9 +917,9 @@ distance matrix (shape: [n_samples, n_samples]).</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:37 2020 by
+  Generated on Sat Jan 11 19:43:10 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

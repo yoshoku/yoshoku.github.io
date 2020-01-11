@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::Preprocessing::BinDiscretizer
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::Preprocessing::BinDiscretizer";
   relpath = '../../';
 </script>
@@ -107,8 +107,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Discretizes features with a given number of bins. In some cases,
-discretizing features may accelerate decision tree training.</p>
+<p>Discretizes features with a given number of bins. In some cases, discretizing features may accelerate decision tree training.</p>
 
 
   </div>
@@ -121,8 +120,7 @@ discretizing features may accelerate decision tree training.</p>
       
       <pre class="example code"><code><span class='id identifier rubyid_discretizer'>discretizer</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Preprocessing.html" title="Rumale::Preprocessing (module)">Preprocessing</a></span></span><span class='op'>::</span><span class='const'>BinDiscretizer</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::Preprocessing::BinDiscretizer#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>n_bins:</span> <span class='int'>4</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_samples'>samples</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>5</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_rand'>rand</span> <span class='op'>-</span> <span class='float'>0.5</span>
-<span class='id identifier rubyid_transformed'>transformed</span> <span class='op'>=</span> <span class='id identifier rubyid_discretizer'>discretizer</span><span class='period'>.</span><span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_samples'>samples</span><span class='rparen'>)</span>
-<span class='comment'># &gt; pp samples
+<span class='id identifier rubyid_transformed'>transformed</span> <span class='op'>=</span> <span class='id identifier rubyid_discretizer'>discretizer</span><span class='period'>.</span><span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_samples'>samples</span><span class='rparen'>)</span><span class='comment'># &gt; pp samples
 </span><span class='comment'># Numo::DFloat#shape=[5,2]
 </span><span class='comment'># [[-0.438246, -0.126933],
 </span><span class='comment'>#  [ 0.294815, -0.298958],
@@ -135,7 +133,8 @@ discretizing features may accelerate decision tree training.</p>
 </span><span class='comment'>#  [3, 0],
 </span><span class='comment'>#  [0, 1],
 </span><span class='comment'>#  [2, 3],
-</span><span class='comment'>#  [0, 0]]</span></code></pre>
+</span><span class='comment'>#  [0, 0]]</span>
+</code></pre>
     
   </div>
 
@@ -393,6 +392,8 @@ discretizing features may accelerate decision tree training.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>32</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -536,8 +537,7 @@ discretizing features may accelerate decision tree training.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The samples to calculate the feature
-ranges.</p>
+<p>(shape: [n_samples, n_features]) The samples to calculate the feature ranges.</p>
 </div>
       
     </li>
@@ -899,9 +899,9 @@ ranges.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:42 2020 by
+  Generated on Sat Jan 11 19:43:14 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

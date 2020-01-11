@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::Preprocessing::LabelEncoder
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::Preprocessing::LabelEncoder";
   relpath = '../../';
 </script>
@@ -120,13 +120,13 @@
       
       <pre class="example code"><code><span class='id identifier rubyid_encoder'>encoder</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Preprocessing.html" title="Rumale::Preprocessing (module)">Preprocessing</a></span></span><span class='op'>::</span><span class='const'>LabelEncoder</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::Preprocessing::LabelEncoder#initialize (method)">new</a></span></span>
 <span class='id identifier rubyid_labels'>labels</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>8</span><span class='comma'>,</span> <span class='int'>8</span><span class='comma'>,</span> <span class='int'>15</span><span class='comma'>,</span> <span class='int'>0</span><span class='rbracket'>]</span>
-<span class='id identifier rubyid_encoded_labels'>encoded_labels</span> <span class='op'>=</span> <span class='id identifier rubyid_encoder'>encoder</span><span class='period'>.</span><span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_labels'>labels</span><span class='rparen'>)</span>
-<span class='comment'># &gt; pp encoded_labels
+<span class='id identifier rubyid_encoded_labels'>encoded_labels</span> <span class='op'>=</span> <span class='id identifier rubyid_encoder'>encoder</span><span class='period'>.</span><span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_labels'>labels</span><span class='rparen'>)</span><span class='comment'># &gt; pp encoded_labels
 </span><span class='comment'># Numo::Int32#shape=[5]
 </span><span class='comment'># [1, 2, 2, 3, 0]
-</span><span class='id identifier rubyid_decoded_labels'>decoded_labels</span> <span class='op'>=</span> <span class='id identifier rubyid_encoder'>encoder</span><span class='period'>.</span><span class='id identifier rubyid_inverse_transform'>inverse_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_encoded_labels'>encoded_labels</span><span class='rparen'>)</span>
-<span class='comment'># &gt; pp decoded_labels
-</span><span class='comment'># [1, 8, 8, 15, 0]</span></code></pre>
+</span>
+<span class='id identifier rubyid_decoded_labels'>decoded_labels</span> <span class='op'>=</span> <span class='id identifier rubyid_encoder'>encoder</span><span class='period'>.</span><span class='id identifier rubyid_inverse_transform'>inverse_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_encoded_labels'>encoded_labels</span><span class='rparen'>)</span><span class='comment'># &gt; pp decoded_labels
+</span><span class='comment'># [1, 8, 8, 15, 0]</span>
+</code></pre>
     
   </div>
 
@@ -253,8 +253,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Create a new encoder for encoding labels to values between 0 and n_classes
-- 1.</p>
+<p>Create a new encoder for encoding labels to values between 0 and n_classes - 1.</p>
 </div></span>
   
 </li>
@@ -392,8 +391,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Create a new encoder for encoding labels to values between 0 and n_classes
-- 1.</p>
+<p>Create a new encoder for encoding labels to values between 0 and n_classes - 1.</p>
 
 
   </div>
@@ -952,9 +950,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:40 2020 by
+  Generated on Sat Jan 11 19:43:12 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

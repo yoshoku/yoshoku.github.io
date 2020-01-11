@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::Clustering::DBSCAN
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::Clustering::DBSCAN";
   relpath = '../../';
 </script>
@@ -111,9 +111,7 @@
 
 <p><strong>Reference</strong></p>
 <ul><li><ol style="list-style-type: upper-alpha"><li>
-<p>Ester, H-P. Kriegel, J. Sander, and X. Xu, “A density-based algorithm for
-discovering clusters in large spatial databases with noise,” Proc. KDD&#39;
-96, pp. 266–231, 1996.</p>
+<p>Ester, H-P. Kriegel, J. Sander, and X. Xu, “A density-based algorithm for discovering clusters in large spatial databases with noise,” Proc. KDD&#39; 96, pp. 266–231, 1996.</p>
 </li></ol>
 </li></ul>
 
@@ -399,6 +397,8 @@ discovering clusters in large spatial databases with noise,” Proc. KDD&#39;
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>0.5</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -415,11 +415,12 @@ discovering clusters in large spatial databases with noise,” Proc. KDD&#39;
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>5</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The number of neighbor samples to be used for the criterion whether a point
-is a core point.</p>
+<p>The number of neighbor samples to be used for the criterion whether a point is a core point.</p>
 </div>
       
     </li>
@@ -432,13 +433,12 @@ is a core point.</p>
         <span class='type'>(<tt>String</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>&#39;euclidean&#39;</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The metric to calculate the distances. If metric is &#39;euclidean&#39;,
-Euclidean distance is calculated for distance between points. If metric is
-&#39;precomputed&#39;, the fit and fit_transform methods expect to be given
-a distance matrix.</p>
+<p>The metric to calculate the distances. If metric is &#39;euclidean&#39;, Euclidean distance is calculated for distance between points. If metric is &#39;precomputed&#39;, the fit and fit_transform methods expect to be given a distance matrix.</p>
 </div>
       
     </li>
@@ -561,8 +561,7 @@ a distance matrix.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Return the cluster labels. The negative cluster label indicates that the
-point is noise.</p>
+<p>Return the cluster labels. The negative cluster label indicates that the point is noise.</p>
 
 
   </div>
@@ -650,9 +649,7 @@ point is noise.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for cluster
-analysis. If the metric is &#39;precomputed&#39;, x must be a square
-distance matrix (shape: [n_samples, n_samples]).</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for cluster analysis. If the metric is &#39;precomputed&#39;, x must be a square distance matrix (shape: [n_samples, n_samples]).</p>
 </div>
       
     </li>
@@ -750,9 +747,7 @@ distance matrix (shape: [n_samples, n_samples]).</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The samples to be used for cluster
-analysis. If the metric is &#39;precomputed&#39;, x must be a square
-distance matrix (shape: [n_samples, n_samples]).</p>
+<p>(shape: [n_samples, n_features]) The samples to be used for cluster analysis. If the metric is &#39;precomputed&#39;, x must be a square distance matrix (shape: [n_samples, n_samples]).</p>
 </div>
       
     </li>
@@ -946,9 +941,9 @@ distance matrix (shape: [n_samples, n_samples]).</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:33 2020 by
+  Generated on Sat Jan 11 19:43:07 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

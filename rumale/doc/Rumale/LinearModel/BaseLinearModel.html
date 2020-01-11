@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::LinearModel::BaseLinearModel
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::LinearModel::BaseLinearModel";
   relpath = '../../';
 </script>
@@ -107,9 +107,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>BaseLinearModel is an abstract class for implementation of linear estimator
-with mini-batch stochastic gradient descent optimization. This class is
-used for internal process.</p>
+<p>BaseLinearModel is an abstract class for implementation of linear estimator with mini-batch stochastic gradient descent optimization. This class is used for internal process.</p>
 
 
   </div>
@@ -208,6 +206,8 @@ used for internal process.</p>
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>1.0</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -223,6 +223,8 @@ used for internal process.</p>
       
         <span class='type'>(<tt>Boolean</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
       
       
         &mdash;
@@ -240,6 +242,8 @@ used for internal process.</p>
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>1.0</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -255,6 +259,8 @@ used for internal process.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>1000</tt>)</em>
       
       
         &mdash;
@@ -272,6 +278,8 @@ used for internal process.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>10</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -285,14 +293,15 @@ used for internal process.</p>
         <span class='name'>optimizer</span>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="../Optimizer.html" title="Rumale::Optimizer (module)">Optimizer</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'>Optimizer</span></tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
         &mdash;
         <div class='inline'>
-<p>The optimizer to calculate adaptive learning rate. If nil is given, Nadam
-is used.</p>
+<p>The optimizer to calculate adaptive learning rate. If nil is given, Nadam is used.</p>
 </div>
       
     </li>
@@ -305,12 +314,12 @@ is used.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The number of jobs for running the fit and predict methods in parallel. If
-nil is given, the methods do not execute in parallel. If zero or less is
-given, it becomes equal to the number of processors.</p>
+<p>The number of jobs for running the fit and predict methods in parallel. If nil is given, the methods do not execute in parallel. If zero or less is given, it becomes equal to the number of processors.</p>
 </div>
       
     </li>
@@ -322,6 +331,8 @@ given, it becomes equal to the number of processors.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
         &mdash;
@@ -370,7 +381,7 @@ given, it becomes equal to the number of processors.</p>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_iter</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_max_iter'>max_iter</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:batch_size</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_batch_size'>batch_size</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:optimizer</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_optimizer'>optimizer</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:optimizer</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="../Optimizer.html" title="Rumale::Optimizer (module)">Optimizer</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Optimizer/Nadam.html" title="Rumale::Optimizer::Nadam (class)">Nadam</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Optimizer/Nadam.html#initialize-instance_method" title="Rumale::Optimizer::Nadam#initialize (method)">new</a></span></span>
+  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:optimizer</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Optimizer.html" title="Rumale::Optimizer (module)">Optimizer</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Optimizer/Nadam.html" title="Rumale::Optimizer::Nadam (class)">Nadam</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Optimizer/Nadam.html#initialize-instance_method" title="Rumale::Optimizer::Nadam#initialize (method)">new</a></span></span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_jobs</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_n_jobs'>n_jobs</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:random_seed</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_random_seed'>random_seed</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:random_seed</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='id identifier rubyid_srand'>srand</span>
@@ -389,9 +400,9 @@ given, it becomes equal to the number of processors.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:44 2020 by
+  Generated on Sat Jan 11 19:43:15 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

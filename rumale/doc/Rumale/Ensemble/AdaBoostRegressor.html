@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::Ensemble::AdaBoostRegressor
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::Ensemble::AdaBoostRegressor";
   relpath = '../../';
 </script>
@@ -107,14 +107,11 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>AdaBoostRegressor is a class that implements random forest for regression.
-This class uses decision tree for a weak learner.</p>
+<p>AdaBoostRegressor is a class that implements random forest for regression. This class uses decision tree for a weak learner.</p>
 
 <p><strong>Reference</strong></p>
 <ul><li><ol style="list-style-type: upper-alpha"><li><ol style="list-style-type: upper-alpha"><li>
-<p>Shrestha and D. P. Solomatine, “Experiments with AdaBoost.RT, an Improved
-Boosting Scheme for Regression,” Neural Computation 18 (7), pp. 1678–1710,
-2006.</p>
+<p>Shrestha and D. P. Solomatine, “Experiments with AdaBoost.RT, an Improved Boosting Scheme for Regression,” Neural Computation 18 (7), pp. 1678–1710, 2006.</p>
 </li></ol>
 </li></ol>
 </li></ul>
@@ -458,6 +455,8 @@ Boosting Scheme for Regression,” Neural Computation 18 (7), pp. 1678–1710,
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>10</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -474,11 +473,12 @@ Boosting Scheme for Regression,” Neural Computation 18 (7), pp. 1678–1710,
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>0.2</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The threshold for delimiting correct and incorrect predictions. That is
-constrained to [0, 1]</p>
+<p>The threshold for delimiting correct and incorrect predictions. That is constrained to [0, 1]</p>
 </div>
       
     </li>
@@ -490,6 +490,8 @@ constrained to [0, 1]</p>
       
         <span class='type'>(<tt>Float</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>1.0</tt>)</em>
       
       
         &mdash;
@@ -507,11 +509,12 @@ constrained to [0, 1]</p>
         <span class='type'>(<tt>String</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>&#39;mse&#39;</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The function to evalue spliting point. Supported criteria are
-&#39;gini&#39; and &#39;entropy&#39;.</p>
+<p>The function to evalue spliting point. Supported criteria are &#39;gini&#39; and &#39;entropy&#39;.</p>
 </div>
       
     </li>
@@ -524,11 +527,12 @@ constrained to [0, 1]</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The maximum depth of the tree. If nil is given, decision tree grows without
-concern for depth.</p>
+<p>The maximum depth of the tree. If nil is given, decision tree grows without concern for depth.</p>
 </div>
       
     </li>
@@ -541,11 +545,12 @@ concern for depth.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The maximum number of leaves on decision tree. If nil is given, number of
-leaves is not limited.</p>
+<p>The maximum number of leaves on decision tree. If nil is given, number of leaves is not limited.</p>
 </div>
       
     </li>
@@ -557,6 +562,8 @@ leaves is not limited.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>1</tt>)</em>
       
       
         &mdash;
@@ -574,11 +581,12 @@ leaves is not limited.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The number of features to consider when searching optimal split point. If
-nil is given, split process considers all features.</p>
+<p>The number of features to consider when searching optimal split point. If nil is given, split process considers all features.</p>
 </div>
       
     </li>
@@ -591,11 +599,12 @@ nil is given, split process considers all features.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The seed value using to initialize the random generator. It is used to
-randomly determine the order of features when deciding spliting point.</p>
+<p>The seed value using to initialize the random generator. It is used to randomly determine the order of features when deciding spliting point.</p>
 </div>
       
     </li>
@@ -950,8 +959,7 @@ randomly determine the order of features when deciding spliting point.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for fitting
-the model.</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for fitting the model.</p>
 </div>
       
     </li>
@@ -1069,20 +1077,20 @@ the model.</p>
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span> <span class='comment'># rubocop:disable Metrics/AbcSize
 </span>  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_tvalue_array'>check_convert_tvalue_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_sample_tvalue_size'>check_sample_tvalue_size</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-  <span class='comment'># Check target values
-</span>  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect target value vector to be 1-D arrray</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>==</span> <span class='int'>1</span>
-  <span class='comment'># Initialize some variables.
-</span>  <span class='id identifier rubyid_n_samples'>n_samples</span><span class='comma'>,</span> <span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span>
+  <span class='id identifier rubyid_check_sample_tvalue_size'>check_sample_tvalue_size</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>  <span class='comment'># Check target values
+</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect target value vector to be 1-D arrray</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>==</span> <span class='int'>1</span>  <span class='comment'># Initialize some variables.
+</span>
+  <span class='id identifier rubyid_n_samples'>n_samples</span><span class='comma'>,</span> <span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_features</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_n_features'>n_features</span> <span class='kw'>unless</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_features</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_features</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_features</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span><span class='comma'>,</span> <span class='id identifier rubyid_n_features'>n_features</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span>
   <span class='id identifier rubyid_observation_weights'>observation_weights</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='id identifier rubyid_n_samples'>n_samples</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='int'>1</span><span class='period'>.</span><span class='id identifier rubyid_fdiv'>fdiv</span><span class='lparen'>(</span><span class='id identifier rubyid_n_samples'>n_samples</span><span class='rparen'>)</span>
   <span class='ivar'>@estimators</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
   <span class='ivar'>@estimator_weights</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
   <span class='ivar'>@feature_importances</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='id identifier rubyid_n_features'>n_features</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_sub_rng'>sub_rng</span> <span class='op'>=</span> <span class='ivar'>@rng</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
-  <span class='comment'># Construct forest.
-</span>  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_estimators</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid__t'>_t</span><span class='op'>|</span>
+  <span class='id identifier rubyid_sub_rng'>sub_rng</span> <span class='op'>=</span> <span class='ivar'>@rng</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>  <span class='comment'># Construct forest.
+</span>
+  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_estimators</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid__t'>_t</span><span class='op'>|</span>
     <span class='comment'># Fit weak learner.
 </span>    <span class='id identifier rubyid_ids'>ids</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_choice_ids'>choice_ids</span><span class='lparen'>(</span><span class='id identifier rubyid_n_samples'>n_samples</span><span class='comma'>,</span> <span class='id identifier rubyid_observation_weights'>observation_weights</span><span class='comma'>,</span> <span class='id identifier rubyid_sub_rng'>sub_rng</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_tree'>tree</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Tree.html" title="Rumale::Tree (module)">Tree</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Tree/DecisionTreeRegressor.html" title="Rumale::Tree::DecisionTreeRegressor (class)">DecisionTreeRegressor</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Tree/DecisionTreeRegressor.html#initialize-instance_method" title="Rumale::Tree::DecisionTreeRegressor#initialize (method)">new</a></span></span><span class='lparen'>(</span>
@@ -1091,20 +1099,20 @@ the model.</p>
       <span class='label'>max_features:</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_features</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='id identifier rubyid_sub_rng'>sub_rng</span><span class='period'>.</span><span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Values</span><span class='period'>.</span><span class='id identifier rubyid_int_max'>int_max</span><span class='rparen'>)</span>
     <span class='rparen'>)</span>
     <span class='id identifier rubyid_tree'>tree</span><span class='period'>.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='lbracket'>[</span><span class='id identifier rubyid_ids'>ids</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='lbracket'>[</span><span class='id identifier rubyid_ids'>ids</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_p'>p</span> <span class='op'>=</span> <span class='id identifier rubyid_tree'>tree</span><span class='period'>.</span><span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-    <span class='comment'># Calculate errors.
-</span>    <span class='id identifier rubyid_abs_err'>abs_err</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='lparen'>(</span><span class='id identifier rubyid_p'>p</span> <span class='op'>-</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span>
+    <span class='id identifier rubyid_p'>p</span> <span class='op'>=</span> <span class='id identifier rubyid_tree'>tree</span><span class='period'>.</span><span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>    <span class='comment'># Calculate errors.
+</span>
+    <span class='id identifier rubyid_abs_err'>abs_err</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='lparen'>(</span><span class='id identifier rubyid_p'>p</span> <span class='op'>-</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span>
     <span class='id identifier rubyid_err'>err</span> <span class='op'>=</span> <span class='id identifier rubyid_observation_weights'>observation_weights</span><span class='lbracket'>[</span><span class='id identifier rubyid_abs_err'>abs_err</span><span class='period'>.</span><span class='id identifier rubyid_gt'>gt</span><span class='lparen'>(</span><span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:threshold</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span>
-    <span class='kw'>break</span> <span class='kw'>if</span> <span class='id identifier rubyid_err'>err</span> <span class='op'>&lt;=</span> <span class='float'>0.0</span>
-    <span class='comment'># Calculate weight.
-</span>    <span class='id identifier rubyid_beta'>beta</span> <span class='op'>=</span> <span class='id identifier rubyid_err'>err</span><span class='op'>**</span><span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:exponent</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_weight'>weight</span> <span class='op'>=</span> <span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='int'>1</span><span class='period'>.</span><span class='id identifier rubyid_fdiv'>fdiv</span><span class='lparen'>(</span><span class='id identifier rubyid_beta'>beta</span><span class='rparen'>)</span><span class='rparen'>)</span>
-    <span class='comment'># Store model.
-</span>    <span class='ivar'>@estimators</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_tree'>tree</span><span class='rparen'>)</span>
+    <span class='kw'>break</span> <span class='kw'>if</span> <span class='id identifier rubyid_err'>err</span> <span class='op'>&lt;=</span> <span class='float'>0.0</span>    <span class='comment'># Calculate weight.
+</span>
+    <span class='id identifier rubyid_beta'>beta</span> <span class='op'>=</span> <span class='id identifier rubyid_err'>err</span><span class='op'>**</span><span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:exponent</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_weight'>weight</span> <span class='op'>=</span> <span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='int'>1</span><span class='period'>.</span><span class='id identifier rubyid_fdiv'>fdiv</span><span class='lparen'>(</span><span class='id identifier rubyid_beta'>beta</span><span class='rparen'>)</span><span class='rparen'>)</span>    <span class='comment'># Store model.
+</span>
+    <span class='ivar'>@estimators</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_tree'>tree</span><span class='rparen'>)</span>
     <span class='ivar'>@estimator_weights</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_weight'>weight</span><span class='rparen'>)</span>
-    <span class='ivar'>@feature_importances</span> <span class='op'>+=</span> <span class='id identifier rubyid_weight'>weight</span> <span class='op'>*</span> <span class='id identifier rubyid_tree'>tree</span><span class='period'>.</span><span class='id identifier rubyid_feature_importances'>feature_importances</span>
-    <span class='comment'># Update observation weights.
-</span>    <span class='id identifier rubyid_update'>update</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_ones'>ones</span><span class='lparen'>(</span><span class='id identifier rubyid_n_samples'>n_samples</span><span class='rparen'>)</span>
+    <span class='ivar'>@feature_importances</span> <span class='op'>+=</span> <span class='id identifier rubyid_weight'>weight</span> <span class='op'>*</span> <span class='id identifier rubyid_tree'>tree</span><span class='period'>.</span><span class='id identifier rubyid_feature_importances'>feature_importances</span>    <span class='comment'># Update observation weights.
+</span>
+    <span class='id identifier rubyid_update'>update</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_ones'>ones</span><span class='lparen'>(</span><span class='id identifier rubyid_n_samples'>n_samples</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_update'>update</span><span class='lbracket'>[</span><span class='id identifier rubyid_abs_err'>abs_err</span><span class='period'>.</span><span class='id identifier rubyid_le'>le</span><span class='lparen'>(</span><span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:threshold</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_beta'>beta</span>
     <span class='id identifier rubyid_observation_weights'>observation_weights</span> <span class='op'>*=</span> <span class='id identifier rubyid_update'>update</span>
     <span class='id identifier rubyid_observation_weights'>observation_weights</span> <span class='op'>=</span> <span class='id identifier rubyid_observation_weights'>observation_weights</span><span class='period'>.</span><span class='id identifier rubyid_clip'>clip</span><span class='lparen'>(</span><span class='float'>1.0e-15</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
@@ -1350,9 +1358,9 @@ the model.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:40 2020 by
+  Generated on Sat Jan 11 19:43:12 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

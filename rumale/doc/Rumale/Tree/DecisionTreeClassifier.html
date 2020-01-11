@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::Tree::DecisionTreeClassifier
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::Tree::DecisionTreeClassifier";
   relpath = '../../';
 </script>
@@ -109,8 +109,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>DecisionTreeClassifier is a class that implements decision tree for
-classification.</p>
+<p>DecisionTreeClassifier is a class that implements decision tree for classification.</p>
 
 
   </div>
@@ -525,11 +524,12 @@ classification.</p>
         <span class='type'>(<tt>String</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>&#39;gini&#39;</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The function to evaluate spliting point. Supported criteria are
-&#39;gini&#39; and &#39;entropy&#39;.</p>
+<p>The function to evaluate spliting point. Supported criteria are &#39;gini&#39; and &#39;entropy&#39;.</p>
 </div>
       
     </li>
@@ -542,11 +542,12 @@ classification.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The maximum depth of the tree. If nil is given, decision tree grows without
-concern for depth.</p>
+<p>The maximum depth of the tree. If nil is given, decision tree grows without concern for depth.</p>
 </div>
       
     </li>
@@ -559,11 +560,12 @@ concern for depth.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The maximum number of leaves on decision tree. If nil is given, number of
-leaves is not limited.</p>
+<p>The maximum number of leaves on decision tree. If nil is given, number of leaves is not limited.</p>
 </div>
       
     </li>
@@ -575,6 +577,8 @@ leaves is not limited.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>1</tt>)</em>
       
       
         &mdash;
@@ -592,11 +596,12 @@ leaves is not limited.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The number of features to consider when searching optimal split point. If
-nil is given, split process considers all features.</p>
+<p>The number of features to consider when searching optimal split point. If nil is given, split process considers all features.</p>
 </div>
       
     </li>
@@ -609,11 +614,12 @@ nil is given, split process considers all features.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The seed value using to initialize the random generator. It is used to
-randomly determine the order of features when deciding spliting point.</p>
+<p>The seed value using to initialize the random generator. It is used to randomly determine the order of features when deciding spliting point.</p>
 </div>
       
     </li>
@@ -997,8 +1003,7 @@ randomly determine the order of features when deciding spliting point.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for fitting
-the model.</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for fitting the model.</p>
 </div>
       
     </li>
@@ -1356,8 +1361,7 @@ the model.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_classes]) Predicted probability of each class per
-sample.</p>
+<p>(shape: [n_samples, n_classes]) Predicted probability of each class per sample.</p>
 </div>
       
     </li>
@@ -1392,9 +1396,9 @@ sample.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:43 2020 by
+  Generated on Sat Jan 11 19:43:14 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

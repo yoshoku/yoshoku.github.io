@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::Tree::GradientTreeRegressor
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::Tree::GradientTreeRegressor";
   relpath = '../../';
 </script>
@@ -107,20 +107,15 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>GradientTreeRegressor is a class that implements decision tree for
-regression with exact gredy algorithm. This class is used internally for
-estimators with gradient tree boosting.</p>
+<p>GradientTreeRegressor is a class that implements decision tree for regression with exact gredy algorithm. This class is used internally for estimators with gradient tree boosting.</p>
 
 <p><strong>reference</strong></p>
 <ul><li>
-<p>J H. Friedman, “Greedy Function Approximation: A Gradient Boosting
-Machine,” Annals of Statistics, 29 (5), pp. 1189–1232, 2001.</p>
+<p>J H. Friedman, “Greedy Function Approximation: A Gradient Boosting Machine,” Annals of Statistics, 29 (5), pp. 1189–1232, 2001.</p>
 </li><li>
-<p>J H. Friedman, “Stochastic Gradient Boosting,” Computational Statistics and
-Data Analysis, 38 (4), pp. 367–378, 2002.</p>
+<p>J H. Friedman, “Stochastic Gradient Boosting,” Computational Statistics and Data Analysis, 38 (4), pp. 367–378, 2002.</p>
 </li><li><ol style="list-style-type: upper-alpha"><li>
-<p>Chen and C. Guestrin, “XGBoost: A Scalable Tree Boosting System,”  Proc.
-KDD&#39;16, pp. 785–794, 2016.</p>
+<p>Chen and C. Guestrin, “XGBoost: A Scalable Tree Boosting System,”  Proc. KDD&#39;16, pp. 785–794, 2016.</p>
 </li></ol>
 </li></ul>
 
@@ -481,6 +476,8 @@ KDD&#39;16, pp. 785–794, 2016.</p>
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>0.0</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -496,6 +493,8 @@ KDD&#39;16, pp. 785–794, 2016.</p>
       
         <span class='type'>(<tt>Float</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>1.0</tt>)</em>
       
       
         &mdash;
@@ -513,11 +512,12 @@ KDD&#39;16, pp. 785–794, 2016.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The maximum depth of the tree. If nil is given, decision tree grows without
-concern for depth.</p>
+<p>The maximum depth of the tree. If nil is given, decision tree grows without concern for depth.</p>
 </div>
       
     </li>
@@ -530,11 +530,12 @@ concern for depth.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The maximum number of leaves on decision tree. If nil is given, number of
-leaves is not limited.</p>
+<p>The maximum number of leaves on decision tree. If nil is given, number of leaves is not limited.</p>
 </div>
       
     </li>
@@ -546,6 +547,8 @@ leaves is not limited.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>1</tt>)</em>
       
       
         &mdash;
@@ -563,11 +566,12 @@ leaves is not limited.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The number of features to consider when searching optimal split point. If
-nil is given, split process considers all features.</p>
+<p>The number of features to consider when searching optimal split point. If nil is given, split process considers all features.</p>
 </div>
       
     </li>
@@ -580,11 +584,12 @@ nil is given, split process considers all features.</p>
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The seed value using to initialize the random generator. It is used to
-randomly determine the order of features when deciding spliting point.</p>
+<p>The seed value using to initialize the random generator. It is used to randomly determine the order of features when deciding spliting point.</p>
 </div>
       
     </li>
@@ -672,8 +677,7 @@ randomly determine the order of features when deciding spliting point.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Return the importance for each feature. The feature importances are
-calculated based on the numbers of times the feature is used for splitting.</p>
+<p>Return the importance for each feature. The feature importances are calculated based on the numbers of times the feature is used for splitting.</p>
 
 
   </div>
@@ -1013,8 +1017,7 @@ calculated based on the numbers of times the feature is used for splitting.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for fitting
-the model.</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for fitting the model.</p>
 </div>
       
     </li>
@@ -1121,16 +1124,16 @@ the model.</p>
   <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_tvalue_array'>check_convert_tvalue_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_g'>g</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_tvalue_array'>check_convert_tvalue_array</span><span class='lparen'>(</span><span class='id identifier rubyid_g'>g</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_h'>h</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_tvalue_array'>check_convert_tvalue_array</span><span class='lparen'>(</span><span class='id identifier rubyid_h'>h</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_sample_tvalue_size'>check_sample_tvalue_size</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-  <span class='comment'># Initialize some variables.
-</span>  <span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_check_sample_tvalue_size'>check_sample_tvalue_size</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>  <span class='comment'># Initialize some variables.
+</span>
+  <span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_features</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='id identifier rubyid_n_features'>n_features</span>
   <span class='ivar'>@n_leaves</span> <span class='op'>=</span> <span class='int'>0</span>
   <span class='ivar'>@leaf_weights</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
   <span class='ivar'>@feature_importances</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='id identifier rubyid_n_features'>n_features</span><span class='rparen'>)</span>
-  <span class='ivar'>@sub_rng</span> <span class='op'>=</span> <span class='ivar'>@rng</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
-  <span class='comment'># Build tree.
-</span>  <span class='id identifier rubyid_build_tree'>build_tree</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='id identifier rubyid_g'>g</span><span class='comma'>,</span> <span class='id identifier rubyid_h'>h</span><span class='rparen'>)</span>
+  <span class='ivar'>@sub_rng</span> <span class='op'>=</span> <span class='ivar'>@rng</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>  <span class='comment'># Build tree.
+</span>
+  <span class='id identifier rubyid_build_tree'>build_tree</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='id identifier rubyid_g'>g</span><span class='comma'>,</span> <span class='id identifier rubyid_h'>h</span><span class='rparen'>)</span>
   <span class='ivar'>@leaf_weights</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='lbracket'>[</span><span class='op'>*</span><span class='ivar'>@leaf_weights</span><span class='rbracket'>]</span>
   <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
@@ -1356,9 +1359,9 @@ the model.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  5 01:26:41 2020 by
+  Generated on Sat Jan 11 19:43:13 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>
