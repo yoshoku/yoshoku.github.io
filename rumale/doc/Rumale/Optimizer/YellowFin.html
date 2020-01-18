@@ -120,16 +120,6 @@
 </div>
 <div class="tags">
   
-  <div class="examples">
-    <p class="tag_title">Examples:</p>
-    
-      
-      <pre class="example code"><code><span class='id identifier rubyid_optimizer'>optimizer</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Optimizer.html" title="Rumale::Optimizer (module)">Optimizer</a></span></span><span class='op'>::</span><span class='const'>YellowFin</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::Optimizer::YellowFin#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>learning_rate:</span> <span class='float'>0.01</span><span class='comma'>,</span> <span class='label'>momentum:</span> <span class='float'>0.9</span><span class='comma'>,</span> <span class='label'>decay:</span> <span class='float'>0.999</span><span class='comma'>,</span> <span class='label'>window_width:</span> <span class='int'>20</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_estimator'>estimator</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../LinearModel.html" title="Rumale::LinearModel (module)">LinearModel</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../LinearModel/LinearRegression.html" title="Rumale::LinearModel::LinearRegression (class)">LinearRegression</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../LinearModel/LinearRegression.html#initialize-instance_method" title="Rumale::LinearModel::LinearRegression#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>optimizer:</span> <span class='id identifier rubyid_optimizer'>optimizer</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='int'>1</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_estimator'>estimator</span><span class='period'>.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_samples'>samples</span><span class='comma'>,</span> <span class='id identifier rubyid_values'>values</span><span class='rparen'>)</span></code></pre>
-    
-  </div>
-
 
 </div>
 
@@ -321,6 +311,11 @@
       <pre class="lines">
 
 
+22
+23
+24
+25
+26
 27
 28
 29
@@ -336,15 +331,10 @@
 39
 40
 41
-42
-43
-44
-45
-46
-47</pre>
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/optimizer/yellow_fin.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/optimizer/yellow_fin.rb', line 22</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>learning_rate:</span> <span class='float'>0.01</span><span class='comma'>,</span> <span class='label'>momentum:</span> <span class='float'>0.9</span><span class='comma'>,</span> <span class='label'>decay:</span> <span class='float'>0.999</span><span class='comma'>,</span> <span class='label'>window_width:</span> <span class='int'>20</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_numeric'>check_params_numeric</span><span class='lparen'>(</span><span class='label'>learning_rate:</span> <span class='id identifier rubyid_learning_rate'>learning_rate</span><span class='comma'>,</span> <span class='label'>momentum:</span> <span class='id identifier rubyid_momentum'>momentum</span><span class='comma'>,</span> <span class='label'>decay:</span> <span class='id identifier rubyid_decay'>decay</span><span class='comma'>,</span> <span class='label'>window_width:</span> <span class='id identifier rubyid_window_width'>window_width</span><span class='rparen'>)</span>
@@ -459,19 +449,19 @@
       <pre class="lines">
 
 
+49
+50
+51
+52
+53
 54
 55
 56
 57
-58
-59
-60
-61
-62
-63</pre>
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/optimizer/yellow_fin.rb', line 54</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/optimizer/yellow_fin.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_weight'>weight</span><span class='comma'>,</span> <span class='id identifier rubyid_gradient'>gradient</span><span class='rparen'>)</span>
   <span class='ivar'>@update</span> <span class='op'>||=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='id identifier rubyid_weight'>weight</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -493,7 +483,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Jan 18 16:19:28 2020 by
+  Generated on Sun Jan 19 01:04:56 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.7.0).
 </div>

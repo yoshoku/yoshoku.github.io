@@ -119,16 +119,6 @@
 </div>
 <div class="tags">
   
-  <div class="examples">
-    <p class="tag_title">Examples:</p>
-    
-      
-      <pre class="example code"><code><span class='id identifier rubyid_optimizer'>optimizer</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Optimizer.html" title="Rumale::Optimizer (module)">Optimizer</a></span></span><span class='op'>::</span><span class='const'>Adam</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::Optimizer::Adam#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>learning_rate:</span> <span class='float'>0.01</span><span class='comma'>,</span> <span class='label'>momentum:</span> <span class='float'>0.9</span><span class='comma'>,</span> <span class='label'>decay1:</span> <span class='float'>0.9</span><span class='comma'>,</span> <span class='label'>decay2:</span> <span class='float'>0.999</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_estimator'>estimator</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../LinearModel.html" title="Rumale::LinearModel (module)">LinearModel</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../LinearModel/LinearRegression.html" title="Rumale::LinearModel::LinearRegression (class)">LinearRegression</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../LinearModel/LinearRegression.html#initialize-instance_method" title="Rumale::LinearModel::LinearRegression#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>optimizer:</span> <span class='id identifier rubyid_optimizer'>optimizer</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='int'>1</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_estimator'>estimator</span><span class='period'>.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_samples'>samples</span><span class='comma'>,</span> <span class='id identifier rubyid_values'>values</span><span class='rparen'>)</span></code></pre>
-    
-  </div>
-
 
 </div>
 
@@ -350,20 +340,20 @@
       <pre class="lines">
 
 
+21
+22
+23
+24
+25
 26
 27
 28
 29
 30
-31
-32
-33
-34
-35
-36</pre>
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/optimizer/adam.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/optimizer/adam.rb', line 21</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>learning_rate:</span> <span class='float'>0.001</span><span class='comma'>,</span> <span class='label'>decay1:</span> <span class='float'>0.9</span><span class='comma'>,</span> <span class='label'>decay2:</span> <span class='float'>0.999</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_numeric'>check_params_numeric</span><span class='lparen'>(</span><span class='label'>learning_rate:</span> <span class='id identifier rubyid_learning_rate'>learning_rate</span><span class='comma'>,</span> <span class='label'>decay1:</span> <span class='id identifier rubyid_decay1'>decay1</span><span class='comma'>,</span> <span class='label'>decay2:</span> <span class='id identifier rubyid_decay2'>decay2</span><span class='rparen'>)</span>
@@ -468,6 +458,11 @@
       <pre class="lines">
 
 
+38
+39
+40
+41
+42
 43
 44
 45
@@ -475,15 +470,10 @@
 47
 48
 49
-50
-51
-52
-53
-54
-55</pre>
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/optimizer/adam.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/optimizer/adam.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_weight'>weight</span><span class='comma'>,</span> <span class='id identifier rubyid_gradient'>gradient</span><span class='rparen'>)</span>
   <span class='ivar'>@fst_moment</span> <span class='op'>||=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='id identifier rubyid_weight'>weight</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='rparen'>)</span>
@@ -547,15 +537,15 @@
       <pre class="lines">
 
 
-59
-60
-61
-62
-63
-64</pre>
+54
+55
+56
+57
+58
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/optimizer/adam.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/optimizer/adam.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_marshal_dump'>marshal_dump</span>
   <span class='lbrace'>{</span> <span class='label'>params:</span> <span class='ivar'>@params</span><span class='comma'>,</span>
@@ -607,16 +597,16 @@
       <pre class="lines">
 
 
+63
+64
+65
+66
+67
 68
-69
-70
-71
-72
-73
-74</pre>
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/optimizer/adam.rb', line 68</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/optimizer/adam.rb', line 63</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_marshal_load'>marshal_load</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:params</span><span class='rbracket'>]</span>
@@ -635,7 +625,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Jan 18 16:19:22 2020 by
+  Generated on Sun Jan 19 01:04:54 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.7.0).
 </div>
