@@ -279,7 +279,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(learning_rate: 0.01, decay: nil, momentum: 0.9, reg_param: 1.0, l1_ratio: 0.5, fit_bias: true, bias_scale: 1.0, max_iter: 100, batch_size: 50, tol: 1e-4, n_jobs: nil, verbose: false, random_seed: nil)  &#x21d2; ElasticNet </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(learning_rate: 0.01, decay: nil, momentum: 0.9, reg_param: 1.0, l1_ratio: 0.5, fit_bias: true, bias_scale: 1.0, max_iter: 200, batch_size: 50, tol: 1e-4, n_jobs: nil, verbose: false, random_seed: nil)  &#x21d2; ElasticNet </a>
     
 
     
@@ -364,7 +364,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(learning_rate: 0.01, decay: nil, momentum: 0.9, reg_param: 1.0, l1_ratio: 0.5, fit_bias: true, bias_scale: 1.0, max_iter: 100, batch_size: 50, tol: 1e-4, n_jobs: nil, verbose: false, random_seed: nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::LinearModel::ElasticNet (class)">ElasticNet</a></span></tt> 
+    #<strong>initialize</strong>(learning_rate: 0.01, decay: nil, momentum: 0.9, reg_param: 1.0, l1_ratio: 0.5, fit_bias: true, bias_scale: 1.0, max_iter: 200, batch_size: 50, tol: 1e-4, n_jobs: nil, verbose: false, random_seed: nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::LinearModel::ElasticNet (class)">ElasticNet</a></span></tt> 
   
 
   
@@ -516,7 +516,7 @@
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
-        <em class="default">(defaults to: <tt>100</tt>)</em>
+        <em class="default">(defaults to: <tt>200</tt>)</em>
       
       
         &mdash;
@@ -651,13 +651,13 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>learning_rate:</span> <span class='float'>0.01</span><span class='comma'>,</span> <span class='label'>decay:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>momentum:</span> <span class='float'>0.9</span><span class='comma'>,</span>
                <span class='label'>reg_param:</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='label'>l1_ratio:</span> <span class='float'>0.5</span><span class='comma'>,</span> <span class='label'>fit_bias:</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='label'>bias_scale:</span> <span class='float'>1.0</span><span class='comma'>,</span>
-               <span class='label'>max_iter:</span> <span class='int'>100</span><span class='comma'>,</span> <span class='label'>batch_size:</span> <span class='int'>50</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='float'>1e-4</span><span class='comma'>,</span>
+               <span class='label'>max_iter:</span> <span class='int'>200</span><span class='comma'>,</span> <span class='label'>batch_size:</span> <span class='int'>50</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='float'>1e-4</span><span class='comma'>,</span>
                <span class='label'>n_jobs:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>verbose:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_numeric'>check_params_numeric</span><span class='lparen'>(</span><span class='label'>learning_rate:</span> <span class='id identifier rubyid_learning_rate'>learning_rate</span><span class='comma'>,</span> <span class='label'>momentum:</span> <span class='id identifier rubyid_momentum'>momentum</span><span class='comma'>,</span>
                        <span class='label'>reg_param:</span> <span class='id identifier rubyid_reg_param'>reg_param</span><span class='comma'>,</span> <span class='label'>l1_ratio:</span> <span class='id identifier rubyid_l1_ratio'>l1_ratio</span><span class='comma'>,</span> <span class='label'>bias_scale:</span> <span class='id identifier rubyid_bias_scale'>bias_scale</span><span class='comma'>,</span>
                        <span class='label'>max_iter:</span> <span class='id identifier rubyid_max_iter'>max_iter</span><span class='comma'>,</span> <span class='label'>batch_size:</span> <span class='id identifier rubyid_batch_size'>batch_size</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='id identifier rubyid_tol'>tol</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_boolean'>check_params_boolean</span><span class='lparen'>(</span><span class='label'>fit_bias:</span> <span class='id identifier rubyid_fit_bias'>fit_bias</span><span class='comma'>,</span> <span class='label'>verbose:</span> <span class='id identifier rubyid_verbose'>verbose</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_numeric_or_nil'>check_params_numeric_or_nil</span><span class='lparen'>(</span><span class='label'>decay:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>n_jobs:</span> <span class='id identifier rubyid_n_jobs'>n_jobs</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='id identifier rubyid_random_seed'>random_seed</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_params_numeric_or_nil'>check_params_numeric_or_nil</span><span class='lparen'>(</span><span class='label'>decay:</span> <span class='id identifier rubyid_decay'>decay</span><span class='comma'>,</span> <span class='label'>n_jobs:</span> <span class='id identifier rubyid_n_jobs'>n_jobs</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='id identifier rubyid_random_seed'>random_seed</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_positive'>check_params_positive</span><span class='lparen'>(</span><span class='label'>learning_rate:</span> <span class='id identifier rubyid_learning_rate'>learning_rate</span><span class='comma'>,</span> <span class='label'>reg_param:</span> <span class='id identifier rubyid_reg_param'>reg_param</span><span class='comma'>,</span> <span class='label'>max_iter:</span> <span class='id identifier rubyid_max_iter'>max_iter</span><span class='comma'>,</span> <span class='label'>batch_size:</span> <span class='id identifier rubyid_batch_size'>batch_size</span><span class='rparen'>)</span>
   <span class='kw'>super</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='id identifier rubyid_method'>method</span><span class='lparen'>(</span><span class='symbol'>:initialize</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_parameters'>parameters</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid__t'>_t</span><span class='comma'>,</span> <span class='id identifier rubyid_arg'>arg</span><span class='op'>|</span> <span class='lbracket'>[</span><span class='id identifier rubyid_arg'>arg</span><span class='comma'>,</span> <span class='id identifier rubyid_binding'>binding</span><span class='period'>.</span><span class='id identifier rubyid_local_variable_get'>local_variable_get</span><span class='lparen'>(</span><span class='id identifier rubyid_arg'>arg</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span><span class='rparen'>)</span>
@@ -1083,7 +1083,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Jan 13 22:39:59 2020 by
+  Generated on Sat Jan 18 16:19:30 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.7.0).
 </div>

@@ -142,7 +142,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(n_factors: 2, loss: nil, reg_param_linear: 1.0, reg_param_factor: 1.0, max_iter: 1000, batch_size: 10, optimizer: nil, n_jobs: nil, random_seed: nil)  &#x21d2; BaseFactorizationMachine </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(n_factors: 2, loss: nil, reg_param_linear: 1.0, reg_param_factor: 1.0, max_iter: 200, batch_size: 50, optimizer: nil, n_jobs: nil, random_seed: nil)  &#x21d2; BaseFactorizationMachine </a>
     
 
     
@@ -180,7 +180,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(n_factors: 2, loss: nil, reg_param_linear: 1.0, reg_param_factor: 1.0, max_iter: 1000, batch_size: 10, optimizer: nil, n_jobs: nil, random_seed: nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::PolynomialModel::BaseFactorizationMachine (class)">BaseFactorizationMachine</a></span></tt> 
+    #<strong>initialize</strong>(n_factors: 2, loss: nil, reg_param_linear: 1.0, reg_param_factor: 1.0, max_iter: 200, batch_size: 50, optimizer: nil, n_jobs: nil, random_seed: nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::PolynomialModel::BaseFactorizationMachine (class)">BaseFactorizationMachine</a></span></tt> 
   
 
   
@@ -278,12 +278,12 @@
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
-        <em class="default">(defaults to: <tt>1000</tt>)</em>
+        <em class="default">(defaults to: <tt>200</tt>)</em>
       
       
         &mdash;
         <div class='inline'>
-<p>The maximum number of iterations.</p>
+<p>The maximum number of epochs that indicates how many times the whole data is given to the training process.</p>
 </div>
       
     </li>
@@ -296,7 +296,7 @@
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
-        <em class="default">(defaults to: <tt>10</tt>)</em>
+        <em class="default">(defaults to: <tt>50</tt>)</em>
       
       
         &mdash;
@@ -369,7 +369,6 @@
       <pre class="lines">
 
 
-29
 30
 31
 32
@@ -387,13 +386,14 @@
 44
 45
 46
-47</pre>
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/polynomial_model/base_factorization_machine.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/polynomial_model/base_factorization_machine.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>n_factors:</span> <span class='int'>2</span><span class='comma'>,</span> <span class='label'>loss:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>reg_param_linear:</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='label'>reg_param_factor:</span> <span class='float'>1.0</span><span class='comma'>,</span>
-               <span class='label'>max_iter:</span> <span class='int'>1000</span><span class='comma'>,</span> <span class='label'>batch_size:</span> <span class='int'>10</span><span class='comma'>,</span> <span class='label'>optimizer:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>n_jobs:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+               <span class='label'>max_iter:</span> <span class='int'>200</span><span class='comma'>,</span> <span class='label'>batch_size:</span> <span class='int'>50</span><span class='comma'>,</span> <span class='label'>optimizer:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>n_jobs:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_factors</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_n_factors'>n_factors</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:loss</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_loss'>loss</span> <span class='kw'>unless</span> <span class='id identifier rubyid_loss'>loss</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -422,7 +422,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Jan 13 22:40:10 2020 by
+  Generated on Sat Jan 18 16:19:39 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.7.0).
 </div>

@@ -107,6 +107,14 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>In version 0.17.0, a new linear model abstract class called BaseSGD is introduced. BaseLienarModel is deprecated and will be removed in the future.</p>
+</div>
+  </div>
+
+
 <p>BaseLinearModel is an abstract class for implementation of linear estimator with mini-batch stochastic gradient descent optimization. This class is used for internal process.</p>
 
 
@@ -115,11 +123,7 @@
 <div class="tags">
   
 
-</div><div id="subclasses">
-  <h2>Direct Known Subclasses</h2>
-  <p class="children"><span class='object_link'><a href="Lasso.html" title="Rumale::LinearModel::Lasso (class)">Lasso</a></span>, <span class='object_link'><a href="LinearRegression.html" title="Rumale::LinearModel::LinearRegression (class)">LinearRegression</a></span>, <span class='object_link'><a href="LogisticRegression.html" title="Rumale::LinearModel::LogisticRegression (class)">LogisticRegression</a></span>, <span class='object_link'><a href="Ridge.html" title="Rumale::LinearModel::Ridge (class)">Ridge</a></span>, <span class='object_link'><a href="SVC.html" title="Rumale::LinearModel::SVC (class)">SVC</a></span>, <span class='object_link'><a href="SVR.html" title="Rumale::LinearModel::SVR (class)">SVR</a></span></p>
 </div>
-
 
 
 
@@ -351,11 +355,6 @@
       <pre class="lines">
 
 
-27
-28
-29
-30
-31
 32
 33
 34
@@ -367,13 +366,20 @@
 40
 41
 42
-43</pre>
+43
+44
+45
+46
+47
+48
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/base_linear_model.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/base_linear_model.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>reg_param:</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='label'>fit_bias:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>bias_scale:</span> <span class='float'>1.0</span><span class='comma'>,</span>
                <span class='label'>max_iter:</span> <span class='int'>1000</span><span class='comma'>,</span> <span class='label'>batch_size:</span> <span class='int'>10</span><span class='comma'>,</span> <span class='label'>optimizer:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>n_jobs:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>warning: BaseLinearModel is deprecated. Use BaseSGD instead.</span><span class='tstring_end'>&#39;</span></span>
   <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:reg_param</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_reg_param'>reg_param</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:fit_bias</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_fit_bias'>fit_bias</span>
@@ -400,7 +406,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Jan 13 22:40:06 2020 by
+  Generated on Sat Jan 18 16:19:36 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.7.0).
 </div>
