@@ -1,0 +1,2024 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Hanny::LSHIndex
+  
+    &mdash; Documentation by YARD 0.9.24
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Hanny::LSHIndex";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (L)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../Hanny.html" title="Hanny (module)">Hanny</a></span></span>
+     &raquo; 
+    <span class="title">LSHIndex</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Hanny::LSHIndex
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Hanny::LSHIndex</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/hanny/lsh_index.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>LSHIndex is a class that builds a search index with Locality Sensitive Hashing (LSH) [1]. It is known that if the code length is sufficiently long (ex. greater than 128-bit), LSH can obtain higher search performance than many popular hashing methods [2]. In search process, LSHIndex obtains search results by sorting the data stored in hash table with Hamming distances between query binary code and binary hash keys.</p>
+
+<p><strong>References:</strong></p>
+<ol><li>
+<p>Moses S. Charikar, “Similarity Estimation Techniques from Rounding Algorithms,” Proc. of the 34-th Annual ACM Symposium on Theory of Computing, pp. 380–388, (2002).</p>
+</li><li>
+<p>Deng Cai, “A Revisit of Hashing Algorithms for Approximate Nearest Neighbor Search,” CoRR abs/1612.07545 (2016).</p>
+</li></ol>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='comment'># Prepare vector data for search targets and queries with Numo::DFloat (shape: [n_samples, n_features]).
+</span><span class='id identifier rubyid_targets'>targets</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>5000</span><span class='comma'>,</span> <span class='int'>512</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_rand'>rand</span>
+<span class='id identifier rubyid_queries'>queries</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>10</span><span class='comma'>,</span> <span class='int'>512</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_rand'>rand</span>
+
+<span class='comment'># Build a search index with 256-bit binary code via LSH.
+</span><span class='comment'># Although LSHIndex works without setting random_seed, it recommends setting random_seed for reproducibility.
+</span><span class='id identifier rubyid_index'>index</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Hanny.html" title="Hanny (module)">Hanny</a></span></span><span class='op'>::</span><span class='const'>LSHIndex</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Hanny::LSHIndex#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>code_length:</span> <span class='int'>256</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='int'>1</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_index'>index</span><span class='period'>.</span><span class='id identifier rubyid_build_index'>build_index</span><span class='lparen'>(</span><span class='id identifier rubyid_targets'>targets</span><span class='rparen'>)</span>
+
+<span class='comment'># Obtain the Array&lt;Integer&gt; that has the data indices of 10-neighbors for each query.
+</span><span class='id identifier rubyid_candidates'>candidates</span> <span class='op'>=</span> <span class='id identifier rubyid_index'>index</span><span class='period'>.</span><span class='id identifier rubyid_search_knn'>search_knn</span><span class='lparen'>(</span><span class='id identifier rubyid_queries'>queries</span><span class='comma'>,</span> <span class='label'>n_neighbors:</span> <span class='int'>10</span><span class='rparen'>)</span>
+
+<span class='comment'># Save and load the search index with Marshal.
+</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>index.dat</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>wb</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_f'>f</span><span class='op'>|</span> <span class='id identifier rubyid_f'>f</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='const'>Marshal</span><span class='period'>.</span><span class='id identifier rubyid_dump'>dump</span><span class='lparen'>(</span><span class='id identifier rubyid_index'>index</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_index'>index</span> <span class='op'>=</span> <span class='const'>Marshal</span><span class='period'>.</span><span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_binread'>binread</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>index.dat</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='rparen'>)</span></code></pre>
+    
+  </div>
+
+
+</div>
+
+
+
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#code_length-instance_method" title="#code_length (instance method)">#<strong>code_length</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the code length of hash key.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#hash_codes-instance_method" title="#hash_codes (instance method)">#<strong>hash_codes</strong>  &#x21d2; Numo::Bit </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the binary hash codes.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#hash_table-instance_method" title="#hash_table (instance method)">#<strong>hash_table</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the hash table.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#n_features-instance_method" title="#n_features (instance method)">#<strong>n_features</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the number of features of indexed data.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#n_keys-instance_method" title="#n_keys (instance method)">#<strong>n_keys</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the number of hash keys.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#n_samples-instance_method" title="#n_samples (instance method)">#<strong>n_samples</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the number of samples of indexed data.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#random_seed-instance_method" title="#random_seed (instance method)">#<strong>random_seed</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the seed to initialize random number generator.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rng-instance_method" title="#rng (instance method)">#<strong>rng</strong>  &#x21d2; Random </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the random generator to generate random matrix.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#append_data-instance_method" title="#append_data (instance method)">#<strong>append_data</strong>(x)  &#x21d2; Array&lt;Integer&gt; </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Append new data to the search index.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#build_index-instance_method" title="#build_index (instance method)">#<strong>build_index</strong>(x)  &#x21d2; SVC </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Build a search index.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#hash_function-instance_method" title="#hash_function (instance method)">#<strong>hash_function</strong>(x)  &#x21d2; Numo::Bit </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Convert data into binary codes.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(code_length: 256, random_seed: nil)  &#x21d2; LSHIndex </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new nearest neighbor index.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#marshal_dump-instance_method" title="#marshal_dump (instance method)">#<strong>marshal_dump</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Dump marshal data.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#marshal_load-instance_method" title="#marshal_load (instance method)">#<strong>marshal_load</strong>(obj)  &#x21d2; nil </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Load marshal data.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#remove_data-instance_method" title="#remove_data (instance method)">#<strong>remove_data</strong>(data_ids)  &#x21d2; Array&lt;Integer&gt; </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Remove data from the search index.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#search_knn-instance_method" title="#search_knn (instance method)">#<strong>search_knn</strong>(q, n_neighbors: 10)  &#x21d2; Array&lt;Integer&gt; </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Perform k-nearest neighbor search.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#search_radius-instance_method" title="#search_radius (instance method)">#<strong>search_radius</strong>(q, radius: 1)  &#x21d2; Array&lt;Integer&gt; </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Perform hamming radius nearest neighbor search.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(code_length: 256, random_seed: nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Hanny::LSHIndex (class)">LSHIndex</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Create a new nearest neighbor index.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>code_length</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>256</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The length of binary code for hash key.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>random_seed</span>
+      
+      
+        <span class='type'>(<tt>Integer/NilClass</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The seed value using to initialize the random generator.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hanny/lsh_index.rb', line 66</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>code_length:</span> <span class='int'>256</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='ivar'>@code_length</span> <span class='op'>=</span> <span class='id identifier rubyid_code_length'>code_length</span>
+  <span class='ivar'>@n_samples</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@n_features</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@n_keys</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@last_id</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@weight_mat</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@hash_table</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@hash_codes</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@random_seed</span> <span class='op'>=</span> <span class='id identifier rubyid_random_seed'>random_seed</span>
+  <span class='ivar'>@random_seed</span> <span class='op'>||=</span> <span class='id identifier rubyid_srand'>srand</span>
+  <span class='ivar'>@rng</span> <span class='op'>=</span> <span class='const'>Random</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@random_seed</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="code_length-instance_method">
+  
+    #<strong>code_length</strong>  &#x21d2; <tt>Integer</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the code length of hash key.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+33
+34
+35</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hanny/lsh_index.rb', line 33</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_code_length'>code_length</span>
+  <span class='ivar'>@code_length</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="hash_codes-instance_method">
+  
+    #<strong>hash_codes</strong>  &#x21d2; <tt>Numo::Bit</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the binary hash codes.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::Bit</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+53
+54
+55</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hanny/lsh_index.rb', line 53</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_hash_codes'>hash_codes</span>
+  <span class='ivar'>@hash_codes</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="hash_table-instance_method">
+  
+    #<strong>hash_table</strong>  &#x21d2; <tt>Hash</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the hash table.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hanny/lsh_index.rb', line 49</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_hash_table'>hash_table</span>
+  <span class='ivar'>@hash_table</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="n_features-instance_method">
+  
+    #<strong>n_features</strong>  &#x21d2; <tt>Integer</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the number of features of indexed data.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+41
+42
+43</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hanny/lsh_index.rb', line 41</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_n_features'>n_features</span>
+  <span class='ivar'>@n_features</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="n_keys-instance_method">
+  
+    #<strong>n_keys</strong>  &#x21d2; <tt>Integer</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the number of hash keys.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+45
+46
+47</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hanny/lsh_index.rb', line 45</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_n_keys'>n_keys</span>
+  <span class='ivar'>@n_keys</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="n_samples-instance_method">
+  
+    #<strong>n_samples</strong>  &#x21d2; <tt>Integer</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the number of samples of indexed data.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+37
+38
+39</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hanny/lsh_index.rb', line 37</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_n_samples'>n_samples</span>
+  <span class='ivar'>@n_samples</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="random_seed-instance_method">
+  
+    #<strong>random_seed</strong>  &#x21d2; <tt>Integer</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the seed to initialize random number generator.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+57
+58
+59</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hanny/lsh_index.rb', line 57</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_random_seed'>random_seed</span>
+  <span class='ivar'>@random_seed</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="rng-instance_method">
+  
+    #<strong>rng</strong>  &#x21d2; <tt>Random</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the random generator to generate random matrix.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Random</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+61
+62
+63</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hanny/lsh_index.rb', line 61</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_rng'>rng</span>
+  <span class='ivar'>@rng</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="append_data-instance_method">
+  
+    #<strong>append_data</strong>(x)  &#x21d2; <tt>Array&lt;Integer&gt;</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Append new data to the search index.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>x</span>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_samples, n_features]) The dataset to append to search index.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;Integer&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The indices of appended data in search index</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hanny/lsh_index.rb', line 118</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_append_data'>append_data</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='comment'># Initialize some variables.
+</span>  <span class='id identifier rubyid_n_new_samples'>n_new_samples</span><span class='comma'>,</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span>
+  <span class='id identifier rubyid_bin_x'>bin_x</span> <span class='op'>=</span> <span class='id identifier rubyid_hash_function'>hash_function</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_added_data_ids'>added_data_ids</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>  <span class='comment'># Store samples to binary hash table.
+</span>
+  <span class='id identifier rubyid_new_codes'>new_codes</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_n_new_samples'>n_new_samples</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_m'>m</span><span class='op'>|</span>
+    <span class='id identifier rubyid_bin_code'>bin_code</span> <span class='op'>=</span> <span class='id identifier rubyid_bin_x'>bin_x</span><span class='lbracket'>[</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_hash_key'>hash_key</span> <span class='op'>=</span> <span class='id identifier rubyid_symbolized_hash_key'>symbolized_hash_key</span><span class='lparen'>(</span><span class='id identifier rubyid_bin_code'>bin_code</span><span class='rparen'>)</span>
+    <span class='kw'>unless</span> <span class='ivar'>@hash_table</span><span class='period'>.</span><span class='id identifier rubyid_key?'>key?</span><span class='lparen'>(</span><span class='id identifier rubyid_hash_key'>hash_key</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_new_codes'>new_codes</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_bin_code'>bin_code</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span><span class='rparen'>)</span>
+      <span class='ivar'>@hash_table</span><span class='lbracket'>[</span><span class='id identifier rubyid_hash_key'>hash_key</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='kw'>end</span>
+    <span class='id identifier rubyid_new_data_id'>new_data_id</span> <span class='op'>=</span> <span class='ivar'>@last_id</span> <span class='op'>+</span> <span class='id identifier rubyid_m'>m</span>
+    <span class='ivar'>@hash_table</span><span class='lbracket'>[</span><span class='id identifier rubyid_hash_key'>hash_key</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_new_data_id'>new_data_id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_added_data_ids'>added_data_ids</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_new_data_id'>new_data_id</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>  <span class='comment'># Update hash codes.
+</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_new_codes'>new_codes</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+    <span class='id identifier rubyid_new_codes'>new_codes</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Bit</span><span class='period'>.</span><span class='id identifier rubyid_cast'>cast</span><span class='lparen'>(</span><span class='id identifier rubyid_new_codes'>new_codes</span><span class='rparen'>)</span>
+    <span class='ivar'>@hash_codes</span> <span class='op'>=</span> <span class='ivar'>@hash_codes</span><span class='period'>.</span><span class='id identifier rubyid_concatenate'>concatenate</span><span class='lparen'>(</span><span class='id identifier rubyid_new_codes'>new_codes</span><span class='rparen'>)</span>
+    <span class='ivar'>@n_keys</span> <span class='op'>=</span> <span class='ivar'>@hash_codes</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@last_id</span> <span class='op'>+=</span> <span class='id identifier rubyid_n_new_samples'>n_new_samples</span>
+  <span class='ivar'>@n_samples</span> <span class='op'>+=</span> <span class='id identifier rubyid_n_new_samples'>n_new_samples</span>
+  <span class='id identifier rubyid_added_data_ids'>added_data_ids</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="build_index-instance_method">
+  
+    #<strong>build_index</strong>(x)  &#x21d2; <tt>SVC</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Build a search index.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>x</span>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_samples, n_features]) The dataset for building search index.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>SVC</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The search index itself that has constructed the hash table.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hanny/lsh_index.rb', line 90</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_build_index'>build_index</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='comment'># Initialize some variables.
+</span>  <span class='ivar'>@n_samples</span><span class='comma'>,</span> <span class='ivar'>@n_features</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span>
+  <span class='ivar'>@hash_table</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='ivar'>@hash_codes</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@weight_mat</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Utils.html" title="Hanny::Utils (module)">Utils</a></span></span><span class='period'>.</span><span class='id identifier rubyid_rand_normal'><span class='object_link'><a href="Utils.html#rand_normal-class_method" title="Hanny::Utils.rand_normal (method)">rand_normal</a></span></span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='ivar'>@n_features</span><span class='comma'>,</span> <span class='ivar'>@code_length</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='ivar'>@rng</span><span class='rparen'>)</span>  <span class='comment'># Convert samples to binary codes.
+</span>
+  <span class='id identifier rubyid_bin_x'>bin_x</span> <span class='op'>=</span> <span class='id identifier rubyid_hash_function'>hash_function</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>  <span class='comment'># Store samples to binary hash table.
+</span>
+  <span class='ivar'>@n_samples</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_m'>m</span><span class='op'>|</span>
+    <span class='id identifier rubyid_bin_code'>bin_code</span> <span class='op'>=</span> <span class='id identifier rubyid_bin_x'>bin_x</span><span class='lbracket'>[</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_hash_key'>hash_key</span> <span class='op'>=</span> <span class='id identifier rubyid_symbolized_hash_key'>symbolized_hash_key</span><span class='lparen'>(</span><span class='id identifier rubyid_bin_code'>bin_code</span><span class='rparen'>)</span>
+    <span class='kw'>unless</span> <span class='ivar'>@hash_table</span><span class='period'>.</span><span class='id identifier rubyid_key?'>key?</span><span class='lparen'>(</span><span class='id identifier rubyid_hash_key'>hash_key</span><span class='rparen'>)</span>
+      <span class='ivar'>@hash_codes</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_bin_code'>bin_code</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span><span class='rparen'>)</span>
+      <span class='ivar'>@hash_table</span><span class='lbracket'>[</span><span class='id identifier rubyid_hash_key'>hash_key</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='kw'>end</span>
+    <span class='ivar'>@hash_table</span><span class='lbracket'>[</span><span class='id identifier rubyid_hash_key'>hash_key</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@hash_codes</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Bit</span><span class='period'>.</span><span class='id identifier rubyid_cast'>cast</span><span class='lparen'>(</span><span class='ivar'>@hash_codes</span><span class='rparen'>)</span>  <span class='comment'># Update some variables.
+</span>
+  <span class='ivar'>@n_keys</span> <span class='op'>=</span> <span class='ivar'>@hash_codes</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='ivar'>@last_id</span> <span class='op'>=</span> <span class='ivar'>@n_samples</span>
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="hash_function-instance_method">
+  
+    #<strong>hash_function</strong>(x)  &#x21d2; <tt>Numo::Bit</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Convert data into binary codes.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>x</span>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_samples, n_features]) The data to be converted to binary codes.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::Bit</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The binary codes converted from given data.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+83
+84
+85</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hanny/lsh_index.rb', line 83</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_hash_function'>hash_function</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='ivar'>@weight_mat</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_ge'>ge</span><span class='lparen'>(</span><span class='float'>0.0</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="marshal_dump-instance_method">
+  
+    #<strong>marshal_dump</strong>  &#x21d2; <tt>Hash</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Dump marshal data.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The marshal data for search index.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hanny/lsh_index.rb', line 211</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_marshal_dump'>marshal_dump</span>
+  <span class='lbrace'>{</span> <span class='label'>code_length:</span> <span class='ivar'>@code_length</span><span class='comma'>,</span>
+    <span class='label'>n_samples:</span> <span class='ivar'>@n_samples</span><span class='comma'>,</span>
+    <span class='label'>n_features:</span> <span class='ivar'>@n_features</span><span class='comma'>,</span>
+    <span class='label'>n_keys:</span> <span class='ivar'>@n_keys</span><span class='comma'>,</span>
+    <span class='label'>last_id:</span> <span class='ivar'>@last_id</span><span class='comma'>,</span>
+    <span class='label'>weight_mat:</span> <span class='ivar'>@weight_mat</span><span class='comma'>,</span>
+    <span class='label'>bias_vec:</span> <span class='ivar'>@bias_vec</span><span class='comma'>,</span>
+    <span class='label'>hash_table:</span> <span class='ivar'>@hash_table</span><span class='comma'>,</span>
+    <span class='label'>hash_codes:</span> <span class='ivar'>@hash_codes</span><span class='comma'>,</span>
+    <span class='label'>random_seed:</span> <span class='ivar'>@random_seed</span><span class='comma'>,</span>
+    <span class='label'>rng:</span> <span class='ivar'>@rng</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="marshal_load-instance_method">
+  
+    #<strong>marshal_load</strong>(obj)  &#x21d2; <tt>nil</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Load marshal data.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hanny/lsh_index.rb', line 227</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_marshal_load'>marshal_load</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
+  <span class='ivar'>@code_length</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:code_length</span><span class='rbracket'>]</span>
+  <span class='ivar'>@n_samples</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:n_samples</span><span class='rbracket'>]</span>
+  <span class='ivar'>@n_features</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:n_features</span><span class='rbracket'>]</span>
+  <span class='ivar'>@n_keys</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:n_keys</span><span class='rbracket'>]</span>
+  <span class='ivar'>@last_id</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:last_id</span><span class='rbracket'>]</span>
+  <span class='ivar'>@weight_mat</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:weight_mat</span><span class='rbracket'>]</span>
+  <span class='ivar'>@bias_vec</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:bias_vec</span><span class='rbracket'>]</span>
+  <span class='ivar'>@hash_table</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:hash_table</span><span class='rbracket'>]</span>
+  <span class='ivar'>@hash_codes</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:hash_codes</span><span class='rbracket'>]</span>
+  <span class='ivar'>@random_seed</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:random_seed</span><span class='rbracket'>]</span>
+  <span class='ivar'>@rng</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:rng</span><span class='rbracket'>]</span>
+  <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="remove_data-instance_method">
+  
+    #<strong>remove_data</strong>(data_ids)  &#x21d2; <tt>Array&lt;Integer&gt;</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Remove data from the search index. The indices of removed data will never be assigned unless the search index is rebuilt.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>data_ids</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;Integer&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The data indices to be removed.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;Integer&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The indices of removed data in search index</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hanny/lsh_index.rb', line 151</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_remove_data'>remove_data</span><span class='lparen'>(</span><span class='id identifier rubyid_data_ids'>data_ids</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_removed_data_ids'>removed_data_ids</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_data_ids'>data_ids</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_query_id'>query_id</span><span class='op'>|</span>
+    <span class='comment'># Remove data id from hash table.
+</span>    <span class='id identifier rubyid_hash_key'>hash_key</span> <span class='op'>=</span> <span class='ivar'>@hash_table</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span> <span class='ivar'>@hash_table</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_query_id'>query_id</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+    <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_hash_key'>hash_key</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='ivar'>@hash_table</span><span class='lbracket'>[</span><span class='id identifier rubyid_hash_key'>hash_key</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_query_id'>query_id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_removed_data_ids'>removed_data_ids</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_query_id'>query_id</span><span class='rparen'>)</span>    <span class='comment'># Remove the hash key if there is no data.
+</span>
+    <span class='kw'>next</span> <span class='kw'>unless</span> <span class='ivar'>@hash_table</span><span class='lbracket'>[</span><span class='id identifier rubyid_hash_key'>hash_key</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+    <span class='id identifier rubyid_target_id'>target_id</span> <span class='op'>=</span> <span class='id identifier rubyid_distances_to_hash_codes'>distances_to_hash_codes</span><span class='lparen'>(</span><span class='id identifier rubyid_decoded_hash_key'>decoded_hash_key</span><span class='lparen'>(</span><span class='id identifier rubyid_hash_key'>hash_key</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_index'>index</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span>
+    <span class='ivar'>@hash_codes</span> <span class='op'>=</span> <span class='ivar'>@hash_codes</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_target_id'>target_id</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@n_samples</span> <span class='op'>-=</span> <span class='id identifier rubyid_removed_data_ids'>removed_data_ids</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
+  <span class='id identifier rubyid_removed_data_ids'>removed_data_ids</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="search_knn-instance_method">
+  
+    #<strong>search_knn</strong>(q, n_neighbors: 10)  &#x21d2; <tt>Array&lt;Integer&gt;</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Perform k-nearest neighbor search.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>q</span>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_queries, n_features]) The data for search queries.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>n_neighbors</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>10</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The number of neighbors.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;Integer&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The data indices of search result.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hanny/lsh_index.rb', line 172</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_search_knn'>search_knn</span><span class='lparen'>(</span><span class='id identifier rubyid_q'>q</span><span class='comma'>,</span> <span class='label'>n_neighbors:</span> <span class='int'>10</span><span class='rparen'>)</span>
+  <span class='comment'># Initialize some variables.
+</span>  <span class='id identifier rubyid_n_queries'>n_queries</span><span class='comma'>,</span> <span class='op'>=</span> <span class='id identifier rubyid_q'>q</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span>
+  <span class='id identifier rubyid_candidates'>candidates</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_n_queries'>n_queries</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>  <span class='comment'># Binarize queries.
+</span>
+  <span class='id identifier rubyid_bin_q'>bin_q</span> <span class='op'>=</span> <span class='id identifier rubyid_hash_function'>hash_function</span><span class='lparen'>(</span><span class='id identifier rubyid_q'>q</span><span class='rparen'>)</span>  <span class='comment'># Find k-nearest neighbors for each query.
+</span>
+  <span class='id identifier rubyid_n_queries'>n_queries</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_m'>m</span><span class='op'>|</span>
+    <span class='id identifier rubyid_sort_with_index'>sort_with_index</span><span class='lparen'>(</span><span class='id identifier rubyid_distances_to_hash_codes'>distances_to_hash_codes</span><span class='lparen'>(</span><span class='id identifier rubyid_bin_q'>bin_q</span><span class='lbracket'>[</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid__'>_</span><span class='comma'>,</span> <span class='id identifier rubyid_n'>n</span><span class='op'>|</span>
+      <span class='id identifier rubyid_candidates'>candidates</span><span class='lbracket'>[</span><span class='id identifier rubyid_m'>m</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_candidates'>candidates</span><span class='lbracket'>[</span><span class='id identifier rubyid_m'>m</span><span class='rbracket'>]</span> <span class='op'>|</span> <span class='ivar'>@hash_table</span><span class='lbracket'>[</span><span class='id identifier rubyid_symbolized_hash_key'>symbolized_hash_key</span><span class='lparen'>(</span><span class='ivar'>@hash_codes</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rbracket'>]</span>
+      <span class='kw'>break</span> <span class='kw'>if</span> <span class='id identifier rubyid_candidates'>candidates</span><span class='lbracket'>[</span><span class='id identifier rubyid_m'>m</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>&gt;=</span> <span class='id identifier rubyid_n_neighbors'>n_neighbors</span>
+    <span class='kw'>end</span>
+    <span class='id identifier rubyid_candidates'>candidates</span><span class='lbracket'>[</span><span class='id identifier rubyid_m'>m</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_candidates'>candidates</span><span class='lbracket'>[</span><span class='id identifier rubyid_m'>m</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_shift'>shift</span><span class='lparen'>(</span><span class='id identifier rubyid_n_neighbors'>n_neighbors</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_candidates'>candidates</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="search_radius-instance_method">
+  
+    #<strong>search_radius</strong>(q, radius: 1)  &#x21d2; <tt>Array&lt;Integer&gt;</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Perform hamming radius nearest neighbor search.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>q</span>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_queries, n_features]) The data for search queries.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>radius</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>1</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The hamming radius for search range.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;Integer&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The data indices of search result.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hanny/lsh_index.rb', line 193</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_search_radius'>search_radius</span><span class='lparen'>(</span><span class='id identifier rubyid_q'>q</span><span class='comma'>,</span> <span class='label'>radius:</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='comment'># Initialize some variables.
+</span>  <span class='id identifier rubyid_n_queries'>n_queries</span><span class='comma'>,</span> <span class='op'>=</span> <span class='id identifier rubyid_q'>q</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span>
+  <span class='id identifier rubyid_candidates'>candidates</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_n_queries'>n_queries</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>  <span class='comment'># Binarize queries.
+</span>
+  <span class='id identifier rubyid_bin_q'>bin_q</span> <span class='op'>=</span> <span class='id identifier rubyid_hash_function'>hash_function</span><span class='lparen'>(</span><span class='id identifier rubyid_q'>q</span><span class='rparen'>)</span>  <span class='comment'># Find k-nearest neighbors for each query.
+</span>
+  <span class='id identifier rubyid_n_queries'>n_queries</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_m'>m</span><span class='op'>|</span>
+    <span class='id identifier rubyid_sort_with_index'>sort_with_index</span><span class='lparen'>(</span><span class='id identifier rubyid_distances_to_hash_codes'>distances_to_hash_codes</span><span class='lparen'>(</span><span class='id identifier rubyid_bin_q'>bin_q</span><span class='lbracket'>[</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_d'>d</span><span class='comma'>,</span> <span class='id identifier rubyid_n'>n</span><span class='op'>|</span>
+      <span class='kw'>break</span> <span class='kw'>if</span> <span class='id identifier rubyid_d'>d</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_radius'>radius</span>
+      <span class='id identifier rubyid_candidates'>candidates</span><span class='lbracket'>[</span><span class='id identifier rubyid_m'>m</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_candidates'>candidates</span><span class='lbracket'>[</span><span class='id identifier rubyid_m'>m</span><span class='rbracket'>]</span> <span class='op'>|</span> <span class='ivar'>@hash_table</span><span class='lbracket'>[</span><span class='id identifier rubyid_symbolized_hash_key'>symbolized_hash_key</span><span class='lparen'>(</span><span class='ivar'>@hash_codes</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rbracket'>]</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_candidates'>candidates</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Sun Jan 26 00:02:47 2020 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.24 (ruby-2.7.0).
+</div>
+
+    </div>
+  </body>
+</html>

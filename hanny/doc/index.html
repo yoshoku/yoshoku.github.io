@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.9.24
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "README";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><div id='filecontents'>
+<h1 id="label-Hanny">Hanny</h1>
+
+<p><a href="https://travis-ci.org/yoshoku/Hanny"><img src="https://travis-ci.org/yoshoku/Hanny.svg?branch=master"></a> <a href="https://coveralls.io/github/yoshoku/Hanny?branch=master"><img src="https://coveralls.io/repos/github/yoshoku/Hanny/badge.svg?branch=master"></a> <a href="https://badge.fury.io/rb/hanny"><img src="https://badge.fury.io/rb/hanny.svg"></a> <a href="https://github.com/yoshoku/Hanny/blob/master/LICENSE.txt"><img src="https://img.shields.io/badge/License-BSD%202--Clause-orange.svg"></a></p>
+
+<p>Hanny is a Hash-based Approximate Nearest Neighbor (ANN) search library in Ruby. Hash-based ANN converts vector data into binary codes and builds a hash table by using the binary codes as hash keys. To build the hash table, Hanny uses Locality Sensitive Hashing (LSH) of approximating cosine similarity. It is known that if the code length is sufficiently long (ex. greater than 128-bit), LSH can obtain high search performance. In the experiment, Hanny achieved about twenty times faster search speed than the brute-force search by Euclidean distance.</p>
+
+<h2 id="label-Installation">Installation</h2>
+
+<p>Add this line to your application&#39;s Gemfile:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>hanny</span><span class='tstring_end'>&#39;</span></span>
+</code></pre>
+
+<p>And then execute:</p>
+
+<pre class="code ruby"><code class="ruby">$ bundle
+</code></pre>
+
+<p>Or install it yourself as:</p>
+
+<pre class="code ruby"><code class="ruby">$ gem install hanny
+</code></pre>
+
+<h2 id="label-Usage">Usage</h2>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>hanny</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='comment'># Prepare vector data for search targets and queries with Numo::DFloat (shape: [n_samples, n_features]).
+</span><span class='id identifier rubyid_targets'>targets</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>5000</span><span class='comma'>,</span> <span class='int'>512</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_rand'>rand</span>
+<span class='id identifier rubyid_queries'>queries</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>10</span><span class='comma'>,</span> <span class='int'>512</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_rand'>rand</span>
+
+<span class='comment'># Build a search index with 256-bit binary code.
+</span><span class='id identifier rubyid_index'>index</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Hanny.html" title="Hanny (module)">Hanny</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Hanny/LSHIndex.html" title="Hanny::LSHIndex (class)">LSHIndex</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Hanny/LSHIndex.html#initialize-instance_method" title="Hanny::LSHIndex#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>code_length:</span> <span class='int'>256</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_index'>index</span><span class='period'>.</span><span class='id identifier rubyid_build_index'>build_index</span><span class='lparen'>(</span><span class='id identifier rubyid_targets'>targets</span><span class='rparen'>)</span>
+
+<span class='comment'># Obtain the Array&lt;Integer&gt; that has the data indices of 10-nearest neighbors for each query.
+</span><span class='id identifier rubyid_candidates'>candidates</span> <span class='op'>=</span> <span class='id identifier rubyid_index'>index</span><span class='period'>.</span><span class='id identifier rubyid_search_knn'>search_knn</span><span class='lparen'>(</span><span class='id identifier rubyid_queries'>queries</span><span class='comma'>,</span> <span class='label'>n_neighbors:</span> <span class='int'>10</span><span class='rparen'>)</span>
+
+<span class='comment'># Obtain the Array&lt;Integer&gt; that has the data indices whithin Hamming radius of 4 for each query.
+</span><span class='id identifier rubyid_candidates'>candidates</span> <span class='op'>=</span> <span class='id identifier rubyid_index'>index</span><span class='period'>.</span><span class='id identifier rubyid_search_radius'>search_radius</span><span class='lparen'>(</span><span class='id identifier rubyid_queries'>queries</span><span class='comma'>,</span> <span class='label'>radius:</span> <span class='int'>4</span><span class='rparen'>)</span>
+
+<span class='comment'># Calculate pairwise euclidean distances between the query and its neighbors.
+</span><span class='id identifier rubyid_query_id'>query_id</span> <span class='op'>=</span> <span class='int'>0</span>
+<span class='id identifier rubyid_distances'>distances</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Hanny.html" title="Hanny (module)">Hanny</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Hanny/Utils.html" title="Hanny::Utils (module)">Utils</a></span></span><span class='period'>.</span><span class='id identifier rubyid_euclidean_distance'><span class='object_link'><a href="Hanny/Utils.html#euclidean_distance-class_method" title="Hanny::Utils.euclidean_distance (method)">euclidean_distance</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_queries'>queries</span><span class='lbracket'>[</span><span class='id identifier rubyid_query_id'>query_id</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_targets'>targets</span><span class='lbracket'>[</span><span class='id identifier rubyid_candidates'>candidates</span><span class='lbracket'>[</span><span class='id identifier rubyid_query_id'>query_id</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+
+<span class='comment'># Add new data to the search index.
+</span><span class='id identifier rubyid_appended_data_ids'>appended_data_ids</span> <span class='op'>=</span> <span class='id identifier rubyid_index'>index</span><span class='period'>.</span><span class='id identifier rubyid_append_data'>append_data</span><span class='lparen'>(</span><span class='id identifier rubyid_new_data'>new_data</span><span class='rparen'>)</span>
+
+<span class='comment'># Remove the data from the search index.
+</span><span class='id identifier rubyid_removed_data_ids'>removed_data_ids</span> <span class='op'>=</span> <span class='id identifier rubyid_index'>index</span><span class='period'>.</span><span class='id identifier rubyid_remove_data'>remove_data</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+
+<span class='comment'># Save and load the search index with Marshal.
+</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>index.dat</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>wb</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_f'>f</span><span class='op'>|</span> <span class='id identifier rubyid_f'>f</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='const'>Marshal</span><span class='period'>.</span><span class='id identifier rubyid_dump'>dump</span><span class='lparen'>(</span><span class='id identifier rubyid_index'>index</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_index'>index</span> <span class='op'>=</span> <span class='const'>Marshal</span><span class='period'>.</span><span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_binread'>binread</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>index.dat</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
+</code></pre>
+
+<h2 id="label-Experiment">Experiment</h2>
+
+<p>I confirmed the search speed of Hanny&#39;s LSH with <a href="https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/multiclass.html#mnist">MNIST</a> data set. The experiment is carried out on MacBook Early 2016 (Core m3 1.1 GHz CPU and 8 GB memory).</p>
+
+<p>Code: “`ruby require &#39;benchmark&#39; require &#39;rumale&#39; require &#39;hanny&#39;</p>
+
+<h1 id="label-Load+MNIST+data+set.">Load MNIST data set.</h1>
+
+<p>samples, labels = Rumale::Dataset.load_libsvm_file(&#39;mnist&#39;) queries = samples[0..5, true] targets = samples[6..-1, true] qlabels = <a href="0..5">labels</a> tlabels = <a href="6..-1">labels</a></p>
+
+<h1 id="label-Build+LSH+search+index.">Build LSH search index.</h1>
+
+<p>index = Hanny::LSHIndex.new(code_length: 128, random_seed: 1) index.build_index(targets)</p>
+
+<h1 id="label-Run+a+benchmark+test+for+finding+5-nearest+neighbors.">Run a benchmark test for finding 5-nearest neighbors.</h1>
+
+<p>n_queries = <a href="0">queries.shape</a> n_neighbors = 5 Benchmark.bm 50 do |r|  r.report &#39;LSH&#39; do  candidates = index.search_knn(queries, n_neighbors: n_neighbors)  n_queries.times do |m|  STDERR.write(“nquery label: %d, neighbors label: ” % <a href="m">qlabels</a>)  <a href="m">candidates</a>.each { |n| STDERR.write(“%d, ” % <a href="n">tlabels</a>) }  end  STDERR.write(“n”)  end  r.report &#39;Brute-force&#39; do  distance_mat = Hanny::Utils.euclidean_distance(queries, targets)  candidates = Array.new(n_queries) do |n|  distance_mat[n, <a href="0...n_neighbors">true].to_a.map.with_index.sort_by(&:first).map(&:last)</a>  end  n_queries.times do |m|  STDERR.write(“nquery label: %d, neighbors label: ” % <a href="m">qlabels</a>)  <a href="m">candidates</a>.each { |n| STDERR.write(“%d, ” % <a href="n">tlabels</a>) }  end  STDERR.write(“n”)  end end “`</p>
+
+<p>Result: <code>bash     user     system      total        real LSH query label: 5, neighbors label: 5, 5, 5, 5, 5, query label: 0, neighbors label: 0, 0, 0, 0, 0, query label: 4, neighbors label: 4, 4, 4, 4, 4, query label: 1, neighbors label: 1, 1, 1, 1, 1, query label: 9, neighbors label: 9, 9, 9, 9, 9, query label: 2, neighbors label: 2, 2, 2, 2, 2,   0.290000   0.010000   0.300000 (  0.307445) Brute-force query label: 5, neighbors label: 5, 5, 5, 3, 5, query label: 0, neighbors label: 0, 0, 0, 0, 0, query label: 4, neighbors label: 4, 4, 4, 4, 4, query label: 1, neighbors label: 1, 1, 1, 1, 1, query label: 9, neighbors label: 9, 9, 9, 9, 9, query label: 2, neighbors label: 2, 2, 2, 2, 2,   6.350000   0.280000   6.630000 (  6.682365) </code></p>
+
+<h2 id="label-Development">Development</h2>
+
+<p>After checking out the repo, run <code>bin/setup</code> to install dependencies. Then, run <code>rake spec</code> to run the tests. You can also run <code>bin/console</code> for an interactive prompt that will allow you to experiment.</p>
+
+<p>To install this gem onto your local machine, run <code>bundle exec rake install</code>. To release a new version, update the version number in <code>version.rb</code>, and then run <code>bundle exec rake release</code>, which will create a git tag for the version, push git commits and tags, and push the <code>.gem</code> file to <a href="https://rubygems.org">rubygems.org</a>.</p>
+
+<h2 id="label-Contributing">Contributing</h2>
+
+<p>Bug reports and pull requests are welcome on GitHub at <a href="https://github.com/yoshoku/Hanny">github.com/yoshoku/Hanny</a>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the <a href="http://contributor-covenant.org">Contributor Covenant</a> code of conduct.</p>
+
+<h2 id="label-License">License</h2>
+
+<p>The gem is available as open source under the terms of the <a href="https://opensource.org/licenses/BSD-2-Clause">BSD 2-clause License</a>.</p>
+
+<h2 id="label-Code+of+Conduct">Code of Conduct</h2>
+
+<p>Everyone interacting in the Hanny project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the <a href="https://github.com/yoshoku/Hanny/blob/master/CODE_OF_CONDUCT.md">code of conduct</a>.</p>
+</div></div>
+
+      <div id="footer">
+  Generated on Sun Jan 26 00:02:46 2020 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.24 (ruby-2.7.0).
+</div>
+
+    </div>
+  </body>
+</html>
