@@ -123,21 +123,69 @@
 
 <p>I confirmed the search speed of Hanny&#39;s LSH with <a href="https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/multiclass.html#mnist">MNIST</a> data set. The experiment is carried out on MacBook Early 2016 (Core m3 1.1 GHz CPU and 8 GB memory).</p>
 
-<p>Code: “`ruby require &#39;benchmark&#39; require &#39;rumale&#39; require &#39;hanny&#39;</p>
+<p>Code:</p>
 
-<h1 id="label-Load+MNIST+data+set.">Load MNIST data set.</h1>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>benchmark</span><span class='tstring_end'>&#39;</span></span>
+<span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rumale</span><span class='tstring_end'>&#39;</span></span>
+<span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>hanny</span><span class='tstring_end'>&#39;</span></span>
 
-<p>samples, labels = Rumale::Dataset.load_libsvm_file(&#39;mnist&#39;) queries = samples[0..5, true] targets = samples[6..-1, true] qlabels = <a href="0..5">labels</a> tlabels = <a href="6..-1">labels</a></p>
+<span class='comment'># Load MNIST data set.
+</span><span class='id identifier rubyid_samples'>samples</span><span class='comma'>,</span> <span class='id identifier rubyid_labels'>labels</span> <span class='op'>=</span> <span class='const'>Rumale</span><span class='op'>::</span><span class='const'>Dataset</span><span class='period'>.</span><span class='id identifier rubyid_load_libsvm_file'>load_libsvm_file</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mnist</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_queries'>queries</span> <span class='op'>=</span> <span class='id identifier rubyid_samples'>samples</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>..</span><span class='int'>5</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span>
+<span class='id identifier rubyid_targets'>targets</span> <span class='op'>=</span> <span class='id identifier rubyid_samples'>samples</span><span class='lbracket'>[</span><span class='int'>6</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span>
+<span class='id identifier rubyid_qlabels'>qlabels</span> <span class='op'>=</span> <span class='id identifier rubyid_labels'>labels</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>..</span><span class='int'>5</span><span class='rbracket'>]</span>
+<span class='id identifier rubyid_tlabels'>tlabels</span> <span class='op'>=</span> <span class='id identifier rubyid_labels'>labels</span><span class='lbracket'>[</span><span class='int'>6</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span>
 
-<h1 id="label-Build+LSH+search+index.">Build LSH search index.</h1>
+<span class='comment'># Build LSH search index.
+</span><span class='id identifier rubyid_index'>index</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Hanny.html" title="Hanny (module)">Hanny</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Hanny/LSHIndex.html" title="Hanny::LSHIndex (class)">LSHIndex</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Hanny/LSHIndex.html#initialize-instance_method" title="Hanny::LSHIndex#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>code_length:</span> <span class='int'>128</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='int'>1</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_index'>index</span><span class='period'>.</span><span class='id identifier rubyid_build_index'>build_index</span><span class='lparen'>(</span><span class='id identifier rubyid_targets'>targets</span><span class='rparen'>)</span>
 
-<p>index = Hanny::LSHIndex.new(code_length: 128, random_seed: 1) index.build_index(targets)</p>
+<span class='comment'># Run a benchmark test for finding 5-nearest neighbors.
+</span><span class='id identifier rubyid_n_queries'>n_queries</span> <span class='op'>=</span> <span class='id identifier rubyid_queries'>queries</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+<span class='id identifier rubyid_n_neighbors'>n_neighbors</span> <span class='op'>=</span> <span class='int'>5</span>
+<span class='const'>Benchmark</span><span class='period'>.</span><span class='id identifier rubyid_bm'>bm</span> <span class='int'>50</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_r'>r</span><span class='op'>|</span>
+  <span class='id identifier rubyid_r'>r</span><span class='period'>.</span><span class='id identifier rubyid_report'>report</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>LSH</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_candidates'>candidates</span> <span class='op'>=</span> <span class='id identifier rubyid_index'>index</span><span class='period'>.</span><span class='id identifier rubyid_search_knn'>search_knn</span><span class='lparen'>(</span><span class='id identifier rubyid_queries'>queries</span><span class='comma'>,</span> <span class='label'>n_neighbors:</span> <span class='id identifier rubyid_n_neighbors'>n_neighbors</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_n_queries'>n_queries</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_m'>m</span><span class='op'>|</span>
+      <span class='const'>STDERR</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\nquery label: %d, neighbors label: </span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='id identifier rubyid_qlabels'>qlabels</span><span class='lbracket'>[</span><span class='id identifier rubyid_m'>m</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_candidates'>candidates</span><span class='lbracket'>[</span><span class='id identifier rubyid_m'>m</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='const'>STDERR</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%d, </span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='id identifier rubyid_tlabels'>tlabels</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>end</span>
+    <span class='const'>STDERR</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_r'>r</span><span class='period'>.</span><span class='id identifier rubyid_report'>report</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Brute-force</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_distance_mat'>distance_mat</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Hanny.html" title="Hanny (module)">Hanny</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Hanny/Utils.html" title="Hanny::Utils (module)">Utils</a></span></span><span class='period'>.</span><span class='id identifier rubyid_euclidean_distance'><span class='object_link'><a href="Hanny/Utils.html#euclidean_distance-class_method" title="Hanny::Utils.euclidean_distance (method)">euclidean_distance</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_queries'>queries</span><span class='comma'>,</span> <span class='id identifier rubyid_targets'>targets</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_candidates'>candidates</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_n_queries'>n_queries</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span>
+      <span class='id identifier rubyid_distance_mat'>distance_mat</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='period'>.</span><span class='id identifier rubyid_with_index'>with_index</span><span class='period'>.</span><span class='id identifier rubyid_sort_by'>sort_by</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:first</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:last</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>...</span><span class='id identifier rubyid_n_neighbors'>n_neighbors</span><span class='rbracket'>]</span>
+    <span class='kw'>end</span>
+    <span class='id identifier rubyid_n_queries'>n_queries</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_m'>m</span><span class='op'>|</span>
+      <span class='const'>STDERR</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\nquery label: %d, neighbors label: </span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='id identifier rubyid_qlabels'>qlabels</span><span class='lbracket'>[</span><span class='id identifier rubyid_m'>m</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_candidates'>candidates</span><span class='lbracket'>[</span><span class='id identifier rubyid_m'>m</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='const'>STDERR</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%d, </span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='id identifier rubyid_tlabels'>tlabels</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>end</span>
+    <span class='const'>STDERR</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
 
-<h1 id="label-Run+a+benchmark+test+for+finding+5-nearest+neighbors.">Run a benchmark test for finding 5-nearest neighbors.</h1>
+<p>Result:</p>
 
-<p>n_queries = <a href="0">queries.shape</a> n_neighbors = 5 Benchmark.bm 50 do |r|  r.report &#39;LSH&#39; do  candidates = index.search_knn(queries, n_neighbors: n_neighbors)  n_queries.times do |m|  STDERR.write(“nquery label: %d, neighbors label: ” % <a href="m">qlabels</a>)  <a href="m">candidates</a>.each { |n| STDERR.write(“%d, ” % <a href="n">tlabels</a>) }  end  STDERR.write(“n”)  end  r.report &#39;Brute-force&#39; do  distance_mat = Hanny::Utils.euclidean_distance(queries, targets)  candidates = Array.new(n_queries) do |n|  distance_mat[n, <a href="0...n_neighbors">true].to_a.map.with_index.sort_by(&:first).map(&:last)</a>  end  n_queries.times do |m|  STDERR.write(“nquery label: %d, neighbors label: ” % <a href="m">qlabels</a>)  <a href="m">candidates</a>.each { |n| STDERR.write(“%d, ” % <a href="n">tlabels</a>) }  end  STDERR.write(“n”)  end end “`</p>
-
-<p>Result: <code>bash     user     system      total        real LSH query label: 5, neighbors label: 5, 5, 5, 5, 5, query label: 0, neighbors label: 0, 0, 0, 0, 0, query label: 4, neighbors label: 4, 4, 4, 4, 4, query label: 1, neighbors label: 1, 1, 1, 1, 1, query label: 9, neighbors label: 9, 9, 9, 9, 9, query label: 2, neighbors label: 2, 2, 2, 2, 2,   0.290000   0.010000   0.300000 (  0.307445) Brute-force query label: 5, neighbors label: 5, 5, 5, 3, 5, query label: 0, neighbors label: 0, 0, 0, 0, 0, query label: 4, neighbors label: 4, 4, 4, 4, 4, query label: 1, neighbors label: 1, 1, 1, 1, 1, query label: 9, neighbors label: 9, 9, 9, 9, 9, query label: 2, neighbors label: 2, 2, 2, 2, 2,   6.350000   0.280000   6.630000 (  6.682365) </code></p>
+<pre class="code ruby"><code class="ruby">user     system      total        real
+LSH
+query label: 5, neighbors label: 5, 5, 5, 5, 5,
+query label: 0, neighbors label: 0, 0, 0, 0, 0,
+query label: 4, neighbors label: 4, 4, 4, 4, 4,
+query label: 1, neighbors label: 1, 1, 1, 1, 1,
+query label: 9, neighbors label: 9, 9, 9, 9, 9,
+query label: 2, neighbors label: 2, 2, 2, 2, 2,
+  0.290000   0.010000   0.300000 (  0.307445)
+Brute-force
+query label: 5, neighbors label: 5, 5, 5, 3, 5,
+query label: 0, neighbors label: 0, 0, 0, 0, 0,
+query label: 4, neighbors label: 4, 4, 4, 4, 4,
+query label: 1, neighbors label: 1, 1, 1, 1, 1,
+query label: 9, neighbors label: 9, 9, 9, 9, 9,
+query label: 2, neighbors label: 2, 2, 2, 2, 2,
+  6.350000   0.280000   6.630000 (  6.682365)
+</code></pre>
 
 <h2 id="label-Development">Development</h2>
 
@@ -159,7 +207,7 @@
 </div></div>
 
       <div id="footer">
-  Generated on Sun Jan 26 00:55:24 2020 by
+  Generated on Sun Jan 26 01:11:32 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.7.0).
 </div>
