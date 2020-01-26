@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::SVM::NuSVR
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::SVM::NuSVR";
   relpath = '../../';
 </script>
@@ -107,8 +107,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>NuSVR is a class that provides Kernel Nu-Support Vector Regressor in LIBSVM
-with Rumale interface.</p>
+<p>NuSVR is a class that provides Kernel Nu-Support Vector Regressor in LIBSVM with Rumale interface.</p>
 
 
   </div>
@@ -420,6 +419,8 @@ with Rumale interface.</p>
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>0.5</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -436,11 +437,12 @@ with Rumale interface.</p>
         <span class='type'>(<tt>String</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>&#39;rbf&#39;</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The type of kernel function (&#39;rbf&#39;, &#39;linear&#39;,
-&#39;poly&#39;, &#39;sigmoid&#39;, and &#39;precomputed&#39;).</p>
+<p>The type of kernel function (&#39;rbf&#39;, &#39;linear&#39;, &#39;poly&#39;, &#39;sigmoid&#39;, and &#39;precomputed&#39;).</p>
 </div>
       
     </li>
@@ -452,6 +454,8 @@ with Rumale interface.</p>
       
         <span class='type'>(<tt>Integer</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>3</tt>)</em>
       
       
         &mdash;
@@ -469,6 +473,8 @@ with Rumale interface.</p>
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>1.0</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -484,6 +490,8 @@ with Rumale interface.</p>
       
         <span class='type'>(<tt>Float</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>0.0</tt>)</em>
       
       
         &mdash;
@@ -501,6 +509,8 @@ with Rumale interface.</p>
         <span class='type'>(<tt>Boolean</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>true</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -516,6 +526,8 @@ with Rumale interface.</p>
       
         <span class='type'>(<tt>Float</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>200.0</tt>)</em>
       
       
         &mdash;
@@ -533,6 +545,8 @@ with Rumale interface.</p>
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>1e-3</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -549,6 +563,8 @@ with Rumale interface.</p>
         <span class='type'>(<tt>Boolean</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -564,6 +580,8 @@ with Rumale interface.</p>
       
         <span class='type'>(<tt>Integer/Nil</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
         &mdash;
@@ -727,9 +745,7 @@ with Rumale interface.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for fitting
-the model. If the kernel is &#39;precomputed&#39;, x must be a square
-distance matrix (shape: [n_samples, n_samples]).</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for fitting the model. If the kernel is &#39;precomputed&#39;, x must be a square distance matrix (shape: [n_samples, n_samples]).</p>
 </div>
       
     </li>
@@ -1066,9 +1082,7 @@ distance matrix (shape: [n_samples, n_samples]).</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The samples to predict the labels. If the
-kernel is &#39;precomputed&#39;, the shape of x must be [n_samples,
-n_training_samples].</p>
+<p>(shape: [n_samples, n_features]) The samples to predict the labels. If the kernel is &#39;precomputed&#39;, the shape of x must be [n_samples, n_training_samples].</p>
 </div>
       
     </li>
@@ -1242,9 +1256,9 @@ n_training_samples].</p>
 </div>
 
       <div id="footer">
-  Generated on Mon Nov 18 18:04:13 2019 by
+  Generated on Sun Jan 26 23:56:15 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>

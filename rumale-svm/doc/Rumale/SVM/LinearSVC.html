@@ -6,15 +6,15 @@
 <title>
   Class: Rumale::SVM::LinearSVC
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Rumale::SVM::LinearSVC";
   relpath = '../../';
 </script>
@@ -107,8 +107,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>LinearSVC is a class that provides Support Vector Classifier in LIBLINEAR
-with Rumale interface.</p>
+<p>LinearSVC is a class that provides Support Vector Classifier in LIBLINEAR with Rumale interface.</p>
 
 
   </div>
@@ -411,6 +410,8 @@ with Rumale interface.</p>
         <span class='type'>(<tt>String</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>&#39;l2&#39;</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -427,11 +428,12 @@ with Rumale interface.</p>
         <span class='type'>(<tt>String</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>&#39;squared_hinge&#39;</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The type of loss function (&#39;squared_hinge&#39; or &#39;hinge&#39;).
-This parameter is ignored if penalty = &#39;l1&#39;.</p>
+<p>The type of loss function (&#39;squared_hinge&#39; or &#39;hinge&#39;). This parameter is ignored if penalty = &#39;l1&#39;.</p>
 </div>
       
     </li>
@@ -444,12 +446,12 @@ This parameter is ignored if penalty = &#39;l1&#39;.</p>
         <span class='type'>(<tt>Boolean</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>true</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The flag indicating whether to solve dual optimization problem. When
-n_samples &gt; n_features, dual = false is more preferable. This parameter
-is ignored if loss = &#39;hinge&#39;.</p>
+<p>The flag indicating whether to solve dual optimization problem. When n_samples &gt; n_features, dual = false is more preferable. This parameter is ignored if loss = &#39;hinge&#39;.</p>
 </div>
       
     </li>
@@ -461,6 +463,8 @@ is ignored if loss = &#39;hinge&#39;.</p>
       
         <span class='type'>(<tt>Float</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>1.0</tt>)</em>
       
       
         &mdash;
@@ -478,6 +482,8 @@ is ignored if loss = &#39;hinge&#39;.</p>
         <span class='type'>(<tt>Boolean</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>true</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -493,6 +499,8 @@ is ignored if loss = &#39;hinge&#39;.</p>
       
         <span class='type'>(<tt>Float</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>1.0</tt>)</em>
       
       
         &mdash;
@@ -510,11 +518,12 @@ is ignored if loss = &#39;hinge&#39;.</p>
         <span class='type'>(<tt>Boolean</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
-<p>The flag indicating whether to train the parameter for probability
-estimation.</p>
+<p>The flag indicating whether to train the parameter for probability estimation.</p>
 </div>
       
     </li>
@@ -526,6 +535,8 @@ estimation.</p>
       
         <span class='type'>(<tt>Float</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>1e-3</tt>)</em>
       
       
         &mdash;
@@ -543,6 +554,8 @@ estimation.</p>
         <span class='type'>(<tt>Boolean</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
       
         &mdash;
         <div class='inline'>
@@ -558,6 +571,8 @@ estimation.</p>
       
         <span class='type'>(<tt>Integer/Nil</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
         &mdash;
@@ -878,8 +893,7 @@ estimation.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for fitting
-the model.</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for fitting the model.</p>
 </div>
       
     </li>
@@ -1182,8 +1196,7 @@ the model.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Predict class probability for samples. This method works correctly only if
-the probability parameter is true.</p>
+<p>Predict class probability for samples. This method works correctly only if the probability parameter is true.</p>
 
 
   </div>
@@ -1222,8 +1235,7 @@ the probability parameter is true.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_classes]) Predicted probability of each class per
-sample.</p>
+<p>(shape: [n_samples, n_classes]) Predicted probability of each class per sample.</p>
 </div>
       
     </li>
@@ -1274,9 +1286,9 @@ sample.</p>
 </div>
 
       <div id="footer">
-  Generated on Mon Nov 18 18:04:13 2019 by
+  Generated on Sun Jan 26 23:56:15 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.9).
+  0.9.24 (ruby-2.7.0).
 </div>
 
     </div>
