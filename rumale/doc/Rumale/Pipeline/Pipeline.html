@@ -330,54 +330,6 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#marshal_dump-instance_method" title="#marshal_dump (instance method)">#<strong>marshal_dump</strong>  &#x21d2; Hash </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Dump marshal data.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#marshal_load-instance_method" title="#marshal_load (instance method)">#<strong>marshal_load</strong>(obj)  &#x21d2; nil </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Load marshal data.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#predict-instance_method" title="#predict (instance method)">#<strong>predict</strong>(x)  &#x21d2; Numo::NArray </a>
     
 
@@ -712,18 +664,16 @@
       <pre class="lines">
 
 
-75
-76
-77
-78
-79</pre>
+72
+73
+74
+75</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/pipeline/pipeline.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/pipeline/pipeline.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_decision_function'>decision_function</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='comment'># x = check_convert_sample_array(x)
-</span>  <span class='id identifier rubyid_trans_x'>trans_x</span> <span class='op'>=</span> <span class='id identifier rubyid_apply_transforms'>apply_transforms</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_trans_x'>trans_x</span> <span class='op'>=</span> <span class='id identifier rubyid_apply_transforms'>apply_transforms</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_last_estimator'>last_estimator</span><span class='period'>.</span><span class='id identifier rubyid_decision_function'>decision_function</span><span class='lparen'>(</span><span class='id identifier rubyid_trans_x'>trans_x</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -815,15 +765,13 @@
 43
 44
 45
-46
-47</pre>
+46</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rumale/pipeline/pipeline.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-  <span class='comment'># x = check_convert_sample_array(x)
-</span>  <span class='id identifier rubyid_trans_x'>trans_x</span> <span class='op'>=</span> <span class='id identifier rubyid_apply_transforms'>apply_transforms</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='label'>fit:</span> <span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_trans_x'>trans_x</span> <span class='op'>=</span> <span class='id identifier rubyid_apply_transforms'>apply_transforms</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='label'>fit:</span> <span class='kw'>true</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_last_estimator'>last_estimator</span><span class='op'>&amp;.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_trans_x'>trans_x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
@@ -914,18 +862,16 @@
       <pre class="lines">
 
 
+53
 54
 55
-56
-57
-58</pre>
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/pipeline/pipeline.rb', line 54</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/pipeline/pipeline.rb', line 53</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit_predict'>fit_predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='comment'># x = check_convert_sample_array(x)
-</span>  <span class='id identifier rubyid_trans_x'>trans_x</span> <span class='op'>=</span> <span class='id identifier rubyid_apply_transforms'>apply_transforms</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='label'>fit:</span> <span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_trans_x'>trans_x</span> <span class='op'>=</span> <span class='id identifier rubyid_apply_transforms'>apply_transforms</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='label'>fit:</span> <span class='kw'>true</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_last_estimator'>last_estimator</span><span class='period'>.</span><span class='id identifier rubyid_fit_predict'>fit_predict</span><span class='lparen'>(</span><span class='id identifier rubyid_trans_x'>trans_x</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1015,18 +961,16 @@
       <pre class="lines">
 
 
+63
+64
 65
-66
-67
-68
-69</pre>
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/pipeline/pipeline.rb', line 65</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/pipeline/pipeline.rb', line 63</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='comment'># x = check_convert_sample_array(x)
-</span>  <span class='id identifier rubyid_trans_x'>trans_x</span> <span class='op'>=</span> <span class='id identifier rubyid_apply_transforms'>apply_transforms</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='label'>fit:</span> <span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_trans_x'>trans_x</span> <span class='op'>=</span> <span class='id identifier rubyid_apply_transforms'>apply_transforms</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='label'>fit:</span> <span class='kw'>true</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_last_estimator'>last_estimator</span><span class='period'>.</span><span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_trans_x'>trans_x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1098,148 +1042,27 @@
       <pre class="lines">
 
 
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134</pre>
+117
+118
+119
+120
+121
+122
+123
+124
+125</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/pipeline/pipeline.rb', line 125</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/pipeline/pipeline.rb', line 117</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inverse_transform'>inverse_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_z'>z</span><span class='rparen'>)</span>
-  <span class='comment'># z = check_convert_sample_array(z)
-</span>  <span class='id identifier rubyid_itrans_z'>itrans_z</span> <span class='op'>=</span> <span class='id identifier rubyid_z'>z</span>
+  <span class='id identifier rubyid_itrans_z'>itrans_z</span> <span class='op'>=</span> <span class='id identifier rubyid_z'>z</span>
   <span class='ivar'>@steps</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span class='period'>.</span><span class='id identifier rubyid_reverse_each'>reverse_each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_name'>name</span><span class='op'>|</span>
     <span class='id identifier rubyid_transformer'>transformer</span> <span class='op'>=</span> <span class='ivar'>@steps</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span>
     <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_transformer'>transformer</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
     <span class='id identifier rubyid_itrans_z'>itrans_z</span> <span class='op'>=</span> <span class='id identifier rubyid_transformer'>transformer</span><span class='period'>.</span><span class='id identifier rubyid_inverse_transform'>inverse_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_itrans_z'>itrans_z</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
   <span class='id identifier rubyid_itrans_z'>itrans_z</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="marshal_dump-instance_method">
-  
-    #<strong>marshal_dump</strong>  &#x21d2; <tt>Hash</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Dump marshal data.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The marshal data about Pipeline.</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-149
-150
-151
-152</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/pipeline/pipeline.rb', line 149</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_marshal_dump'>marshal_dump</span>
-  <span class='lbrace'>{</span> <span class='label'>params:</span> <span class='ivar'>@params</span><span class='comma'>,</span>
-    <span class='label'>steps:</span> <span class='ivar'>@steps</span> <span class='rbrace'>}</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="marshal_load-instance_method">
-  
-    #<strong>marshal_load</strong>(obj)  &#x21d2; <tt>nil</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Load marshal data.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>nil</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-156
-157
-158
-159
-160</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/pipeline/pipeline.rb', line 156</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_marshal_load'>marshal_load</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
-  <span class='ivar'>@params</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:params</span><span class='rbracket'>]</span>
-  <span class='ivar'>@steps</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:steps</span><span class='rbracket'>]</span>
-  <span class='kw'>nil</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1310,18 +1133,16 @@
       <pre class="lines">
 
 
-85
-86
-87
-88
-89</pre>
+81
+82
+83
+84</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/pipeline/pipeline.rb', line 85</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/pipeline/pipeline.rb', line 81</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='comment'># x = check_convert_sample_array(x)
-</span>  <span class='id identifier rubyid_trans_x'>trans_x</span> <span class='op'>=</span> <span class='id identifier rubyid_apply_transforms'>apply_transforms</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_trans_x'>trans_x</span> <span class='op'>=</span> <span class='id identifier rubyid_apply_transforms'>apply_transforms</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_last_estimator'>last_estimator</span><span class='period'>.</span><span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_trans_x'>trans_x</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1393,18 +1214,16 @@
       <pre class="lines">
 
 
-95
-96
-97
-98
-99</pre>
+90
+91
+92
+93</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/pipeline/pipeline.rb', line 95</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/pipeline/pipeline.rb', line 90</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict_log_proba'>predict_log_proba</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='comment'># x = check_convert_sample_array(x)
-</span>  <span class='id identifier rubyid_trans_x'>trans_x</span> <span class='op'>=</span> <span class='id identifier rubyid_apply_transforms'>apply_transforms</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_trans_x'>trans_x</span> <span class='op'>=</span> <span class='id identifier rubyid_apply_transforms'>apply_transforms</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_last_estimator'>last_estimator</span><span class='period'>.</span><span class='id identifier rubyid_predict_log_proba'>predict_log_proba</span><span class='lparen'>(</span><span class='id identifier rubyid_trans_x'>trans_x</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1476,18 +1295,16 @@
       <pre class="lines">
 
 
-105
-106
-107
-108
-109</pre>
+99
+100
+101
+102</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/pipeline/pipeline.rb', line 105</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/pipeline/pipeline.rb', line 99</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict_proba'>predict_proba</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='comment'># x = check_convert_sample_array(x)
-</span>  <span class='id identifier rubyid_trans_x'>trans_x</span> <span class='op'>=</span> <span class='id identifier rubyid_apply_transforms'>apply_transforms</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_trans_x'>trans_x</span> <span class='op'>=</span> <span class='id identifier rubyid_apply_transforms'>apply_transforms</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_last_estimator'>last_estimator</span><span class='period'>.</span><span class='id identifier rubyid_predict_proba'>predict_proba</span><span class='lparen'>(</span><span class='id identifier rubyid_trans_x'>trans_x</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1575,18 +1392,16 @@
       <pre class="lines">
 
 
-141
-142
-143
-144
-145</pre>
+132
+133
+134
+135</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/pipeline/pipeline.rb', line 141</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/pipeline/pipeline.rb', line 132</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_score'>score</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-  <span class='comment'># x = check_convert_sample_array(x)
-</span>  <span class='id identifier rubyid_trans_x'>trans_x</span> <span class='op'>=</span> <span class='id identifier rubyid_apply_transforms'>apply_transforms</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_trans_x'>trans_x</span> <span class='op'>=</span> <span class='id identifier rubyid_apply_transforms'>apply_transforms</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_last_estimator'>last_estimator</span><span class='period'>.</span><span class='id identifier rubyid_score'>score</span><span class='lparen'>(</span><span class='id identifier rubyid_trans_x'>trans_x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1658,18 +1473,16 @@
       <pre class="lines">
 
 
-115
-116
-117
-118
-119</pre>
+108
+109
+110
+111</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/pipeline/pipeline.rb', line 115</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/pipeline/pipeline.rb', line 108</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_transform'>transform</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='comment'># x = check_convert_sample_array(x)
-</span>  <span class='id identifier rubyid_trans_x'>trans_x</span> <span class='op'>=</span> <span class='id identifier rubyid_apply_transforms'>apply_transforms</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_trans_x'>trans_x</span> <span class='op'>=</span> <span class='id identifier rubyid_apply_transforms'>apply_transforms</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_last_estimator'>last_estimator</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>?</span> <span class='id identifier rubyid_trans_x'>trans_x</span> <span class='op'>:</span> <span class='id identifier rubyid_last_estimator'>last_estimator</span><span class='period'>.</span><span class='id identifier rubyid_transform'>transform</span><span class='lparen'>(</span><span class='id identifier rubyid_trans_x'>trans_x</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1682,7 +1495,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Jan 28 12:06:48 2020 by
+  Generated on Fri Jan 31 22:52:03 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.7.0).
 </div>
