@@ -339,16 +339,16 @@
       <pre class="lines">
 
 
-31
 32
 33
 34
 35
 36
-37</pre>
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/feature_extraction/feature_hasher.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/feature_extraction/feature_hasher.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>n_features:</span> <span class='int'>1024</span><span class='comma'>,</span> <span class='label'>alternate_sign:</span> <span class='kw'>true</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_numeric'>check_params_numeric</span><span class='lparen'>(</span><span class='label'>n_features:</span> <span class='id identifier rubyid_n_features'>n_features</span><span class='rparen'>)</span>
@@ -439,12 +439,12 @@
       <pre class="lines">
 
 
-44
 45
-46</pre>
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/feature_extraction/feature_hasher.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/feature_extraction/feature_hasher.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid__x'>_x</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid__y'>_y</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>self</span>
@@ -531,12 +531,12 @@
       <pre class="lines">
 
 
-55
 56
-57</pre>
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/feature_extraction/feature_hasher.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/feature_extraction/feature_hasher.rb', line 56</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid__y'>_y</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_transform'>transform</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -610,7 +610,6 @@
       <pre class="lines">
 
 
-63
 64
 65
 66
@@ -630,10 +629,11 @@
 80
 81
 82
-83</pre>
+83
+84</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/feature_extraction/feature_hasher.rb', line 63</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/feature_extraction/feature_hasher.rb', line 64</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_transform'>transform</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_x'>x</span><span class='rbracket'>]</span> <span class='kw'>unless</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Array</span><span class='rparen'>)</span>
@@ -647,7 +647,7 @@
       <span class='id identifier rubyid_val'>val</span> <span class='op'>=</span> <span class='id identifier rubyid_v'>v</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>String</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='int'>1</span> <span class='op'>:</span> <span class='id identifier rubyid_v'>v</span>
       <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_val'>val</span><span class='period'>.</span><span class='id identifier rubyid_zero?'>zero?</span>
 
-      <span class='id identifier rubyid_h'>h</span> <span class='op'>=</span> <span class='id identifier rubyid_murmur_hash'>murmur_hash</span><span class='lparen'>(</span><span class='id identifier rubyid_k'>k</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_h'>h</span> <span class='op'>=</span> <span class='const'>Mmh3</span><span class='period'>.</span><span class='id identifier rubyid_hash32'>hash32</span><span class='lparen'>(</span><span class='id identifier rubyid_k'>k</span><span class='rparen'>)</span>
       <span class='id identifier rubyid_fid'>fid</span> <span class='op'>=</span> <span class='id identifier rubyid_h'>h</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span> <span class='op'>%</span> <span class='id identifier rubyid_n_features'>n_features</span>
       <span class='id identifier rubyid_val'>val</span> <span class='op'>*=</span> <span class='id identifier rubyid_h'>h</span> <span class='op'>&gt;=</span> <span class='int'>0</span> <span class='op'>?</span> <span class='int'>1</span> <span class='op'>:</span> <span class='op'>-</span><span class='int'>1</span> <span class='kw'>if</span> <span class='id identifier rubyid_alternate_sign?'>alternate_sign?</span>
       <span class='id identifier rubyid_z'>z</span><span class='lbracket'>[</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span> <span class='id identifier rubyid_fid'>fid</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_val'>val</span>
@@ -666,7 +666,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Jan 31 22:52:15 2020 by
+  Generated on Sun Feb 16 01:20:02 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.7.0).
 </div>
