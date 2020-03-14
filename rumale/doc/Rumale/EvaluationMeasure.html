@@ -79,7 +79,7 @@
   <dl>
     <dt>Defined in:</dt>
     <dd>lib/rumale/evaluation_measure/recall.rb<span class="defines">,<br />
-  lib/rumale/evaluation_measure/purity.rb,<br /> lib/rumale/evaluation_measure/f_score.rb,<br /> lib/rumale/evaluation_measure/roc_auc.rb,<br /> lib/rumale/evaluation_measure/accuracy.rb,<br /> lib/rumale/evaluation_measure/log_loss.rb,<br /> lib/rumale/evaluation_measure/r2_score.rb,<br /> lib/rumale/evaluation_measure/precision.rb,<br /> lib/rumale/evaluation_measure/precision_recall.rb,<br /> lib/rumale/evaluation_measure/silhouette_score.rb,<br /> lib/rumale/evaluation_measure/mean_squared_error.rb,<br /> lib/rumale/evaluation_measure/mutual_information.rb,<br /> lib/rumale/evaluation_measure/adjusted_rand_score.rb,<br /> lib/rumale/evaluation_measure/mean_absolute_error.rb,<br /> lib/rumale/evaluation_measure/davies_bouldin_score.rb,<br /> lib/rumale/evaluation_measure/median_absolute_error.rb,<br /> lib/rumale/evaluation_measure/mean_squared_log_error.rb,<br /> lib/rumale/evaluation_measure/calinski_harabasz_score.rb,<br /> lib/rumale/evaluation_measure/explained_variance_score.rb,<br /> lib/rumale/evaluation_measure/normalized_mutual_information.rb</span>
+  lib/rumale/evaluation_measure/purity.rb,<br /> lib/rumale/evaluation_measure/f_score.rb,<br /> lib/rumale/evaluation_measure/roc_auc.rb,<br /> lib/rumale/evaluation_measure/accuracy.rb,<br /> lib/rumale/evaluation_measure/function.rb,<br /> lib/rumale/evaluation_measure/log_loss.rb,<br /> lib/rumale/evaluation_measure/r2_score.rb,<br /> lib/rumale/evaluation_measure/precision.rb,<br /> lib/rumale/evaluation_measure/precision_recall.rb,<br /> lib/rumale/evaluation_measure/silhouette_score.rb,<br /> lib/rumale/evaluation_measure/mean_squared_error.rb,<br /> lib/rumale/evaluation_measure/mutual_information.rb,<br /> lib/rumale/evaluation_measure/adjusted_rand_score.rb,<br /> lib/rumale/evaluation_measure/mean_absolute_error.rb,<br /> lib/rumale/evaluation_measure/davies_bouldin_score.rb,<br /> lib/rumale/evaluation_measure/median_absolute_error.rb,<br /> lib/rumale/evaluation_measure/mean_squared_log_error.rb,<br /> lib/rumale/evaluation_measure/calinski_harabasz_score.rb,<br /> lib/rumale/evaluation_measure/explained_variance_score.rb,<br /> lib/rumale/evaluation_measure/normalized_mutual_information.rb</span>
 </dd>
   </dl>
   
@@ -113,12 +113,346 @@
 
 
 
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
 
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#classification_report-class_method" title="classification_report (class method)">.<strong>classification_report</strong>(y_true, y_pred, target_name: nil, output_hash: false)  &#x21d2; String/Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Output a summary of classification performance for each class.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="classification_report-class_method">
+  
+    .<strong>classification_report</strong>(y_true, y_pred, target_name: nil, output_hash: false)  &#x21d2; <tt>String/Hash</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Output a summary of classification performance for each class.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_y_true'>y_true</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>0</span><span class='rbracket'>]</span>
+<span class='id identifier rubyid_y_pred'>y_pred</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>0</span><span class='rbracket'>]</span>
+<span class='id identifier rubyid_puts'>puts</span> <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Rumale::EvaluationMeasure (module)">EvaluationMeasure</a></span></span><span class='period'>.</span><span class='id identifier rubyid_classification_report'>classification_report</span><span class='lparen'>(</span><span class='id identifier rubyid_y_true'>y_true</span><span class='comma'>,</span> <span class='id identifier rubyid_y_pred'>y_pred</span><span class='rparen'>)</span>
+
+<span class='comment'>#               precision    recall  f1-score   support
+</span><span class='comment'>#
+</span><span class='comment'>#            0       0.33      0.50      0.40         2
+</span><span class='comment'>#            1       0.67      1.00      0.80         2
+</span><span class='comment'>#            2       1.00      0.33      0.50         3
+</span><span class='comment'>#
+</span><span class='comment'>#     accuracy                           0.57         7
+</span><span class='comment'>#    macro avg       0.67      0.61      0.57         7
+</span><span class='comment'># weighted avg       0.71      0.57      0.56         7</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>y_true</span>
+      
+      
+        <span class='type'>(<tt>Numo::Int32</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_samples]) The ground truth labels.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>y_pred</span>
+      
+      
+        <span class='type'>(<tt>Numo::Int32</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_samples]) The predicted labels.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>target_name</span>
+      
+      
+        <span class='type'>(<tt>Nil/Array</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The label names.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>output_hash</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The flag indicating whether to output with Ruby Hash.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String/Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The summary of classification performance. If output_hash is true, it returns the summary with Ruby Hash.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/evaluation_measure/function.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_classification_report'>classification_report</span><span class='lparen'>(</span><span class='id identifier rubyid_y_true'>y_true</span><span class='comma'>,</span> <span class='id identifier rubyid_y_pred'>y_pred</span><span class='comma'>,</span> <span class='label'>target_name:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>output_hash:</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_y_true'>y_true</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_label_array'>check_convert_label_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y_true'>y_true</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_y_pred'>y_pred</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_label_array'>check_convert_label_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y_pred'>y_pred</span><span class='rparen'>)</span>  <span class='comment'># calculate each evaluation measure.
+</span>
+  <span class='id identifier rubyid_supports'>supports</span> <span class='op'>=</span> <span class='id identifier rubyid_y_true'>y_true</span><span class='period'>.</span><span class='id identifier rubyid_bincount'>bincount</span>
+  <span class='id identifier rubyid_precisions'>precisions</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Rumale::EvaluationMeasure (module)">EvaluationMeasure</a></span></span><span class='op'>::</span><span class='const'>PrecisionRecall</span><span class='period'>.</span><span class='id identifier rubyid_precision_each_class'>precision_each_class</span><span class='lparen'>(</span><span class='id identifier rubyid_y_true'>y_true</span><span class='comma'>,</span> <span class='id identifier rubyid_y_pred'>y_pred</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_recalls'>recalls</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Rumale::EvaluationMeasure (module)">EvaluationMeasure</a></span></span><span class='op'>::</span><span class='const'>PrecisionRecall</span><span class='period'>.</span><span class='id identifier rubyid_recall_each_class'>recall_each_class</span><span class='lparen'>(</span><span class='id identifier rubyid_y_true'>y_true</span><span class='comma'>,</span> <span class='id identifier rubyid_y_pred'>y_pred</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_fscores'>fscores</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Rumale::EvaluationMeasure (module)">EvaluationMeasure</a></span></span><span class='op'>::</span><span class='const'>PrecisionRecall</span><span class='period'>.</span><span class='id identifier rubyid_f_score_each_class'>f_score_each_class</span><span class='lparen'>(</span><span class='id identifier rubyid_y_true'>y_true</span><span class='comma'>,</span> <span class='id identifier rubyid_y_pred'>y_pred</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_macro_precision'>macro_precision</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Rumale::EvaluationMeasure (module)">EvaluationMeasure</a></span></span><span class='op'>::</span><span class='const'>PrecisionRecall</span><span class='period'>.</span><span class='id identifier rubyid_macro_average_precision'>macro_average_precision</span><span class='lparen'>(</span><span class='id identifier rubyid_y_true'>y_true</span><span class='comma'>,</span> <span class='id identifier rubyid_y_pred'>y_pred</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_macro_recall'>macro_recall</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Rumale::EvaluationMeasure (module)">EvaluationMeasure</a></span></span><span class='op'>::</span><span class='const'>PrecisionRecall</span><span class='period'>.</span><span class='id identifier rubyid_macro_average_recall'>macro_average_recall</span><span class='lparen'>(</span><span class='id identifier rubyid_y_true'>y_true</span><span class='comma'>,</span> <span class='id identifier rubyid_y_pred'>y_pred</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_macro_fscore'>macro_fscore</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Rumale::EvaluationMeasure (module)">EvaluationMeasure</a></span></span><span class='op'>::</span><span class='const'>PrecisionRecall</span><span class='period'>.</span><span class='id identifier rubyid_macro_average_f_score'>macro_average_f_score</span><span class='lparen'>(</span><span class='id identifier rubyid_y_true'>y_true</span><span class='comma'>,</span> <span class='id identifier rubyid_y_pred'>y_pred</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_accuracy'>accuracy</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Rumale::EvaluationMeasure (module)">EvaluationMeasure</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="EvaluationMeasure/Accuracy.html" title="Rumale::EvaluationMeasure::Accuracy (class)">Accuracy</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_score'><span class='object_link'><a href="EvaluationMeasure/Accuracy.html#score-instance_method" title="Rumale::EvaluationMeasure::Accuracy#score (method)">score</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_y_true'>y_true</span><span class='comma'>,</span> <span class='id identifier rubyid_y_pred'>y_pred</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_sum_supports'>sum_supports</span> <span class='op'>=</span> <span class='id identifier rubyid_supports'>supports</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span>
+  <span class='id identifier rubyid_weights'>weights</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_cast'>cast</span><span class='lparen'>(</span><span class='id identifier rubyid_supports'>supports</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='id identifier rubyid_sum_supports'>sum_supports</span>
+  <span class='id identifier rubyid_weighted_precision'>weighted_precision</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_cast'>cast</span><span class='lparen'>(</span><span class='id identifier rubyid_precisions'>precisions</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='id identifier rubyid_weights'>weights</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span>
+  <span class='id identifier rubyid_weighted_recall'>weighted_recall</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_cast'>cast</span><span class='lparen'>(</span><span class='id identifier rubyid_recalls'>recalls</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='id identifier rubyid_weights'>weights</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span>
+  <span class='id identifier rubyid_weighted_fscore'>weighted_fscore</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_cast'>cast</span><span class='lparen'>(</span><span class='id identifier rubyid_fscores'>fscores</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='id identifier rubyid_weights'>weights</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span>  <span class='comment'># output reults.
+</span>
+  <span class='id identifier rubyid_target_name'>target_name</span> <span class='op'>||=</span> <span class='id identifier rubyid_y_true'>y_true</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span><span class='period'>.</span><span class='id identifier rubyid_uniq'>uniq</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:to_s</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_output_hash'>output_hash</span>
+    <span class='id identifier rubyid_res'>res</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+    <span class='id identifier rubyid_target_name'>target_name</span><span class='period'>.</span><span class='id identifier rubyid_each_with_index'>each_with_index</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_label'>label</span><span class='comma'>,</span> <span class='id identifier rubyid_n'>n</span><span class='op'>|</span>
+      <span class='id identifier rubyid_res'>res</span><span class='lbracket'>[</span><span class='id identifier rubyid_label'>label</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+        <span class='label'>precision:</span> <span class='id identifier rubyid_precisions'>precisions</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span><span class='comma'>,</span>
+        <span class='label'>recall:</span> <span class='id identifier rubyid_recalls'>recalls</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span><span class='comma'>,</span>
+        <span class='label'>fscore:</span> <span class='id identifier rubyid_fscores'>fscores</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span><span class='comma'>,</span>
+        <span class='label'>support:</span> <span class='id identifier rubyid_supports'>supports</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span>
+      <span class='rbrace'>}</span>
+    <span class='kw'>end</span>
+    <span class='id identifier rubyid_res'>res</span><span class='lbracket'>[</span><span class='symbol'>:accuracy</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_accuracy'>accuracy</span>
+    <span class='id identifier rubyid_res'>res</span><span class='lbracket'>[</span><span class='symbol'>:macro_avg</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+      <span class='label'>precision:</span> <span class='id identifier rubyid_macro_precision'>macro_precision</span><span class='comma'>,</span>
+      <span class='label'>recall:</span> <span class='id identifier rubyid_macro_recall'>macro_recall</span><span class='comma'>,</span>
+      <span class='label'>fscore:</span> <span class='id identifier rubyid_macro_fscore'>macro_fscore</span><span class='comma'>,</span>
+      <span class='label'>support:</span> <span class='id identifier rubyid_sum_supports'>sum_supports</span>
+    <span class='rbrace'>}</span>
+    <span class='id identifier rubyid_res'>res</span><span class='lbracket'>[</span><span class='symbol'>:weighted_avg</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+      <span class='label'>precision:</span> <span class='id identifier rubyid_weighted_precision'>weighted_precision</span><span class='comma'>,</span>
+      <span class='label'>recall:</span> <span class='id identifier rubyid_weighted_recall'>weighted_recall</span><span class='comma'>,</span>
+      <span class='label'>fscore:</span> <span class='id identifier rubyid_weighted_fscore'>weighted_fscore</span><span class='comma'>,</span>
+      <span class='label'>support:</span> <span class='id identifier rubyid_sum_supports'>sum_supports</span>
+    <span class='rbrace'>}</span>
+    <span class='id identifier rubyid_res'>res</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_width'>width</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>weighted avg</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='comma'>,</span> <span class='id identifier rubyid_target_name'>target_name</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:size</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span>
+    <span class='id identifier rubyid_res'>res</span> <span class='op'>=</span> <span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_res'>res</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> </span><span class='tstring_end'>&#39;</span></span> <span class='op'>*</span> <span class='id identifier rubyid_width'>width</span><span class='embexpr_end'>}</span><span class='tstring_content'>  precision    recall  f1-score   support\n</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_res'>res</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_target_name'>target_name</span><span class='period'>.</span><span class='id identifier rubyid_each_with_index'>each_with_index</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_label'>label</span><span class='comma'>,</span> <span class='id identifier rubyid_n'>n</span><span class='op'>|</span>
+      <span class='id identifier rubyid_label_str'>label_str</span> <span class='op'>=</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%#</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_width'>width</span><span class='embexpr_end'>}</span><span class='tstring_content'>s</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_label'>label</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_precision_str'>precision_str</span> <span class='op'>=</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%#10s</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%.2f</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_precisions'>precisions</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_recall_str'>recall_str</span> <span class='op'>=</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%#10s</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%.2f</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_recalls'>recalls</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_fscore_str'>fscore_str</span> <span class='op'>=</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%#10s</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%.2f</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_fscores'>fscores</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_supports_str'>supports_str</span> <span class='op'>=</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%#10s</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_supports'>supports</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_res'>res</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_label_str'>label_str</span><span class='embexpr_end'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_precision_str'>precision_str</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_recall_str'>recall_str</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_fscore_str'>fscore_str</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_supports_str'>supports_str</span><span class='embexpr_end'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+    <span class='id identifier rubyid_res'>res</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_supports_str'>supports_str</span> <span class='op'>=</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%#10s</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_sum_supports'>sum_supports</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_accuracy_str'>accuracy_str</span> <span class='op'>=</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%#30s</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%.2f</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_accuracy'>accuracy</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_res'>res</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%#</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_width'>width</span><span class='embexpr_end'>}</span><span class='tstring_content'>s </span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>accuracy</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_res'>res</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_accuracy_str'>accuracy_str</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_supports_str'>supports_str</span><span class='embexpr_end'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_precision_str'>precision_str</span> <span class='op'>=</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%#10s</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%.2f</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_macro_precision'>macro_precision</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_recall_str'>recall_str</span> <span class='op'>=</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%#10s</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%.2f</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_macro_recall'>macro_recall</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_fscore_str'>fscore_str</span> <span class='op'>=</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%#10s</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%.2f</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_macro_fscore'>macro_fscore</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_res'>res</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%#</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_width'>width</span><span class='embexpr_end'>}</span><span class='tstring_content'>s </span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>macro avg</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_res'>res</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_precision_str'>precision_str</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_recall_str'>recall_str</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_fscore_str'>fscore_str</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_supports_str'>supports_str</span><span class='embexpr_end'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_precision_str'>precision_str</span> <span class='op'>=</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%#10s</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%.2f</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_weighted_precision'>weighted_precision</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_recall_str'>recall_str</span> <span class='op'>=</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%#10s</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%.2f</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_weighted_recall'>weighted_recall</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_fscore_str'>fscore_str</span> <span class='op'>=</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%#10s</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%.2f</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_weighted_fscore'>weighted_fscore</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_res'>res</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%#</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_width'>width</span><span class='embexpr_end'>}</span><span class='tstring_content'>s </span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>weighted avg</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_res'>res</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_precision_str'>precision_str</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_recall_str'>recall_str</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_fscore_str'>fscore_str</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_supports_str'>supports_str</span><span class='embexpr_end'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_res'>res</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
 
 </div>
 
       <div id="footer">
-  Generated on Mon Mar  2 21:21:12 2020 by
+  Generated on Sat Mar 14 10:17:01 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.7.0).
 </div>

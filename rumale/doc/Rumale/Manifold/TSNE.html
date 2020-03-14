@@ -348,54 +348,6 @@
 </li>
 
       
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#marshal_dump-instance_method" title="#marshal_dump (instance method)">#<strong>marshal_dump</strong>  &#x21d2; Hash </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Dump marshal data.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#marshal_load-instance_method" title="#marshal_load (instance method)">#<strong>marshal_load</strong>(obj)  &#x21d2; nil </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Load marshal data.</p>
-</div></span>
-  
-</li>
-
-      
     </ul>
   
 
@@ -1113,143 +1065,12 @@
 </table>
 </div>
     
-      <div class="method_details ">
-  <h3 class="signature " id="marshal_dump-instance_method">
-  
-    #<strong>marshal_dump</strong>  &#x21d2; <tt>Hash</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Dump marshal data.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The marshal data.</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-131
-132
-133
-134
-135
-136
-137</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/manifold/tsne.rb', line 131</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_marshal_dump'>marshal_dump</span>
-  <span class='lbrace'>{</span> <span class='label'>params:</span> <span class='ivar'>@params</span><span class='comma'>,</span>
-    <span class='label'>embedding:</span> <span class='ivar'>@embedding</span><span class='comma'>,</span>
-    <span class='label'>kl_divergence:</span> <span class='ivar'>@kl_divergence</span><span class='comma'>,</span>
-    <span class='label'>n_iter:</span> <span class='ivar'>@n_iter</span><span class='comma'>,</span>
-    <span class='label'>rng:</span> <span class='ivar'>@rng</span> <span class='rbrace'>}</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="marshal_load-instance_method">
-  
-    #<strong>marshal_load</strong>(obj)  &#x21d2; <tt>nil</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Load marshal data.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>nil</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-141
-142
-143
-144
-145
-146
-147
-148</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/manifold/tsne.rb', line 141</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_marshal_load'>marshal_load</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
-  <span class='ivar'>@params</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:params</span><span class='rbracket'>]</span>
-  <span class='ivar'>@embedding</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:embedding</span><span class='rbracket'>]</span>
-  <span class='ivar'>@kl_divergence</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:kl_divergence</span><span class='rbracket'>]</span>
-  <span class='ivar'>@n_iter</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:n_iter</span><span class='rbracket'>]</span>
-  <span class='ivar'>@rng</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:rng</span><span class='rbracket'>]</span>
-  <span class='kw'>nil</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
   </div>
 
 </div>
 
       <div id="footer">
-  Generated on Mon Mar  2 21:21:12 2020 by
+  Generated on Sat Mar 14 10:17:02 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.7.0).
 </div>
