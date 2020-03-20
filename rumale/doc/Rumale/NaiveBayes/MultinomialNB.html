@@ -96,7 +96,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/rumale/naive_bayes/naive_bayes.rb</dd>
+    <dd>lib/rumale/naive_bayes/multinomial_nb.rb</dd>
   </dl>
   
 </div>
@@ -401,15 +401,15 @@
       <pre class="lines">
 
 
-133
-134
-135
-136
-137
-138</pre>
+32
+33
+34
+35
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/naive_bayes/naive_bayes.rb', line 133</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/naive_bayes/multinomial_nb.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>smoothing_param:</span> <span class='float'>1.0</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_numeric'>check_params_numeric</span><span class='lparen'>(</span><span class='label'>smoothing_param:</span> <span class='id identifier rubyid_smoothing_param'>smoothing_param</span><span class='rparen'>)</span>
@@ -473,12 +473,12 @@
       <pre class="lines">
 
 
-124
-125
-126</pre>
+23
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/naive_bayes/naive_bayes.rb', line 124</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/naive_bayes/multinomial_nb.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_class_priors'>class_priors</span>
   <span class='ivar'>@class_priors</span>
@@ -534,12 +534,12 @@
       <pre class="lines">
 
 
-120
-121
-122</pre>
+19
+20
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/naive_bayes/naive_bayes.rb', line 120</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/naive_bayes/multinomial_nb.rb', line 19</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_classes'>classes</span>
   <span class='ivar'>@classes</span>
@@ -595,12 +595,12 @@
       <pre class="lines">
 
 
-128
-129
-130</pre>
+27
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/naive_bayes/naive_bayes.rb', line 128</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/naive_bayes/multinomial_nb.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_feature_probs'>feature_probs</span>
   <span class='ivar'>@feature_probs</span>
@@ -681,18 +681,18 @@
       <pre class="lines">
 
 
-164
-165
-166
-167
-168
-169
-170
-171
-172</pre>
+63
+64
+65
+66
+67
+68
+69
+70
+71</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/naive_bayes/naive_bayes.rb', line 164</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/naive_bayes/multinomial_nb.rb', line 63</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_decision_function'>decision_function</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -788,22 +788,22 @@
       <pre class="lines">
 
 
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158</pre>
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/naive_bayes/naive_bayes.rb', line 146</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/naive_bayes/multinomial_nb.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -828,7 +828,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Mar 14 10:17:06 2020 by
+  Generated on Sat Mar 21 01:09:38 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.7.0).
 </div>

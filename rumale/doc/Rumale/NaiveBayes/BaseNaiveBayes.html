@@ -99,7 +99,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/rumale/naive_bayes/naive_bayes.rb</dd>
+    <dd>lib/rumale/naive_bayes/base_naive_bayes.rb</dd>
   </dl>
   
 </div>
@@ -107,7 +107,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>BaseNaiveBayes is a class that has methods for common processes of naive bayes classifier.</p>
+<p>BaseNaiveBayes is a class that has methods for common processes of naive bayes classifier. This class is used internally.</p>
 
 
   </div>
@@ -117,7 +117,7 @@
 
 </div><div id="subclasses">
   <h2>Direct Known Subclasses</h2>
-  <p class="children"><span class='object_link'><a href="BernoulliNB.html" title="Rumale::NaiveBayes::BernoulliNB (class)">BernoulliNB</a></span>, <span class='object_link'><a href="GaussianNB.html" title="Rumale::NaiveBayes::GaussianNB (class)">GaussianNB</a></span>, <span class='object_link'><a href="MultinomialNB.html" title="Rumale::NaiveBayes::MultinomialNB (class)">MultinomialNB</a></span></p>
+  <p class="children"><span class='object_link'><a href="BernoulliNB.html" title="Rumale::NaiveBayes::BernoulliNB (class)">BernoulliNB</a></span>, <span class='object_link'><a href="ComplementNB.html" title="Rumale::NaiveBayes::ComplementNB (class)">ComplementNB</a></span>, <span class='object_link'><a href="GaussianNB.html" title="Rumale::NaiveBayes::GaussianNB (class)">GaussianNB</a></span>, <span class='object_link'><a href="MultinomialNB.html" title="Rumale::NaiveBayes::MultinomialNB (class)">MultinomialNB</a></span>, <span class='object_link'><a href="NegationNB.html" title="Rumale::NaiveBayes::NegationNB (class)">NegationNB</a></span></p>
 </div>
 
 
@@ -307,15 +307,15 @@
       <pre class="lines">
 
 
-18
 19
 20
 21
 22
-23</pre>
+23
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/naive_bayes/naive_bayes.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/naive_bayes/base_naive_bayes.rb', line 19</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -392,15 +392,15 @@
       <pre class="lines">
 
 
-29
 30
 31
 32
 33
-34</pre>
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/naive_bayes/naive_bayes.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/naive_bayes/base_naive_bayes.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict_log_proba'>predict_log_proba</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -477,13 +477,13 @@
       <pre class="lines">
 
 
-40
 41
 42
-43</pre>
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/naive_bayes/naive_bayes.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/naive_bayes/base_naive_bayes.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict_proba'>predict_proba</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -499,7 +499,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Mar 14 10:17:05 2020 by
+  Generated on Sat Mar 21 01:09:39 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.7.0).
 </div>
