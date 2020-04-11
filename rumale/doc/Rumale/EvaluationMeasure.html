@@ -496,7 +496,7 @@
       
       <pre class="example code"><code><span class='id identifier rubyid_y_true'>y_true</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='lbracket'>[</span><span class='int'>2</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span>
 <span class='id identifier rubyid_y_pred'>y_pred</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>2</span><span class='rbracket'>]</span>
-<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_confusion_matrix'>confusion_matrix</span><span class='lparen'>(</span><span class='id identifier rubyid_y_true'>y_true</span><span class='comma'>,</span> <span class='id identifier rubyid_y_pred'>y_pred</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_p'>p</span> <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Rumale::EvaluationMeasure (module)">EvaluationMeasure</a></span></span><span class='period'>.</span><span class='id identifier rubyid_confusion_matrix'>confusion_matrix</span><span class='lparen'>(</span><span class='id identifier rubyid_y_true'>y_true</span><span class='comma'>,</span> <span class='id identifier rubyid_y_pred'>y_pred</span><span class='rparen'>)</span>
 
 <span class='comment'># Numo::Int32#shape=[3,3]
 </span><span class='comment'># [[2, 0, 0],
@@ -616,7 +616,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Apr  4 11:17:29 2020 by
+  Generated on Sat Apr 11 10:27:59 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.7.0).
 </div>

@@ -127,7 +127,7 @@
       <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/linalg/autoloader</span><span class='tstring_end'>&#39;</span></span>
 
 <span class='id identifier rubyid_kernel_mat_train'>kernel_mat_train</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../PairwiseMetric.html" title="Rumale::PairwiseMetric (module)">PairwiseMetric</a></span></span><span class='op'>::</span><span class='id identifier rubyid_rbf_kernel'><span class='object_link'><a href="../PairwiseMetric.html#rbf_kernel-class_method" title="Rumale::PairwiseMetric.rbf_kernel (method)">rbf_kernel</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_training_samples'>training_samples</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_kpca'>kpca</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../KernelMachine.html" title="Rumale::KernelMachine (module)">KernelMachine</a></span></span><span class='op'>::</span><span class='const'>KernelPCA</span><span class='lparen'>(</span><span class='label'>n_components:</span> <span class='int'>2</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_kpca'>kpca</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../KernelMachine.html" title="Rumale::KernelMachine (module)">KernelMachine</a></span></span><span class='op'>::</span><span class='const'>KernelPCA</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::KernelMachine::KernelPCA#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>n_components:</span> <span class='int'>2</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_mapped_traininig_samples'>mapped_traininig_samples</span> <span class='op'>=</span> <span class='id identifier rubyid_kpca'>kpca</span><span class='period'>.</span><span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_kernel_mat_train'>kernel_mat_train</span><span class='rparen'>)</span>
 
 <span class='id identifier rubyid_kernel_mat_test'>kernel_mat_test</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../PairwiseMetric.html" title="Rumale::PairwiseMetric (module)">PairwiseMetric</a></span></span><span class='op'>::</span><span class='id identifier rubyid_rbf_kernel'><span class='object_link'><a href="../PairwiseMetric.html#rbf_kernel-class_method" title="Rumale::PairwiseMetric.rbf_kernel (method)">rbf_kernel</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_test_samples'>test_samples</span><span class='comma'>,</span> <span class='id identifier rubyid_training_samples'>training_samples</span><span class='rparen'>)</span>
@@ -166,7 +166,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Returns the eigenvectros of the centered kernel matrix.</p>
+<p>Returns the eigenvectors of the centered kernel matrix.</p>
 </div></span>
   
 </li>
@@ -397,7 +397,8 @@
 42
 43
 44
-45</pre>
+45
+46</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_pca.rb', line 37</span>
@@ -408,6 +409,7 @@
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_components</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_n_components'>n_components</span>
   <span class='ivar'>@alphas</span> <span class='op'>=</span> <span class='kw'>nil</span>
   <span class='ivar'>@lambdas</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@transform_mat</span> <span class='op'>=</span> <span class='kw'>nil</span>
   <span class='ivar'>@row_mean</span> <span class='op'>=</span> <span class='kw'>nil</span>
   <span class='ivar'>@all_mean</span> <span class='op'>=</span> <span class='kw'>nil</span>
 <span class='kw'>end</span></pre>
@@ -435,7 +437,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the eigenvectros of the centered kernel matrix.</p>
+<p>Returns the eigenvectors of the centered kernel matrix.</p>
 
 
   </div>
@@ -638,7 +640,6 @@
       <pre class="lines">
 
 
-54
 55
 56
 57
@@ -651,10 +652,12 @@
 64
 65
 66
-67</pre>
+67
+68
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_pca.rb', line 54</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_pca.rb', line 55</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid__y'>_y</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -668,6 +671,7 @@
   <span class='id identifier rubyid_eig_vals'>eig_vals</span><span class='comma'>,</span> <span class='id identifier rubyid_eig_vecs'>eig_vecs</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Linalg</span><span class='period'>.</span><span class='id identifier rubyid_eigh'>eigh</span><span class='lparen'>(</span><span class='id identifier rubyid_centered_kernel_mat'>centered_kernel_mat</span><span class='comma'>,</span> <span class='label'>vals_range:</span> <span class='lparen'>(</span><span class='id identifier rubyid_n_samples'>n_samples</span> <span class='op'>-</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_components</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='op'>...</span><span class='id identifier rubyid_n_samples'>n_samples</span><span class='rparen'>)</span>
   <span class='ivar'>@alphas</span> <span class='op'>=</span> <span class='id identifier rubyid_eig_vecs'>eig_vecs</span><span class='period'>.</span><span class='id identifier rubyid_reverse'>reverse</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
   <span class='ivar'>@lambdas</span> <span class='op'>=</span> <span class='id identifier rubyid_eig_vals'>eig_vals</span><span class='period'>.</span><span class='id identifier rubyid_reverse'>reverse</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
+  <span class='ivar'>@transform_mat</span> <span class='op'>=</span> <span class='ivar'>@alphas</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='lparen'>(</span><span class='float'>1.0</span> <span class='op'>/</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>NMath</span><span class='period'>.</span><span class='id identifier rubyid_sqrt'>sqrt</span><span class='lparen'>(</span><span class='ivar'>@lambdas</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_diag'>diag</span><span class='rparen'>)</span>
   <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -750,13 +754,13 @@
       <pre class="lines">
 
 
-76
-77
 78
-79</pre>
+79
+80
+81</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_pca.rb', line 76</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_pca.rb', line 78</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid__y'>_y</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -831,24 +835,22 @@
       <pre class="lines">
 
 
-86
-87
 88
 89
 90
 91
 92
-93</pre>
+93
+94</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_pca.rb', line 86</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/kernel_machine/kernel_pca.rb', line 88</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_transform'>transform</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_col_mean'>col_mean</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='ivar'>@row_mean</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_centered_kernel_mat'>centered_kernel_mat</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span> <span class='op'>-</span> <span class='id identifier rubyid_col_mean'>col_mean</span><span class='period'>.</span><span class='id identifier rubyid_expand_dims'>expand_dims</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span> <span class='op'>-</span> <span class='ivar'>@row_mean</span> <span class='op'>+</span> <span class='ivar'>@all_mean</span>
-  <span class='id identifier rubyid_transform_mat'>transform_mat</span> <span class='op'>=</span> <span class='ivar'>@alphas</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='lparen'>(</span><span class='float'>1.0</span> <span class='op'>/</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>NMath</span><span class='period'>.</span><span class='id identifier rubyid_sqrt'>sqrt</span><span class='lparen'>(</span><span class='ivar'>@lambdas</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_diag'>diag</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_transformed'>transformed</span> <span class='op'>=</span> <span class='id identifier rubyid_centered_kernel_mat'>centered_kernel_mat</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='id identifier rubyid_transform_mat'>transform_mat</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_transformed'>transformed</span> <span class='op'>=</span> <span class='id identifier rubyid_centered_kernel_mat'>centered_kernel_mat</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='ivar'>@transform_mat</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_components</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='int'>1</span> <span class='op'>?</span> <span class='id identifier rubyid_transformed'>transformed</span><span class='lbracket'>[</span><span class='kw'>true</span><span class='comma'>,</span> <span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span> <span class='op'>:</span> <span class='id identifier rubyid_transformed'>transformed</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -861,7 +863,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Apr  4 11:17:33 2020 by
+  Generated on Sat Apr 11 10:28:03 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.7.0).
 </div>
