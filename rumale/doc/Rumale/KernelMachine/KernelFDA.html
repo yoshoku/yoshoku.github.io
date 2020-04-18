@@ -647,7 +647,7 @@
   <span class='id identifier rubyid_within_mat'>within_mat</span> <span class='op'>=</span> <span class='id identifier rubyid_centered_kernel_mat'>centered_kernel_mat</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='id identifier rubyid_centered_kernel_mat'>centered_kernel_mat</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:reg_param</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_eye'>eye</span><span class='lparen'>(</span><span class='id identifier rubyid_n_samples'>n_samples</span><span class='rparen'>)</span>
 
   <span class='comment'># calculate projection matrix.
-</span>  <span class='id identifier rubyid_eig_vals'>eig_vals</span><span class='comma'>,</span> <span class='id identifier rubyid_eig_vecs'>eig_vecs</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Linalg</span><span class='period'>.</span><span class='id identifier rubyid_eigh'>eigh</span><span class='lparen'>(</span>
+</span>  <span class='id identifier rubyid__'>_</span><span class='comma'>,</span> <span class='id identifier rubyid_eig_vecs'>eig_vecs</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Linalg</span><span class='period'>.</span><span class='id identifier rubyid_eigh'>eigh</span><span class='lparen'>(</span>
     <span class='id identifier rubyid_between_mat'>between_mat</span><span class='comma'>,</span> <span class='id identifier rubyid_within_mat'>within_mat</span><span class='comma'>,</span>
     <span class='label'>vals_range:</span> <span class='lparen'>(</span><span class='id identifier rubyid_n_samples'>n_samples</span> <span class='op'>-</span> <span class='id identifier rubyid_n_components'>n_components</span><span class='rparen'>)</span><span class='op'>...</span><span class='id identifier rubyid_n_samples'>n_samples</span>
   <span class='rparen'>)</span>
@@ -852,7 +852,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Apr 11 10:28:03 2020 by
+  Generated on Sat Apr 18 10:27:26 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.7.0).
 </div>
