@@ -110,10 +110,8 @@
 <p>AdaBoostRegressor is a class that implements random forest for regression. This class uses decision tree for a weak learner.</p>
 
 <p><strong>Reference</strong></p>
-<ul><li><ol style="list-style-type: upper-alpha"><li><ol style="list-style-type: upper-alpha"><li>
-<p>Shrestha and D. P. Solomatine, “Experiments with AdaBoost.RT, an Improved Boosting Scheme for Regression,” Neural Computation 18 (7), pp. 1678–1710, 2006.</p>
-</li></ol>
-</li></ol>
+<ul><li>
+<p>Shrestha, D. L., and Solomatine, D. P., “Experiments with AdaBoost.RT, an Improved Boosting Scheme for Regression,” Neural Computation 18 (7), pp. 1678–1710, 2006.</p>
 </li></ul>
 
 
@@ -570,6 +568,7 @@
       <pre class="lines">
 
 
+57
 58
 59
 60
@@ -595,11 +594,10 @@
 80
 81
 82
-83
-84</pre>
+83</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/ensemble/ada_boost_regressor.rb', line 58</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/ensemble/ada_boost_regressor.rb', line 57</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>n_estimators:</span> <span class='int'>10</span><span class='comma'>,</span> <span class='label'>threshold:</span> <span class='float'>0.2</span><span class='comma'>,</span> <span class='label'>exponent:</span> <span class='float'>1.0</span><span class='comma'>,</span>
                <span class='label'>criterion:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mse</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>max_depth:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>max_leaf_nodes:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>min_samples_leaf:</span> <span class='int'>1</span><span class='comma'>,</span>
@@ -684,12 +682,12 @@
       <pre class="lines">
 
 
+32
 33
-34
-35</pre>
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/ensemble/ada_boost_regressor.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/ensemble/ada_boost_regressor.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_estimator_weights'>estimator_weights</span>
   <span class='ivar'>@estimator_weights</span>
@@ -740,12 +738,12 @@
       <pre class="lines">
 
 
+28
 29
-30
-31</pre>
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/ensemble/ada_boost_regressor.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/ensemble/ada_boost_regressor.rb', line 28</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_estimators'>estimators</span>
   <span class='ivar'>@estimators</span>
@@ -801,12 +799,12 @@
       <pre class="lines">
 
 
+36
 37
-38
-39</pre>
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/ensemble/ada_boost_regressor.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/ensemble/ada_boost_regressor.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_feature_importances'>feature_importances</span>
   <span class='ivar'>@feature_importances</span>
@@ -857,12 +855,12 @@
       <pre class="lines">
 
 
+40
 41
-42
-43</pre>
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/ensemble/ada_boost_regressor.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/ensemble/ada_boost_regressor.rb', line 40</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rng'>rng</span>
   <span class='ivar'>@rng</span>
@@ -972,6 +970,7 @@
       <pre class="lines">
 
 
+90
 91
 92
 93
@@ -1020,11 +1019,10 @@
 136
 137
 138
-139
-140</pre>
+139</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/ensemble/ada_boost_regressor.rb', line 91</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/ensemble/ada_boost_regressor.rb', line 90</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span> <span class='comment'># rubocop:disable Metrics/AbcSize
 </span>  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -1145,6 +1143,7 @@
       <pre class="lines">
 
 
+145
 146
 147
 148
@@ -1153,11 +1152,10 @@
 151
 152
 153
-154
-155</pre>
+154</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/ensemble/ada_boost_regressor.rb', line 146</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/ensemble/ada_boost_regressor.rb', line 145</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -1179,7 +1177,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Apr 18 10:27:28 2020 by
+  Generated on Sat May  2 11:32:11 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.7.0).
 </div>

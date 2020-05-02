@@ -109,14 +109,13 @@
     
 <p>GradientTreeRegressor is a class that implements decision tree for regression with exact gredy algorithm. This class is used internally for estimators with gradient tree boosting.</p>
 
-<p><strong>reference</strong></p>
+<p><strong>Reference</strong></p>
 <ul><li>
-<p>J H. Friedman, “Greedy Function Approximation: A Gradient Boosting Machine,” Annals of Statistics, 29 (5), pp. 1189–1232, 2001.</p>
+<p>Friedman, J H., “Greedy Function Approximation: A Gradient Boosting Machine,” Annals of Statistics, 29 (5), pp. 1189–1232, 2001.</p>
 </li><li>
-<p>J H. Friedman, “Stochastic Gradient Boosting,” Computational Statistics and Data Analysis, 38 (4), pp. 367–378, 2002.</p>
-</li><li><ol style="list-style-type: upper-alpha"><li>
-<p>Chen and C. Guestrin, “XGBoost: A Scalable Tree Boosting System,”  Proc. KDD&#39;16, pp. 785–794, 2016.</p>
-</li></ol>
+<p>Friedman, J H., “Stochastic Gradient Boosting,” Computational Statistics and Data Analysis, 38 (4), pp. 367–378, 2002.</p>
+</li><li>
+<p>Chen, T., and Guestrin, C., “XGBoost: A Scalable Tree Boosting System,”  Proc. KDD&#39;16, pp. 785–794, 2016.</p>
 </li></ul>
 
 
@@ -555,6 +554,7 @@
       <pre class="lines">
 
 
+52
 53
 54
 55
@@ -576,11 +576,10 @@
 71
 72
 73
-74
-75</pre>
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/gradient_tree_regressor.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/tree/gradient_tree_regressor.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>reg_lambda:</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='label'>shrinkage_rate:</span> <span class='float'>1.0</span><span class='comma'>,</span>
                <span class='label'>max_depth:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>max_leaf_nodes:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>min_samples_leaf:</span> <span class='int'>1</span><span class='comma'>,</span> <span class='label'>max_features:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
@@ -661,12 +660,12 @@
       <pre class="lines">
 
 
+25
 26
-27
-28</pre>
+27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/gradient_tree_regressor.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/tree/gradient_tree_regressor.rb', line 25</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_feature_importances'>feature_importances</span>
   <span class='ivar'>@feature_importances</span>
@@ -722,12 +721,12 @@
       <pre class="lines">
 
 
+37
 38
-39
-40</pre>
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/gradient_tree_regressor.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/tree/gradient_tree_regressor.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_leaf_weights'>leaf_weights</span>
   <span class='ivar'>@leaf_weights</span>
@@ -778,12 +777,12 @@
       <pre class="lines">
 
 
+33
 34
-35
-36</pre>
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/gradient_tree_regressor.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/tree/gradient_tree_regressor.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rng'>rng</span>
   <span class='ivar'>@rng</span>
@@ -834,12 +833,12 @@
       <pre class="lines">
 
 
+29
 30
-31
-32</pre>
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/gradient_tree_regressor.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/tree/gradient_tree_regressor.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tree'>tree</span>
   <span class='ivar'>@tree</span>
@@ -920,13 +919,13 @@
       <pre class="lines">
 
 
+115
 116
 117
-118
-119</pre>
+118</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/gradient_tree_regressor.rb', line 116</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/tree/gradient_tree_regressor.rb', line 115</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -1049,6 +1048,7 @@
       <pre class="lines">
 
 
+83
 84
 85
 86
@@ -1065,11 +1065,10 @@
 97
 98
 99
-100
-101</pre>
+100</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/gradient_tree_regressor.rb', line 84</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/tree/gradient_tree_regressor.rb', line 83</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='id identifier rubyid_g'>g</span><span class='comma'>,</span> <span class='id identifier rubyid_h'>h</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -1158,13 +1157,13 @@
       <pre class="lines">
 
 
+106
 107
 108
-109
-110</pre>
+109</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/gradient_tree_regressor.rb', line 107</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/tree/gradient_tree_regressor.rb', line 106</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -1180,7 +1179,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Apr 18 10:27:29 2020 by
+  Generated on Sat May  2 11:32:12 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.7.0).
 </div>
