@@ -934,7 +934,8 @@
 89
 90
 91
-92</pre>
+92
+93</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rumale/clustering/gaussian_mixture.rb', line 75</span>
@@ -953,6 +954,7 @@
     <span class='id identifier rubyid_new_memberships'>new_memberships</span> <span class='op'>=</span> <span class='id identifier rubyid_calc_memberships'>calc_memberships</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='ivar'>@weights</span><span class='comma'>,</span> <span class='ivar'>@means</span><span class='comma'>,</span> <span class='ivar'>@covariances</span><span class='comma'>,</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:covariance_type</span><span class='rbracket'>]</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_error'>error</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_memberships'>memberships</span> <span class='op'>-</span> <span class='id identifier rubyid_new_memberships'>new_memberships</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span>
     <span class='kw'>break</span> <span class='kw'>if</span> <span class='id identifier rubyid_error'>error</span> <span class='op'>&lt;=</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:tol</span><span class='rbracket'>]</span>
+
     <span class='id identifier rubyid_memberships'>memberships</span> <span class='op'>=</span> <span class='id identifier rubyid_new_memberships'>new_memberships</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
   <span class='kw'>end</span>
   <span class='kw'>self</span>
@@ -1026,15 +1028,15 @@
       <pre class="lines">
 
 
-110
 111
 112
 113
 114
-115</pre>
+115
+116</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/clustering/gaussian_mixture.rb', line 110</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/clustering/gaussian_mixture.rb', line 111</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit_predict'>fit_predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -1111,16 +1113,16 @@
       <pre class="lines">
 
 
-98
 99
 100
 101
 102
 103
-104</pre>
+104
+105</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/clustering/gaussian_mixture.rb', line 98</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/clustering/gaussian_mixture.rb', line 99</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -1139,7 +1141,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat May  2 11:32:10 2020 by
+  Generated on Sat May 16 16:08:49 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.7.0).
 </div>

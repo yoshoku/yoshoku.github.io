@@ -741,7 +741,6 @@
       <pre class="lines">
 
 
-87
 88
 89
 90
@@ -767,10 +766,11 @@
 110
 111
 112
-113</pre>
+113
+114</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/nearest_neighbors/k_neighbors_classifier.rb', line 87</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/nearest_neighbors/k_neighbors_classifier.rb', line 88</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_decision_function'>decision_function</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -912,7 +912,8 @@
 77
 78
 79
-80</pre>
+80
+81</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rumale/nearest_neighbors/k_neighbors_classifier.rb', line 65</span>
@@ -922,6 +923,7 @@
   <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_label_array'>check_convert_label_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_sample_label_size'>check_sample_label_size</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect the input distance matrix to be square.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:metric</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>precomputed</span><span class='tstring_end'>&#39;</span></span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+
   <span class='ivar'>@prototypes</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:metric</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>euclidean</span><span class='tstring_end'>&#39;</span></span>
                   <span class='kw'>if</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:algorithm</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>vptree</span><span class='tstring_end'>&#39;</span></span>
                     <span class='const'><span class='object_link'><a href="VPTree.html" title="Rumale::NearestNeighbors::VPTree (class)">VPTree</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="VPTree.html#initialize-instance_method" title="Rumale::NearestNeighbors::VPTree#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -1002,7 +1004,6 @@
       <pre class="lines">
 
 
-120
 121
 122
 123
@@ -1011,10 +1012,11 @@
 126
 127
 128
-129</pre>
+129
+130</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/nearest_neighbors/k_neighbors_classifier.rb', line 120</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/nearest_neighbors/k_neighbors_classifier.rb', line 121</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -1036,7 +1038,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat May  2 11:32:16 2020 by
+  Generated on Sat May 16 16:08:55 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.7.0).
 </div>

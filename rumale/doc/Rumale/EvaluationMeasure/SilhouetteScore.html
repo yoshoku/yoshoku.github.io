@@ -407,7 +407,9 @@
 74
 75
 76
-77</pre>
+77
+78
+79</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rumale/evaluation_measure/silhouette_score.rb', line 34</span>
@@ -428,6 +430,7 @@
     <span class='id identifier rubyid_cls_pos'>cls_pos</span> <span class='op'>=</span> <span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='id identifier rubyid_labels'>labels</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_sz_cluster'>sz_cluster</span> <span class='op'>=</span> <span class='id identifier rubyid_cls_pos'>cls_pos</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span>
     <span class='kw'>next</span> <span class='kw'>unless</span> <span class='id identifier rubyid_sz_cluster'>sz_cluster</span> <span class='op'>&gt;</span> <span class='int'>1</span>
+
     <span class='id identifier rubyid_cls_dist_mat'>cls_dist_mat</span> <span class='op'>=</span> <span class='id identifier rubyid_dist_mat'>dist_mat</span><span class='lbracket'>[</span><span class='id identifier rubyid_cls_pos'>cls_pos</span><span class='comma'>,</span> <span class='id identifier rubyid_cls_pos'>cls_pos</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
     <span class='id identifier rubyid_cls_dist_mat'>cls_dist_mat</span><span class='lbracket'>[</span><span class='id identifier rubyid_cls_dist_mat'>cls_dist_mat</span><span class='period'>.</span><span class='id identifier rubyid_diag_indices'>diag_indices</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='float'>0.0</span>
     <span class='id identifier rubyid_intra_dists'>intra_dists</span><span class='lbracket'>[</span><span class='id identifier rubyid_cls_pos'>cls_pos</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_cls_dist_mat'>cls_dist_mat</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='id identifier rubyid_sz_cluster'>sz_cluster</span> <span class='op'>-</span> <span class='int'>1</span><span class='rparen'>)</span>
@@ -438,6 +441,7 @@
     <span class='id identifier rubyid_cls_pos'>cls_pos</span> <span class='op'>=</span> <span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='id identifier rubyid_labels'>labels</span><span class='lbracket'>[</span><span class='id identifier rubyid_m'>m</span><span class='rbracket'>]</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_n_clusters'>n_clusters</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span>
       <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_m'>m</span> <span class='op'>==</span> <span class='id identifier rubyid_n'>n</span>
+
       <span class='id identifier rubyid_not_cls_pos'>not_cls_pos</span> <span class='op'>=</span> <span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='id identifier rubyid_labels'>labels</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span><span class='rparen'>)</span>
       <span class='id identifier rubyid_inter_dists'>inter_dists</span><span class='lbracket'>[</span><span class='id identifier rubyid_cls_pos'>cls_pos</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_minimum'>minimum</span><span class='lparen'>(</span>
         <span class='id identifier rubyid_inter_dists'>inter_dists</span><span class='lbracket'>[</span><span class='id identifier rubyid_cls_pos'>cls_pos</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_dist_mat'>dist_mat</span><span class='lbracket'>[</span><span class='id identifier rubyid_cls_pos'>cls_pos</span><span class='comma'>,</span> <span class='id identifier rubyid_not_cls_pos'>not_cls_pos</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_mean'>mean</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>
@@ -466,7 +470,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat May  2 11:32:15 2020 by
+  Generated on Sat May 16 16:08:54 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.7.0).
 </div>
