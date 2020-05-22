@@ -61,7 +61,7 @@
 
       <div id="content"><h1>Class: Rumale::PolynomialModel::FactorizationMachineRegressor
   
-  
+  <span class="deprecated note title">Deprecated</span>
   
 </h1>
 <div class="box_info">
@@ -108,7 +108,10 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'>
+<p>FactorizationMachineRegressor will be deleted in version 0.20.0. The Ruamle author recommends using the xlearn gem instead.</p>
+</div></div>
+
 <p>FactorizationMachineRegressor is a class that implements Factorization Machine with stochastic gradient descent (SGD) optimization.</p>
 
 <p><strong>Reference</strong></p>
@@ -597,10 +600,6 @@
       <pre class="lines">
 
 
-58
-59
-60
-61
 62
 63
 64
@@ -608,14 +607,20 @@
 66
 67
 68
-69</pre>
+69
+70
+71
+72
+73
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/polynomial_model/factorization_machine_regressor.rb', line 58</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/polynomial_model/factorization_machine_regressor.rb', line 62</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>n_factors:</span> <span class='int'>2</span><span class='comma'>,</span> <span class='label'>reg_param_linear:</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='label'>reg_param_factor:</span> <span class='float'>1.0</span><span class='comma'>,</span>
                <span class='label'>max_iter:</span> <span class='int'>200</span><span class='comma'>,</span> <span class='label'>batch_size:</span> <span class='int'>50</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='float'>1e-4</span><span class='comma'>,</span>
                <span class='label'>optimizer:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>n_jobs:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>verbose:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>warning: FactorizationMachineClassifier is deprecated. This class will be deleted in version 0.20.0.</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_check_params_numeric'>check_params_numeric</span><span class='lparen'>(</span><span class='label'>reg_param_linear:</span> <span class='id identifier rubyid_reg_param_linear'>reg_param_linear</span><span class='comma'>,</span> <span class='label'>reg_param_factor:</span> <span class='id identifier rubyid_reg_param_factor'>reg_param_factor</span><span class='comma'>,</span>
                        <span class='label'>n_factors:</span> <span class='id identifier rubyid_n_factors'>n_factors</span><span class='comma'>,</span> <span class='label'>max_iter:</span> <span class='id identifier rubyid_max_iter'>max_iter</span><span class='comma'>,</span> <span class='label'>batch_size:</span> <span class='id identifier rubyid_batch_size'>batch_size</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='id identifier rubyid_tol'>tol</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_boolean'>check_params_boolean</span><span class='lparen'>(</span><span class='label'>verbose:</span> <span class='id identifier rubyid_verbose'>verbose</span><span class='rparen'>)</span>
@@ -681,12 +686,12 @@
       <pre class="lines">
 
 
-35
-36
-37</pre>
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/polynomial_model/factorization_machine_regressor.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/polynomial_model/factorization_machine_regressor.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bias_term'>bias_term</span>
   <span class='ivar'>@bias_term</span>
@@ -742,12 +747,12 @@
       <pre class="lines">
 
 
-27
-28
-29</pre>
+31
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/polynomial_model/factorization_machine_regressor.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/polynomial_model/factorization_machine_regressor.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_factor_mat'>factor_mat</span>
   <span class='ivar'>@factor_mat</span>
@@ -798,12 +803,12 @@
       <pre class="lines">
 
 
-39
-40
-41</pre>
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/polynomial_model/factorization_machine_regressor.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/polynomial_model/factorization_machine_regressor.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rng'>rng</span>
   <span class='ivar'>@rng</span>
@@ -859,12 +864,12 @@
       <pre class="lines">
 
 
-31
-32
-33</pre>
+35
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/polynomial_model/factorization_machine_regressor.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/polynomial_model/factorization_machine_regressor.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_weight_vec'>weight_vec</span>
   <span class='ivar'>@weight_vec</span>
@@ -961,11 +966,6 @@
       <pre class="lines">
 
 
-76
-77
-78
-79
-80
 81
 82
 83
@@ -984,10 +984,15 @@
 96
 97
 98
-99</pre>
+99
+100
+101
+102
+103
+104</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/polynomial_model/factorization_machine_regressor.rb', line 76</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/polynomial_model/factorization_machine_regressor.rb', line 81</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -1082,19 +1087,19 @@
       <pre class="lines">
 
 
-105
-106
-107
-108
-109
 110
 111
 112
 113
-114</pre>
+114
+115
+116
+117
+118
+119</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/polynomial_model/factorization_machine_regressor.rb', line 105</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/polynomial_model/factorization_machine_regressor.rb', line 110</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -1116,7 +1121,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat May 16 16:08:56 2020 by
+  Generated on Sat May 23 01:03:05 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.7.0).
 </div>

@@ -61,7 +61,7 @@
 
       <div id="content"><h1>Class: Rumale::LinearModel::BaseLinearModel
   
-  
+  <span class="deprecated note title">Deprecated</span>
   
 </h1>
 <div class="box_info">
@@ -106,7 +106,10 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'>
+<p>Use BaseSGD class instead. This class will be deleted in version 0.20.0.</p>
+</div></div>
+
   <div class="note notetag">
     <strong>Note:</strong>
     <div class='inline'>
@@ -355,7 +358,6 @@
       <pre class="lines">
 
 
-32
 33
 34
 35
@@ -372,10 +374,11 @@
 46
 47
 48
-49</pre>
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/base_linear_model.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/base_linear_model.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>reg_param:</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='label'>fit_bias:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>bias_scale:</span> <span class='float'>1.0</span><span class='comma'>,</span>
                <span class='label'>max_iter:</span> <span class='int'>1000</span><span class='comma'>,</span> <span class='label'>batch_size:</span> <span class='int'>10</span><span class='comma'>,</span> <span class='label'>optimizer:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>n_jobs:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
@@ -406,7 +409,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat May 16 16:08:52 2020 by
+  Generated on Sat May 23 01:03:01 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.7.0).
 </div>
