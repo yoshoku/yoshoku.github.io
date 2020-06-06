@@ -804,12 +804,14 @@
 80
 81
 82
-83</pre>
+83
+84</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rumale/svm/logistic_regression.rb', line 79</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_decision_function'>decision_function</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>\#</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid___method__'>__method__</span><span class='embexpr_end'>}</span><span class='tstring_content'> expects to be called after training the model with the fit method.</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_trained?'>trained?</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_xx'>xx</span> <span class='op'>=</span> <span class='id identifier rubyid_fit_bias?'>fit_bias?</span> <span class='op'>?</span> <span class='id identifier rubyid_expand_feature'>expand_feature</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id identifier rubyid_x'>x</span>
   <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Liblinear</span><span class='period'>.</span><span class='id identifier rubyid_decision_function'>decision_function</span><span class='lparen'>(</span><span class='id identifier rubyid_xx'>xx</span><span class='comma'>,</span> <span class='id identifier rubyid_liblinear_params'>liblinear_params</span><span class='comma'>,</span> <span class='ivar'>@model</span><span class='rparen'>)</span>
@@ -970,15 +972,15 @@
       <pre class="lines">
 
 
-108
-109
-110
 111
 112
-113</pre>
+113
+114
+115
+116</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/svm/logistic_regression.rb', line 108</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/svm/logistic_regression.rb', line 111</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_marshal_dump'>marshal_dump</span>
   <span class='lbrace'>{</span> <span class='label'>params:</span> <span class='ivar'>@params</span><span class='comma'>,</span>
@@ -1030,16 +1032,16 @@
       <pre class="lines">
 
 
-117
-118
-119
 120
 121
 122
-123</pre>
+123
+124
+125
+126</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/svm/logistic_regression.rb', line 117</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/svm/logistic_regression.rb', line 120</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_marshal_load'>marshal_load</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:params</span><span class='rbracket'>]</span>
@@ -1117,16 +1119,18 @@
       <pre class="lines">
 
 
-89
 90
 91
 92
-93</pre>
+93
+94
+95</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/svm/logistic_regression.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/svm/logistic_regression.rb', line 90</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>\#</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid___method__'>__method__</span><span class='embexpr_end'>}</span><span class='tstring_content'> expects to be called after training the model with the fit method.</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_trained?'>trained?</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_xx'>xx</span> <span class='op'>=</span> <span class='id identifier rubyid_fit_bias?'>fit_bias?</span> <span class='op'>?</span> <span class='id identifier rubyid_expand_feature'>expand_feature</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id identifier rubyid_x'>x</span>
   <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='period'>.</span><span class='id identifier rubyid_cast'>cast</span><span class='lparen'>(</span><span class='const'>Numo</span><span class='op'>::</span><span class='const'>Liblinear</span><span class='period'>.</span><span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_xx'>xx</span><span class='comma'>,</span> <span class='id identifier rubyid_liblinear_params'>liblinear_params</span><span class='comma'>,</span> <span class='ivar'>@model</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -1200,16 +1204,18 @@
       <pre class="lines">
 
 
-100
-101
 102
 103
-104</pre>
+104
+105
+106
+107</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/svm/logistic_regression.rb', line 100</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/svm/logistic_regression.rb', line 102</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict_proba'>predict_proba</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>\#</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid___method__'>__method__</span><span class='embexpr_end'>}</span><span class='tstring_content'> expects to be called after training the model with the fit method.</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_trained?'>trained?</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_xx'>xx</span> <span class='op'>=</span> <span class='id identifier rubyid_fit_bias?'>fit_bias?</span> <span class='op'>?</span> <span class='id identifier rubyid_expand_feature'>expand_feature</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id identifier rubyid_x'>x</span>
   <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Liblinear</span><span class='period'>.</span><span class='id identifier rubyid_predict_proba'>predict_proba</span><span class='lparen'>(</span><span class='id identifier rubyid_xx'>xx</span><span class='comma'>,</span> <span class='id identifier rubyid_liblinear_params'>liblinear_params</span><span class='comma'>,</span> <span class='ivar'>@model</span><span class='rparen'>)</span>
@@ -1224,7 +1230,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Jan 26 23:56:15 2020 by
+  Generated on Sun Jun  7 01:38:39 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.7.0).
 </div>
