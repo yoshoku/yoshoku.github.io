@@ -102,11 +102,11 @@
 
 <pre class="code ruby"><code class="ruby">&gt; require &#39;magro&#39;
 =&gt; true
-&gt; image = Magro::IO.imread(&#39;lena.png&#39;)
+&gt; image = Magro::IO.imread(&#39;foo.png&#39;)
 =&gt; Numo::UInt8#shape=[512,512,3]
 &gt; grayscale = image.median(axis: 2)
 =&gt; Numo::UInt8#shape=[512,512]
-&gt; Magro::IO.imsave(&#39;lena_gray.png&#39;, grayscale)
+&gt; Magro::IO.imsave(&#39;foo_gray.png&#39;, grayscale)
 =&gt; true
 </code></pre>
 
@@ -120,7 +120,7 @@
 </div></div>
 
       <div id="footer">
-  Generated on Sun May 10 15:32:50 2020 by
+  Generated on Fri Jul 24 02:06:13 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.7.0).
 </div>
