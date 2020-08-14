@@ -57,14 +57,23 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><div id='filecontents'>
-<h1 id="label-Rumale-3A-3ASVM">Rumale::SVM</h1>
+      <div id="content"><div id='filecontents'><h1>Rumale::SVM</h1>
 
-<p><a href="https://travis-ci.org/yoshoku/rumale-svm"><img src="https://travis-ci.org/yoshoku/rumale-svm.svg?branch=master"></a> <a href="https://coveralls.io/github/yoshoku/rumale-svm?branch=master"><img src="https://coveralls.io/repos/github/yoshoku/rumale-svm/badge.svg?branch=master"></a> <a href="https://badge.fury.io/rb/rumale-svm"><img src="https://badge.fury.io/rb/rumale-svm.svg"></a> <a href="https://github.com/yoshoku/rumale-svm/blob/master/LICENSE.txt"><img src="https://img.shields.io/badge/License-BSD%203--Clause-orange.svg"></a> <a href="https://yoshoku.github.io/rumale-svm/doc/"><img src="http://img.shields.io/badge/api-reference-blue.svg"></a></p>
+<p><a href="https://travis-ci.org/yoshoku/rumale-svm"><img src="https://travis-ci.org/yoshoku/rumale-svm.svg?branch=master" alt="Build Status"></a>
+<a href="https://coveralls.io/github/yoshoku/rumale-svm?branch=master"><img src="https://coveralls.io/repos/github/yoshoku/rumale-svm/badge.svg?branch=master" alt="Coverage Status"></a>
+<a href="https://badge.fury.io/rb/rumale-svm"><img src="https://badge.fury.io/rb/rumale-svm.svg" alt="Gem Version"></a>
+<a href="https://github.com/yoshoku/rumale-svm/blob/master/LICENSE.txt"><img src="https://img.shields.io/badge/License-BSD%203--Clause-orange.svg" alt="BSD 3-Clause License"></a>
+<a href="https://yoshoku.github.io/rumale-svm/doc/"><img src="http://img.shields.io/badge/api-reference-blue.svg" alt="Documentation"></a></p>
 
-<p>Rumale::SVM provides support vector machine algorithms in <a href="https://www.csie.ntu.edu.tw/~cjlin/libsvm/">LIBSVM</a> and <a href="https://www.csie.ntu.edu.tw/~cjlin/liblinear/">LIBLINEAR</a> with <a href="https://github.com/yoshoku/rumale">Rumale</a> interface. Many machine learning libraries use LIBSVM and LIBLINEAR as background libraries of support vector machine algorithms. On the other hand, Rumale implements support vector machine algorithms based on the mini-batch stochastic gradient descent method implemented in Ruby. Rumale::SVM adds the functions of support vector machine similar to general machine learning libraries to Rumale.</p>
+<p>Rumale::SVM provides support vector machine algorithms in
+<a href="https://www.csie.ntu.edu.tw/%7Ecjlin/libsvm/">LIBSVM</a> and <a href="https://www.csie.ntu.edu.tw/%7Ecjlin/liblinear/">LIBLINEAR</a>
+with <a href="https://github.com/yoshoku/rumale">Rumale</a> interface.
+Many machine learning libraries use LIBSVM and LIBLINEAR as background libraries of support vector machine algorithms.
+On the other hand, Rumale implements support vector machine algorithms based on the mini-batch stochastic gradient descent method
+implemented in Ruby.
+Rumale::SVM adds the functions of support vector machine similar to general machine learning libraries to Rumale.</p>
 
-<h2 id="label-Installation">Installation</h2>
+<h2>Installation</h2>
 
 <p>Add this line to your application&#39;s Gemfile:</p>
 
@@ -81,16 +90,17 @@
 <pre class="code ruby"><code class="ruby">$ gem install rumale-svm
 </code></pre>
 
-<h2 id="label-Documentation">Documentation</h2>
-<ul><li>
-<p><a href="https://yoshoku.github.io/rumale-svm/doc/">Rumale::SVM API Documentation</a></p>
-</li></ul>
+<h2>Documentation</h2>
 
-<h2 id="label-Usage">Usage</h2>
+<ul>
+<li><a href="https://yoshoku.github.io/rumale-svm/doc/">Rumale::SVM API Documentation</a></li>
+</ul>
 
-<p>Download pendigits dataset from <a href="https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/">LIBSVM DATA</a> web page.</p>
+<h2>Usage</h2>
 
-<pre class="code ruby"><code class="ruby">$ wget https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/multiclass/pendigits
+<p>Download pendigits dataset from <a href="https://www.csie.ntu.edu.tw/%7Ecjlin/libsvmtools/datasets/">LIBSVM DATA</a> web page.</p>
+
+<pre class="code sh"><code class="sh">$ wget https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/multiclass/pendigits
 $ wget https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/multiclass/pendigits.t
 </code></pre>
 
@@ -119,34 +129,28 @@ $ wget https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/multiclass/pendig
 
 <p>Execution result.</p>
 
-<pre class="code ruby"><code class="ruby">$ ruby rumale_svm_train.rb
+<pre class="code sh"><code class="sh">$ ruby rumale_svm_train.rb
 $ ls svc.dat
 svc.dat
 $ ruby rumale_svm_test.rb
 Accuracy: 0.835
 </code></pre>
 
-<h2 id="label-Development">Development</h2>
+<h2>Contributing</h2>
 
-<p>After checking out the repo, run <code>bin/setup</code> to install dependencies. Then, run <code>rake spec</code> to run the tests. You can also run <code>bin/console</code> for an interactive prompt that will allow you to experiment.</p>
+<p>Bug reports and pull requests are welcome on GitHub at <a href="https://github.com/yoshoku/rumale-svm">https://github.com/yoshoku/rumale-svm</a>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the <a href="http://contributor-covenant.org">Contributor Covenant</a> code of conduct.</p>
 
-<p>To install this gem onto your local machine, run <code>bundle exec rake install</code>. To release a new version, update the version number in <code>version.rb</code>, and then run <code>bundle exec rake release</code>, which will create a git tag for the version, push git commits and tags, and push the <code>.gem</code> file to <a href="https://rubygems.org">rubygems.org</a>.</p>
-
-<h2 id="label-Contributing">Contributing</h2>
-
-<p>Bug reports and pull requests are welcome on GitHub at <a href="https://github.com/yoshoku/rumale-svm">github.com/yoshoku/rumale-svm</a>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the <a href="http://contributor-covenant.org">Contributor Covenant</a> code of conduct.</p>
-
-<h2 id="label-License">License</h2>
+<h2>License</h2>
 
 <p>The gem is available as open source under the terms of the <a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause License</a>.</p>
 
-<h2 id="label-Code+of+Conduct">Code of Conduct</h2>
+<h2>Code of Conduct</h2>
 
 <p>Everyone interacting in the Rumale::Svm project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the <a href="https://github.com/yoshoku/rumale-svm/blob/master/CODE_OF_CONDUCT.md">code of conduct</a>.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Sun Jun  7 01:38:37 2020 by
+  Generated on Fri Aug 14 18:22:36 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.7.0).
 </div>
