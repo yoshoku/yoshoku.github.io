@@ -966,7 +966,7 @@
     <span class='kw'>break</span> <span class='kw'>if</span> <span class='id identifier rubyid_terminate?'>terminate?</span><span class='lparen'>(</span><span class='id identifier rubyid_hi_prob_mat'>hi_prob_mat</span><span class='comma'>,</span> <span class='id identifier rubyid_lo_prob_mat'>lo_prob_mat</span><span class='rparen'>)</span>
 
     <span class='id identifier rubyid_a'>a</span> <span class='op'>=</span> <span class='id identifier rubyid_hi_prob_mat'>hi_prob_mat</span> <span class='op'>*</span> <span class='id identifier rubyid_lo_prob_mat'>lo_prob_mat</span>
-    <span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='id identifier rubyid_lo_prob_mat'>lo_prob_mat</span> <span class='op'>*</span> <span class='id identifier rubyid_lo_prob_mat'>lo_prob_mat</span>
+    <span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='id identifier rubyid_lo_prob_mat'>lo_prob_mat</span><span class='op'>**</span><span class='int'>2</span>
     <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='id identifier rubyid_one_vec'>one_vec</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='id identifier rubyid_y'>y</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span> <span class='op'>-</span> <span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='id identifier rubyid_one_vec'>one_vec</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_lo_prob_mat'>lo_prob_mat</span> <span class='op'>=</span> <span class='id identifier rubyid_t_distributed_probability_matrix'>t_distributed_probability_matrix</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
     <span class='ivar'>@n_iter</span> <span class='op'>=</span> <span class='id identifier rubyid_t'>t</span> <span class='op'>+</span> <span class='int'>1</span>
@@ -1072,7 +1072,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Aug  1 08:47:45 2020 by
+  Generated on Sun Aug 23 10:03:30 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.7.0).
 </div>
