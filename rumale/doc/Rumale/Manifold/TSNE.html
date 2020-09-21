@@ -6,7 +6,7 @@
 <title>
   Class: Rumale::Manifold::TSNE
   
-    &mdash; Documentation by YARD 0.9.24
+    &mdash; Documentation by YARD 0.9.25
   
 </title>
 
@@ -959,9 +959,9 @@
   <span class='id identifier rubyid_distance_mat'>distance_mat</span> <span class='op'>=</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:metric</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>precomputed</span><span class='tstring_end'>&#39;</span></span> <span class='op'>?</span> <span class='id identifier rubyid_x'>x</span><span class='op'>**</span><span class='int'>2</span> <span class='op'>:</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../PairwiseMetric.html" title="Rumale::PairwiseMetric (module)">PairwiseMetric</a></span></span><span class='period'>.</span><span class='id identifier rubyid_squared_error'><span class='object_link'><a href="../PairwiseMetric.html#squared_error-class_method" title="Rumale::PairwiseMetric.squared_error (method)">squared_error</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_hi_prob_mat'>hi_prob_mat</span> <span class='op'>=</span> <span class='id identifier rubyid_gaussian_distributed_probability_matrix'>gaussian_distributed_probability_matrix</span><span class='lparen'>(</span><span class='id identifier rubyid_distance_mat'>distance_mat</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='id identifier rubyid_init_embedding'>init_embedding</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_lo_prob_mat'>lo_prob_mat</span> <span class='op'>=</span> <span class='id identifier rubyid_t_distributed_probability_matrix'>t_distributed_probability_matrix</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>  <span class='comment'># perform fixed-point optimization.
-</span>
-  <span class='id identifier rubyid_one_vec'>one_vec</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_ones'>ones</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_expand_dims'>expand_dims</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_lo_prob_mat'>lo_prob_mat</span> <span class='op'>=</span> <span class='id identifier rubyid_t_distributed_probability_matrix'>t_distributed_probability_matrix</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
+  <span class='comment'># perform fixed-point optimization.
+</span>  <span class='id identifier rubyid_one_vec'>one_vec</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_ones'>ones</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_expand_dims'>expand_dims</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_iter</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_t'>t</span><span class='op'>|</span>
     <span class='kw'>break</span> <span class='kw'>if</span> <span class='id identifier rubyid_terminate?'>terminate?</span><span class='lparen'>(</span><span class='id identifier rubyid_hi_prob_mat'>hi_prob_mat</span><span class='comma'>,</span> <span class='id identifier rubyid_lo_prob_mat'>lo_prob_mat</span><span class='rparen'>)</span>
 
@@ -973,9 +973,9 @@
     <span class='kw'>if</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:verbose</span><span class='rbracket'>]</span> <span class='op'>&amp;&amp;</span> <span class='lparen'>(</span><span class='ivar'>@n_iter</span> <span class='op'>%</span> <span class='int'>100</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_zero?'>zero?</span>
       <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>[t-SNE] KL divergence after </span><span class='embexpr_beg'>#{</span><span class='ivar'>@n_iter</span><span class='embexpr_end'>}</span><span class='tstring_content'> iterations: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_cost'>cost</span><span class='lparen'>(</span><span class='id identifier rubyid_hi_prob_mat'>hi_prob_mat</span><span class='comma'>,</span> <span class='id identifier rubyid_lo_prob_mat'>lo_prob_mat</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
     <span class='kw'>end</span>
-  <span class='kw'>end</span>  <span class='comment'># store results.
-</span>
-  <span class='ivar'>@embedding</span> <span class='op'>=</span> <span class='id identifier rubyid_y'>y</span>
+  <span class='kw'>end</span>
+  <span class='comment'># store results.
+</span>  <span class='ivar'>@embedding</span> <span class='op'>=</span> <span class='id identifier rubyid_y'>y</span>
   <span class='ivar'>@kl_divergence</span> <span class='op'>=</span> <span class='id identifier rubyid_cost'>cost</span><span class='lparen'>(</span><span class='id identifier rubyid_hi_prob_mat'>hi_prob_mat</span><span class='comma'>,</span> <span class='id identifier rubyid_lo_prob_mat'>lo_prob_mat</span><span class='rparen'>)</span>
   <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
@@ -1072,9 +1072,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Sep  5 01:48:19 2020 by
+  Generated on Mon Sep 21 21:20:45 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.24 (ruby-2.7.0).
+  0.9.25 (ruby-2.7.1).
 </div>
 
     </div>

@@ -6,7 +6,7 @@
 <title>
   Class: Rumale::Preprocessing::OrdinalEncoder
   
-    &mdash; Documentation by YARD 0.9.24
+    &mdash; Documentation by YARD 0.9.25
   
 </title>
 
@@ -122,19 +122,19 @@
 <span class='id identifier rubyid_training_samples'>training_samples</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>left</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='int'>10</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>right</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='int'>15</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>right</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='int'>20</span><span class='rbracket'>]</span><span class='rbracket'>]</span>
 <span class='id identifier rubyid_training_samples'>training_samples</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>NArray</span><span class='period'>.</span><span class='id identifier rubyid_asarray'>asarray</span><span class='lparen'>(</span><span class='id identifier rubyid_training_samples'>training_samples</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_encoder'>encoder</span><span class='period'>.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_training_samples'>training_samples</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_encoder'>encoder</span><span class='period'>.</span><span class='id identifier rubyid_categories'>categories</span><span class='comment'># [[&quot;left&quot;, &quot;right&quot;], [10, 15, 20]]
-</span>
-<span class='id identifier rubyid_testing_samples'>testing_samples</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>left</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='int'>20</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>right</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='int'>10</span><span class='rbracket'>]</span><span class='rbracket'>]</span>
+<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_encoder'>encoder</span><span class='period'>.</span><span class='id identifier rubyid_categories'>categories</span>
+<span class='comment'># [[&quot;left&quot;, &quot;right&quot;], [10, 15, 20]]
+</span><span class='id identifier rubyid_testing_samples'>testing_samples</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>left</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='int'>20</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>right</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='int'>10</span><span class='rbracket'>]</span><span class='rbracket'>]</span>
 <span class='id identifier rubyid_testing_samples'>testing_samples</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>NArray</span><span class='period'>.</span><span class='id identifier rubyid_asarray'>asarray</span><span class='lparen'>(</span><span class='id identifier rubyid_testing_samples'>testing_samples</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_encoded'>encoded</span> <span class='op'>=</span> <span class='id identifier rubyid_encoder'>encoder</span><span class='period'>.</span><span class='id identifier rubyid_transform'>transform</span><span class='lparen'>(</span><span class='id identifier rubyid_testing_samples'>testing_samples</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_encoded'>encoded</span><span class='comment'># Numo::DFloat#shape=[2,2]
+<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_encoded'>encoded</span>
+<span class='comment'># Numo::DFloat#shape=[2,2]
 </span><span class='comment'># [[0, 2],
 </span><span class='comment'>#  [1, 0]]
-</span>
-<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_encoder'>encoder</span><span class='period'>.</span><span class='id identifier rubyid_inverse_transform'>inverse_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_encoded'>encoded</span><span class='rparen'>)</span><span class='comment'># Numo::RObject#shape=[2,2]
+</span><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_encoder'>encoder</span><span class='period'>.</span><span class='id identifier rubyid_inverse_transform'>inverse_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_encoded'>encoded</span><span class='rparen'>)</span>
+<span class='comment'># Numo::RObject#shape=[2,2]
 </span><span class='comment'># [[&quot;left&quot;, 20],
-</span><span class='comment'>#  [&quot;right&quot;, 10]]</span>
-</code></pre>
+</span><span class='comment'>#  [&quot;right&quot;, 10]]</span></code></pre>
     
   </div>
 
@@ -903,9 +903,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Sep  5 01:48:27 2020 by
+  Generated on Mon Sep 21 21:20:54 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.24 (ruby-2.7.0).
+  0.9.25 (ruby-2.7.1).
 </div>
 
     </div>

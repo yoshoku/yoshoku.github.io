@@ -6,7 +6,7 @@
 <title>
   Class: Rumale::Preprocessing::PolynomialFeatures
   
-    &mdash; Documentation by YARD 0.9.24
+    &mdash; Documentation by YARD 0.9.25
   
 </title>
 
@@ -755,18 +755,18 @@
       <pre class="code"><span class="info file"># File 'lib/rumale/preprocessing/polynomial_features.rb', line 80</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_transform'>transform</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>  <span class='comment'># initialize transformed features
-</span>
-  <span class='id identifier rubyid_n_samples'>n_samples</span><span class='comma'>,</span> <span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span>
-  <span class='id identifier rubyid_z'>z</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='id identifier rubyid_n_samples'>n_samples</span><span class='comma'>,</span> <span class='id identifier rubyid_n_output_features'>n_output_features</span><span class='rparen'>)</span>  <span class='comment'># bias
-</span>
-  <span class='id identifier rubyid_z'>z</span><span class='lbracket'>[</span><span class='kw'>true</span><span class='comma'>,</span> <span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='int'>1</span>
-  <span class='id identifier rubyid_curr_col'>curr_col</span> <span class='op'>=</span> <span class='int'>1</span>  <span class='comment'># itself
-</span>
-  <span class='id identifier rubyid_z'>z</span><span class='lbracket'>[</span><span class='kw'>true</span><span class='comma'>,</span> <span class='int'>1</span><span class='op'>..</span><span class='id identifier rubyid_n_features'>n_features</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span>
-  <span class='id identifier rubyid_curr_col'>curr_col</span> <span class='op'>+=</span> <span class='id identifier rubyid_n_features'>n_features</span>  <span class='comment'># high degree features
-</span>
-  <span class='id identifier rubyid_curr_feat_ids'>curr_feat_ids</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>+</span> <span class='int'>1</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='id identifier rubyid_n'>n</span> <span class='op'>+</span> <span class='int'>1</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='comment'># initialize transformed features
+</span>  <span class='id identifier rubyid_n_samples'>n_samples</span><span class='comma'>,</span> <span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span>
+  <span class='id identifier rubyid_z'>z</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='id identifier rubyid_n_samples'>n_samples</span><span class='comma'>,</span> <span class='id identifier rubyid_n_output_features'>n_output_features</span><span class='rparen'>)</span>
+  <span class='comment'># bias
+</span>  <span class='id identifier rubyid_z'>z</span><span class='lbracket'>[</span><span class='kw'>true</span><span class='comma'>,</span> <span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='int'>1</span>
+  <span class='id identifier rubyid_curr_col'>curr_col</span> <span class='op'>=</span> <span class='int'>1</span>
+  <span class='comment'># itself
+</span>  <span class='id identifier rubyid_z'>z</span><span class='lbracket'>[</span><span class='kw'>true</span><span class='comma'>,</span> <span class='int'>1</span><span class='op'>..</span><span class='id identifier rubyid_n_features'>n_features</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span>
+  <span class='id identifier rubyid_curr_col'>curr_col</span> <span class='op'>+=</span> <span class='id identifier rubyid_n_features'>n_features</span>
+  <span class='comment'># high degree features
+</span>  <span class='id identifier rubyid_curr_feat_ids'>curr_feat_ids</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>+</span> <span class='int'>1</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='id identifier rubyid_n'>n</span> <span class='op'>+</span> <span class='int'>1</span> <span class='rbrace'>}</span>
   <span class='lparen'>(</span><span class='int'>1</span><span class='op'>...</span><span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:degree</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_next_feat_ids'>next_feat_ids</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_n_features'>n_features</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_d'>d</span><span class='op'>|</span>
@@ -791,9 +791,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Sep  5 01:48:30 2020 by
+  Generated on Mon Sep 21 21:20:56 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.24 (ruby-2.7.0).
+  0.9.25 (ruby-2.7.1).
 </div>
 
     </div>

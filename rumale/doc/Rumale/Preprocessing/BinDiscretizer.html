@@ -6,7 +6,7 @@
 <title>
   Class: Rumale::Preprocessing::BinDiscretizer
   
-    &mdash; Documentation by YARD 0.9.24
+    &mdash; Documentation by YARD 0.9.25
   
 </title>
 
@@ -120,7 +120,8 @@
       
       <pre class="example code"><code><span class='id identifier rubyid_discretizer'>discretizer</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Preprocessing.html" title="Rumale::Preprocessing (module)">Preprocessing</a></span></span><span class='op'>::</span><span class='const'>BinDiscretizer</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::Preprocessing::BinDiscretizer#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>n_bins:</span> <span class='int'>4</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_samples'>samples</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>5</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_rand'>rand</span> <span class='op'>-</span> <span class='float'>0.5</span>
-<span class='id identifier rubyid_transformed'>transformed</span> <span class='op'>=</span> <span class='id identifier rubyid_discretizer'>discretizer</span><span class='period'>.</span><span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_samples'>samples</span><span class='rparen'>)</span><span class='comment'># &gt; pp samples
+<span class='id identifier rubyid_transformed'>transformed</span> <span class='op'>=</span> <span class='id identifier rubyid_discretizer'>discretizer</span><span class='period'>.</span><span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_samples'>samples</span><span class='rparen'>)</span>
+<span class='comment'># &gt; pp samples
 </span><span class='comment'># Numo::DFloat#shape=[5,2]
 </span><span class='comment'># [[-0.438246, -0.126933],
 </span><span class='comment'>#  [ 0.294815, -0.298958],
@@ -133,8 +134,7 @@
 </span><span class='comment'>#  [3, 0],
 </span><span class='comment'>#  [0, 1],
 </span><span class='comment'>#  [2, 3],
-</span><span class='comment'>#  [0, 0]]</span>
-</code></pre>
+</span><span class='comment'>#  [0, 0]]</span></code></pre>
     
   </div>
 
@@ -732,9 +732,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Sep  5 01:48:27 2020 by
+  Generated on Mon Sep 21 21:20:53 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.24 (ruby-2.7.0).
+  0.9.25 (ruby-2.7.1).
 </div>
 
     </div>
