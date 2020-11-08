@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: Lbfgsb
+  
+    &mdash; Documentation by YARD 0.9.25
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Lbfgsb";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index (L)</a> &raquo;
+    
+    
+    <span class="title">Lbfgsb</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: Lbfgsb
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/lbfgsb/version.rb<span class="defines">,<br />
+  lib/lbfgsb.rb,<br /> ext/lbfgsb/lbfgsbext.c</span>
+</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Lbfgsb.rb is a Ruby binding for L-BFGS-B with Numo::NArray.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+  
+    <h2>
+      Constant Summary
+      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+    </h2>
+
+    <dl class="constants">
+      
+        <dt id="VERSION-constant" class="">VERSION =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>The version of Lbfgsb.rb you are using.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.1.0</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+        <dt id="DBL_EPSILON-constant" class="">DBL_EPSILON =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>The value of double epsilon used in the native extension.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='const'>DBL2NUM</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#DBL_EPSILON-constant" title="Lbfgsb::DBL_EPSILON (constant)">DBL_EPSILON</a></span></span><span class='rparen'>)</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#minimize-class_method" title="minimize (class method)">.<strong>minimize</strong>(fnc:, x_init:, jcb:, args: nil, bounds: nil, factr: 1e7, pgtol: 1e-5, maxcor: 10, maxiter: 15_000, verbose: nil)  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Minimize a function using the L-BFGS-B algorithm.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="minimize-class_method">
+  
+    .<strong>minimize</strong>(fnc:, x_init:, jcb:, args: nil, bounds: nil, factr: 1e7, pgtol: 1e-5, maxcor: 10, maxiter: 15_000, verbose: nil)  &#x21d2; <tt>Hash</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Minimize a function using the L-BFGS-B algorithm.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>fnc</span>
+      
+      
+        <span class='type'>(<tt>Method/Proc</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Method for calculating the function to be minimized.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>x_init</span>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_elements]) Initial point.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>jcb</span>
+      
+      
+        <span class='type'>(<tt>Method/Proc</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Method for calculating the gradient vector.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>args</span>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Arguments pass to the &#39;fnc&#39; and &#39;jcb&#39;.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>bounds</span>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat/Nil</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_elements, 2]) [lower, upper] bounds for each element x. If nil is given, x is unbounded.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>factr</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>1e7</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The iteration will be stop when</p>
+
+<p>(f^k - f^k+1)/max{|f^k|,|f^{k+1}|,1} &lt;= factr * Lbfgsb::DBL_EPSILON</p>
+
+<p>Typical values for factr: 1e12 for low accuracy; 1e7 for moderate accuracy; 1e1 for extremely high accuracy.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>pgtol</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>1e-5</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The iteration will be stop when</p>
+
+<p>max{|pg_i| i = 1, …, n} &lt;= pgtol</p>
+
+<p>where pg_i is the ith component of the projected gradient.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>maxcor</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>10</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The maximum number of variable metric corrections used to define the limited memory matrix.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>maxiter</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>15_000</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The maximum number of iterations.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>verbose</span>
+      
+      
+        <span class='type'>(<tt>Integer/Nil</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>If negative value or nil is given, no display output is generated.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Optimization results; { x:, n_fev:, n_jev:, n_iter:, fnc:, jcb:, task:, success: }</p>
+<ul><li>
+<p>x [Numo::DFloat] Updated vector by optimization.</p>
+</li><li>
+<p>n_fev [Interger] Number of calls of the objective function.</p>
+</li><li>
+<p>n_jev [Integer] Number of calls of the jacobian.</p>
+</li><li>
+<p>n_iter [Integer] Number of iterations.</p>
+</li><li>
+<p>fnc [Float] Value of the objective function.</p>
+</li><li>
+<p>jcb [Numo::Narray] Values of the jacobian</p>
+</li><li>
+<p>task [String] Description of the cause of the termination.</p>
+</li><li>
+<p>success [Boolean] Whether or not the optimization exited successfully.</p>
+</li></ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/lbfgsb.rb', line 41</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_minimize'>minimize</span><span class='lparen'>(</span><span class='label'>fnc:</span><span class='comma'>,</span> <span class='label'>x_init:</span><span class='comma'>,</span> <span class='label'>jcb:</span><span class='comma'>,</span> <span class='label'>args:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>bounds:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>factr:</span> <span class='float'>1e7</span><span class='comma'>,</span> <span class='label'>pgtol:</span> <span class='float'>1e-5</span><span class='comma'>,</span> <span class='label'>maxcor:</span> <span class='int'>10</span><span class='comma'>,</span> <span class='label'>maxiter:</span> <span class='int'>15_000</span><span class='comma'>,</span> <span class='label'>verbose:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_n_elements'>n_elements</span> <span class='op'>=</span> <span class='id identifier rubyid_x_init'>x_init</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
+  <span class='id identifier rubyid_l'>l</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='id identifier rubyid_n_elements'>n_elements</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_u'>u</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='id identifier rubyid_n_elements'>n_elements</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_nbd'>nbd</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int64</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='id identifier rubyid_n_elements'>n_elements</span><span class='rparen'>)</span>
+
+  <span class='kw'>unless</span> <span class='id identifier rubyid_bounds'>bounds</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='id identifier rubyid_n_elements'>n_elements</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span>
+      <span class='id identifier rubyid_lower'>lower</span> <span class='op'>=</span> <span class='id identifier rubyid_bounds'>bounds</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='int'>0</span><span class='rbracket'>]</span>
+      <span class='id identifier rubyid_upper'>upper</span> <span class='op'>=</span> <span class='id identifier rubyid_bounds'>bounds</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span>
+      <span class='id identifier rubyid_l'>l</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_lower'>lower</span>
+      <span class='id identifier rubyid_u'>u</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_upper'>upper</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_lower'>lower</span><span class='period'>.</span><span class='id identifier rubyid_finite?'>finite?</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_upper'>upper</span><span class='period'>.</span><span class='id identifier rubyid_finite?'>finite?</span>
+        <span class='id identifier rubyid_nbd'>nbd</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='int'>1</span>
+      <span class='kw'>elsif</span> <span class='id identifier rubyid_lower'>lower</span><span class='period'>.</span><span class='id identifier rubyid_finite?'>finite?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_upper'>upper</span><span class='period'>.</span><span class='id identifier rubyid_finite?'>finite?</span>
+        <span class='id identifier rubyid_nbd'>nbd</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='int'>2</span>
+      <span class='kw'>elsif</span> <span class='op'>!</span><span class='id identifier rubyid_lower'>lower</span><span class='period'>.</span><span class='id identifier rubyid_finite?'>finite?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_upper'>upper</span><span class='period'>.</span><span class='id identifier rubyid_finite?'>finite?</span>
+        <span class='id identifier rubyid_nbd'>nbd</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='int'>3</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_min_l_bfgs_b'>min_l_bfgs_b</span><span class='lparen'>(</span><span class='id identifier rubyid_fnc'>fnc</span><span class='comma'>,</span> <span class='id identifier rubyid_x_init'>x_init</span><span class='comma'>,</span> <span class='id identifier rubyid_jcb'>jcb</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='id identifier rubyid_l'>l</span><span class='comma'>,</span> <span class='id identifier rubyid_u'>u</span><span class='comma'>,</span> <span class='id identifier rubyid_nbd'>nbd</span><span class='comma'>,</span> <span class='id identifier rubyid_maxcor'>maxcor</span><span class='comma'>,</span> <span class='id identifier rubyid_factr'>factr</span><span class='comma'>,</span> <span class='id identifier rubyid_pgtol'>pgtol</span><span class='comma'>,</span> <span class='id identifier rubyid_maxiter'>maxiter</span><span class='comma'>,</span> <span class='id identifier rubyid_verbose'>verbose</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Sun Nov  8 08:59:09 2020 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.25 (ruby-2.7.2).
+</div>
+
+    </div>
+  </body>
+</html>
