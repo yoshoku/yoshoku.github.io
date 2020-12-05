@@ -109,9 +109,15 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>SVC is a class that implements Support Vector Classifier with stochastic gradient descent optimization. For multiclass classification problem, it uses one-vs-the-rest strategy.</p>
-
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
 <p>Rumale::SVM provides linear support vector classifier based on LIBLINEAR. If you prefer execution speed, you should use Rumale::SVM::LinearSVC. <a href="https://github.com/yoshoku/rumale-svm">github.com/yoshoku/rumale-svm</a></p>
+</div>
+  </div>
+
+
+<p>SVC is a class that implements Support Vector Classifier with stochastic gradient descent optimization. For multiclass classification problem, it uses one-vs-the-rest strategy.</p>
 
 <p><strong>Reference</strong></p>
 <ul><li>
@@ -737,7 +743,6 @@
       <pre class="lines">
 
 
-74
 75
 76
 77
@@ -762,10 +767,11 @@
 96
 97
 98
-99</pre>
+99
+100</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/svc.rb', line 74</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/svc.rb', line 75</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>learning_rate:</span> <span class='float'>0.01</span><span class='comma'>,</span> <span class='label'>decay:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>momentum:</span> <span class='float'>0.9</span><span class='comma'>,</span>
                <span class='label'>penalty:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>l2</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>reg_param:</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='label'>l1_ratio:</span> <span class='float'>0.5</span><span class='comma'>,</span>
@@ -849,12 +855,12 @@
       <pre class="lines">
 
 
-37
 38
-39</pre>
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/svc.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/svc.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bias_term'>bias_term</span>
   <span class='ivar'>@bias_term</span>
@@ -910,12 +916,12 @@
       <pre class="lines">
 
 
-41
 42
-43</pre>
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/svc.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/svc.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_classes'>classes</span>
   <span class='ivar'>@classes</span>
@@ -966,12 +972,12 @@
       <pre class="lines">
 
 
-45
 46
-47</pre>
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/svc.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/svc.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rng'>rng</span>
   <span class='ivar'>@rng</span>
@@ -1027,12 +1033,12 @@
       <pre class="lines">
 
 
-33
 34
-35</pre>
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/svc.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/svc.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_weight_vec'>weight_vec</span>
   <span class='ivar'>@weight_vec</span>
@@ -1113,13 +1119,13 @@
       <pre class="lines">
 
 
-149
 150
 151
-152</pre>
+152
+153</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/svc.rb', line 149</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/svc.rb', line 150</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_decision_function'>decision_function</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -1210,7 +1216,6 @@
       <pre class="lines">
 
 
-106
 107
 108
 109
@@ -1247,10 +1252,11 @@
 140
 141
 142
-143</pre>
+143
+144</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/svc.rb', line 106</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/svc.rb', line 107</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -1359,7 +1365,6 @@
       <pre class="lines">
 
 
-158
 159
 160
 161
@@ -1375,10 +1380,11 @@
 171
 172
 173
-174</pre>
+174
+175</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/svc.rb', line 158</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/svc.rb', line 159</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -1466,7 +1472,6 @@
       <pre class="lines">
 
 
-180
 181
 182
 183
@@ -1479,10 +1484,11 @@
 190
 191
 192
-193</pre>
+193
+194</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/svc.rb', line 180</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/svc.rb', line 181</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict_proba'>predict_proba</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -1508,7 +1514,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Nov 22 16:35:22 2020 by
+  Generated on Sat Dec  5 13:05:59 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.25 (ruby-2.7.2).
 </div>
