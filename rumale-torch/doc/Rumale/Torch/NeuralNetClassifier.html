@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Rumale::Torch::NeuralNetClassifier
+  
+    &mdash; Documentation by YARD 0.9.26
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Rumale::Torch::NeuralNetClassifier";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (N)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Torch.html" title="Rumale::Torch (module)">Torch</a></span></span>
+     &raquo; 
+    <span class="title">NeuralNetClassifier</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Rumale::Torch::NeuralNetClassifier
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Rumale::Torch::NeuralNetClassifier</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  <dl>
+      <dt>Includes:</dt>
+      <dd>Base::BaseEstimator, Base::Classifier</dd>
+  </dl>
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/rumale/torch/neural_net_classifier.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>NeuralNetClassifier is a class that provides learning and inference by the neural network defined in torch.rb with an interface similar to classifier of Rumale.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rumale/torch</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='kw'>class</span> <span class='const'>MyNet</span> <span class='op'>&lt;</span> <span class='const'><span class='object_link'><a href="../Torch.html" title="Rumale::Torch (module)">Torch</a></span></span><span class='op'>::</span><span class='const'>NN</span><span class='op'>::</span><span class='const'>Module</span>
+  <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
+    <span class='kw'>super</span>
+    <span class='ivar'>@dropout</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Torch.html" title="Rumale::Torch (module)">Torch</a></span></span><span class='op'>::</span><span class='const'>NN</span><span class='op'>::</span><span class='const'>Dropout</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>p:</span> <span class='float'>0.5</span><span class='rparen'>)</span>
+    <span class='ivar'>@fc1</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Torch.html" title="Rumale::Torch (module)">Torch</a></span></span><span class='op'>::</span><span class='const'>NN</span><span class='op'>::</span><span class='const'>Linear</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>2</span><span class='comma'>,</span> <span class='int'>8</span><span class='rparen'>)</span>
+    <span class='ivar'>@fc2</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Torch.html" title="Rumale::Torch (module)">Torch</a></span></span><span class='op'>::</span><span class='const'>NN</span><span class='op'>::</span><span class='const'>Linear</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>8</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>def</span> <span class='id identifier rubyid_forward'>forward</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='ivar'>@fc1</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Torch.html" title="Rumale::Torch (module)">Torch</a></span></span><span class='op'>::</span><span class='const'>NN</span><span class='op'>::</span><span class='const'>F</span><span class='period'>.</span><span class='id identifier rubyid_relu'>relu</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='ivar'>@dropout</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='ivar'>@fc2</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+    <span class='const'><span class='object_link'><a href="../Torch.html" title="Rumale::Torch (module)">Torch</a></span></span><span class='op'>::</span><span class='const'>NN</span><span class='op'>::</span><span class='const'>F</span><span class='period'>.</span><span class='id identifier rubyid_softmax'>softmax</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_device'>device</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Torch.html" title="Rumale::Torch (module)">Torch</a></span></span><span class='period'>.</span><span class='id identifier rubyid_device'>device</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>gpu</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_net'>net</span> <span class='op'>=</span> <span class='const'>MyNet</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span><span class='lparen'>(</span><span class='id identifier rubyid_device'>device</span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_classifier'>classifier</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Torch.html" title="Rumale::Torch (module)">Torch</a></span></span><span class='op'>::</span><span class='const'>NeuralNetClassifier</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::Torch::NeuralNetClassifier#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>model:</span> <span class='id identifier rubyid_net'>net</span><span class='comma'>,</span> <span class='label'>device:</span> <span class='id identifier rubyid_device'>device</span><span class='comma'>,</span> <span class='label'>batch_size:</span> <span class='int'>50</span><span class='comma'>,</span> <span class='label'>max_epoch:</span> <span class='int'>10</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_classifier'>classifier</span><span class='period'>.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_classifier'>classifier</span><span class='period'>.</span><span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span></code></pre>
+    
+  </div>
+
+
+</div>
+
+
+
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#classes-instance_method" title="#classes (instance method)">#<strong>classes</strong>  &#x21d2; Numo::Int32 </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the class labels.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#device-instance_method" title="#device (instance method)">#<strong>device</strong>  &#x21d2; Torch::Device </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the compute device.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#loss-instance_method" title="#loss (instance method)">#<strong>loss</strong>  &#x21d2; Torch::NN </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the loss function.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#model-instance_method" title="#model (instance method)">#<strong>model</strong>  &#x21d2; Torch::NN::Module </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the neural nets defined with torch.rb.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#optimizer-instance_method" title="#optimizer (instance method)">#<strong>optimizer</strong>  &#x21d2; Torch::Optim </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the optimizer.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#decision_function-instance_method" title="#decision_function (instance method)">#<strong>decision_function</strong>(x)  &#x21d2; Numo::DFloat </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Calculate confidence scores for samples.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fit-instance_method" title="#fit (instance method)">#<strong>fit</strong>(x, y)  &#x21d2; NeuralNetClassifier </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Fit the model with given training data.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(model:, device: nil, optimizer: nil, loss: nil, batch_size: 128, max_epoch: 10, shuffle: true, validation_split: 0, verbose: false, random_seed: nil)  &#x21d2; NeuralNetClassifier </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new classifier with neural nets defined by torch.rb.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#predict-instance_method" title="#predict (instance method)">#<strong>predict</strong>(x)  &#x21d2; Numo::Int32 </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Predict class labels for samples.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(model:, device: nil, optimizer: nil, loss: nil, batch_size: 128, max_epoch: 10, shuffle: true, validation_split: 0, verbose: false, random_seed: nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::Torch::NeuralNetClassifier (class)">NeuralNetClassifier</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Create a new classifier with neural nets defined by torch.rb.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>model</span>
+      
+      
+        <span class='type'>(<tt>Torch::NN::Module</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The neural nets defined with torch.rb.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>device</span>
+      
+      
+        <span class='type'>(<tt>Torch::Device/Nil</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The compute device to be used. If nil is given, it to be set to Torch.device(&#39;cpu&#39;).</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>optimizer</span>
+      
+      
+        <span class='type'>(<tt>Torch::Optim/Nil</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The optimizer to be used to optimize the model. If nil is given, it to be set to Torch::Optim::Adam.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>loss</span>
+      
+      
+        <span class='type'>(<tt>Torch:NN</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The loss function to be used to optimize the model. If nil is given, it to be set to Torch::NN::CrossEntropyLoss.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>batch_size</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>128</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The number of samples per batch to load.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>max_epoch</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>10</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The number of epochs to train the model.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>shuffle</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>true</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The flag indicating whether to shuffle the data at every epoch.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>validation_split</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>0</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The fraction of the training data to be used as validation data.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>verbose</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The flag indicating whether to output loss during epoch.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>random_seed</span>
+      
+      
+        <span class='type'>(<tt>Integer/Nil</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The seed value using to initialize the random generator for data splitting.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/torch/neural_net_classifier.rb', line 80</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>model:</span><span class='comma'>,</span> <span class='label'>device:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>optimizer:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>loss:</span> <span class='kw'>nil</span><span class='comma'>,</span>
+               <span class='label'>batch_size:</span> <span class='int'>128</span><span class='comma'>,</span> <span class='label'>max_epoch:</span> <span class='int'>10</span><span class='comma'>,</span> <span class='label'>shuffle:</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='label'>validation_split:</span> <span class='int'>0</span><span class='comma'>,</span>
+               <span class='label'>verbose:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='ivar'>@model</span> <span class='op'>=</span> <span class='id identifier rubyid_model'>model</span>
+  <span class='ivar'>@device</span> <span class='op'>=</span> <span class='id identifier rubyid_device'>device</span> <span class='op'>||</span> <span class='op'>::</span><span class='const'>Torch</span><span class='period'>.</span><span class='id identifier rubyid_device'>device</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cpu</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@optimizer</span> <span class='op'>=</span> <span class='id identifier rubyid_optimizer'>optimizer</span> <span class='op'>||</span> <span class='op'>::</span><span class='const'>Torch</span><span class='op'>::</span><span class='const'>Optim</span><span class='op'>::</span><span class='const'>Adam</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_model'>model</span><span class='period'>.</span><span class='id identifier rubyid_parameters'>parameters</span><span class='rparen'>)</span>
+  <span class='ivar'>@loss</span> <span class='op'>=</span> <span class='id identifier rubyid_loss'>loss</span> <span class='op'>||</span> <span class='op'>::</span><span class='const'>Torch</span><span class='op'>::</span><span class='const'>NN</span><span class='op'>::</span><span class='const'>CrossEntropyLoss</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:batch_size</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_batch_size'>batch_size</span>
+  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_epoch</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_max_epoch'>max_epoch</span>
+  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:shuffle</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_shuffle'>shuffle</span>
+  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:validation_split</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_validation_split'>validation_split</span>
+  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:verbose</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_verbose'>verbose</span>
+  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:random_seed</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_random_seed'>random_seed</span> <span class='op'>||</span> <span class='id identifier rubyid_srand'>srand</span>
+  <span class='id identifier rubyid_define_parameter_accessors'>define_parameter_accessors</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="classes-instance_method">
+  
+    #<strong>classes</strong>  &#x21d2; <tt>Numo::Int32</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the class labels.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::Int32</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(size: n_classes)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+47
+48
+49</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/torch/neural_net_classifier.rb', line 47</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_classes'>classes</span>
+  <span class='ivar'>@classes</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="device=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="device-instance_method">
+  
+    #<strong>device</strong>  &#x21d2; <tt>Torch::Device</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the compute device.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Torch::Device</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+55
+56
+57</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/torch/neural_net_classifier.rb', line 55</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_device'>device</span>
+  <span class='ivar'>@device</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="loss=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="loss-instance_method">
+  
+    #<strong>loss</strong>  &#x21d2; <tt>Torch::NN</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the loss function.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Torch::NN</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+63
+64
+65</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/torch/neural_net_classifier.rb', line 63</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_loss'>loss</span>
+  <span class='ivar'>@loss</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="model=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="model-instance_method">
+  
+    #<strong>model</strong>  &#x21d2; <tt>Torch::NN::Module</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the neural nets defined with torch.rb.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Torch::NN::Module</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+51
+52
+53</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/torch/neural_net_classifier.rb', line 51</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_model'>model</span>
+  <span class='ivar'>@model</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="optimizer=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="optimizer-instance_method">
+  
+    #<strong>optimizer</strong>  &#x21d2; <tt>Torch::Optim</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the optimizer.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Torch::Optim</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/torch/neural_net_classifier.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_optimizer'>optimizer</span>
+  <span class='ivar'>@optimizer</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="decision_function-instance_method">
+  
+    #<strong>decision_function</strong>(x)  &#x21d2; <tt>Numo::DFloat</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Calculate confidence scores for samples.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>x</span>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_samples, n_features]) The samples to compute the scores.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_samples, n_classes]) The confidence score per sample.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+135
+136
+137</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/torch/neural_net_classifier.rb', line 135</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_decision_function'>decision_function</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_cast'>cast</span><span class='lparen'>(</span><span class='op'>::</span><span class='const'>Torch</span><span class='period'>.</span><span class='id identifier rubyid_no_grad'>no_grad</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_model'>model</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='op'>::</span><span class='const'>Torch</span><span class='period'>.</span><span class='id identifier rubyid_from_numo'>from_numo</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span><span class='lparen'>(</span><span class='symbol'>:float32</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_numo'>numo</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fit-instance_method">
+  
+    #<strong>fit</strong>(x, y)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::Torch::NeuralNetClassifier (class)">NeuralNetClassifier</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Fit the model with given training data.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>x</span>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_samples, n_features]) The training data to be used for fitting the model.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>y</span>
+      
+      
+        <span class='type'>(<tt>Numo::Int32</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_samples]) The labels to be used for fitting the model.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Rumale::Torch::NeuralNetClassifier (class)">NeuralNetClassifier</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The learned classifier itself.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/torch/neural_net_classifier.rb', line 102</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_encoder'>encoder</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Preprocessing</span><span class='op'>::</span><span class='const'>LabelEncoder</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='id identifier rubyid_y_encoded'>y_encoded</span> <span class='op'>=</span> <span class='id identifier rubyid_encoder'>encoder</span><span class='period'>.</span><span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
+  <span class='ivar'>@classes</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>NArray</span><span class='lbracket'>[</span><span class='op'>*</span><span class='id identifier rubyid_encoder'>encoder</span><span class='period'>.</span><span class='id identifier rubyid_classes'>classes</span><span class='rbracket'>]</span>
+
+  <span class='id identifier rubyid_train_loader'>train_loader</span><span class='comma'>,</span> <span class='id identifier rubyid_test_loader'>test_loader</span> <span class='op'>=</span> <span class='id identifier rubyid_prepare_dataset'>prepare_dataset</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y_encoded'>y_encoded</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_model'>model</span><span class='period'>.</span><span class='id identifier rubyid_children'>children</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_layer'>layer</span><span class='op'>|</span>
+    <span class='id identifier rubyid_layer'>layer</span><span class='period'>.</span><span class='id identifier rubyid_reset_parameters'>reset_parameters</span> <span class='kw'>if</span> <span class='id identifier rubyid_layer'>layer</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_method_defined?'>method_defined?</span><span class='lparen'>(</span><span class='symbol'>:reset_parameters</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='int'>1</span><span class='period'>.</span><span class='id identifier rubyid_upto'>upto</span><span class='lparen'>(</span><span class='id identifier rubyid_max_epoch'>max_epoch</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_epoch'>epoch</span><span class='op'>|</span>
+    <span class='id identifier rubyid_train'>train</span><span class='lparen'>(</span><span class='id identifier rubyid_train_loader'>train_loader</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_display_epoch'>display_epoch</span><span class='lparen'>(</span><span class='id identifier rubyid_train_loader'>train_loader</span><span class='comma'>,</span> <span class='id identifier rubyid_test_loader'>test_loader</span><span class='comma'>,</span> <span class='id identifier rubyid_epoch'>epoch</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_verbose'>verbose</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="predict-instance_method">
+  
+    #<strong>predict</strong>(x)  &#x21d2; <tt>Numo::Int32</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Predict class labels for samples.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>x</span>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_samples, n_features]) The samples to predict the labels.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::Int32</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_samples]) Predicted class label per sample.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+125
+126
+127
+128
+129</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/torch/neural_net_classifier.rb', line 125</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_output'>output</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>Torch</span><span class='period'>.</span><span class='id identifier rubyid_no_grad'>no_grad</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_model'>model</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='op'>::</span><span class='const'>Torch</span><span class='period'>.</span><span class='id identifier rubyid_from_numo'>from_numo</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span><span class='lparen'>(</span><span class='symbol'>:float32</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid__'>_</span><span class='comma'>,</span> <span class='id identifier rubyid_indices'>indices</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>Torch</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span><span class='lparen'>(</span><span class='id identifier rubyid_output'>output</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='ivar'>@classes</span><span class='lbracket'>[</span><span class='id identifier rubyid_indices'>indices</span><span class='period'>.</span><span class='id identifier rubyid_numo'>numo</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Tue Dec 29 16:39:17 2020 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.26 (ruby-2.7.2).
+</div>
+
+    </div>
+  </body>
+</html>
