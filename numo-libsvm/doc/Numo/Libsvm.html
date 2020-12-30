@@ -6,15 +6,15 @@
 <title>
   Module: Numo::Libsvm
   
-    &mdash; Documentation by YARD 0.9.20
+    &mdash; Documentation by YARD 0.9.26
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Numo::Libsvm";
   relpath = '../';
 </script>
@@ -88,8 +88,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Numo::Libsvm is a binding library for LIBSVM that handles dataset with
-Numo::NArray.</p>
+<p>Numo::Libsvm is a binding library for LIBSVM that handles dataset with Numo::NArray.</p>
 
 
   </div>
@@ -354,9 +353,7 @@ Numo::NArray.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Perform cross validation under given parameters. The given samples are
-separated to n_fols folds. The predicted labels or values in the validation
-process are returned.</p>
+<p>Perform cross validation under given parameters. The given samples are separated to n_fols folds. The predicted labels or values in the validation process are returned.</p>
 
 
   </div>
@@ -413,8 +410,7 @@ process are returned.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The samples to be used for training the
-model.</p>
+<p>(shape: [n_samples, n_features]) The samples to be used for training the model.</p>
 </div>
       
     </li>
@@ -502,10 +498,7 @@ model.</p>
       
         &mdash;
         <div class='inline'>
-<p>If the sample array is not 2-dimensional, the label array is not
-1-dimensional, the sample array and label array do not have the same number
-of samples, or the hyperparameter has an invalid value, this error is
-raised.</p>
+<p>If the sample array is not 2-dimensional, the label array is not 1-dimensional, the sample array and label array do not have the same number of samples, or the hyperparameter has an invalid value, this error is raised.</p>
 </div>
       
     </li>
@@ -771,8 +764,7 @@ VALUE cross_validation(VALUE self, VALUE x_val, VALUE y_val, VALUE param_hash, V
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_classes * (n_classes - 1) / 2]) The decision value of
-each sample.</p>
+<p>(shape: [n_samples, n_classes * (n_classes - 1) / 2]) The decision value of each sample.</p>
 </div>
       
     </li>
@@ -1363,9 +1355,7 @@ VALUE predict(VALUE self, VALUE x_val, VALUE param_hash, VALUE model_hash)
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Predict class probability for given samples. The model must have
-probability information calcualted in training procedure. The parameter
-&#39;:probability&#39; set to 1 in training procedure.</p>
+<p>Predict class probability for given samples. The model must have probability information calcualted in training procedure. The parameter &#39;:probability&#39; set to 1 in training procedure.</p>
 
 
   </div>
@@ -1393,8 +1383,7 @@ probability information calcualted in training procedure. The parameter
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The samples to predict the class
-probabilities.</p>
+<p>(shape: [n_samples, n_features]) The samples to predict the class probabilities.</p>
 </div>
       
     </li>
@@ -1448,8 +1437,7 @@ probabilities.</p>
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_classes]) Predicted probablity of each class per
-sample.</p>
+<p>(shape: [n_samples, n_classes]) Predicted probablity of each class per sample.</p>
 </div>
       
     </li>
@@ -1625,9 +1613,7 @@ VALUE predict_proba(VALUE self, VALUE x_val, VALUE param_hash, VALUE model_hash)
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Save the SVM parameters and model as a text file with LIBSVM format. The
-saved file can be used with the libsvm tools. Note that the svm_save_model
-saves only the parameters necessary for estimation with the trained model.</p>
+<p>Save the SVM parameters and model as a text file with LIBSVM format. The saved file can be used with the libsvm tools. Note that the svm_save_model saves only the parameters necessary for estimation with the trained model.</p>
 
 
   </div>
@@ -1860,8 +1846,7 @@ VALUE save_svm_model(VALUE self, VALUE filename, VALUE param_hash, VALUE model_h
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The samples to be used for training the
-model.</p>
+<p>(shape: [n_samples, n_features]) The samples to be used for training the model.</p>
 </div>
       
     </li>
@@ -1933,10 +1918,7 @@ model.</p>
       
         &mdash;
         <div class='inline'>
-<p>If the sample array is not 2-dimensional, the label array is not
-1-dimensional, the sample array and label array do not have the same number
-of samples, or the hyperparameter has an invalid value, this error is
-raised.</p>
+<p>If the sample array is not 2-dimensional, the label array is not 1-dimensional, the sample array and label array do not have the same number of samples, or the hyperparameter has an invalid value, this error is raised.</p>
 </div>
       
     </li>
@@ -2105,9 +2087,9 @@ VALUE train(VALUE self, VALUE x_val, VALUE y_val, VALUE param_hash)
 </div>
 
       <div id="footer">
-  Generated on Sat Oct 12 20:58:47 2019 by
+  Generated on Wed Dec 30 21:03:04 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.20 (ruby-2.4.6).
+  0.9.26 (ruby-2.7.2).
 </div>
 
     </div>
