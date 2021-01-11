@@ -215,19 +215,19 @@ Accuracy: 98.7%
 
 <p>Install OpenBLAS library.</p>
 
-<p>Mac:</p>
+<p>macOS:</p>
 
 <pre class="code ruby"><code class="ruby">$ brew install openblas
 </code></pre>
 
 <p>Ubuntu:</p>
 
-<pre class="code ruby"><code class="ruby">$ sudo apt-get install gcc gfortran
-$ wget https://github.com/xianyi/OpenBLAS/archive/v0.3.5.tar.gz
-$ tar xzf v0.3.5.tar.gz
-$ cd OpenBLAS-0.3.5
-$ make USE_OPENMP=1
-$ sudo make PREFIX=/usr/local install
+<pre class="code ruby"><code class="ruby">$ sudo apt-get install libopenblas-dev liblapacke-dev
+</code></pre>
+
+<p>Windows (MSYS2):</p>
+
+<pre class="code ruby"><code class="ruby">$ pacman -S mingw-w64-x86_64-ruby mingw-w64-x86_64-openblas mingw-w64-x86_64-lapack
 </code></pre>
 
 <p>Install Numo::Linalg gem.</p>
@@ -238,6 +238,33 @@ $ sudo make PREFIX=/usr/local install
 <p>In ruby script, you only need to require the autoloader module of Numo::Linalg.</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/linalg/autoloader</span><span class='tstring_end'>&#39;</span></span>
+<span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rumale</span><span class='tstring_end'>&#39;</span></span>
+</code></pre>
+
+<h3 id="label-Numo-3A-3AOpenBLAS">Numo::OpenBLAS</h3>
+
+<p><a href="https://github.com/yoshoku/numo-openblas">Numo::OpenBLAS</a> downloads and builds OpenBLAS during installation and uses that as a background library for Numo::Linalg.</p>
+
+<p>Install compilers for building OpenBLAS.</p>
+
+<p>macOS:</p>
+
+<pre class="code ruby"><code class="ruby">$ brew install gcc gfortran make
+</code></pre>
+
+<p>Ubuntu:</p>
+
+<pre class="code ruby"><code class="ruby">$ sudo apt-get install gcc gfortran make
+</code></pre>
+
+<p>Install Numo::OpenBLAS gem.</p>
+
+<pre class="code ruby"><code class="ruby">$ gem install numo-openblas
+</code></pre>
+
+<p>Load Numo::OpenBLAS gem instead of Numo::Linalg.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/openblas</span><span class='tstring_end'>&#39;</span></span>
 <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rumale</span><span class='tstring_end'>&#39;</span></span>
 </code></pre>
 
@@ -256,6 +283,13 @@ $ sudo make PREFIX=/usr/local install
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_estimator'>estimator</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Rumale/Ensemble.html" title="Rumale::Ensemble (module)">Ensemble</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Rumale/Ensemble/RandomForestClassifier.html" title="Rumale::Ensemble::RandomForestClassifier (class)">RandomForestClassifier</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Rumale/Ensemble/RandomForestClassifier.html#initialize-instance_method" title="Rumale::Ensemble::RandomForestClassifier#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>n_jobs:</span> <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='int'>1</span><span class='rparen'>)</span>
 </code></pre>
+
+<h2 id="label-Related+Projects">Related Projects</h2>
+<ul><li>
+<p><a href="https://github.com/yoshoku/rumale-svm">Rumale::SVM</a> provides support vector machine algorithms in LIBSVM and LIBLINEAR with Rumale interface.</p>
+</li><li>
+<p><a href="https://github.com/yoshoku/rumale-torch">Rumale::Torch</a> provides the learning and inference by the neural network defined in torch.rb with Rumale interface.</p>
+</li></ul>
 
 <h2 id="label-Novelties">Novelties</h2>
 <ul><li>
@@ -276,7 +310,7 @@ $ sudo make PREFIX=/usr/local install
 </div></div>
 
       <div id="footer">
-  Generated on Sun Jan 10 13:50:39 2021 by
+  Generated on Mon Jan 11 10:42:10 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.7.2).
 </div>
