@@ -109,7 +109,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Ridge is a class that implements Ridge Regression with stochastic gradient descent (SGD) optimization or singular value decomposition (SVD).</p>
+<p>Ridge is a class that implements Ridge Regression with stochastic gradient descent (SGD) optimization, singular value decomposition (SVD), or L-BFGS optimization.</p>
 
 <p><strong>Reference</strong></p>
 <ul><li>
@@ -394,7 +394,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The initial value of learning rate. The learning rate decreases as the iteration proceeds according to the equation: learning_rate / (1 + decay * t). If solver = &#39;svd&#39;, this parameter is ignored.</p>
+<p>The initial value of learning rate. The learning rate decreases as the iteration proceeds according to the equation: learning_rate / (1 + decay * t). If solver is not &#39;sgd&#39;, this parameter is ignored.</p>
 </div>
       
     </li>
@@ -412,7 +412,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The smoothing parameter for decreasing learning rate as the iteration proceeds. If nil is given, the decay sets to &#39;reg_param * learning_rate&#39;. If solver = &#39;svd&#39;, this parameter is ignored.</p>
+<p>The smoothing parameter for decreasing learning rate as the iteration proceeds. If nil is given, the decay sets to &#39;reg_param * learning_rate&#39;. If solver is not &#39;sgd&#39;, this parameter is ignored.</p>
 </div>
       
     </li>
@@ -430,7 +430,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The momentum factor. If solver = &#39;svd&#39;, this parameter is ignored.</p>
+<p>The momentum factor. If solver is not &#39;sgd&#39;, this parameter is ignored.</p>
 </div>
       
     </li>
@@ -502,7 +502,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The maximum number of epochs that indicates how many times the whole data is given to the training process. If solver = &#39;svd&#39;, this parameter is ignored.</p>
+<p>The maximum number of epochs that indicates how many times the whole data is given to the training process. If solver is &#39;svd&#39;, this parameter is ignored.</p>
 </div>
       
     </li>
@@ -520,7 +520,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The size of the mini batches. If solver = &#39;svd&#39;, this parameter is ignored.</p>
+<p>The size of the mini batches. If solver is not &#39;sgd&#39;, this parameter is ignored.</p>
 </div>
       
     </li>
@@ -538,7 +538,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The tolerance of loss for terminating optimization. If solver = &#39;svd&#39;, this parameter is ignored.</p>
+<p>The tolerance of loss for terminating optimization. If solver is &#39;svd&#39;, this parameter is ignored.</p>
 </div>
       
     </li>
@@ -556,7 +556,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The algorithm to calculate weights. (&#39;auto&#39;, &#39;sgd&#39; or &#39;svd&#39;). &#39;auto&#39; chooses the &#39;svd&#39; solver if Numo::Linalg is loaded. Otherwise, it chooses the &#39;sgd&#39; solver. &#39;sgd&#39; uses the stochastic gradient descent optimization. &#39;svd&#39; performs singular value decomposition of samples.</p>
+<p>The algorithm to calculate weights. (&#39;auto&#39;, &#39;sgd&#39;, &#39;svd&#39;, or &#39;lbfgs&#39;). &#39;auto&#39; chooses the &#39;svd&#39; solver if Numo::Linalg is loaded. Otherwise, it chooses the &#39;sgd&#39; solver. &#39;sgd&#39; uses the stochastic gradient descent optimization. &#39;svd&#39; performs singular value decomposition of samples. &#39;lbfgs&#39; uses the L-BFGS method for optimization.</p>
 </div>
       
     </li>
@@ -574,7 +574,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The number of jobs for running the fit method in parallel. If nil is given, the method does not execute in parallel. If zero or less is given, it becomes equal to the number of processors. This parameter is ignored if the Parallel gem is not loaded or the solver is &#39;svd&#39;.</p>
+<p>The number of jobs for running the fit method in parallel. If nil is given, the method does not execute in parallel. If zero or less is given, it becomes equal to the number of processors. This parameter is ignored if the Parallel gem is not loaded or solver is not &#39;sgd&#39;.</p>
 </div>
       
     </li>
@@ -592,7 +592,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The flag indicating whether to output loss during iteration. If solver = &#39;svd&#39;, this parameter is ignored.</p>
+<p>The flag indicating whether to output loss during iteration. If solver is &#39;svd&#39;, this parameter is ignored.</p>
 </div>
       
     </li>
@@ -624,10 +624,6 @@
       <pre class="lines">
 
 
-71
-72
-73
-74
 75
 76
 77
@@ -650,10 +646,14 @@
 94
 95
 96
-97</pre>
+97
+98
+99
+100
+101</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/ridge.rb', line 71</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/ridge.rb', line 75</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>learning_rate:</span> <span class='float'>0.01</span><span class='comma'>,</span> <span class='label'>decay:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>momentum:</span> <span class='float'>0.9</span><span class='comma'>,</span>
                <span class='label'>reg_param:</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='label'>fit_bias:</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='label'>bias_scale:</span> <span class='float'>1.0</span><span class='comma'>,</span>
@@ -670,10 +670,10 @@
   <span class='kw'>super</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='id identifier rubyid_method'>method</span><span class='lparen'>(</span><span class='symbol'>:initialize</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_parameters'>parameters</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid__t'>_t</span><span class='comma'>,</span> <span class='id identifier rubyid_arg'>arg</span><span class='op'>|</span> <span class='lbracket'>[</span><span class='id identifier rubyid_arg'>arg</span><span class='comma'>,</span> <span class='id identifier rubyid_binding'>binding</span><span class='period'>.</span><span class='id identifier rubyid_local_variable_get'>local_variable_get</span><span class='lparen'>(</span><span class='id identifier rubyid_arg'>arg</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:solver</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='id identifier rubyid_solver'>solver</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>auto</span><span class='tstring_end'>&#39;</span></span>
-                       <span class='id identifier rubyid_load_linalg?'>load_linalg?</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>svd</span><span class='tstring_end'>&#39;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>sgd</span><span class='tstring_end'>&#39;</span></span>
+                       <span class='id identifier rubyid_enable_linalg?'>enable_linalg?</span><span class='lparen'>(</span><span class='label'>warning:</span> <span class='kw'>false</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>svd</span><span class='tstring_end'>&#39;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>sgd</span><span class='tstring_end'>&#39;</span></span>
                      <span class='kw'>else</span>
-                       <span class='id identifier rubyid_solver'>solver</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>svd</span><span class='tstring_end'>&#39;</span></span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>sgd</span><span class='tstring_end'>&#39;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>svd</span><span class='tstring_end'>&#39;</span></span> <span class='comment'># rubocop:disable Style/NegatedIfElseCondition
-</span>                     <span class='kw'>end</span>
+                       <span class='id identifier rubyid_solver'>solver</span><span class='period'>.</span><span class='id identifier rubyid_match?'>match?</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^svd$|^sgd$|^lbfgs$</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_solver'>solver</span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>sgd</span><span class='tstring_end'>&#39;</span></span>
+                     <span class='kw'>end</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:decay</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:reg_param</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:learning_rate</span><span class='rbracket'>]</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:random_seed</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='id identifier rubyid_srand'>srand</span>
   <span class='ivar'>@rng</span> <span class='op'>=</span> <span class='const'>Random</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:random_seed</span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -738,12 +738,12 @@
       <pre class="lines">
 
 
-34
-35
-36</pre>
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/ridge.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/ridge.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bias_term'>bias_term</span>
   <span class='ivar'>@bias_term</span>
@@ -794,12 +794,12 @@
       <pre class="lines">
 
 
-38
-39
-40</pre>
+41
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/ridge.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/ridge.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rng'>rng</span>
   <span class='ivar'>@rng</span>
@@ -855,12 +855,12 @@
       <pre class="lines">
 
 
-30
-31
-32</pre>
+33
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/ridge.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/ridge.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_weight_vec'>weight_vec</span>
   <span class='ivar'>@weight_vec</span>
@@ -919,7 +919,7 @@
         <span class='name'>y</span>
       
       
-        <span class='type'>(<tt>Numo::Int32</tt>)</span>
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
       
       
       
@@ -957,10 +957,6 @@
       <pre class="lines">
 
 
-104
-105
-106
-107
 108
 109
 110
@@ -969,18 +965,26 @@
 113
 114
 115
-116</pre>
+116
+117
+118
+119
+120
+121
+122</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/ridge.rb', line 104</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/ridge.rb', line 108</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_tvalue_array'>check_convert_tvalue_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_sample_tvalue_size'>check_sample_tvalue_size</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
 
-  <span class='kw'>if</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:solver</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>svd</span><span class='tstring_end'>&#39;</span></span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_enable_linalg?'>enable_linalg?</span>
+  <span class='kw'>if</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:solver</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>svd</span><span class='tstring_end'>&#39;</span></span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_enable_linalg?'>enable_linalg?</span><span class='lparen'>(</span><span class='label'>warning:</span> <span class='kw'>false</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_fit_svd'>fit_svd</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
+  <span class='kw'>elsif</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:solver</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>lbfgs</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_fit_lbfgs'>fit_lbfgs</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='kw'>else</span>
     <span class='id identifier rubyid_fit_sgd'>fit_sgd</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
@@ -1056,13 +1060,13 @@
       <pre class="lines">
 
 
-122
-123
-124
-125</pre>
+128
+129
+130
+131</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/ridge.rb', line 122</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/linear_model/ridge.rb', line 128</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -1078,9 +1082,9 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Jan 11 10:42:11 2021 by
+  Generated on Sat Jan 23 14:10:55 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.7.2).
+  0.9.26 (ruby-3.0.0).
 </div>
 
     </div>
