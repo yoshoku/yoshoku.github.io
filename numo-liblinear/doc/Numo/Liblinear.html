@@ -129,7 +129,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1.1.0</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1.1.2</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
         <dt id="LIBLINEAR_VERSION-constant" class="">LIBLINEAR_VERSION =
           <div class="docstring">
@@ -509,9 +509,6 @@
       <pre class="lines">
 
 
-155
-156
-157
 158
 159
 160
@@ -583,10 +580,16 @@
 226
 227
 228
-229</pre>
+229
+230
+231
+232
+233
+234
+235</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/numo/liblinear/liblinearext.c', line 155</span>
+      <pre class="code"><span class="info file"># File 'ext/numo/liblinear/liblinearext.c', line 158</span>
 
 static
 VALUE numo_liblinear_cross_validation(VALUE self, VALUE x_val, VALUE y_val, VALUE param_hash, VALUE nr_folds)
@@ -660,6 +663,9 @@ VALUE numo_liblinear_cross_validation(VALUE self, VALUE x_val, VALUE y_val, VALU
 
   xfree_problem(problem);
   xfree_parameter(param);
+
+  RB_GC_GUARD(x_val);
+  RB_GC_GUARD(y_val);
 
   return t_val;
 }</pre>
@@ -793,14 +799,6 @@ VALUE numo_liblinear_cross_validation(VALUE self, VALUE x_val, VALUE y_val, VALU
       <pre class="lines">
 
 
-308
-309
-310
-311
-312
-313
-314
-315
 316
 317
 318
@@ -870,10 +868,20 @@ VALUE numo_liblinear_cross_validation(VALUE self, VALUE x_val, VALUE y_val, VALU
 382
 383
 384
-385</pre>
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/numo/liblinear/liblinearext.c', line 308</span>
+      <pre class="code"><span class="info file"># File 'ext/numo/liblinear/liblinearext.c', line 316</span>
 
 static
 VALUE numo_liblinear_decision_function(VALUE self, VALUE x_val, VALUE param_hash, VALUE model_hash)
@@ -950,6 +958,8 @@ VALUE numo_liblinear_decision_function(VALUE self, VALUE x_val, VALUE param_hash
 
   xfree_model(model);
   xfree_parameter(param);
+
+  RB_GC_GUARD(x_val);
 
   return y_val;
 }</pre>
@@ -1051,18 +1061,6 @@ VALUE numo_liblinear_decision_function(VALUE self, VALUE x_val, VALUE param_hash
       <pre class="lines">
 
 
-472
-473
-474
-475
-476
-477
-478
-479
-480
-481
-482
-483
 484
 485
 486
@@ -1075,10 +1073,24 @@ VALUE numo_liblinear_decision_function(VALUE self, VALUE x_val, VALUE param_hash
 493
 494
 495
-496</pre>
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/numo/liblinear/liblinearext.c', line 472</span>
+      <pre class="code"><span class="info file"># File 'ext/numo/liblinear/liblinearext.c', line 484</span>
 
 static
 VALUE numo_liblinear_load_model(VALUE self, VALUE filename)
@@ -1102,6 +1114,8 @@ VALUE numo_liblinear_load_model(VALUE self, VALUE filename)
 
   rb_ary_store(res, 0, param_hash);
   rb_ary_store(res, 1, model_hash);
+
+  RB_GC_GUARD(filename);
 
   return res;
 }</pre>
@@ -1235,12 +1249,6 @@ VALUE numo_liblinear_load_model(VALUE self, VALUE filename)
       <pre class="lines">
 
 
-243
-244
-245
-246
-247
-248
 249
 250
 251
@@ -1287,10 +1295,18 @@ VALUE numo_liblinear_load_model(VALUE self, VALUE filename)
 292
 293
 294
-295</pre>
+295
+296
+297
+298
+299
+300
+301
+302
+303</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/numo/liblinear/liblinearext.c', line 243</span>
+      <pre class="code"><span class="info file"># File 'ext/numo/liblinear/liblinearext.c', line 249</span>
 
 static
 VALUE numo_liblinear_predict(VALUE self, VALUE x_val, VALUE param_hash, VALUE model_hash)
@@ -1342,6 +1358,8 @@ VALUE numo_liblinear_predict(VALUE self, VALUE x_val, VALUE param_hash, VALUE mo
 
   xfree_model(model);
   xfree_parameter(param);
+
+  RB_GC_GUARD(x_val);
 
   return y_val;
 }</pre>
@@ -1475,16 +1493,6 @@ VALUE numo_liblinear_predict(VALUE self, VALUE x_val, VALUE param_hash, VALUE mo
       <pre class="lines">
 
 
-400
-401
-402
-403
-404
-405
-406
-407
-408
-409
 410
 411
 412
@@ -1536,10 +1544,22 @@ VALUE numo_liblinear_predict(VALUE self, VALUE x_val, VALUE param_hash, VALUE mo
 458
 459
 460
-461</pre>
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/numo/liblinear/liblinearext.c', line 400</span>
+      <pre class="code"><span class="info file"># File 'ext/numo/liblinear/liblinearext.c', line 410</span>
 
 static
 VALUE numo_liblinear_predict_proba(VALUE self, VALUE x_val, VALUE param_hash, VALUE model_hash)
@@ -1600,6 +1620,8 @@ VALUE numo_liblinear_predict_proba(VALUE self, VALUE x_val, VALUE param_hash, VA
 
   xfree_model(model);
   xfree_parameter(param);
+
+  RB_GC_GUARD(x_val);
 
   return y_val;
 }</pre>
@@ -1733,30 +1755,32 @@ VALUE numo_liblinear_predict_proba(VALUE self, VALUE x_val, VALUE param_hash, VA
       <pre class="lines">
 
 
-510
-511
-512
-513
-514
-515
-516
-517
-518
-519
-520
-521
-522
-523
 524
 525
 526
 527
 528
 529
-530</pre>
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/numo/liblinear/liblinearext.c', line 510</span>
+      <pre class="code"><span class="info file"># File 'ext/numo/liblinear/liblinearext.c', line 524</span>
 
 static
 VALUE numo_liblinear_save_model(VALUE self, VALUE filename, VALUE param_hash, VALUE model_hash)
@@ -1776,6 +1800,8 @@ VALUE numo_liblinear_save_model(VALUE self, VALUE filename, VALUE param_hash, VA
     rb_raise(rb_eIOError, &quot;Failed to save file &#39;%s&#39;&quot;, filename_);
     return Qfalse;
   }
+
+  RB_GC_GUARD(filename);
 
   return Qtrue;
 }</pre>
@@ -2006,7 +2032,10 @@ VALUE numo_liblinear_save_model(VALUE self, VALUE filename, VALUE param_hash, VA
 113
 114
 115
-116</pre>
+116
+117
+118
+119</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'ext/numo/liblinear/liblinearext.c', line 46</span>
@@ -2080,6 +2109,9 @@ VALUE numo_liblinear_train(VALUE self, VALUE x_val, VALUE y_val, VALUE param_has
   xfree_problem(problem);
   xfree_parameter(param);
 
+  RB_GC_GUARD(x_val);
+  RB_GC_GUARD(y_val);
+
   return model_hash;
 }</pre>
     </td>
@@ -2092,9 +2124,9 @@ VALUE numo_liblinear_train(VALUE self, VALUE x_val, VALUE y_val, VALUE param_has
 </div>
 
       <div id="footer">
-  Generated on Wed Dec 30 21:02:13 2020 by
+  Generated on Sat Jan 23 17:52:11 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.7.2).
+  0.9.26 (ruby-3.0.0).
 </div>
 
     </div>
