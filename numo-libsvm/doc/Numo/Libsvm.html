@@ -129,7 +129,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1.0.0</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1.0.2</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
         <dt id="LIBSVM_VERSION-constant" class="">LIBSVM_VERSION =
           <div class="docstring">
@@ -511,9 +511,6 @@
       <pre class="lines">
 
 
-159
-160
-161
 162
 163
 164
@@ -585,10 +582,16 @@
 230
 231
 232
-233</pre>
+233
+234
+235
+236
+237
+238
+239</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/numo/libsvm/libsvmext.c', line 159</span>
+      <pre class="code"><span class="info file"># File 'ext/numo/libsvm/libsvmext.c', line 162</span>
 
 static
 VALUE cross_validation(VALUE self, VALUE x_val, VALUE y_val, VALUE param_hash, VALUE nr_folds)
@@ -662,6 +665,9 @@ VALUE cross_validation(VALUE self, VALUE x_val, VALUE y_val, VALUE param_hash, V
 
   xfree_svm_problem(problem);
   xfree_svm_parameter(param);
+
+  RB_GC_GUARD(x_val);
+  RB_GC_GUARD(y_val);
 
   return t_val;
 }</pre>
@@ -795,14 +801,6 @@ VALUE cross_validation(VALUE self, VALUE x_val, VALUE y_val, VALUE param_hash, V
       <pre class="lines">
 
 
-312
-313
-314
-315
-316
-317
-318
-319
 320
 321
 322
@@ -872,10 +870,20 @@ VALUE cross_validation(VALUE self, VALUE x_val, VALUE y_val, VALUE param_hash, V
 386
 387
 388
-389</pre>
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/numo/libsvm/libsvmext.c', line 312</span>
+      <pre class="code"><span class="info file"># File 'ext/numo/libsvm/libsvmext.c', line 320</span>
 
 static
 VALUE decision_function(VALUE self, VALUE x_val, VALUE param_hash, VALUE model_hash)
@@ -952,6 +960,8 @@ VALUE decision_function(VALUE self, VALUE x_val, VALUE param_hash, VALUE model_h
 
   xfree_svm_model(model);
   xfree_svm_parameter(param);
+
+  RB_GC_GUARD(x_val);
 
   return y_val;
 }</pre>
@@ -1042,18 +1052,6 @@ VALUE decision_function(VALUE self, VALUE x_val, VALUE param_hash, VALUE model_h
       <pre class="lines">
 
 
-473
-474
-475
-476
-477
-478
-479
-480
-481
-482
-483
-484
 485
 486
 487
@@ -1066,10 +1064,24 @@ VALUE decision_function(VALUE self, VALUE x_val, VALUE param_hash, VALUE model_h
 494
 495
 496
-497</pre>
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/numo/libsvm/libsvmext.c', line 473</span>
+      <pre class="code"><span class="info file"># File 'ext/numo/libsvm/libsvmext.c', line 485</span>
 
 static
 VALUE load_svm_model(VALUE self, VALUE filename)
@@ -1093,6 +1105,8 @@ VALUE load_svm_model(VALUE self, VALUE filename)
 
   rb_ary_store(res, 0, param_hash);
   rb_ary_store(res, 1, model_hash);
+
+  RB_GC_GUARD(filename);
 
   return res;
 }</pre>
@@ -1226,12 +1240,6 @@ VALUE load_svm_model(VALUE self, VALUE filename)
       <pre class="lines">
 
 
-246
-247
-248
-249
-250
-251
 252
 253
 254
@@ -1279,10 +1287,18 @@ VALUE load_svm_model(VALUE self, VALUE filename)
 296
 297
 298
-299</pre>
+299
+300
+301
+302
+303
+304
+305
+306
+307</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/numo/libsvm/libsvmext.c', line 246</span>
+      <pre class="code"><span class="info file"># File 'ext/numo/libsvm/libsvmext.c', line 252</span>
 
 static
 VALUE predict(VALUE self, VALUE x_val, VALUE param_hash, VALUE model_hash)
@@ -1335,6 +1351,8 @@ VALUE predict(VALUE self, VALUE x_val, VALUE param_hash, VALUE model_hash)
 
   xfree_svm_model(model);
   xfree_svm_parameter(param);
+
+  RB_GC_GUARD(x_val);
 
   return y_val;
 }</pre>
@@ -1468,16 +1486,6 @@ VALUE predict(VALUE self, VALUE x_val, VALUE param_hash, VALUE model_hash)
       <pre class="lines">
 
 
-403
-404
-405
-406
-407
-408
-409
-410
-411
-412
 413
 414
 415
@@ -1529,10 +1537,22 @@ VALUE predict(VALUE self, VALUE x_val, VALUE param_hash, VALUE model_hash)
 461
 462
 463
-464</pre>
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/numo/libsvm/libsvmext.c', line 403</span>
+      <pre class="code"><span class="info file"># File 'ext/numo/libsvm/libsvmext.c', line 413</span>
 
 static
 VALUE predict_proba(VALUE self, VALUE x_val, VALUE param_hash, VALUE model_hash)
@@ -1593,6 +1613,8 @@ VALUE predict_proba(VALUE self, VALUE x_val, VALUE param_hash, VALUE model_hash)
 
   xfree_svm_model(model);
   xfree_svm_parameter(param);
+
+  RB_GC_GUARD(x_val);
 
   return y_val;
 }</pre>
@@ -1726,30 +1748,32 @@ VALUE predict_proba(VALUE self, VALUE x_val, VALUE param_hash, VALUE model_hash)
       <pre class="lines">
 
 
-511
-512
-513
-514
-515
-516
-517
-518
-519
-520
-521
-522
-523
-524
 525
 526
 527
 528
 529
 530
-531</pre>
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/numo/libsvm/libsvmext.c', line 511</span>
+      <pre class="code"><span class="info file"># File 'ext/numo/libsvm/libsvmext.c', line 525</span>
 
 static
 VALUE save_svm_model(VALUE self, VALUE filename, VALUE param_hash, VALUE model_hash)
@@ -1769,6 +1793,8 @@ VALUE save_svm_model(VALUE self, VALUE filename, VALUE param_hash, VALUE model_h
     rb_raise(rb_eIOError, &quot;Failed to save file &#39;%s&#39;&quot;, filename_);
     return Qfalse;
   }
+
+  RB_GC_GUARD(filename);
 
   return Qtrue;
 }</pre>
@@ -2001,7 +2027,10 @@ VALUE save_svm_model(VALUE self, VALUE filename, VALUE param_hash, VALUE model_h
 115
 116
 117
-118</pre>
+118
+119
+120
+121</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'ext/numo/libsvm/libsvmext.c', line 48</span>
@@ -2075,6 +2104,9 @@ VALUE train(VALUE self, VALUE x_val, VALUE y_val, VALUE param_hash)
   xfree_svm_problem(problem);
   xfree_svm_parameter(param);
 
+  RB_GC_GUARD(x_val);
+  RB_GC_GUARD(y_val);
+
   return model_hash;
 }</pre>
     </td>
@@ -2087,9 +2119,9 @@ VALUE train(VALUE self, VALUE x_val, VALUE y_val, VALUE param_hash)
 </div>
 
       <div id="footer">
-  Generated on Wed Dec 30 21:03:04 2020 by
+  Generated on Sat Jan 23 17:52:15 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.7.2).
+  0.9.26 (ruby-3.0.0).
 </div>
 
     </div>
