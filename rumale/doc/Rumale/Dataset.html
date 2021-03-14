@@ -136,7 +136,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#load_libsvm_file-class_method" title="load_libsvm_file (class method)">.<strong>load_libsvm_file</strong>(filename, zero_based: false, dtype: Numo::DFloat)  &#x21d2; Array&lt;Numo::NArray&gt; </a>
+      <a href="#load_libsvm_file-class_method" title="load_libsvm_file (class method)">.<strong>load_libsvm_file</strong>(filename, n_features: nil, zero_based: false, dtype: Numo::DFloat)  &#x21d2; Array&lt;Numo::NArray&gt; </a>
     
 
     
@@ -334,10 +334,6 @@
       <pre class="lines">
 
 
-40
-41
-42
-43
 44
 45
 46
@@ -346,10 +342,14 @@
 49
 50
 51
-52</pre>
+52
+53
+54
+55
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/dataset.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/dataset.rb', line 44</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dump_libsvm_file'>dump_libsvm_file</span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid_labels'>labels</span><span class='comma'>,</span> <span class='id identifier rubyid_filename'>filename</span><span class='comma'>,</span> <span class='label'>zero_based:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_n_samples'>n_samples</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_data'>data</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_labels'>labels</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span>
@@ -372,7 +372,7 @@
       <div class="method_details ">
   <h3 class="signature " id="load_libsvm_file-class_method">
   
-    .<strong>load_libsvm_file</strong>(filename, zero_based: false, dtype: Numo::DFloat)  &#x21d2; <tt>Array&lt;Numo::NArray&gt;</tt> 
+    .<strong>load_libsvm_file</strong>(filename, n_features: nil, zero_based: false, dtype: Numo::DFloat)  &#x21d2; <tt>Array&lt;Numo::NArray&gt;</tt> 
   
 
   
@@ -402,6 +402,24 @@
         &mdash;
         <div class='inline'>
 <p>A path to a dataset file.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>n_features</span>
+      
+      
+        <span class='type'>(<tt>Integer/Nil</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The number of features of data to load. If nil is given, it will be detected automatically from given file.</p>
 </div>
       
     </li>
@@ -469,8 +487,6 @@
       <pre class="lines">
 
 
-21
-22
 23
 24
 25
@@ -480,21 +496,27 @@
 29
 30
 31
-32</pre>
+32
+33
+34
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/dataset.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/dataset.rb', line 23</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_load_libsvm_file'>load_libsvm_file</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='comma'>,</span> <span class='label'>zero_based:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>dtype:</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_load_libsvm_file'>load_libsvm_file</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='comma'>,</span> <span class='label'>n_features:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>zero_based:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>dtype:</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_ftvecs'>ftvecs</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_labels'>labels</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-  <span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='id identifier rubyid_n_features_detected'>n_features_detected</span> <span class='op'>=</span> <span class='int'>0</span>
   <span class='const'>CSV</span><span class='period'>.</span><span class='id identifier rubyid_foreach'>foreach</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='comma'>,</span> <span class='label'>col_sep:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\s</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='kw'>false</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_line'>line</span><span class='op'>|</span>
     <span class='id identifier rubyid_label'>label</span><span class='comma'>,</span> <span class='id identifier rubyid_ftvec'>ftvec</span><span class='comma'>,</span> <span class='id identifier rubyid_max_idx'>max_idx</span> <span class='op'>=</span> <span class='id identifier rubyid_parse_libsvm_line'>parse_libsvm_line</span><span class='lparen'>(</span><span class='id identifier rubyid_line'>line</span><span class='comma'>,</span> <span class='id identifier rubyid_zero_based'>zero_based</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_labels'>labels</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_label'>label</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_ftvecs'>ftvecs</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_ftvec'>ftvec</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>=</span> <span class='id identifier rubyid_max_idx'>max_idx</span> <span class='kw'>if</span> <span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_max_idx'>max_idx</span>
+    <span class='id identifier rubyid_n_features_detected'>n_features_detected</span> <span class='op'>=</span> <span class='id identifier rubyid_max_idx'>max_idx</span> <span class='kw'>if</span> <span class='id identifier rubyid_n_features_detected'>n_features_detected</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_max_idx'>max_idx</span>
   <span class='kw'>end</span>
+  <span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>||=</span> <span class='id identifier rubyid_n_features_detected'>n_features_detected</span>
+  <span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_n_features'>n_features</span><span class='comma'>,</span> <span class='id identifier rubyid_n_features_detected'>n_features_detected</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span>
   <span class='lbracket'>[</span><span class='id identifier rubyid_convert_to_matrix'>convert_to_matrix</span><span class='lparen'>(</span><span class='id identifier rubyid_ftvecs'>ftvecs</span><span class='comma'>,</span> <span class='id identifier rubyid_n_features'>n_features</span><span class='comma'>,</span> <span class='id identifier rubyid_dtype'>dtype</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>NArray</span><span class='period'>.</span><span class='id identifier rubyid_asarray'>asarray</span><span class='lparen'>(</span><span class='id identifier rubyid_labels'>labels</span><span class='rparen'>)</span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -658,10 +680,6 @@
       <pre class="lines">
 
 
-142
-143
-144
-145
 146
 147
 148
@@ -697,10 +715,14 @@
 178
 179
 180
-181</pre>
+181
+182
+183
+184
+185</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/dataset.rb', line 142</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/dataset.rb', line 146</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_make_blobs'>make_blobs</span><span class='lparen'>(</span><span class='id identifier rubyid_n_samples'>n_samples</span> <span class='op'>=</span> <span class='int'>1000</span><span class='comma'>,</span> <span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>=</span> <span class='int'>2</span><span class='comma'>,</span>
                <span class='label'>centers:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>cluster_std:</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='label'>center_box:</span> <span class='lbracket'>[</span><span class='op'>-</span><span class='int'>10</span><span class='comma'>,</span> <span class='int'>10</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>shuffle:</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
@@ -878,10 +900,6 @@
       <pre class="lines">
 
 
-62
-63
-64
-65
 66
 67
 68
@@ -907,10 +925,14 @@
 88
 89
 90
-91</pre>
+91
+92
+93
+94
+95</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/dataset.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/dataset.rb', line 66</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_make_circles'>make_circles</span><span class='lparen'>(</span><span class='id identifier rubyid_n_samples'>n_samples</span><span class='comma'>,</span> <span class='label'>shuffle:</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='label'>noise:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>factor:</span> <span class='float'>0.8</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_params_numeric'>check_params_numeric</span><span class='lparen'>(</span><span class='label'>n_samples:</span> <span class='id identifier rubyid_n_samples'>n_samples</span><span class='comma'>,</span> <span class='label'>factor:</span> <span class='id identifier rubyid_factor'>factor</span><span class='rparen'>)</span>
@@ -1060,10 +1082,6 @@
       <pre class="lines">
 
 
-100
-101
-102
-103
 104
 105
 106
@@ -1088,10 +1106,14 @@
 125
 126
 127
-128</pre>
+128
+129
+130
+131
+132</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/dataset.rb', line 100</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/dataset.rb', line 104</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_make_moons'>make_moons</span><span class='lparen'>(</span><span class='id identifier rubyid_n_samples'>n_samples</span><span class='comma'>,</span> <span class='label'>shuffle:</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='label'>noise:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_params_numeric'>check_params_numeric</span><span class='lparen'>(</span><span class='label'>n_samples:</span> <span class='id identifier rubyid_n_samples'>n_samples</span><span class='rparen'>)</span>
@@ -1132,7 +1154,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 23 02:12:28 2021 by
+  Generated on Sun Mar 14 11:11:46 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.0).
 </div>
