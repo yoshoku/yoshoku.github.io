@@ -200,7 +200,7 @@
       
         &mdash;
         <div class='inline'>
-<p>Path to image file to be loaded. Currently, the following file formats are support: Portbale Network Graphics (*.png) and JPEG files (*.jpeg, *.jpg, *jpe).</p>
+<p>File path or URL of image file to be loaded. Currently, the following file formats are support: Portbale Network Graphics (*.png) and JPEG files (*.jpeg, *.jpg, *jpe).</p>
 </div>
       
     </li>
@@ -278,19 +278,57 @@
       <pre class="lines">
 
 
-16
-17
-18
 19
-20</pre>
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/magro/io.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/magro/io.rb', line 19</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_imread'>imread</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect class of filename to be String.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_filename'>filename</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>String</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_read_jpg'>read_jpg</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_filename'>filename</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\.(jpeg|jpg|jpe)$</span><span class='regexp_end'>/</span></span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_read_png'>read_png</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_filename'>filename</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\.png$</span><span class='regexp_end'>/</span></span>
+
+  <span class='kw'>unless</span> <span class='id identifier rubyid_url?'>url?</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='kw'>case</span> <span class='id identifier rubyid_filename'>filename</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span>
+           <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\.(jpeg|jpg|jpe)$</span><span class='regexp_end'>/</span></span>
+             <span class='id identifier rubyid_read_jpg'>read_jpg</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
+           <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\.png$</span><span class='regexp_end'>/</span></span>
+             <span class='id identifier rubyid_read_png'>read_png</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
+           <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_uri'>uri</span> <span class='op'>=</span> <span class='const'>URI</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_ext'>ext</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_extname'>extname</span><span class='lparen'>(</span><span class='id identifier rubyid_uri'>uri</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>IOError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Failed to detect file extension from given URL.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_ext'>ext</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\.(jpeg|jpg|jpe|png)$</span><span class='regexp_end'>/</span></span>
+
+  <span class='id identifier rubyid_uri'>uri</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span>
+    <span class='id identifier rubyid_temp'>temp</span> <span class='op'>=</span> <span class='const'>Tempfile</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>magro_</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_ext'>ext</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_temp'>temp</span><span class='period'>.</span><span class='id identifier rubyid_binmode'>binmode</span>
+    <span class='id identifier rubyid_temp'>temp</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_temp'>temp</span><span class='period'>.</span><span class='id identifier rubyid_rewind'>rewind</span>
+    <span class='id identifier rubyid_imread'>imread</span><span class='lparen'>(</span><span class='id identifier rubyid_temp'>temp</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -441,25 +479,25 @@
       <pre class="lines">
 
 
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47</pre>
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/magro/io.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/magro/io.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_imsave'>imsave</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='comma'>,</span> <span class='id identifier rubyid_image'>image</span><span class='comma'>,</span> <span class='label'>quality:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect class of filename to be String.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_filename'>filename</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>String</span><span class='rparen'>)</span>
@@ -487,7 +525,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Jan 23 17:54:57 2021 by
+  Generated on Sat Apr  3 14:06:10 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.0).
 </div>
