@@ -6,7 +6,7 @@
 <title>
   Class: Mopti::ScaledConjugateGradient
   
-    &mdash; Documentation by YARD 0.9.24
+    &mdash; Documentation by YARD 0.9.26
   
 </title>
 
@@ -111,7 +111,7 @@
 
 <p><strong>Reference</strong></p>
 <ol><li>
-<p>M F. Moller, “A Scaled Conjugate Gradient Algorithm for Fast Supervised Learning,” Neural Networks, Vol. 6, pp. 525–533, 1993.</p>
+<p>Moller, M F., “A Scaled Conjugate Gradient Algorithm for Fast Supervised Learning,” Neural Networks, Vol. 6, pp. 525–533, 1993.</p>
 </li></ol>
 
 
@@ -205,7 +205,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(fnc:, jcb:, args: nil, x_init:, max_iter: 200, xtol: 1e-6, ftol: 1e-8, jtol: 1e-7)  &#x21d2; ScaledConjugateGradient </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(fnc:, jcb:, x_init:, args: nil, max_iter: 200, xtol: 1e-6, ftol: 1e-8, jtol: 1e-7)  &#x21d2; ScaledConjugateGradient </a>
     
 
     
@@ -238,7 +238,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(fnc:, jcb:, args: nil, x_init:, max_iter: 200, xtol: 1e-6, ftol: 1e-8, jtol: 1e-7)  &#x21d2; <tt><span class='object_link'><a href="" title="Mopti::ScaledConjugateGradient (class)">ScaledConjugateGradient</a></span></tt> 
+    #<strong>initialize</strong>(fnc:, jcb:, x_init:, args: nil, max_iter: 200, xtol: 1e-6, ftol: 1e-8, jtol: 1e-7)  &#x21d2; <tt><span class='object_link'><a href="" title="Mopti::ScaledConjugateGradient (class)">ScaledConjugateGradient</a></span></tt> 
   
 
   
@@ -417,7 +417,7 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/mopti/scaled_conjugate_gradient.rb', line 59</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>fnc:</span><span class='comma'>,</span> <span class='label'>jcb:</span><span class='comma'>,</span> <span class='label'>args:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>x_init:</span><span class='comma'>,</span> <span class='label'>max_iter:</span> <span class='int'>200</span><span class='comma'>,</span> <span class='label'>xtol:</span> <span class='float'>1e-6</span><span class='comma'>,</span> <span class='label'>ftol:</span> <span class='float'>1e-8</span><span class='comma'>,</span> <span class='label'>jtol:</span> <span class='float'>1e-7</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>fnc:</span><span class='comma'>,</span> <span class='label'>jcb:</span><span class='comma'>,</span> <span class='label'>x_init:</span><span class='comma'>,</span> <span class='label'>args:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>max_iter:</span> <span class='int'>200</span><span class='comma'>,</span> <span class='label'>xtol:</span> <span class='float'>1e-6</span><span class='comma'>,</span> <span class='label'>ftol:</span> <span class='float'>1e-8</span><span class='comma'>,</span> <span class='label'>jtol:</span> <span class='float'>1e-7</span><span class='rparen'>)</span>
   <span class='ivar'>@fnc</span> <span class='op'>=</span> <span class='id identifier rubyid_fnc'>fnc</span>
   <span class='ivar'>@jcb</span> <span class='op'>=</span> <span class='id identifier rubyid_jcb'>jcb</span>
   <span class='ivar'>@x_init</span> <span class='op'>=</span> <span class='id identifier rubyid_x_init'>x_init</span>
@@ -603,7 +603,10 @@
 165
 166
 167
-168</pre>
+168
+169
+170
+171</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/mopti/scaled_conjugate_gradient.rb', line 81</span>
@@ -612,10 +615,10 @@
   <span class='kw'>return</span> <span class='id identifier rubyid_to_enum'>to_enum</span><span class='lparen'>(</span><span class='id identifier rubyid___method__'>__method__</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
 
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='ivar'>@x_init</span>
-  <span class='id identifier rubyid_f_prev'>f_prev</span> <span class='op'>=</span> <span class='id identifier rubyid_func'>func</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_f_prev'>f_prev</span> <span class='op'>=</span> <span class='id identifier rubyid_func'>func</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='ivar'>@args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_n_fev'>n_fev</span> <span class='op'>=</span> <span class='int'>1</span>
   <span class='id identifier rubyid_f_curr'>f_curr</span> <span class='op'>=</span> <span class='id identifier rubyid_f_prev'>f_prev</span>
-  <span class='id identifier rubyid_j_next'>j_next</span> <span class='op'>=</span> <span class='id identifier rubyid_jacb'>jacb</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_j_next'>j_next</span> <span class='op'>=</span> <span class='id identifier rubyid_jacb'>jacb</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='ivar'>@args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_n_jev'>n_jev</span> <span class='op'>=</span> <span class='int'>1</span>
 
   <span class='id identifier rubyid_j_curr'>j_curr</span> <span class='op'>=</span> <span class='id identifier rubyid_j_next'>j_next</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='id identifier rubyid_j_next'>j_next</span><span class='rparen'>)</span>
@@ -639,7 +642,7 @@
 
       <span class='id identifier rubyid_sigma'>sigma</span> <span class='op'>=</span> <span class='const'>SIGMA_INIT</span> <span class='op'>/</span> <span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_sqrt'>sqrt</span><span class='lparen'>(</span><span class='id identifier rubyid_kappa'>kappa</span><span class='rparen'>)</span>
       <span class='id identifier rubyid_x_plus'>x_plus</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span> <span class='op'>+</span> <span class='id identifier rubyid_sigma'>sigma</span> <span class='op'>*</span> <span class='id identifier rubyid_d'>d</span>
-      <span class='id identifier rubyid_j_plus'>j_plus</span> <span class='op'>=</span> <span class='id identifier rubyid_jacb'>jacb</span><span class='lparen'>(</span><span class='id identifier rubyid_x_plus'>x_plus</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_j_plus'>j_plus</span> <span class='op'>=</span> <span class='id identifier rubyid_jacb'>jacb</span><span class='lparen'>(</span><span class='id identifier rubyid_x_plus'>x_plus</span><span class='comma'>,</span> <span class='ivar'>@args</span><span class='rparen'>)</span>
       <span class='id identifier rubyid_n_jev'>n_jev</span> <span class='op'>+=</span> <span class='int'>1</span>
       <span class='id identifier rubyid_theta'>theta</span> <span class='op'>=</span> <span class='id identifier rubyid_d'>d</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='id identifier rubyid_j_plus'>j_plus</span> <span class='op'>-</span> <span class='id identifier rubyid_j_next'>j_next</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='id identifier rubyid_sigma'>sigma</span>
     <span class='kw'>end</span>
@@ -647,12 +650,15 @@
     <span class='id identifier rubyid_delta'>delta</span> <span class='op'>=</span> <span class='id identifier rubyid_theta'>theta</span> <span class='op'>+</span> <span class='id identifier rubyid_beta'>beta</span> <span class='op'>*</span> <span class='id identifier rubyid_kappa'>kappa</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_delta'>delta</span> <span class='op'>&lt;=</span> <span class='int'>0</span>
       <span class='id identifier rubyid_delta'>delta</span> <span class='op'>=</span> <span class='id identifier rubyid_beta'>beta</span> <span class='op'>*</span> <span class='id identifier rubyid_kappa'>kappa</span>
-      <span class='id identifier rubyid_beta'>beta</span> <span class='op'>-=</span> <span class='id identifier rubyid_theta'>theta</span> <span class='op'>/</span> <span class='id identifier rubyid_kappa'>kappa</span>
+      <span class='comment'># TODO: Investigate the cause of the type error.
+</span>      <span class='comment'># Cannot assign a value of type `::Complex` to a variable of type `::Float`
+</span>      <span class='comment'># beta -= theta / kappa
+</span>      <span class='id identifier rubyid_beta'>beta</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_beta'>beta</span> <span class='op'>-</span> <span class='lparen'>(</span><span class='id identifier rubyid_theta'>theta</span> <span class='op'>/</span> <span class='id identifier rubyid_kappa'>kappa</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
     <span class='kw'>end</span>
     <span class='id identifier rubyid_alpha'>alpha</span> <span class='op'>=</span> <span class='op'>-</span><span class='id identifier rubyid_mu'>mu</span> <span class='op'>/</span> <span class='id identifier rubyid_delta'>delta</span>
 
     <span class='id identifier rubyid_x_next'>x_next</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span> <span class='op'>+</span> <span class='id identifier rubyid_alpha'>alpha</span> <span class='op'>*</span> <span class='id identifier rubyid_d'>d</span>
-    <span class='id identifier rubyid_f_next'>f_next</span> <span class='op'>=</span> <span class='id identifier rubyid_func'>func</span><span class='lparen'>(</span><span class='id identifier rubyid_x_next'>x_next</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_f_next'>f_next</span> <span class='op'>=</span> <span class='id identifier rubyid_func'>func</span><span class='lparen'>(</span><span class='id identifier rubyid_x_next'>x_next</span><span class='comma'>,</span> <span class='ivar'>@args</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_n_fev'>n_fev</span> <span class='op'>+=</span> <span class='int'>1</span>
 
     <span class='id identifier rubyid_delta'>delta</span> <span class='op'>=</span> <span class='int'>2</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id identifier rubyid_f_next'>f_next</span> <span class='op'>-</span> <span class='id identifier rubyid_f_prev'>f_prev</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='id identifier rubyid_alpha'>alpha</span> <span class='op'>*</span> <span class='id identifier rubyid_mu'>mu</span><span class='rparen'>)</span>
@@ -676,15 +682,15 @@
       <span class='id identifier rubyid_f_prev'>f_prev</span> <span class='op'>=</span> <span class='id identifier rubyid_f_next'>f_next</span>
 
       <span class='id identifier rubyid_j_prev'>j_prev</span> <span class='op'>=</span> <span class='id identifier rubyid_j_next'>j_next</span>
-      <span class='id identifier rubyid_j_next'>j_next</span> <span class='op'>=</span> <span class='id identifier rubyid_jacb'>jacb</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_j_next'>j_next</span> <span class='op'>=</span> <span class='id identifier rubyid_jacb'>jacb</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='ivar'>@args</span><span class='rparen'>)</span>
       <span class='id identifier rubyid_n_jev'>n_jev</span> <span class='op'>+=</span> <span class='int'>1</span>
 
       <span class='id identifier rubyid_j_curr'>j_curr</span> <span class='op'>=</span> <span class='id identifier rubyid_j_next'>j_next</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='id identifier rubyid_j_next'>j_next</span><span class='rparen'>)</span>
       <span class='kw'>break</span> <span class='kw'>if</span> <span class='id identifier rubyid_j_curr'>j_curr</span> <span class='op'>&lt;=</span> <span class='ivar'>@jtol</span>
     <span class='kw'>end</span>
 
-    <span class='id identifier rubyid_beta'>beta</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_beta'>beta</span> <span class='op'>*</span> <span class='int'>4</span><span class='comma'>,</span> <span class='const'>BETA_MAX</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span> <span class='kw'>if</span> <span class='id identifier rubyid_delta'>delta</span> <span class='op'>&lt;</span> <span class='float'>0.25</span>
-    <span class='id identifier rubyid_beta'>beta</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_beta'>beta</span> <span class='op'>/</span> <span class='int'>4</span><span class='comma'>,</span> <span class='const'>BETA_MIN</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span> <span class='kw'>if</span> <span class='id identifier rubyid_delta'>delta</span> <span class='op'>&gt;</span> <span class='float'>0.75</span>
+    <span class='id identifier rubyid_beta'>beta</span> <span class='op'>=</span> <span class='id identifier rubyid_beta'>beta</span> <span class='op'>*</span> <span class='int'>4</span> <span class='op'>&lt;</span> <span class='const'>BETA_MAX</span> <span class='op'>?</span> <span class='id identifier rubyid_beta'>beta</span> <span class='op'>*</span> <span class='int'>4</span> <span class='op'>:</span> <span class='const'>BETA_MAX</span> <span class='kw'>if</span> <span class='id identifier rubyid_delta'>delta</span> <span class='op'>&lt;</span> <span class='float'>0.25</span>
+    <span class='id identifier rubyid_beta'>beta</span> <span class='op'>=</span> <span class='id identifier rubyid_beta'>beta</span> <span class='op'>/</span> <span class='int'>4</span> <span class='op'>&gt;</span> <span class='const'>BETA_MIN</span> <span class='op'>?</span> <span class='id identifier rubyid_beta'>beta</span> <span class='op'>/</span> <span class='int'>4</span> <span class='op'>:</span> <span class='const'>BETA_MIN</span> <span class='kw'>if</span> <span class='id identifier rubyid_delta'>delta</span> <span class='op'>&gt;</span> <span class='float'>0.75</span>
 
     <span class='kw'>if</span> <span class='id identifier rubyid_n_successes'>n_successes</span> <span class='op'>==</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
       <span class='id identifier rubyid_d'>d</span> <span class='op'>=</span> <span class='op'>-</span><span class='id identifier rubyid_j_next'>j_next</span>
@@ -706,9 +712,9 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Feb 19 20:55:22 2020 by
+  Generated on Sat Jun 26 02:11:48 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.24 (ruby-2.7.0).
+  0.9.26 (ruby-2.7.3).
 </div>
 
     </div>
