@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Hnswlib::Index
+  
+    &mdash; Documentation by YARD 0.9.26
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Hnswlib::Index";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (I)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../Hnswlib.html" title="Hnswlib (module)">Hnswlib</a></span></span>
+     &raquo; 
+    <span class="title">Index</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Hnswlib::Index
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Hnswlib::Index</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/hnswlib.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Index is a class that provides functions for k-nearest eighbors search.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>hnswlib</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='id identifier rubyid_index'>index</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Hnswlib.html" title="Hnswlib (module)">Hnswlib</a></span></span><span class='op'>::</span><span class='const'>Index</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Hnswlib::Index#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>n_features:</span> <span class='int'>100</span><span class='comma'>,</span> <span class='label'>max_item:</span> <span class='int'>10000</span><span class='rparen'>)</span>
+
+<span class='int'>5000</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_item_id'>item_id</span><span class='op'>|</span>
+  <span class='id identifier rubyid_item_vec'>item_vec</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>100</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_rand'>rand</span> <span class='op'>-</span> <span class='float'>0.5</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_index'>index</span><span class='period'>.</span><span class='id identifier rubyid_add_item'>add_item</span><span class='lparen'>(</span><span class='id identifier rubyid_item_id'>item_id</span><span class='comma'>,</span> <span class='id identifier rubyid_item_vec'>item_vec</span><span class='rparen'>)</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_index'>index</span><span class='period'>.</span><span class='id identifier rubyid_get_nns_by_item'>get_nns_by_item</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>100</span><span class='rparen'>)</span></code></pre>
+    
+  </div>
+
+
+</div>
+
+
+
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#metric-instance_method" title="#metric (instance method)">#<strong>metric</strong>  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the metric of index.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_item-instance_method" title="#add_item (instance method)">#<strong>add_item</strong>(i, v)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Add item to be indexed.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_distance-instance_method" title="#get_distance (instance method)">#<strong>get_distance</strong>(i, j)  &#x21d2; Float or Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Calculate the distances between items.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_item-instance_method" title="#get_item (instance method)">#<strong>get_item</strong>(i)  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the item vector.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_nns_by_item-instance_method" title="#get_nns_by_item (instance method)">#<strong>get_nns_by_item</strong>(i, n, include_distances: false)  &#x21d2; Array&lt;Integer&gt; or Array&lt;Array&lt;Integer&gt;, Array&lt;Float&gt;&gt; </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Search the n closest items.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_nns_by_vector-instance_method" title="#get_nns_by_vector (instance method)">#<strong>get_nns_by_vector</strong>(v, n, include_distances: false)  &#x21d2; Array&lt;Integer&gt; or Array&lt;Array&lt;Integer&gt;, Array&lt;Float&gt;&gt; </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Search the n closest items.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(n_features:, max_item:, metric: &#39;l2&#39;, m: 16, ef_construction: 200, random_seed: 100)  &#x21d2; Index </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new search index.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#load-instance_method" title="#load (instance method)">#<strong>load</strong>(filename)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Load a search index from disk.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#max_item-instance_method" title="#max_item (instance method)">#<strong>max_item</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the maximum number of items.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#n_features-instance_method" title="#n_features (instance method)">#<strong>n_features</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the number of features of indexed item.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#n_items-instance_method" title="#n_items (instance method)">#<strong>n_items</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the number of items in the search index.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#remove_item-instance_method" title="#remove_item (instance method)">#<strong>remove_item</strong>(i)  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Remove the item vector.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#resize_index-instance_method" title="#resize_index (instance method)">#<strong>resize_index</strong>(new_max_item)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Reize the search index.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#save-instance_method" title="#save (instance method)">#<strong>save</strong>(filename)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Save the search index to disk.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_ef-instance_method" title="#set_ef (instance method)">#<strong>set_ef</strong>(ef)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Set the size of the dynamic list for the nearest neighbors.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(n_features:, max_item:, metric: &#39;l2&#39;, m: 16, ef_construction: 200, random_seed: 100)  &#x21d2; <tt><span class='object_link'><a href="" title="Hnswlib::Index (class)">Index</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Create a new search index.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>n_features</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The number of features (dimensions) of stored vector.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>max_item</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The maximum number of items.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metric</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;l2&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The distance metric between vectors (&#39;l2&#39; or &#39;dot&#39;).</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>m</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>16</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The maximum number of outgoing connections in the graph</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ef_construction</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>200</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The size of the dynamic list for the nearest neighbors. It controls the index time/accuracy trade-off.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>random_seed</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>100</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The seed value using to initialize the random generator.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>n_features:</span><span class='comma'>,</span> <span class='label'>max_item:</span><span class='comma'>,</span> <span class='label'>metric:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>l2</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>m:</span> <span class='int'>16</span><span class='comma'>,</span> <span class='label'>ef_construction:</span> <span class='int'>200</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='int'>100</span><span class='rparen'>)</span>
+  <span class='ivar'>@metric</span> <span class='op'>=</span> <span class='id identifier rubyid_metric'>metric</span>
+  <span class='id identifier rubyid_space'>space</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='ivar'>@metric</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>dot</span><span class='tstring_end'>&#39;</span></span>
+            <span class='const'><span class='object_link'><a href="../Hnswlib.html" title="Hnswlib (module)">Hnswlib</a></span></span><span class='op'>::</span><span class='const'>InnerProductSpace</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_n_features'>n_features</span><span class='rparen'>)</span>
+          <span class='kw'>else</span>
+            <span class='const'><span class='object_link'><a href="../Hnswlib.html" title="Hnswlib (module)">Hnswlib</a></span></span><span class='op'>::</span><span class='const'>L2Space</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_n_features'>n_features</span><span class='rparen'>)</span>
+          <span class='kw'>end</span>
+  <span class='ivar'>@index</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Hnswlib.html" title="Hnswlib (module)">Hnswlib</a></span></span><span class='op'>::</span><span class='const'>HierarchicalNSW</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
+    <span class='label'>space:</span> <span class='id identifier rubyid_space'>space</span><span class='comma'>,</span> <span class='label'>max_elements:</span> <span class='id identifier rubyid_max_item'>max_item</span><span class='comma'>,</span> <span class='label'>m:</span> <span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='label'>ef_construction:</span> <span class='id identifier rubyid_ef_construction'>ef_construction</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='id identifier rubyid_random_seed'>random_seed</span>
+  <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="metric-instance_method">
+  
+    #<strong>metric</strong>  &#x21d2; <tt>String</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the metric of index.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+24
+25
+26</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 24</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_metric'>metric</span>
+  <span class='ivar'>@metric</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="add_item-instance_method">
+  
+    #<strong>add_item</strong>(i, v)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Add item to be indexed.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>i</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The ID of item.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>v</span>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The vector of item.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+51
+52
+53</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 51</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_add_item'>add_item</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
+  <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_add_point'>add_point</span><span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span><span class='comma'>,</span> <span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_distance-instance_method">
+  
+    #<strong>get_distance</strong>(i, j)  &#x21d2; <tt>Float or Integer</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Calculate the distances between items.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>i</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The ID of item.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>j</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The ID of item.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Float or Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+127
+128
+129
+130
+131</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 127</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_distance'>get_distance</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span> <span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_vi'>vi</span> <span class='op'>=</span> <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_get_point'>get_point</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_vj'>vj</span> <span class='op'>=</span> <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_get_point'>get_point</span><span class='lparen'>(</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>
+  <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_space'>space</span><span class='period'>.</span><span class='id identifier rubyid_distance'>distance</span><span class='lparen'>(</span><span class='id identifier rubyid_vi'>vi</span><span class='comma'>,</span> <span class='id identifier rubyid_vj'>vj</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_item-instance_method">
+  
+    #<strong>get_item</strong>(i)  &#x21d2; <tt>Array</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the item vector.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>i</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The ID of item.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_item'>get_item</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span>
+  <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_get_point'>get_point</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_nns_by_item-instance_method">
+  
+    #<strong>get_nns_by_item</strong>(i, n, include_distances: false)  &#x21d2; <tt>Array&lt;Integer&gt; or Array&lt;Array&lt;Integer&gt;, Array&lt;Float&gt;&gt;</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Search the n closest items.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>i</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The ID of query item.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>n</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The number of nearest neighbors.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>include_distances</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The flag indicating whether to returns all corresponding distances.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;Integer&gt; or Array&lt;Array&lt;Integer&gt;, Array&lt;Float&gt;&gt;</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+77
+78
+79
+80
+81</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 77</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_nns_by_item'>get_nns_by_item</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span> <span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='label'>include_distances:</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_v'>v</span> <span class='op'>=</span> <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_get_point'>get_point</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_ids'>ids</span><span class='comma'>,</span> <span class='id identifier rubyid_dists'>dists</span> <span class='op'>=</span> <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_search_knn'>search_knn</span><span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span><span class='comma'>,</span> <span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_include_distances'>include_distances</span> <span class='op'>?</span> <span class='lbracket'>[</span><span class='id identifier rubyid_ids'>ids</span><span class='comma'>,</span> <span class='id identifier rubyid_dists'>dists</span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='id identifier rubyid_ids'>ids</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_nns_by_vector-instance_method">
+  
+    #<strong>get_nns_by_vector</strong>(v, n, include_distances: false)  &#x21d2; <tt>Array&lt;Integer&gt; or Array&lt;Array&lt;Integer&gt;, Array&lt;Float&gt;&gt;</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Search the n closest items.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>v</span>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The vector of query item.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>n</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The number of nearest neighbors.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>include_distances</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The flag indicating whether to returns all corresponding distances.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;Integer&gt; or Array&lt;Array&lt;Integer&gt;, Array&lt;Float&gt;&gt;</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+89
+90
+91
+92</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 89</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_nns_by_vector'>get_nns_by_vector</span><span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span><span class='comma'>,</span> <span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='label'>include_distances:</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_ids'>ids</span><span class='comma'>,</span> <span class='id identifier rubyid_dists'>dists</span> <span class='op'>=</span> <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_search_knn'>search_knn</span><span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span><span class='comma'>,</span> <span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_include_distances'>include_distances</span> <span class='op'>?</span> <span class='lbracket'>[</span><span class='id identifier rubyid_ids'>ids</span><span class='comma'>,</span> <span class='id identifier rubyid_dists'>dists</span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='id identifier rubyid_ids'>ids</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="load-instance_method">
+  
+    #<strong>load</strong>(filename)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Load a search index from disk.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>filename</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The filename of search index.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+118
+119
+120</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 118</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
+  <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_load_index'>load_index</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="max_item-instance_method">
+  
+    #<strong>max_item</strong>  &#x21d2; <tt>Integer</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the maximum number of items.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+150
+151
+152</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 150</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_max_item'>max_item</span>
+  <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_max_elements'>max_elements</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="n_features-instance_method">
+  
+    #<strong>n_features</strong>  &#x21d2; <tt>Integer</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the number of features of indexed item.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+143
+144
+145</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 143</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_n_features'>n_features</span>
+  <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_space'>space</span><span class='period'>.</span><span class='id identifier rubyid_dim'>dim</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="n_items-instance_method">
+  
+    #<strong>n_items</strong>  &#x21d2; <tt>Integer</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the number of items in the search index.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+136
+137
+138</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 136</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_n_items'>n_items</span>
+  <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_current_count'>current_count</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="remove_item-instance_method">
+  
+    #<strong>remove_item</strong>(i)  &#x21d2; <tt>Array</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Remove the item vector.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>i</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The ID of item.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+67
+68
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 67</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_remove_item'>remove_item</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span>
+  <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_mark_deleted'>mark_deleted</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="resize_index-instance_method">
+  
+    #<strong>resize_index</strong>(new_max_item)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Reize the search index.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>new_max_item</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The maximum number of items.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+97
+98
+99</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 97</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_resize_index'>resize_index</span><span class='lparen'>(</span><span class='id identifier rubyid_new_max_item'>new_max_item</span><span class='rparen'>)</span>
+  <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_reisze_index'>reisze_index</span><span class='lparen'>(</span><span class='id identifier rubyid_new_max_item'>new_max_item</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="save-instance_method">
+  
+    #<strong>save</strong>(filename)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Save the search index to disk.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>filename</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The filename of search index.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+111
+112
+113</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 111</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_save'>save</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
+  <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_save_index'>save_index</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="set_ef-instance_method">
+  
+    #<strong>set_ef</strong>(ef)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Set the size of the dynamic list for the nearest neighbors.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>ef</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The size of the dynamic list.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+104
+105
+106</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 104</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_set_ef'>set_ef</span><span class='lparen'>(</span><span class='id identifier rubyid_ef'>ef</span><span class='rparen'>)</span>
+  <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_set_ef'>set_ef</span><span class='lparen'>(</span><span class='id identifier rubyid_ef'>ef</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Sat Jul 24 17:48:31 2021 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.26 (ruby-2.7.4).
+</div>
+
+    </div>
+  </body>
+</html>
