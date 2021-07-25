@@ -421,7 +421,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#remove_item-instance_method" title="#remove_item (instance method)">#<strong>remove_item</strong>(i)  &#x21d2; Array </a>
+      <a href="#remove_item-instance_method" title="#remove_item (instance method)">#<strong>remove_item</strong>(i)  &#x21d2; Object </a>
     
 
     
@@ -672,11 +672,11 @@
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>n_features:</span><span class='comma'>,</span> <span class='label'>max_item:</span><span class='comma'>,</span> <span class='label'>metric:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>l2</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>m:</span> <span class='int'>16</span><span class='comma'>,</span> <span class='label'>ef_construction:</span> <span class='int'>200</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='int'>100</span><span class='rparen'>)</span>
   <span class='ivar'>@metric</span> <span class='op'>=</span> <span class='id identifier rubyid_metric'>metric</span>
   <span class='id identifier rubyid_space'>space</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='ivar'>@metric</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>dot</span><span class='tstring_end'>&#39;</span></span>
-            <span class='const'><span class='object_link'><a href="../Hnswlib.html" title="Hnswlib (module)">Hnswlib</a></span></span><span class='op'>::</span><span class='const'>InnerProductSpace</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_n_features'>n_features</span><span class='rparen'>)</span>
+            <span class='const'><span class='object_link'><a href="../Hnswlib.html" title="Hnswlib (module)">Hnswlib</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="InnerProductSpace.html" title="Hnswlib::InnerProductSpace (class)">InnerProductSpace</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="InnerProductSpace.html#initialize-instance_method" title="Hnswlib::InnerProductSpace#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_n_features'>n_features</span><span class='rparen'>)</span>
           <span class='kw'>else</span>
-            <span class='const'><span class='object_link'><a href="../Hnswlib.html" title="Hnswlib (module)">Hnswlib</a></span></span><span class='op'>::</span><span class='const'>L2Space</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_n_features'>n_features</span><span class='rparen'>)</span>
+            <span class='const'><span class='object_link'><a href="../Hnswlib.html" title="Hnswlib (module)">Hnswlib</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="L2Space.html" title="Hnswlib::L2Space (class)">L2Space</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="L2Space.html#initialize-instance_method" title="Hnswlib::L2Space#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_n_features'>n_features</span><span class='rparen'>)</span>
           <span class='kw'>end</span>
-  <span class='ivar'>@index</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Hnswlib.html" title="Hnswlib (module)">Hnswlib</a></span></span><span class='op'>::</span><span class='const'>HierarchicalNSW</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
+  <span class='ivar'>@index</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Hnswlib.html" title="Hnswlib (module)">Hnswlib</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="HierarchicalNSW.html" title="Hnswlib::HierarchicalNSW (class)">HierarchicalNSW</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="HierarchicalNSW.html#initialize-instance_method" title="Hnswlib::HierarchicalNSW#initialize (method)">new</a></span></span><span class='lparen'>(</span>
     <span class='label'>space:</span> <span class='id identifier rubyid_space'>space</span><span class='comma'>,</span> <span class='label'>max_elements:</span> <span class='id identifier rubyid_max_item'>max_item</span><span class='comma'>,</span> <span class='label'>m:</span> <span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='label'>ef_construction:</span> <span class='id identifier rubyid_ef_construction'>ef_construction</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='id identifier rubyid_random_seed'>random_seed</span>
   <span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -918,14 +918,14 @@
       <pre class="lines">
 
 
+126
 127
 128
 129
-130
-131</pre>
+130</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 127</span>
+      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 126</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_distance'>get_distance</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span> <span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_vi'>vi</span> <span class='op'>=</span> <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_get_point'>get_point</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span>
@@ -1104,14 +1104,14 @@
       <pre class="lines">
 
 
+76
 77
 78
 79
-80
-81</pre>
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 77</span>
+      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 76</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_nns_by_item'>get_nns_by_item</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span> <span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='label'>include_distances:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_v'>v</span> <span class='op'>=</span> <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_get_point'>get_point</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span>
@@ -1216,13 +1216,13 @@
       <pre class="lines">
 
 
+88
 89
 90
-91
-92</pre>
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 88</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_nns_by_vector'>get_nns_by_vector</span><span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span><span class='comma'>,</span> <span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='label'>include_distances:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_ids'>ids</span><span class='comma'>,</span> <span class='id identifier rubyid_dists'>dists</span> <span class='op'>=</span> <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_search_knn'>search_knn</span><span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span><span class='comma'>,</span> <span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span>
@@ -1279,12 +1279,12 @@
       <pre class="lines">
 
 
+117
 118
-119
-120</pre>
+119</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 118</span>
+      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 117</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_load_index'>load_index</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
@@ -1333,12 +1333,12 @@
       <pre class="lines">
 
 
+149
 150
-151
-152</pre>
+151</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 150</span>
+      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 149</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_max_item'>max_item</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_max_elements'>max_elements</span>
@@ -1387,12 +1387,12 @@
       <pre class="lines">
 
 
+142
 143
-144
-145</pre>
+144</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 143</span>
+      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 142</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_n_features'>n_features</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_space'>space</span><span class='period'>.</span><span class='id identifier rubyid_dim'>dim</span>
@@ -1441,12 +1441,12 @@
       <pre class="lines">
 
 
+135
 136
-137
-138</pre>
+137</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 136</span>
+      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 135</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_n_items'>n_items</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_current_count'>current_count</span>
@@ -1459,7 +1459,7 @@
       <div class="method_details ">
   <h3 class="signature " id="remove_item-instance_method">
   
-    #<strong>remove_item</strong>(i)  &#x21d2; <tt>Array</tt> 
+    #<strong>remove_item</strong>(i)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -1495,19 +1495,6 @@
   
 </ul>
 
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Array</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
 
 </div><table class="source_code">
   <tr>
@@ -1515,12 +1502,12 @@
       <pre class="lines">
 
 
+66
 67
-68
-69</pre>
+68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 67</span>
+      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 66</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_remove_item'>remove_item</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_mark_deleted'>mark_deleted</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span>
@@ -1576,12 +1563,12 @@
       <pre class="lines">
 
 
+96
 97
-98
-99</pre>
+98</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 97</span>
+      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 96</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_resize_index'>resize_index</span><span class='lparen'>(</span><span class='id identifier rubyid_new_max_item'>new_max_item</span><span class='rparen'>)</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_reisze_index'>reisze_index</span><span class='lparen'>(</span><span class='id identifier rubyid_new_max_item'>new_max_item</span><span class='rparen'>)</span>
@@ -1637,12 +1624,12 @@
       <pre class="lines">
 
 
+110
 111
-112
-113</pre>
+112</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 111</span>
+      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 110</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_save'>save</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_save_index'>save_index</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
@@ -1698,12 +1685,12 @@
       <pre class="lines">
 
 
+103
 104
-105
-106</pre>
+105</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 104</span>
+      <pre class="code"><span class="info file"># File 'lib/hnswlib.rb', line 103</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_set_ef'>set_ef</span><span class='lparen'>(</span><span class='id identifier rubyid_ef'>ef</span><span class='rparen'>)</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_set_ef'>set_ef</span><span class='lparen'>(</span><span class='id identifier rubyid_ef'>ef</span><span class='rparen'>)</span>
@@ -1718,9 +1705,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Jul 24 17:48:31 2021 by
+  Generated on Sun Jul 25 22:17:47 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.7.4).
+  0.9.26 (ruby-3.0.2).
 </div>
 
     </div>
