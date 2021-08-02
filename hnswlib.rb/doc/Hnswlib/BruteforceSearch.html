@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: Hnswlib::HierarchicalNSW
+  Class: Hnswlib::BruteforceSearch
   
     &mdash; Documentation by YARD 0.9.26
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "Hnswlib::HierarchicalNSW";
+  pathId = "Hnswlib::BruteforceSearch";
   relpath = '../';
 </script>
 
@@ -36,10 +36,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../_index.html">Index (H)</a> &raquo;
+    <a href="../_index.html">Index (B)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../Hnswlib.html" title="Hnswlib (module)">Hnswlib</a></span></span>
      &raquo; 
-    <span class="title">HierarchicalNSW</span>
+    <span class="title">BruteforceSearch</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: Hnswlib::HierarchicalNSW
+      <div id="content"><h1>Class: Hnswlib::BruteforceSearch
   
   
   
@@ -74,7 +74,7 @@
         <ul class="fullTree">
           <li>Object</li>
           
-            <li class="next">Hnswlib::HierarchicalNSW</li>
+            <li class="next">Hnswlib::BruteforceSearch</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -102,7 +102,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>HierarchicalNSW is a class that provides functions for approximate k-NN search. This class is used internally.</p>
+<p>BruteforceSearch is a class that provides functions for exct k-NN search. This class is useful for evaluating the search accuracy and investigating the optimal hyperparameters of HierarchicalNSW.</p>
 
 
   </div>
@@ -210,55 +210,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_ids-instance_method" title="#get_ids (instance method)">#<strong>get_ids</strong>  &#x21d2; Array </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Return the indices of stored items.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#get_point-instance_method" title="#get_point (instance method)">#<strong>get_point</strong>(idx)  &#x21d2; Array </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Return the item vector.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(space:, max_elements:, m: 16, ef_construction: 200, random_seed: 100)  &#x21d2; HierarchicalNSW </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(space:, max_elements:)  &#x21d2; BruteforceSearch </a>
     
 
     
@@ -275,7 +227,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Create a new HierarchicalNSW.</p>
+<p>Create a new BruteforceSearch.</p>
 </div></span>
   
 </li>
@@ -308,30 +260,6 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#mark_deleted-instance_method" title="#mark_deleted (instance method)">#<strong>mark_deleted</strong>(idx)  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Mark the item as deleted.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#max_elements-instance_method" title="#max_elements (instance method)">#<strong>max_elements</strong>  &#x21d2; Integer </a>
     
 
@@ -356,7 +284,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#resize_index-instance_method" title="#resize_index (instance method)">#<strong>resize_index</strong>(new_max_item)  &#x21d2; Object </a>
+      <a href="#remove_point-instance_method" title="#remove_point (instance method)">#<strong>remove_point</strong>(idx)  &#x21d2; Object </a>
     
 
     
@@ -371,7 +299,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Reize the search index.</p>
+<p>Remove the item from index.</p>
 </div></span>
   
 </li>
@@ -425,30 +353,6 @@
 </li>
 
       
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#set_ef-instance_method" title="#set_ef (instance method)">#<strong>set_ef</strong>(new_ef)  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Set the size of the dynamic list for the nearest neighbors.</p>
-</div></span>
-  
-</li>
-
-      
     </ul>
   
 
@@ -458,7 +362,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(space:, max_elements:, m: 16, ef_construction: 200, random_seed: 100)  &#x21d2; <tt><span class='object_link'><a href="" title="Hnswlib::HierarchicalNSW (class)">HierarchicalNSW</a></span></tt> 
+    #<strong>initialize</strong>(space:, max_elements:)  &#x21d2; <tt><span class='object_link'><a href="" title="Hnswlib::BruteforceSearch (class)">BruteforceSearch</a></span></tt> 
   
 
   
@@ -467,7 +371,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Create a new HierarchicalNSW.</p>
+<p>Create a new BruteforceSearch</p>
 
 
   </div>
@@ -508,60 +412,6 @@
       
     </li>
   
-    <li>
-      
-        <span class='name'>m</span>
-      
-      
-        <span class='type'>(<tt>Integer</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>16</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The maximum number of outgoing connections in the graph</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>ef_construction</span>
-      
-      
-        <span class='type'>(<tt>Integer</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>200</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The size of the dynamic list for the nearest neighbors.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>random_seed</span>
-      
-      
-        <span class='type'>(<tt>Integer</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>100</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The seed value using to initialize the random generator.</p>
-</div>
-      
-    </li>
-  
 </ul>
 
 
@@ -571,14 +421,14 @@
       <pre class="lines">
 
 
-62
-63
-64</pre>
+138
+139
+140</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/hnswlib/dummy.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'ext/hnswlib/dummy.rb', line 138</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>space:</span><span class='comma'>,</span> <span class='label'>max_elements:</span><span class='comma'>,</span> <span class='label'>m:</span> <span class='int'>16</span><span class='comma'>,</span> <span class='label'>ef_construction:</span> <span class='int'>200</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='int'>100</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>space:</span><span class='comma'>,</span> <span class='label'>max_elements:</span><span class='rparen'>)</span>
   <span class='ivar'>@space</span> <span class='op'>=</span> <span class='id identifier rubyid_space'>space</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -632,12 +482,12 @@
       <pre class="lines">
 
 
-53
-54
-55</pre>
+132
+133
+134</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/hnswlib/dummy.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'ext/hnswlib/dummy.rb', line 132</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_space'>space</span>
   <span class='ivar'>@space</span>
@@ -729,10 +579,10 @@
       <pre class="lines">
 
 
-71</pre>
+147</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/hnswlib/dummy.rb', line 71</span>
+      <pre class="code"><span class="info file"># File 'ext/hnswlib/dummy.rb', line 147</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_point'>add_point</span><span class='lparen'>(</span><span class='id identifier rubyid_arr'>arr</span><span class='comma'>,</span> <span class='id identifier rubyid_idx'>idx</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -779,132 +629,12 @@
       <pre class="lines">
 
 
-124</pre>
+179</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/hnswlib/dummy.rb', line 124</span>
+      <pre class="code"><span class="info file"># File 'ext/hnswlib/dummy.rb', line 179</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_current_count'>current_count</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="get_ids-instance_method">
-  
-    #<strong>get_ids</strong>  &#x21d2; <tt>Array</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Return the indices of stored items.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Array</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-99</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'ext/hnswlib/dummy.rb', line 99</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_get_ids'>get_ids</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="get_point-instance_method">
-  
-    #<strong>get_point</strong>(idx)  &#x21d2; <tt>Array</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Return the item vector.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>idx</span>
-      
-      
-        <span class='type'>(<tt>Integer</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The ID of item.</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Array</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-94</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'ext/hnswlib/dummy.rb', line 94</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_get_point'>get_point</span><span class='lparen'>(</span><span class='id identifier rubyid_idx'>idx</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -956,69 +686,12 @@
       <pre class="lines">
 
 
-88</pre>
+164</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/hnswlib/dummy.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'ext/hnswlib/dummy.rb', line 164</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_load_index'>load_index</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="mark_deleted-instance_method">
-  
-    #<strong>mark_deleted</strong>(idx)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Mark the item as deleted.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>idx</span>
-      
-      
-        <span class='type'>(<tt>Integer</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The ID of item.</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-104</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'ext/hnswlib/dummy.rb', line 104</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_mark_deleted'>mark_deleted</span><span class='lparen'>(</span><span class='id identifier rubyid_idx'>idx</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -1063,10 +736,10 @@
       <pre class="lines">
 
 
-119</pre>
+174</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/hnswlib/dummy.rb', line 119</span>
+      <pre class="code"><span class="info file"># File 'ext/hnswlib/dummy.rb', line 174</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_max_elements'>max_elements</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1075,9 +748,9 @@
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="resize_index-instance_method">
+  <h3 class="signature " id="remove_point-instance_method">
   
-    #<strong>resize_index</strong>(new_max_item)  &#x21d2; <tt>Object</tt> 
+    #<strong>remove_point</strong>(idx)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -1086,7 +759,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Reize the search index.</p>
+<p>Remove the item from index.</p>
 
 
   </div>
@@ -1097,7 +770,7 @@
   
     <li>
       
-        <span class='name'>new_max_item</span>
+        <span class='name'>idx</span>
       
       
         <span class='type'>(<tt>Integer</tt>)</span>
@@ -1106,7 +779,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The maximum number of items.</p>
+<p>The ID of item.</p>
 </div>
       
     </li>
@@ -1120,12 +793,12 @@
       <pre class="lines">
 
 
-109</pre>
+169</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/hnswlib/dummy.rb', line 109</span>
+      <pre class="code"><span class="info file"># File 'ext/hnswlib/dummy.rb', line 169</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_resize_index'>resize_index</span><span class='lparen'>(</span><span class='id identifier rubyid_new_max_item'>new_max_item</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_remove_point'>remove_point</span><span class='lparen'>(</span><span class='id identifier rubyid_idx'>idx</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -1177,10 +850,10 @@
       <pre class="lines">
 
 
-83</pre>
+159</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/hnswlib/dummy.rb', line 83</span>
+      <pre class="code"><span class="info file"># File 'ext/hnswlib/dummy.rb', line 159</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_save_index'>save_index</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1263,69 +936,12 @@
       <pre class="lines">
 
 
-78</pre>
+154</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/hnswlib/dummy.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'ext/hnswlib/dummy.rb', line 154</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_search_knn'>search_knn</span><span class='lparen'>(</span><span class='id identifier rubyid_arr'>arr</span><span class='comma'>,</span> <span class='id identifier rubyid_k'>k</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="set_ef-instance_method">
-  
-    #<strong>set_ef</strong>(new_ef)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Set the size of the dynamic list for the nearest neighbors.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>new_ef</span>
-      
-      
-        <span class='type'>(<tt>Integer</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The size of the dynamic list.</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-114</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'ext/hnswlib/dummy.rb', line 114</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_set_ef'>set_ef</span><span class='lparen'>(</span><span class='id identifier rubyid_new_ef'>new_ef</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
