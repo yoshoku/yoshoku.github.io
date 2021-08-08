@@ -109,6 +109,22 @@
 </div>
 <div class="tags">
   
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>hnswlib</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>=</span> <span class='int'>3</span>
+<span class='id identifier rubyid_space'>space</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Hnswlib.html" title="Hnswlib (module)">Hnswlib</a></span></span><span class='op'>::</span><span class='const'>L2Space</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Hnswlib::L2Space#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_n_features'>n_features</span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_a'>a</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rbracket'>]</span>
+<span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>4</span><span class='comma'>,</span> <span class='int'>5</span><span class='comma'>,</span> <span class='int'>6</span><span class='rbracket'>]</span>
+<span class='id identifier rubyid_space'>space</span><span class='period'>.</span><span class='id identifier rubyid_distance'>distance</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span>
+<span class='comment'># =&gt; 27.0</span></code></pre>
+    
+  </div>
+
 
 </div>
 
@@ -227,12 +243,12 @@
       <pre class="lines">
 
 
-12
-13
-14</pre>
+23
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/hnswlib/dummy.rb', line 12</span>
+      <pre class="code"><span class="info file"># File 'ext/hnswlib/dummy.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_dim'>dim</span><span class='rparen'>)</span>
   <span class='ivar'>@dim</span> <span class='op'>=</span> <span class='id identifier rubyid_dim'>dim</span>
@@ -324,12 +340,12 @@
       <pre class="lines">
 
 
-22
-23
-24</pre>
+33
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/hnswlib/dummy.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'ext/hnswlib/dummy.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_distance'>distance</span><span class='lparen'>(</span><span class='id identifier rubyid_arr_a'>arr_a</span><span class='comma'>,</span> <span class='id identifier rubyid_arr_b'>arr_b</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_zip'>zip</span><span class='lparen'>(</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_v'>v</span><span class='op'>|</span> <span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>-</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='op'>**</span><span class='int'>2</span> <span class='rbrace'>}</span>
@@ -344,7 +360,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Aug  2 12:21:56 2021 by
+  Generated on Sun Aug  8 11:52:01 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.2).
 </div>
