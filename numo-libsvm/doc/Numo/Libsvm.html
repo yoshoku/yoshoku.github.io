@@ -78,8 +78,8 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>ext/numo/libsvm/libsvmext.c<span class="defines">,<br />
-  lib/numo/libsvm/version.rb,<br /> ext/numo/libsvm/libsvmext.c</span>
+    <dd>ext/numo/libsvm/libsvmext.cpp<span class="defines">,<br />
+  lib/numo/libsvm/version.rb,<br /> ext/numo/libsvm/libsvmext.cpp</span>
 </dd>
   </dl>
   
@@ -129,7 +129,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1.1.1</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>2.0.0</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
         <dt id="LIBSVM_VERSION-constant" class="">LIBSVM_VERSION =
           <div class="docstring">
@@ -505,175 +505,7 @@
   
 </ul>
 
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-162
-163
-164
-165
-166
-167
-168
-169
-170
-171
-172
-173
-174
-175
-176
-177
-178
-179
-180
-181
-182
-183
-184
-185
-186
-187
-188
-189
-190
-191
-192
-193
-194
-195
-196
-197
-198
-199
-200
-201
-202
-203
-204
-205
-206
-207
-208
-209
-210
-211
-212
-213
-214
-215
-216
-217
-218
-219
-220
-221
-222
-223
-224
-225
-226
-227
-228
-229
-230
-231
-232
-233
-234
-235
-236
-237
-238
-239</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'ext/numo/libsvm/libsvmext.c', line 162</span>
-
-static
-VALUE cross_validation(VALUE self, VALUE x_val, VALUE y_val, VALUE param_hash, VALUE nr_folds)
-{
-  const int n_folds = NUM2INT(nr_folds);
-  size_t t_shape[1];
-  VALUE t_val;
-  double* t_pt;
-  narray_t* x_nary;
-  narray_t* y_nary;
-  char* err_msg;
-  VALUE random_seed;
-  VALUE verbose;
-  struct svm_problem* problem;
-  struct svm_parameter* param;
-
-  if (CLASS_OF(x_val) != numo_cDFloat) {
-    x_val = rb_funcall(numo_cDFloat, rb_intern(&quot;cast&quot;), 1, x_val);
-  }
-  if (CLASS_OF(y_val) != numo_cDFloat) {
-    y_val = rb_funcall(numo_cDFloat, rb_intern(&quot;cast&quot;), 1, y_val);
-  }
-  if (!RTEST(nary_check_contiguous(x_val))) {
-    x_val = nary_dup(x_val);
-  }
-  if (!RTEST(nary_check_contiguous(y_val))) {
-    y_val = nary_dup(y_val);
-  }
-
-  GetNArray(x_val, x_nary);
-  GetNArray(y_val, y_nary);
-  if (NA_NDIM(x_nary) != 2) {
-    rb_raise(rb_eArgError, &quot;Expect samples to be 2-D array.&quot;);
-    return Qnil;
-  }
-  if (NA_NDIM(y_nary) != 1) {
-    rb_raise(rb_eArgError, &quot;Expect label or target values to be 1-D arrray.&quot;);
-    return Qnil;
-  }
-  if (NA_SHAPE(x_nary)[0] != NA_SHAPE(y_nary)[0]) {
-    rb_raise(rb_eArgError, &quot;Expect to have the same number of samples for samples and labels.&quot;);
-    return Qnil;
-  }
-
-  random_seed = rb_hash_aref(param_hash, ID2SYM(rb_intern(&quot;random_seed&quot;)));
-  if (!NIL_P(random_seed)) {
-    srand(NUM2UINT(random_seed));
-  }
-
-  param = rb_hash_to_svm_parameter(param_hash);
-  problem = dataset_to_svm_problem(x_val, y_val);
-
-  err_msg = svm_check_parameter(problem, param);
-  if (err_msg) {
-    xfree_svm_problem(problem);
-    xfree_svm_parameter(param);
-    rb_raise(rb_eArgError, &quot;Invalid LIBSVM parameter is given: %s&quot;, err_msg);
-    return Qnil;
-  }
-
-  t_shape[0] = problem-&gt;l;
-  t_val = rb_narray_new(numo_cDFloat, 1, t_shape);
-  t_pt = (double*)na_get_pointer_for_write(t_val);
-
-  verbose = rb_hash_aref(param_hash, ID2SYM(rb_intern(&quot;verbose&quot;)));
-  if (verbose != Qtrue) {
-    svm_set_print_string_function(print_null);
-  }
-
-  svm_cross_validation(problem, param, n_folds, t_pt);
-
-  xfree_svm_problem(problem);
-  xfree_svm_parameter(param);
-
-  RB_GC_GUARD(x_val);
-  RB_GC_GUARD(y_val);
-
-  return t_val;
-}</pre>
-    </td>
-  </tr>
-</table>
+</div>
 </div>
     
       <div class="method_details ">
@@ -795,179 +627,7 @@ VALUE cross_validation(VALUE self, VALUE x_val, VALUE y_val, VALUE param_hash, V
   
 </ul>
 
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-320
-321
-322
-323
-324
-325
-326
-327
-328
-329
-330
-331
-332
-333
-334
-335
-336
-337
-338
-339
-340
-341
-342
-343
-344
-345
-346
-347
-348
-349
-350
-351
-352
-353
-354
-355
-356
-357
-358
-359
-360
-361
-362
-363
-364
-365
-366
-367
-368
-369
-370
-371
-372
-373
-374
-375
-376
-377
-378
-379
-380
-381
-382
-383
-384
-385
-386
-387
-388
-389
-390
-391
-392
-393
-394
-395
-396
-397
-398
-399</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'ext/numo/libsvm/libsvmext.c', line 320</span>
-
-static
-VALUE decision_function(VALUE self, VALUE x_val, VALUE param_hash, VALUE model_hash)
-{
-  struct svm_parameter* param;
-  struct svm_model* model;
-  struct svm_node* x_nodes;
-  narray_t* x_nary;
-  double* x_pt;
-  size_t y_shape[2];
-  VALUE y_val;
-  double* y_pt;
-  double* dec_values;
-  int y_cols;
-  int i, j;
-  int n_samples;
-  int n_features;
-
-  /* Obtain C data structures. */
-  if (CLASS_OF(x_val) != numo_cDFloat) {
-    x_val = rb_funcall(numo_cDFloat, rb_intern(&quot;cast&quot;), 1, x_val);
-  }
-  if (!RTEST(nary_check_contiguous(x_val))) {
-    x_val = nary_dup(x_val);
-  }
-
-  GetNArray(x_val, x_nary);
-  if (NA_NDIM(x_nary) != 2) {
-    rb_raise(rb_eArgError, &quot;Expect samples to be 2-D array.&quot;);
-    return Qnil;
-  }
-
-  param = rb_hash_to_svm_parameter(param_hash);
-  model = rb_hash_to_svm_model(model_hash);
-  model-&gt;param = *param;
-
-  /* Initialize some variables. */
-  n_samples = (int)NA_SHAPE(x_nary)[0];
-  n_features = (int)NA_SHAPE(x_nary)[1];
-
-  if (model-&gt;param.svm_type == ONE_CLASS || model-&gt;param.svm_type == EPSILON_SVR || model-&gt;param.svm_type == NU_SVR) {
-    y_shape[0] = n_samples;
-    y_shape[1] = 1;
-    y_val = rb_narray_new(numo_cDFloat, 1, y_shape);
-  } else {
-    y_shape[0] = n_samples;
-    y_shape[1] = model-&gt;nr_class * (model-&gt;nr_class - 1) / 2;
-    y_val = rb_narray_new(numo_cDFloat, 2, y_shape);
-  }
-
-  x_pt = (double*)na_get_pointer_for_read(x_val);
-  y_pt = (double*)na_get_pointer_for_write(y_val);
-
-  /* Predict values. */
-  if (model-&gt;param.svm_type == ONE_CLASS || model-&gt;param.svm_type == EPSILON_SVR || model-&gt;param.svm_type == NU_SVR) {
-    for (i = 0; i &lt; n_samples; i++) {
-      x_nodes = dbl_vec_to_svm_node(&amp;x_pt[i * n_features], n_features);
-      svm_predict_values(model, x_nodes, &amp;y_pt[i]);
-      xfree(x_nodes);
-    }
-  } else {
-    y_cols = (int)y_shape[1];
-    dec_values = ALLOC_N(double, y_cols);
-    for (i = 0; i &lt; n_samples; i++) {
-      x_nodes = dbl_vec_to_svm_node(&amp;x_pt[i * n_features], n_features);
-      svm_predict_values(model, x_nodes, dec_values);
-      xfree(x_nodes);
-      for (j = 0; j &lt; y_cols; j++) {
-        y_pt[i * y_cols + j] = dec_values[j];
-      }
-    }
-    xfree(dec_values);
-  }
-
-  xfree_svm_model(model);
-  xfree_svm_parameter(param);
-
-  RB_GC_GUARD(x_val);
-
-  return y_val;
-}</pre>
-    </td>
-  </tr>
-</table>
+</div>
 </div>
     
       <div class="method_details ">
@@ -984,6 +644,14 @@ VALUE decision_function(VALUE self, VALUE x_val, VALUE param_hash, VALUE model_h
     
 <p>Load the SVM parameters and model from a text file with LIBSVM format.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
 
   </div>
 </div>
@@ -1008,6 +676,9 @@ VALUE decision_function(VALUE self, VALUE x_val, VALUE param_hash, VALUE model_h
     </li>
   
 </ul>
+
+
+</div>
 
 <p class="tag_title">Returns:</p>
 <ul class="return">
@@ -1046,73 +717,7 @@ VALUE decision_function(VALUE self, VALUE x_val, VALUE param_hash, VALUE model_h
   
 </ul>
 
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-485
-486
-487
-488
-489
-490
-491
-492
-493
-494
-495
-496
-497
-498
-499
-500
-501
-502
-503
-504
-505
-506
-507
-508
-509
-510
-511</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'ext/numo/libsvm/libsvmext.c', line 485</span>
-
-static
-VALUE load_svm_model(VALUE self, VALUE filename)
-{
-  char* filename_ = StringValuePtr(filename);
-  struct svm_model* model = svm_load_model(filename_);
-  VALUE res = rb_ary_new2(2);
-  VALUE param_hash = Qnil;
-  VALUE model_hash = Qnil;
-
-  if (model == NULL) {
-    rb_raise(rb_eIOError, &quot;Failed to load file &#39;%s&#39;&quot;, filename_);
-    return Qnil;
-  }
-
-  if (model) {
-    param_hash = svm_parameter_to_rb_hash(&amp;(model-&gt;param));
-    model_hash = svm_model_to_rb_hash(model);
-    svm_free_and_destroy_model(&amp;model);
-  }
-
-  rb_ary_store(res, 0, param_hash);
-  rb_ary_store(res, 1, model_hash);
-
-  RB_GC_GUARD(filename);
-
-  return res;
-}</pre>
-    </td>
-  </tr>
-</table>
+</div>
 </div>
     
       <div class="method_details ">
@@ -1234,131 +839,7 @@ VALUE load_svm_model(VALUE self, VALUE filename)
   
 </ul>
 
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-252
-253
-254
-255
-256
-257
-258
-259
-260
-261
-262
-263
-264
-265
-266
-267
-268
-269
-270
-271
-272
-273
-274
-275
-276
-277
-278
-279
-280
-281
-282
-283
-284
-285
-286
-287
-288
-289
-290
-291
-292
-293
-294
-295
-296
-297
-298
-299
-300
-301
-302
-303
-304
-305
-306
-307</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'ext/numo/libsvm/libsvmext.c', line 252</span>
-
-static
-VALUE predict(VALUE self, VALUE x_val, VALUE param_hash, VALUE model_hash)
-{
-  struct svm_parameter* param;
-  struct svm_model* model;
-  struct svm_node* x_nodes;
-  narray_t* x_nary;
-  double* x_pt;
-  size_t y_shape[1];
-  VALUE y_val;
-  double* y_pt;
-  int i, j, k;
-  int n_samples;
-  int n_features;
-  int n_nonzero_features;
-
-  /* Obtain C data structures. */
-  if (CLASS_OF(x_val) != numo_cDFloat) {
-    x_val = rb_funcall(numo_cDFloat, rb_intern(&quot;cast&quot;), 1, x_val);
-  }
-  if (!RTEST(nary_check_contiguous(x_val))) {
-    x_val = nary_dup(x_val);
-  }
-
-  GetNArray(x_val, x_nary);
-  if (NA_NDIM(x_nary) != 2) {
-    rb_raise(rb_eArgError, &quot;Expect samples to be 2-D array.&quot;);
-    return Qnil;
-  }
-
-  param = rb_hash_to_svm_parameter(param_hash);
-  model = rb_hash_to_svm_model(model_hash);
-  model-&gt;param = *param;
-
-  /* Initialize some variables. */
-  n_samples = (int)NA_SHAPE(x_nary)[0];
-  n_features = (int)NA_SHAPE(x_nary)[1];
-  y_shape[0] = n_samples;
-  y_val = rb_narray_new(numo_cDFloat, 1, y_shape);
-  y_pt = (double*)na_get_pointer_for_write(y_val);
-  x_pt = (double*)na_get_pointer_for_read(x_val);
-
-  /* Predict values. */
-  for (i = 0; i &lt; n_samples; i++) {
-    x_nodes = dbl_vec_to_svm_node(&amp;x_pt[i * n_features], n_features);
-    y_pt[i] = svm_predict(model, x_nodes);
-    xfree(x_nodes);
-  }
-
-  xfree_svm_model(model);
-  xfree_svm_parameter(param);
-
-  RB_GC_GUARD(x_val);
-
-  return y_val;
-}</pre>
-    </td>
-  </tr>
-</table>
+</div>
 </div>
     
       <div class="method_details ">
@@ -1373,7 +854,7 @@ VALUE predict(VALUE self, VALUE x_val, VALUE param_hash, VALUE model_hash)
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Predict class probability for given samples. The model must have probability information calcualted in training procedure. The parameter &#39;:probability&#39; set to 1 in training procedure.</p>
+<p>Predict class probability for given samples. The model must have probability information calcualted in training procedure. The parameter ‘:probability’ set to 1 in training procedure.</p>
 
 
   </div>
@@ -1480,147 +961,7 @@ VALUE predict(VALUE self, VALUE x_val, VALUE param_hash, VALUE model_hash)
   
 </ul>
 
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-413
-414
-415
-416
-417
-418
-419
-420
-421
-422
-423
-424
-425
-426
-427
-428
-429
-430
-431
-432
-433
-434
-435
-436
-437
-438
-439
-440
-441
-442
-443
-444
-445
-446
-447
-448
-449
-450
-451
-452
-453
-454
-455
-456
-457
-458
-459
-460
-461
-462
-463
-464
-465
-466
-467
-468
-469
-470
-471
-472
-473
-474
-475
-476</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'ext/numo/libsvm/libsvmext.c', line 413</span>
-
-static
-VALUE predict_proba(VALUE self, VALUE x_val, VALUE param_hash, VALUE model_hash)
-{
-  struct svm_parameter* param;
-  struct svm_model* model;
-  struct svm_node* x_nodes;
-  narray_t* x_nary;
-  double* x_pt;
-  size_t y_shape[2];
-  VALUE y_val = Qnil;
-  double* y_pt;
-  double* probs;
-  int i, j;
-  int n_samples;
-  int n_features;
-
-  GetNArray(x_val, x_nary);
-  if (NA_NDIM(x_nary) != 2) {
-    rb_raise(rb_eArgError, &quot;Expect samples to be 2-D array.&quot;);
-    return Qnil;
-  }
-
-  param = rb_hash_to_svm_parameter(param_hash);
-  model = rb_hash_to_svm_model(model_hash);
-  model-&gt;param = *param;
-
-  if ((model-&gt;param.svm_type == C_SVC || model-&gt;param.svm_type == NU_SVC) &amp;&amp; model-&gt;probA != NULL &amp;&amp; model-&gt;probB != NULL) {
-    /* Obtain C data structures. */
-    if (CLASS_OF(x_val) != numo_cDFloat) {
-      x_val = rb_funcall(numo_cDFloat, rb_intern(&quot;cast&quot;), 1, x_val);
-    }
-    if (!RTEST(nary_check_contiguous(x_val))) {
-      x_val = nary_dup(x_val);
-    }
-
-    /* Initialize some variables. */
-    n_samples = (int)NA_SHAPE(x_nary)[0];
-    n_features = (int)NA_SHAPE(x_nary)[1];
-    y_shape[0] = n_samples;
-    y_shape[1] = model-&gt;nr_class;
-    y_val = rb_narray_new(numo_cDFloat, 2, y_shape);
-    x_pt = (double*)na_get_pointer_for_read(x_val);
-    y_pt = (double*)na_get_pointer_for_write(y_val);
-
-    /* Predict values. */
-    probs = ALLOC_N(double, model-&gt;nr_class);
-    for (i = 0; i &lt; n_samples; i++) {
-      x_nodes = dbl_vec_to_svm_node(&amp;x_pt[i * n_features], n_features);
-      svm_predict_probability(model, x_nodes, probs);
-      xfree(x_nodes);
-      for (j = 0; j &lt; model-&gt;nr_class; j++) {
-        y_pt[i * model-&gt;nr_class + j] = probs[j];
-      }
-    }
-    xfree(probs);
-  }
-
-  xfree_svm_model(model);
-  xfree_svm_parameter(param);
-
-  RB_GC_GUARD(x_val);
-
-  return y_val;
-}</pre>
-    </td>
-  </tr>
-</table>
+</div>
 </div>
     
       <div class="method_details ">
@@ -1742,65 +1083,7 @@ VALUE predict_proba(VALUE self, VALUE x_val, VALUE param_hash, VALUE model_hash)
   
 </ul>
 
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-525
-526
-527
-528
-529
-530
-531
-532
-533
-534
-535
-536
-537
-538
-539
-540
-541
-542
-543
-544
-545
-546
-547</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'ext/numo/libsvm/libsvmext.c', line 525</span>
-
-static
-VALUE save_svm_model(VALUE self, VALUE filename, VALUE param_hash, VALUE model_hash)
-{
-  char* filename_ = StringValuePtr(filename);
-  struct svm_parameter* param = rb_hash_to_svm_parameter(param_hash);
-  struct svm_model* model = rb_hash_to_svm_model(model_hash);
-  int res;
-
-  model-&gt;param = *param;
-  res = svm_save_model(filename_, model);
-
-  xfree_svm_model(model);
-  xfree_svm_parameter(param);
-
-  if (res &lt; 0) {
-    rb_raise(rb_eIOError, &quot;Failed to save file &#39;%s&#39;&quot;, filename_);
-    return Qfalse;
-  }
-
-  RB_GC_GUARD(filename);
-
-  return Qtrue;
-}</pre>
-    </td>
-  </tr>
-</table>
+</div>
 </div>
     
       <div class="method_details ">
@@ -1951,167 +1234,7 @@ VALUE save_svm_model(VALUE self, VALUE filename, VALUE param_hash, VALUE model_h
   
 </ul>
 
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'ext/numo/libsvm/libsvmext.c', line 48</span>
-
-static
-VALUE train(VALUE self, VALUE x_val, VALUE y_val, VALUE param_hash)
-{
-  struct svm_problem* problem;
-  struct svm_parameter* param;
-  struct svm_model* model;
-  narray_t* x_nary;
-  narray_t* y_nary;
-  char* err_msg;
-  VALUE random_seed;
-  VALUE verbose;
-  VALUE model_hash;
-
-  if (CLASS_OF(x_val) != numo_cDFloat) {
-    x_val = rb_funcall(numo_cDFloat, rb_intern(&quot;cast&quot;), 1, x_val);
-  }
-  if (CLASS_OF(y_val) != numo_cDFloat) {
-    y_val = rb_funcall(numo_cDFloat, rb_intern(&quot;cast&quot;), 1, y_val);
-  }
-  if (!RTEST(nary_check_contiguous(x_val))) {
-    x_val = nary_dup(x_val);
-  }
-  if (!RTEST(nary_check_contiguous(y_val))) {
-    y_val = nary_dup(y_val);
-  }
-
-  GetNArray(x_val, x_nary);
-  GetNArray(y_val, y_nary);
-  if (NA_NDIM(x_nary) != 2) {
-    rb_raise(rb_eArgError, &quot;Expect samples to be 2-D array.&quot;);
-    return Qnil;
-  }
-  if (NA_NDIM(y_nary) != 1) {
-    rb_raise(rb_eArgError, &quot;Expect label or target values to be 1-D arrray.&quot;);
-    return Qnil;
-  }
-  if (NA_SHAPE(x_nary)[0] != NA_SHAPE(y_nary)[0]) {
-    rb_raise(rb_eArgError, &quot;Expect to have the same number of samples for samples and labels.&quot;);
-    return Qnil;
-  }
-
-  random_seed = rb_hash_aref(param_hash, ID2SYM(rb_intern(&quot;random_seed&quot;)));
-  if (!NIL_P(random_seed)) {
-    srand(NUM2UINT(random_seed));
-  }
-
-  param = rb_hash_to_svm_parameter(param_hash);
-  problem = dataset_to_svm_problem(x_val, y_val);
-
-  err_msg = svm_check_parameter(problem, param);
-  if (err_msg) {
-    xfree_svm_problem(problem);
-    xfree_svm_parameter(param);
-    rb_raise(rb_eArgError, &quot;Invalid LIBSVM parameter is given: %s&quot;, err_msg);
-    return Qnil;
-  }
-
-  verbose = rb_hash_aref(param_hash, ID2SYM(rb_intern(&quot;verbose&quot;)));
-  if (verbose != Qtrue) {
-    svm_set_print_string_function(print_null);
-  }
-
-  model = svm_train(problem, param);
-  model_hash = svm_model_to_rb_hash(model);
-  svm_free_and_destroy_model(&amp;model);
-
-  xfree_svm_problem(problem);
-  xfree_svm_parameter(param);
-
-  RB_GC_GUARD(x_val);
-  RB_GC_GUARD(y_val);
-
-  return model_hash;
-}</pre>
-    </td>
-  </tr>
-</table>
+</div>
 </div>
     
   </div>
@@ -2119,9 +1242,9 @@ VALUE train(VALUE self, VALUE x_val, VALUE y_val, VALUE param_hash)
 </div>
 
       <div id="footer">
-  Generated on Tue Jun 29 20:16:08 2021 by
+  Generated on Sun Jan  9 12:29:57 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-2.7.3).
+  0.9.26 (ruby-3.1.0).
 </div>
 
     </div>
