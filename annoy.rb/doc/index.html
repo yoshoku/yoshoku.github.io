@@ -6,7 +6,7 @@
 <title>
   File: README
   
-    &mdash; Documentation by YARD 0.9.26
+    &mdash; Documentation by YARD 0.9.27
   
 </title>
 
@@ -66,7 +66,7 @@
 
 <h2 id="label-Installation">Installation</h2>
 
-<p>Add this line to your application&#39;s Gemfile:</p>
+<p>Add this line to your application’s Gemfile:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>annoy-rb</span><span class='tstring_end'>&#39;</span></span>
 </code></pre>
@@ -108,19 +108,28 @@
 <span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_u'>u</span><span class='period'>.</span><span class='id identifier rubyid_get_nns_by_item'>get_nns_by_item</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>100</span><span class='rparen'>)</span> <span class='comment'># will find the 100 nearest neighbors.
 </span></code></pre>
 
+<p>With the default argument, annoy.rb uses double precision floating point type for the data type of vector element. On the other hand, the <a href="https://pypi.org/project/annoy/">Python bindings of Annoy</a> use single precision floating point type. If you want to load a search index created with the Python bindings, specify ‘float32’ to the dtype argument.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>annoy</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='id identifier rubyid_f'>f</span> <span class='op'>=</span> <span class='int'>40</span>
+<span class='id identifier rubyid_t'>t</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Annoy.html" title="Annoy (module)">Annoy</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Annoy/AnnoyIndex.html" title="Annoy::AnnoyIndex (class)">AnnoyIndex</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Annoy/AnnoyIndex.html#initialize-instance_method" title="Annoy::AnnoyIndex#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>n_features:</span> <span class='id identifier rubyid_f'>f</span><span class='comma'>,</span> <span class='label'>metric:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>angular</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>dtype:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>float32</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>index_with_python_bindings.ann</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+</code></pre>
+
 <h2 id="label-License">License</h2>
 
 <p>The gem is available as open source under the terms of the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache-2.0 License</a>.</p>
 
 <h2 id="label-Contributing">Contributing</h2>
 
-<p>Bug reports and pull requests are welcome on GitHub at <a href="https://github_com/yoshoku/annoy_rb.html">github.com/yoshoku/annoy.rb</a>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the <a href="https://github_com/yoshoku/annoy_rb/blob/main/CODE_OF_CONDUCT_md.html">code of conduct</a>.</p>
+<p>Bug reports and pull requests are welcome on GitHub at <a href="https://github.com/yoshoku/annoy.rb">github.com/yoshoku/annoy.rb</a>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the <a href="http://contributor-covenant.org">Contributor Covenant</a> code of conduct.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Sun Nov 28 10:52:02 2021 by
+  Generated on Sun Jan 23 19:43:52 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-3.0.3).
+  0.9.27 (ruby-3.1.0).
 </div>
 
     </div>

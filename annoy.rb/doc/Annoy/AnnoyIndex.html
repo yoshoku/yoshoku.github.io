@@ -6,7 +6,7 @@
 <title>
   Class: Annoy::AnnoyIndex
   
-    &mdash; Documentation by YARD 0.9.26
+    &mdash; Documentation by YARD 0.9.27
   
 </title>
 
@@ -102,7 +102,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>AnnoyIndex is a class that provides functions for k-nearest neighbors search. The methods in this class are implemented similarly to Annoy&#39;s Python API (<a href="https://github.com/spotify/annoy#full-python-api">github.com/spotify/annoy#full-python-api</a>).</p>
+<p>AnnoyIndex is a class that provides functions for k-nearest neighbors search. The methods in this class are implemented similarly to Annoy’s Python API (<a href="https://github.com/spotify/annoy#full-python-api">github.com/spotify/annoy#full-python-api</a>).</p>
 
 
   </div>
@@ -135,6 +135,35 @@
 
   <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
   <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#dtype-instance_method" title="#dtype (instance method)">#<strong>dtype</strong>  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the data type of feature.</p>
+</div></span>
+  
+</li>
+
     
       <li class="public ">
   <span class="summary_signature">
@@ -354,7 +383,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(n_features:, metric: &#39;angular&#39;)  &#x21d2; AnnoyIndex </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(n_features:, metric: &#39;angular&#39;, dtype: &#39;float64&#39;)  &#x21d2; AnnoyIndex </a>
     
 
     
@@ -578,7 +607,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(n_features:, metric: &#39;angular&#39;)  &#x21d2; <tt><span class='object_link'><a href="" title="Annoy::AnnoyIndex (class)">AnnoyIndex</a></span></tt> 
+    #<strong>initialize</strong>(n_features:, metric: &#39;angular&#39;, dtype: &#39;float64&#39;)  &#x21d2; <tt><span class='object_link'><a href="" title="Annoy::AnnoyIndex (class)">AnnoyIndex</a></span></tt> 
   
 
   
@@ -625,7 +654,25 @@
       
         &mdash;
         <div class='inline'>
-<p>The distance metric between vectors (&#39;angular&#39;, &#39;dot&#39;, &#39;hamming&#39;, &#39;euclidean&#39;, or &#39;manhattan&#39;).</p>
+<p>The distance metric between vectors (‘angular’, ‘dot’, ‘hamming’, ‘euclidean’, or ‘manhattan’).</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dtype</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;float64&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The data type of features (‘float64’ and ‘float32’). If metric is given ‘hamming’, ‘uint64’ is automatically assigned to this argument.</p>
 </div>
       
     </li>
@@ -652,12 +699,6 @@
       <pre class="lines">
 
 
-37
-38
-39
-40
-41
-42
 43
 44
 45
@@ -672,28 +713,38 @@
 54
 55
 56
-57</pre>
+57
+58
+59
+60
+61
+62
+63
+64
+65</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 43</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>n_features:</span><span class='comma'>,</span> <span class='label'>metric:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>angular</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>n_features:</span><span class='comma'>,</span> <span class='label'>metric:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>angular</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>dtype:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>float64</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect n_features to be Integer.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_n_features'>n_features</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Numeric</span><span class='rparen'>)</span>
 
   <span class='ivar'>@n_features</span> <span class='op'>=</span> <span class='id identifier rubyid_n_features'>n_features</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
   <span class='ivar'>@metric</span> <span class='op'>=</span> <span class='id identifier rubyid_metric'>metric</span>
+  <span class='ivar'>@dtype</span> <span class='op'>=</span> <span class='id identifier rubyid_dtype'>dtype</span>
 
   <span class='ivar'>@index</span> <span class='op'>=</span> <span class='kw'>case</span> <span class='ivar'>@metric</span>
            <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>angular</span><span class='tstring_end'>&#39;</span></span>
-             <span class='const'>AnnoyIndexAngular</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@n_features</span><span class='rparen'>)</span>
+             <span class='ivar'>@dtype</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>float64</span><span class='tstring_end'>&#39;</span></span> <span class='op'>?</span> <span class='const'>AnnoyIndexAngular</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@n_features</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='const'>AnnoyIndexAngularFloat32</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@n_features</span><span class='rparen'>)</span>
            <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>dot</span><span class='tstring_end'>&#39;</span></span>
-             <span class='const'>AnnoyIndexDotProduct</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@n_features</span><span class='rparen'>)</span>
+             <span class='ivar'>@dtype</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>float64</span><span class='tstring_end'>&#39;</span></span> <span class='op'>?</span> <span class='const'>AnnoyIndexDotProduct</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@n_features</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='const'>AnnoyIndexDotProductFloat32</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@n_features</span><span class='rparen'>)</span>
            <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>hamming</span><span class='tstring_end'>&#39;</span></span>
+             <span class='ivar'>@dtype</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>uint64</span><span class='tstring_end'>&#39;</span></span>
              <span class='const'>AnnoyIndexHamming</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@n_features</span><span class='rparen'>)</span>
            <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>euclidean</span><span class='tstring_end'>&#39;</span></span>
-             <span class='const'>AnnoyIndexEuclidean</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@n_features</span><span class='rparen'>)</span>
+             <span class='ivar'>@dtype</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>float64</span><span class='tstring_end'>&#39;</span></span> <span class='op'>?</span> <span class='const'>AnnoyIndexEuclidean</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@n_features</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='const'>AnnoyIndexEuclideanFloat32</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@n_features</span><span class='rparen'>)</span>
            <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>manhattan</span><span class='tstring_end'>&#39;</span></span>
-             <span class='const'>AnnoyIndexManhattan</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@n_features</span><span class='rparen'>)</span>
+             <span class='ivar'>@dtype</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>float64</span><span class='tstring_end'>&#39;</span></span> <span class='op'>?</span> <span class='const'>AnnoyIndexManhattan</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@n_features</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='const'>AnnoyIndexManhattanFloat32</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@n_features</span><span class='rparen'>)</span>
            <span class='kw'>else</span>
              <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No such metric: </span><span class='embexpr_beg'>#{</span><span class='ivar'>@metric</span><span class='embexpr_end'>}</span><span class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span>
            <span class='kw'>end</span>
@@ -711,7 +762,63 @@
       
       <span id=""></span>
       <div class="method_details first">
-  <h3 class="signature first" id="metric-instance_method">
+  <h3 class="signature first" id="dtype-instance_method">
+  
+    #<strong>dtype</strong>  &#x21d2; <tt>String</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the data type of feature.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+35
+36
+37</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 35</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_dtype'>dtype</span>
+  <span class='ivar'>@dtype</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="metric-instance_method">
   
     #<strong>metric</strong>  &#x21d2; <tt>String</tt>  <span class="extras">(readonly)</span>
   
@@ -902,12 +1009,12 @@
       <pre class="lines">
 
 
-64
-65
-66</pre>
+72
+73
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 64</span>
+      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_item'>add_item</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_add_item'>add_item</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
@@ -996,12 +1103,12 @@
       <pre class="lines">
 
 
-74
-75
-76</pre>
+82
+83
+84</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 74</span>
+      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 82</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_build'>build</span><span class='lparen'>(</span><span class='id identifier rubyid_n_trees'>n_trees</span><span class='comma'>,</span> <span class='label'>n_jobs:</span> <span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_build'>build</span><span class='lparen'>(</span><span class='id identifier rubyid_n_trees'>n_trees</span><span class='comma'>,</span> <span class='id identifier rubyid_n_jobs'>n_jobs</span><span class='rparen'>)</span>
@@ -1086,12 +1193,12 @@
       <pre class="lines">
 
 
-137
-138
-139</pre>
+145
+146
+147</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 137</span>
+      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 145</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_distance'>get_distance</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span> <span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_get_distance'>get_distance</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span> <span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>
@@ -1160,12 +1267,12 @@
       <pre class="lines">
 
 
-128
-129
-130</pre>
+136
+137
+138</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 128</span>
+      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 136</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_item'>get_item</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_get_item'>get_item</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span>
@@ -1286,12 +1393,12 @@
       <pre class="lines">
 
 
-109
-110
-111</pre>
+117
+118
+119</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 109</span>
+      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 117</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_nns_by_item'>get_nns_by_item</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span> <span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='label'>search_k:</span> <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span> <span class='label'>include_distances:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_get_nns_by_item'>get_nns_by_item</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span> <span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='id identifier rubyid_search_k'>search_k</span><span class='comma'>,</span> <span class='id identifier rubyid_include_distances'>include_distances</span><span class='rparen'>)</span>
@@ -1412,12 +1519,12 @@
       <pre class="lines">
 
 
-120
-121
-122</pre>
+128
+129
+130</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 120</span>
+      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 128</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_nns_by_vector'>get_nns_by_vector</span><span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span><span class='comma'>,</span> <span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='label'>search_k:</span> <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span> <span class='label'>include_distances:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_get_nns_by_vector'>get_nns_by_vector</span><span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span><span class='comma'>,</span> <span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='id identifier rubyid_search_k'>search_k</span><span class='comma'>,</span> <span class='id identifier rubyid_include_distances'>include_distances</span><span class='rparen'>)</span>
@@ -1504,12 +1611,12 @@
       <pre class="lines">
 
 
-91
-92
-93</pre>
+99
+100
+101</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 91</span>
+      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 99</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='comma'>,</span> <span class='label'>prefault:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='comma'>,</span> <span class='id identifier rubyid_prefault'>prefault</span><span class='rparen'>)</span>
@@ -1558,12 +1665,12 @@
       <pre class="lines">
 
 
-143
-144
-145</pre>
+151
+152
+153</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 143</span>
+      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 151</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_n_items'>n_items</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_get_n_items'>get_n_items</span>
@@ -1612,12 +1719,12 @@
       <pre class="lines">
 
 
-149
-150
-151</pre>
+157
+158
+159</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 149</span>
+      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 157</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_n_trees'>n_trees</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_get_n_trees'>get_n_trees</span>
@@ -1686,12 +1793,12 @@
       <pre class="lines">
 
 
-158
-159
-160</pre>
+166
+167
+168</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 158</span>
+      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 166</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_on_disk_build'>on_disk_build</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_on_disk_build'>on_disk_build</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
@@ -1760,12 +1867,12 @@
       <pre class="lines">
 
 
-82
-83
-84</pre>
+90
+91
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 82</span>
+      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 90</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_save'>save</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='comma'>,</span> <span class='label'>prefault:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='comma'>,</span> <span class='id identifier rubyid_prefault'>prefault</span><span class='rparen'>)</span>
@@ -1816,12 +1923,12 @@
       <pre class="lines">
 
 
-172
-173
-174</pre>
+180
+181
+182</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 172</span>
+      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 180</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_seed'>seed</span><span class='lparen'>(</span><span class='id identifier rubyid_s'>s</span><span class='rparen'>)</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_set_seed'>set_seed</span><span class='lparen'>(</span><span class='id identifier rubyid_s'>s</span><span class='rparen'>)</span>
@@ -1870,12 +1977,12 @@
       <pre class="lines">
 
 
-98
-99
-100</pre>
+106
+107
+108</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 98</span>
+      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 106</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_unload'>unload</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_unload'>unload</span>
@@ -1926,12 +2033,12 @@
       <pre class="lines">
 
 
-165
-166
-167</pre>
+173
+174
+175</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 165</span>
+      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 173</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_verbose'>verbose</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='rparen'>)</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_verbose'>verbose</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='rparen'>)</span>
@@ -1946,9 +2053,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Nov 28 10:52:03 2021 by
+  Generated on Sun Jan 23 19:43:53 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-3.0.3).
+  0.9.27 (ruby-3.1.0).
 </div>
 
     </div>
