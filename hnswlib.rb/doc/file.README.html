@@ -81,6 +81,17 @@
 <pre class="code ruby"><code class="ruby">$ gem install hnswlib
 </code></pre>
 
+<p>Note: hnswlib.rb gives no optimization options when building native extensions. If necessary, add the optimization options yourself during installation, as follows;</p>
+
+<pre class="code ruby"><code class="ruby">$ bundle config --local build.hnswlib &quot;--with-cxxflags=-march=native&quot;
+$ bundle install
+</code></pre>
+
+<p>Or:</p>
+
+<pre class="code ruby"><code class="ruby">$ gem install hnswlib -- --with-cxxflags=-march=native
+</code></pre>
+
 <h2 id="label-Documentation">Documentation</h2>
 <ul><li>
 <p><a href="https://yoshoku.github.io/hnswlib.rb/doc/">Hnswlib.rb API Documentation</a></p>
@@ -115,7 +126,7 @@
 </div></div>
 
       <div id="footer">
-  Generated on Sat Feb  5 23:03:27 2022 by
+  Generated on Sat Feb 12 16:43:45 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.1.0).
 </div>
