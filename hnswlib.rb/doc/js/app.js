@@ -7,44 +7,50 @@ try { sessionStorage = window.sessionStorage; } catch (e) { }
 function createSourceLinks() {
     $('.method_details_list .source_code').
         before("<span class='showSource'>[<a href='#' class='toggleSource'>View source</a>]</span>");
-    $('.toggleSource').toggle(function() {
-       $(this).parent().nextAll('.source_code').slideDown(100);
-       $(this).text("Hide source");
-    },
-    function() {
-        $(this).parent().nextAll('.source_code').slideUp(100);
-        $(this).text("View source");
+    $('.toggleSource').click(function() {
+        $(this).toggleClass('toggleOn');
+        if ($(this).hasClass('toggleOn')) {
+            $(this).parent().nextAll('.source_code').slideDown(100);
+            $(this).text("Hide source");
+        } else {
+            $(this).parent().nextAll('.source_code').slideUp(100);
+            $(this).text("View source");
+        }
     });
 }
 
 function createDefineLinks() {
     var tHeight = 0;
     $('.defines').after(" <a href='#' class='toggleDefines'>more...</a>");
-    $('.toggleDefines').toggle(function() {
-        tHeight = $(this).parent().prev().height();
-        $(this).prev().css('display', 'inline');
-        $(this).parent().prev().height($(this).parent().height());
-        $(this).text("(less)");
-    },
-    function() {
-        $(this).prev().hide();
-        $(this).parent().prev().height(tHeight);
-        $(this).text("more...");
+    $('.toggleDefines').click(function() {
+        $(this).toggleClass('toggleOn');
+        if ($(this).hasClass('toggleOn')) {
+            tHeight = $(this).parent().prev().height();
+            $(this).prev().css('display', 'inline');
+            $(this).parent().prev().height($(this).parent().height());
+            $(this).text("(less)");
+        } else {
+            $(this).prev().hide();
+            $(this).parent().prev().height(tHeight);
+            $(this).text("more...");
+        }
     });
 }
 
 function createFullTreeLinks() {
     var tHeight = 0;
-    $('.inheritanceTree').toggle(function() {
-        tHeight = $(this).parent().prev().height();
-        $(this).parent().toggleClass('showAll');
-        $(this).text("(hide)");
-        $(this).parent().prev().height($(this).parent().height());
-    },
-    function() {
-        $(this).parent().toggleClass('showAll');
-        $(this).parent().prev().height(tHeight);
-        $(this).text("show all");
+    $('.inheritanceTree').click(function() {
+        $(this).toggleClass('toggleOn');
+        if ($(this).hasClass('toggleOn')) {
+            tHeight = $(this).parent().prev().height();
+            $(this).parent().toggleClass('showAll');
+            $(this).text("(hide)");
+            $(this).parent().prev().height($(this).parent().height());
+        } else {
+            $(this).parent().toggleClass('showAll');
+            $(this).parent().prev().height(tHeight);
+            $(this).text("show all");
+        }
     });
 }
 
@@ -208,7 +214,7 @@ function generateTOC() {
     }
     var title = $(this).attr('toc-title');
     if (typeof(title) == "undefined") title = $(this).text();
-    curli =$('<li><a href="#' + this.id + '">' + title + '</a></li>'); 
+    curli =$('<li><a href="#' + this.id + '">' + title + '</a></li>');
     toc.append(curli);
     lastTag = thisTag;
   });
@@ -216,14 +222,17 @@ function generateTOC() {
   html = '<div id="toc"><p class="title hide_toc"><a href="#"><strong>Table of Contents</strong></a></p></div>';
   $('#content').prepend(html);
   $('#toc').append(_toc);
-  $('#toc .hide_toc').toggle(function() {
-    $('#toc .top').slideUp('fast');
-    $('#toc').toggleClass('hidden');
-    $('#toc .title small').toggle();
-  }, function() {
-    $('#toc .top').slideDown('fast');
-    $('#toc').toggleClass('hidden');
-    $('#toc .title small').toggle();
+  $('#toc .hide_toc').click(function() {
+      $(this).toggleClass('toggleOn');
+      if ($(this).hasClass('toggleOn')) {
+          $('#toc .top').slideUp('fast');
+          $('#toc').toggleClass('hidden');
+          $('#toc .title small').toggle();
+      } else {
+          $('#toc .top').slideDown('fast');
+          $('#toc').toggleClass('hidden');
+          $('#toc .title small').toggle();
+      }
   });
 }
 
