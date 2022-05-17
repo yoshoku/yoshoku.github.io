@@ -6,7 +6,7 @@
 <title>
   Class: Rumale::Ensemble::GradientBoostingClassifier
   
-    &mdash; Documentation by YARD 0.9.26
+    &mdash; Documentation by YARD 0.9.27
   
 </title>
 
@@ -1064,7 +1064,7 @@
              <span class='kw'>else</span>
                <span class='ivar'>@estimators</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_tree'>tree</span><span class='op'>|</span> <span class='id identifier rubyid_tree'>tree</span><span class='period'>.</span><span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
              <span class='kw'>end</span>
-  <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='lbracket'>[</span><span class='op'>*</span><span class='id identifier rubyid_leaf_ids'>leaf_ids</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span>
+  <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='lbracket'>[</span><span class='op'>*</span><span class='id identifier rubyid_leaf_ids'>leaf_ids</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1480,7 +1480,7 @@
 
   <span class='id identifier rubyid_proba'>proba</span> <span class='op'>=</span> <span class='float'>1.0</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='const'>Numo</span><span class='op'>::</span><span class='const'>NMath</span><span class='period'>.</span><span class='id identifier rubyid_exp'>exp</span><span class='lparen'>(</span><span class='op'>-</span><span class='id identifier rubyid_decision_function'>decision_function</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='float'>1.0</span><span class='rparen'>)</span>
 
-  <span class='kw'>return</span> <span class='lparen'>(</span><span class='id identifier rubyid_proba'>proba</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span> <span class='op'>/</span> <span class='id identifier rubyid_proba'>proba</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='lparen'>(</span><span class='label'>axis:</span> <span class='int'>1</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span> <span class='kw'>if</span> <span class='ivar'>@classes</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>&gt;</span> <span class='int'>2</span>
+  <span class='kw'>return</span> <span class='lparen'>(</span><span class='id identifier rubyid_proba'>proba</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span> <span class='op'>/</span> <span class='id identifier rubyid_proba'>proba</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='lparen'>(</span><span class='label'>axis:</span> <span class='int'>1</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span> <span class='kw'>if</span> <span class='ivar'>@classes</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>&gt;</span> <span class='int'>2</span>
 
   <span class='id identifier rubyid_n_samples'>n_samples</span><span class='comma'>,</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span>
   <span class='id identifier rubyid_probs'>probs</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='id identifier rubyid_n_samples'>n_samples</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span>
@@ -1498,9 +1498,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Apr  4 11:52:03 2021 by
+  Generated on Tue May 17 23:50:06 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-3.0.0).
+  0.9.27 (ruby-3.0.4).
 </div>
 
     </div>

@@ -6,7 +6,7 @@
 <title>
   Class: Rumale::Tree::DecisionTreeRegressor
   
-    &mdash; Documentation by YARD 0.9.26
+    &mdash; Documentation by YARD 0.9.27
   
 </title>
 
@@ -532,6 +532,7 @@
       <pre class="lines">
 
 
+49
 50
 51
 52
@@ -541,11 +542,10 @@
 56
 57
 58
-59
-60</pre>
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/decision_tree_regressor.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/tree/decision_tree_regressor.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>criterion:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mse</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>max_depth:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>max_leaf_nodes:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>min_samples_leaf:</span> <span class='int'>1</span><span class='comma'>,</span> <span class='label'>max_features:</span> <span class='kw'>nil</span><span class='comma'>,</span>
                <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
@@ -614,12 +614,12 @@
       <pre class="lines">
 
 
+23
 24
-25
-26</pre>
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/decision_tree_regressor.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/tree/decision_tree_regressor.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_feature_importances'>feature_importances</span>
   <span class='ivar'>@feature_importances</span>
@@ -675,12 +675,12 @@
       <pre class="lines">
 
 
+35
 36
-37
-38</pre>
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/decision_tree_regressor.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/tree/decision_tree_regressor.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_leaf_values'>leaf_values</span>
   <span class='ivar'>@leaf_values</span>
@@ -731,12 +731,12 @@
       <pre class="lines">
 
 
+31
 32
-33
-34</pre>
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/decision_tree_regressor.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/tree/decision_tree_regressor.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rng'>rng</span>
   <span class='ivar'>@rng</span>
@@ -787,12 +787,12 @@
       <pre class="lines">
 
 
+27
 28
-29
-30</pre>
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/decision_tree_regressor.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/tree/decision_tree_regressor.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tree'>tree</span>
   <span class='ivar'>@tree</span>
@@ -889,6 +889,7 @@
       <pre class="lines">
 
 
+66
 67
 68
 69
@@ -903,11 +904,10 @@
 78
 79
 80
-81
-82</pre>
+81</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/decision_tree_regressor.rb', line 67</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/tree/decision_tree_regressor.rb', line 66</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -994,13 +994,13 @@
       <pre class="lines">
 
 
+87
 88
 89
-90
-91</pre>
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/decision_tree_regressor.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/tree/decision_tree_regressor.rb', line 87</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -1016,9 +1016,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Apr  4 11:52:02 2021 by
+  Generated on Tue May 17 23:50:05 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-3.0.0).
+  0.9.27 (ruby-3.0.4).
 </div>
 
     </div>

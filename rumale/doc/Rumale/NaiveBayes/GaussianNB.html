@@ -6,7 +6,7 @@
 <title>
   Class: Rumale::NaiveBayes::GaussianNB
   
-    &mdash; Documentation by YARD 0.9.26
+    &mdash; Documentation by YARD 0.9.27
   
 </title>
 
@@ -760,7 +760,7 @@
       <span class='const'>Numo</span><span class='op'>::</span><span class='const'>NMath</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='float'>2.0</span> <span class='op'>*</span> <span class='const'>Math</span><span class='op'>::</span><span class='const'>PI</span> <span class='op'>*</span> <span class='ivar'>@variances</span><span class='lbracket'>[</span><span class='id identifier rubyid_l'>l</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='op'>+</span>
       <span class='lparen'>(</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span> <span class='op'>-</span> <span class='ivar'>@means</span><span class='lbracket'>[</span><span class='id identifier rubyid_l'>l</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='op'>**</span><span class='int'>2</span> <span class='op'>/</span> <span class='ivar'>@variances</span><span class='lbracket'>[</span><span class='id identifier rubyid_l'>l</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
-  <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='lbracket'>[</span><span class='op'>*</span><span class='id identifier rubyid_log_likelihoods'>log_likelihoods</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span>
+  <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='lbracket'>[</span><span class='op'>*</span><span class='id identifier rubyid_log_likelihoods'>log_likelihoods</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -883,9 +883,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Apr  4 11:52:01 2021 by
+  Generated on Tue May 17 23:50:04 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-3.0.0).
+  0.9.27 (ruby-3.0.4).
 </div>
 
     </div>

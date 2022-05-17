@@ -6,7 +6,7 @@
 <title>
   Class: Rumale::Decomposition::FastICA
   
-    &mdash; Documentation by YARD 0.9.26
+    &mdash; Documentation by YARD 0.9.27
   
 </title>
 
@@ -975,7 +975,7 @@
   <span class='id identifier rubyid_wx'>wx</span> <span class='op'>=</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:whiten</span><span class='rbracket'>]</span> <span class='op'>?</span> <span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span> <span class='op'>-</span> <span class='ivar'>@mean</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='id identifier rubyid_whiten_mat'>whiten_mat</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id identifier rubyid_x'>x</span>
   <span class='id identifier rubyid_unmixing'>unmixing</span><span class='comma'>,</span> <span class='ivar'>@n_iter</span> <span class='op'>=</span> <span class='id identifier rubyid_ica'>ica</span><span class='lparen'>(</span><span class='id identifier rubyid_wx'>wx</span><span class='comma'>,</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:fun</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_iter</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:tol</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='ivar'>@rng</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='rparen'>)</span>
   <span class='ivar'>@components</span> <span class='op'>=</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:whiten</span><span class='rbracket'>]</span> <span class='op'>?</span> <span class='id identifier rubyid_unmixing'>unmixing</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='id identifier rubyid_whiten_mat'>whiten_mat</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id identifier rubyid_unmixing'>unmixing</span>
-  <span class='ivar'>@mixing</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Linalg</span><span class='period'>.</span><span class='id identifier rubyid_pinv'>pinv</span><span class='lparen'>(</span><span class='ivar'>@components</span><span class='rparen'>)</span>
+  <span class='ivar'>@mixing</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Linalg</span><span class='period'>.</span><span class='id identifier rubyid_pinv'>pinv</span><span class='lparen'>(</span><span class='ivar'>@components</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
   <span class='kw'>if</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_components</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='int'>1</span>
     <span class='ivar'>@components</span> <span class='op'>=</span> <span class='ivar'>@components</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
     <span class='ivar'>@mixing</span> <span class='op'>=</span> <span class='ivar'>@mixing</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
@@ -1258,9 +1258,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Apr  4 11:52:01 2021 by
+  Generated on Tue May 17 23:50:04 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-3.0.0).
+  0.9.27 (ruby-3.0.4).
 </div>
 
     </div>

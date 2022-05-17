@@ -6,7 +6,7 @@
 <title>
   Class: Rumale::KernelApproximation::Nystroem
   
-    &mdash; Documentation by YARD 0.9.26
+    &mdash; Documentation by YARD 0.9.27
   
 </title>
 
@@ -927,7 +927,7 @@
 
   <span class='comment'># random sampling.
 </span>  <span class='ivar'>@component_indices</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='period'>.</span><span class='id identifier rubyid_cast'>cast</span><span class='lparen'>(</span><span class='const'>Array</span><span class='lparen'>(</span><span class='int'>0</span><span class='op'>...</span><span class='id identifier rubyid_n_samples'>n_samples</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_shuffle'>shuffle</span><span class='lparen'>(</span><span class='label'>random:</span> <span class='id identifier rubyid_sub_rng'>sub_rng</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>...</span><span class='id identifier rubyid_n_components'>n_components</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-  <span class='ivar'>@components</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='lbracket'>[</span><span class='ivar'>@component_indices</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span>
+  <span class='ivar'>@components</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='lbracket'>[</span><span class='ivar'>@component_indices</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
 
   <span class='comment'># calculate normalizing factor.
 </span>  <span class='id identifier rubyid_kernel_mat'>kernel_mat</span> <span class='op'>=</span> <span class='id identifier rubyid_kernel_mat'>kernel_mat</span><span class='lparen'>(</span><span class='ivar'>@components</span><span class='rparen'>)</span>
@@ -1123,9 +1123,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Apr  4 11:52:02 2021 by
+  Generated on Tue May 17 23:50:05 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-3.0.0).
+  0.9.27 (ruby-3.0.4).
 </div>
 
     </div>
