@@ -57,24 +57,16 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><div id='filecontents'><h1 id="magro">Magro</h1>
+      <div id="content"><div id='filecontents'>
+<h1 id="label-Magro">Magro</h1>
 
-<p><a href="https://github.com/yoshoku/magro/actions?query=workflow%3Abuild"><img src="https://github.com/yoshoku/magro/workflows/build/badge.svg" alt="Build Status"></a>
-<a href="https://coveralls.io/github/yoshoku/magro?branch=main"><img src="https://coveralls.io/repos/github/yoshoku/magro/badge.svg?branch=main" alt="Coverage Status"></a>
-<a href="https://badge.fury.io/rb/magro"><img src="https://badge.fury.io/rb/magro.svg" alt="Gem Version"></a>
-<a href="https://github.com/yoshoku/numo-liblinear/blob/main/LICENSE.txt"><img src="https://img.shields.io/badge/License-BSD%203--Clause-orange.svg" alt="BSD 3-Clause License"></a>
-<a href="https://yoshoku.github.io/magro/doc/"><img src="http://img.shields.io/badge/api-reference-blue.svg" alt="Documentation"></a></p>
+<p><a href="https://github.com/yoshoku/magro/actions?query=workflow%3Abuild"><img src="https://github.com/yoshoku/magro/workflows/build/badge.svg"></a> <a href="https://coveralls.io/github/yoshoku/magro?branch=main"><img src="https://coveralls.io/repos/github/yoshoku/magro/badge.svg?branch=main"></a> <a href="https://badge.fury.io/rb/magro"><img src="https://badge.fury.io/rb/magro.svg"></a> <a href="https://github.com/yoshoku/numo-liblinear/blob/main/LICENSE.txt"><img src="https://img.shields.io/badge/License-BSD%203--Clause-orange.svg"></a> <a href="https://yoshoku.github.io/magro/doc/"><img src="https://img.shields.io/badge/api-reference-blue.svg"></a></p>
 
-<p>Magro is a minimal image processing library in Ruby.
-Magro uses <a href="https://github.com/ruby-numo/numo-narray">Numo::NArray</a> arrays as image objects and
-provides basic image processing functions.
-Current supporting features are reading and writing JPEG and PNG images,
-image resizing with bilinear interpolation method, and image filtering.</p>
+<p>Magro is a minimal image processing library in Ruby. Magro uses <a href="https://github.com/ruby-numo/numo-narray">Numo::NArray</a> arrays as image objects and provides basic image processing functions. Current supporting features are reading and writing JPEG and PNG images, image resizing with bilinear interpolation method, and image filtering.</p>
 
-<h2 id="installation">Installation</h2>
+<h2 id="label-Installation">Installation</h2>
 
-<p>Magro dependents libpng and libjpeg to provides functions reading and writing image file.
-Moreover, it is recommended that using libpng version 1.6 or later.</p>
+<p>Magro dependents libpng and libjpeg to provides functions reading and writing image file. Moreover, it is recommended that using libpng version 1.6 or later.</p>
 
 <p>macOS:</p>
 
@@ -101,13 +93,17 @@ Moreover, it is recommended that using libpng version 1.6 or later.</p>
 <pre class="code ruby"><code class="ruby">$ gem install magro
 </code></pre>
 
-<h2 id="documentation">Documentation</h2>
+<p>If you use homebrew on Apple M1 mac, specify the homebrew installation directory:</p>
 
-<ul>
-<li><a href="https://yoshoku.github.io/magro/doc/">Magro API Documentation</a></li>
-</ul>
+<pre class="code ruby"><code class="ruby">$ gem install magro -- --with-opt-dir=/opt/homebrew
+</code></pre>
 
-<h2 id="usage">Usage</h2>
+<h2 id="label-Documentation">Documentation</h2>
+<ul><li>
+<p><a href="https://yoshoku.github.io/magro/doc/">Magro API Documentation</a></p>
+</li></ul>
+
+<h2 id="label-Usage">Usage</h2>
 
 <pre class="code ruby"><code class="ruby">&gt; require &#39;magro&#39;
 =&gt; true
@@ -119,20 +115,19 @@ Moreover, it is recommended that using libpng version 1.6 or later.</p>
 =&gt; true
 </code></pre>
 
-<h2 id="contributing">Contributing</h2>
+<h2 id="label-Contributing">Contributing</h2>
 
-<p>Bug reports and pull requests are welcome on GitHub at <a href="https://github.com/yoshoku/magro">https://github.com/yoshoku/magro</a>.
-This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the <a href="http://contributor-covenant.org">Contributor Covenant</a> code of conduct.</p>
+<p>Bug reports and pull requests are welcome on GitHub at <a href="https://github.com/yoshoku/magro">github.com/yoshoku/magro</a>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the <a href="https://contributor-covenant.org">Contributor Covenant</a> code of conduct.</p>
 
-<h2 id="license">License</h2>
+<h2 id="label-License">License</h2>
 
 <p>The gem is available as open source under the terms of the <a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause License</a>.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Sat Apr  9 20:19:25 2022 by
+  Generated on Sat Jun 18 17:21:39 2022 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.27 (ruby-3.1.1).
+  0.9.27 (ruby-3.0.4).
 </div>
 
     </div>
