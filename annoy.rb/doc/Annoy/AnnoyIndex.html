@@ -102,7 +102,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>AnnoyIndex is a class that provides functions for k-nearest neighbors search. The methods in this class are implemented similarly to Annoy’s Python API (<a href="https://github.com/spotify/annoy#full-python-api">github.com/spotify/annoy#full-python-api</a>).</p>
+<p>AnnoyIndex is a class that provides functions for k-nearest neighbors search. The methods in this class are implemented similarly to Annoy&#39;s Python API (<a href="https://github.com/spotify/annoy#full-python-api">github.com/spotify/annoy#full-python-api</a>).</p>
 
 
   </div>
@@ -654,7 +654,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The distance metric between vectors (‘angular’, ‘dot’, ‘hamming’, ‘euclidean’, or ‘manhattan’).</p>
+<p>The distance metric between vectors (&#39;angular&#39;, &#39;dot&#39;, &#39;hamming&#39;, &#39;euclidean&#39;, or &#39;manhattan&#39;).</p>
 </div>
       
     </li>
@@ -672,7 +672,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The data type of features (‘float64’ and ‘float32’). If metric is given ‘hamming’, ‘uint64’ is automatically assigned to this argument.</p>
+<p>The data type of features (&#39;float64&#39; and &#39;float32&#39;). If metric is given &#39;hamming&#39;, &#39;uint64&#39; is automatically assigned to this argument.</p>
 </div>
       
     </li>
@@ -721,19 +721,22 @@
 62
 63
 64
-65</pre>
+65
+66
+67</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 43</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>n_features:</span><span class='comma'>,</span> <span class='label'>metric:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>angular</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>dtype:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>float64</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect n_features to be Integer.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_n_features'>n_features</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Numeric</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>n_features:</span><span class='comma'>,</span> <span class='label'>metric:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>angular</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>dtype:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>float64</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='comment'># rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength
+</span>  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect n_features to be Integer.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_n_features'>n_features</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Numeric</span><span class='rparen'>)</span>
 
   <span class='ivar'>@n_features</span> <span class='op'>=</span> <span class='id identifier rubyid_n_features'>n_features</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
   <span class='ivar'>@metric</span> <span class='op'>=</span> <span class='id identifier rubyid_metric'>metric</span>
   <span class='ivar'>@dtype</span> <span class='op'>=</span> <span class='id identifier rubyid_dtype'>dtype</span>
 
-  <span class='ivar'>@index</span> <span class='op'>=</span> <span class='kw'>case</span> <span class='ivar'>@metric</span>
+  <span class='comment'># rubocop:disable Layout/LineLength
+</span>  <span class='ivar'>@index</span> <span class='op'>=</span> <span class='kw'>case</span> <span class='ivar'>@metric</span>
            <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>angular</span><span class='tstring_end'>&#39;</span></span>
              <span class='ivar'>@dtype</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>float64</span><span class='tstring_end'>&#39;</span></span> <span class='op'>?</span> <span class='const'>AnnoyIndexAngular</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@n_features</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='const'>AnnoyIndexAngularFloat32</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@n_features</span><span class='rparen'>)</span>
            <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>dot</span><span class='tstring_end'>&#39;</span></span>
@@ -748,7 +751,8 @@
            <span class='kw'>else</span>
              <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No such metric: </span><span class='embexpr_beg'>#{</span><span class='ivar'>@metric</span><span class='embexpr_end'>}</span><span class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span>
            <span class='kw'>end</span>
-<span class='kw'>end</span></pre>
+  <span class='comment'># rubocop:enable Layout/LineLength
+</span><span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -1009,12 +1013,12 @@
       <pre class="lines">
 
 
-72
-73
-74</pre>
+74
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 72</span>
+      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 74</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_item'>add_item</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_add_item'>add_item</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
@@ -1103,12 +1107,12 @@
       <pre class="lines">
 
 
-82
-83
-84</pre>
+84
+85
+86</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 82</span>
+      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 84</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_build'>build</span><span class='lparen'>(</span><span class='id identifier rubyid_n_trees'>n_trees</span><span class='comma'>,</span> <span class='label'>n_jobs:</span> <span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_build'>build</span><span class='lparen'>(</span><span class='id identifier rubyid_n_trees'>n_trees</span><span class='comma'>,</span> <span class='id identifier rubyid_n_jobs'>n_jobs</span><span class='rparen'>)</span>
@@ -1193,12 +1197,12 @@
       <pre class="lines">
 
 
-145
-146
-147</pre>
+147
+148
+149</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 145</span>
+      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 147</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_distance'>get_distance</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span> <span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_get_distance'>get_distance</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span> <span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>
@@ -1267,12 +1271,12 @@
       <pre class="lines">
 
 
-136
-137
-138</pre>
+138
+139
+140</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 136</span>
+      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 138</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_item'>get_item</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_get_item'>get_item</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span>
@@ -1393,12 +1397,12 @@
       <pre class="lines">
 
 
-117
-118
-119</pre>
+119
+120
+121</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 117</span>
+      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 119</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_nns_by_item'>get_nns_by_item</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span> <span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='label'>search_k:</span> <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span> <span class='label'>include_distances:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_get_nns_by_item'>get_nns_by_item</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span> <span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='id identifier rubyid_search_k'>search_k</span><span class='comma'>,</span> <span class='id identifier rubyid_include_distances'>include_distances</span><span class='rparen'>)</span>
@@ -1519,12 +1523,12 @@
       <pre class="lines">
 
 
-128
-129
-130</pre>
+130
+131
+132</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 128</span>
+      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 130</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_nns_by_vector'>get_nns_by_vector</span><span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span><span class='comma'>,</span> <span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='label'>search_k:</span> <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span> <span class='label'>include_distances:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_get_nns_by_vector'>get_nns_by_vector</span><span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span><span class='comma'>,</span> <span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='id identifier rubyid_search_k'>search_k</span><span class='comma'>,</span> <span class='id identifier rubyid_include_distances'>include_distances</span><span class='rparen'>)</span>
@@ -1611,12 +1615,12 @@
       <pre class="lines">
 
 
-99
-100
-101</pre>
+101
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 99</span>
+      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 101</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='comma'>,</span> <span class='label'>prefault:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='comma'>,</span> <span class='id identifier rubyid_prefault'>prefault</span><span class='rparen'>)</span>
@@ -1665,12 +1669,12 @@
       <pre class="lines">
 
 
-151
-152
-153</pre>
+153
+154
+155</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 151</span>
+      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 153</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_n_items'>n_items</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_get_n_items'>get_n_items</span>
@@ -1719,12 +1723,12 @@
       <pre class="lines">
 
 
-157
-158
-159</pre>
+159
+160
+161</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 157</span>
+      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 159</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_n_trees'>n_trees</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_get_n_trees'>get_n_trees</span>
@@ -1793,12 +1797,12 @@
       <pre class="lines">
 
 
-166
-167
-168</pre>
+168
+169
+170</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 166</span>
+      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 168</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_on_disk_build'>on_disk_build</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_on_disk_build'>on_disk_build</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
@@ -1867,12 +1871,12 @@
       <pre class="lines">
 
 
-90
-91
-92</pre>
+92
+93
+94</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 90</span>
+      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 92</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_save'>save</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='comma'>,</span> <span class='label'>prefault:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='comma'>,</span> <span class='id identifier rubyid_prefault'>prefault</span><span class='rparen'>)</span>
@@ -1923,12 +1927,12 @@
       <pre class="lines">
 
 
-180
-181
-182</pre>
+182
+183
+184</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 180</span>
+      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 182</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_seed'>seed</span><span class='lparen'>(</span><span class='id identifier rubyid_s'>s</span><span class='rparen'>)</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_set_seed'>set_seed</span><span class='lparen'>(</span><span class='id identifier rubyid_s'>s</span><span class='rparen'>)</span>
@@ -1977,12 +1981,12 @@
       <pre class="lines">
 
 
-106
-107
-108</pre>
+108
+109
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 106</span>
+      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 108</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_unload'>unload</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_unload'>unload</span>
@@ -2033,12 +2037,12 @@
       <pre class="lines">
 
 
-173
-174
-175</pre>
+175
+176
+177</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 173</span>
+      <pre class="code"><span class="info file"># File 'lib/annoy.rb', line 175</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_verbose'>verbose</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='rparen'>)</span>
   <span class='ivar'>@index</span><span class='period'>.</span><span class='id identifier rubyid_verbose'>verbose</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='rparen'>)</span>
@@ -2053,9 +2057,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Apr  9 20:02:54 2022 by
+  Generated on Sat Aug  6 16:15:40 2022 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.27 (ruby-3.1.1).
+  0.9.27 (ruby-3.0.4).
 </div>
 
     </div>
