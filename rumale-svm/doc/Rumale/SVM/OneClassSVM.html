@@ -6,7 +6,7 @@
 <title>
   Class: Rumale::SVM::OneClassSVM
   
-    &mdash; Documentation by YARD 0.9.27
+    &mdash; Documentation by YARD 0.9.28
   
 </title>
 
@@ -215,7 +215,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(nu: 1.0, kernel: &#39;rbf&#39;, degree: 3, gamma: 1.0, coef0: 0.0, shrinking: true, cache_size: 200.0, tol: 1e-3, verbose: false, random_seed: nil)  &#x21d2; OneClassSVM </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(nu: 1.0, kernel: &#39;rbf&#39;, degree: 3, gamma: 1.0, coef0: 0.0, shrinking: true, probability: true, cache_size: 200.0, tol: 1e-3, verbose: false, random_seed: nil)  &#x21d2; OneClassSVM </a>
     
 
     
@@ -361,6 +361,30 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#predict_proba-instance_method" title="#predict_proba (instance method)">#<strong>predict_proba</strong>(x)  &#x21d2; Numo::DFloat </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Predict class probability for samples.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#support-instance_method" title="#support (instance method)">#<strong>support</strong>  &#x21d2; Numo::Int32 </a>
     
 
@@ -417,7 +441,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(nu: 1.0, kernel: &#39;rbf&#39;, degree: 3, gamma: 1.0, coef0: 0.0, shrinking: true, cache_size: 200.0, tol: 1e-3, verbose: false, random_seed: nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::SVM::OneClassSVM (class)">OneClassSVM</a></span></tt> 
+    #<strong>initialize</strong>(nu: 1.0, kernel: &#39;rbf&#39;, degree: 3, gamma: 1.0, coef0: 0.0, shrinking: true, probability: true, cache_size: 200.0, tol: 1e-3, verbose: false, random_seed: nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::SVM::OneClassSVM (class)">OneClassSVM</a></span></tt> 
   
 
   
@@ -466,7 +490,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The type of kernel function (&#39;rbf&#39;, &#39;linear&#39;, &#39;poly&#39;, &#39;sigmoid&#39;, and &#39;precomputed&#39;).</p>
+<p>The type of kernel function (‘rbf’, ‘linear’, ‘poly’, ‘sigmoid’, and ‘precomputed’).</p>
 </div>
       
     </li>
@@ -539,6 +563,24 @@
         &mdash;
         <div class='inline'>
 <p>The flag indicating whether to use the shrinking heuristics.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>probability</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>true</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The flag indicating whether to train the parameter for probability estimation.</p>
 </div>
       
     </li>
@@ -624,7 +666,6 @@
       <pre class="lines">
 
 
-31
 32
 33
 34
@@ -641,16 +682,18 @@
 45
 46
 47
-48</pre>
+48
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/svm/one_class_svm.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/svm/one_class_svm.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>nu:</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='label'>kernel:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rbf</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>degree:</span> <span class='int'>3</span><span class='comma'>,</span> <span class='label'>gamma:</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='label'>coef0:</span> <span class='float'>0.0</span><span class='comma'>,</span>
-               <span class='label'>shrinking:</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='label'>cache_size:</span> <span class='float'>200.0</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='float'>1e-3</span><span class='comma'>,</span> <span class='label'>verbose:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+               <span class='label'>shrinking:</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='label'>probability:</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='label'>cache_size:</span> <span class='float'>200.0</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='float'>1e-3</span><span class='comma'>,</span> <span class='label'>verbose:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_numeric'>check_params_numeric</span><span class='lparen'>(</span><span class='label'>nu:</span> <span class='id identifier rubyid_nu'>nu</span><span class='comma'>,</span> <span class='label'>degree:</span> <span class='id identifier rubyid_degree'>degree</span><span class='comma'>,</span> <span class='label'>gamma:</span> <span class='id identifier rubyid_gamma'>gamma</span><span class='comma'>,</span> <span class='label'>coef0:</span> <span class='id identifier rubyid_coef0'>coef0</span><span class='comma'>,</span> <span class='label'>cache_size:</span> <span class='id identifier rubyid_cache_size'>cache_size</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='id identifier rubyid_tol'>tol</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_string'>check_params_string</span><span class='lparen'>(</span><span class='label'>kernel:</span> <span class='id identifier rubyid_kernel'>kernel</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_boolean'>check_params_boolean</span><span class='lparen'>(</span><span class='label'>shrinking:</span> <span class='id identifier rubyid_shrinking'>shrinking</span><span class='comma'>,</span> <span class='label'>verbose:</span> <span class='id identifier rubyid_verbose'>verbose</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_check_params_boolean'>check_params_boolean</span><span class='lparen'>(</span><span class='label'>shrinking:</span> <span class='id identifier rubyid_shrinking'>shrinking</span><span class='comma'>,</span> <span class='label'>probability:</span> <span class='id identifier rubyid_probability'>probability</span><span class='comma'>,</span> <span class='label'>verbose:</span> <span class='id identifier rubyid_verbose'>verbose</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_params_numeric_or_nil'>check_params_numeric_or_nil</span><span class='lparen'>(</span><span class='label'>random_seed:</span> <span class='id identifier rubyid_random_seed'>random_seed</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:nu</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_nu'>nu</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
@@ -659,6 +702,7 @@
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:gamma</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_gamma'>gamma</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:coef0</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_coef0'>coef0</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:shrinking</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_shrinking'>shrinking</span>
+  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:probability</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_probability'>probability</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:cache_size</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_cache_size'>cache_size</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:tol</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_tol'>tol</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:verbose</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_verbose'>verbose</span>
@@ -708,7 +752,7 @@
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The samples to compute the scores. If the kernel is &#39;precomputed&#39;, the shape of x must be [n_samples, n_training_samples].</p>
+<p>(shape: [n_samples, n_features]) The samples to compute the scores. If the kernel is ‘precomputed’, the shape of x must be [n_samples, n_training_samples].</p>
 </div>
       
     </li>
@@ -740,14 +784,14 @@
       <pre class="lines">
 
 
-68
-69
 70
 71
-72</pre>
+72
+73
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/svm/one_class_svm.rb', line 68</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/svm/one_class_svm.rb', line 70</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_decision_function'>decision_function</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>\#</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid___method__'>__method__</span><span class='embexpr_end'>}</span><span class='tstring_content'> expects to be called after training the model with the fit method.</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_trained?'>trained?</span>
@@ -803,12 +847,12 @@
       <pre class="lines">
 
 
-120
-121
-122</pre>
+135
+136
+137</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/svm/one_class_svm.rb', line 120</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/svm/one_class_svm.rb', line 135</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_duel_coef'>duel_coef</span>
   <span class='ivar'>@model</span><span class='lbracket'>[</span><span class='symbol'>:sv_coef</span><span class='rbracket'>]</span>
@@ -858,7 +902,7 @@
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for fitting the model. If the kernel is &#39;precomputed&#39;, x must be a square distance matrix (shape: [n_samples, n_samples]).</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for fitting the model. If the kernel is ‘precomputed’, x must be a square distance matrix (shape: [n_samples, n_samples]).</p>
 </div>
       
     </li>
@@ -893,15 +937,15 @@
       <pre class="lines">
 
 
-56
-57
 58
 59
 60
-61</pre>
+61
+62
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/svm/one_class_svm.rb', line 56</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/svm/one_class_svm.rb', line 58</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid__y'>_y</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -958,12 +1002,12 @@
       <pre class="lines">
 
 
-126
-127
-128</pre>
+141
+142
+143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/svm/one_class_svm.rb', line 126</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/svm/one_class_svm.rb', line 141</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_intercept'>intercept</span>
   <span class='ivar'>@model</span><span class='lbracket'>[</span><span class='symbol'>:rho</span><span class='rbracket'>]</span>
@@ -1017,13 +1061,13 @@
       <pre class="lines">
 
 
-87
-88
-89
-90</pre>
+102
+103
+104
+105</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/svm/one_class_svm.rb', line 87</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/svm/one_class_svm.rb', line 102</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_marshal_dump'>marshal_dump</span>
   <span class='lbrace'>{</span> <span class='label'>params:</span> <span class='ivar'>@params</span><span class='comma'>,</span>
@@ -1073,14 +1117,14 @@
       <pre class="lines">
 
 
-94
-95
-96
-97
-98</pre>
+109
+110
+111
+112
+113</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/svm/one_class_svm.rb', line 94</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/svm/one_class_svm.rb', line 109</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_marshal_load'>marshal_load</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='symbol'>:params</span><span class='rbracket'>]</span>
@@ -1131,12 +1175,12 @@
       <pre class="lines">
 
 
-114
-115
-116</pre>
+129
+130
+131</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/svm/one_class_svm.rb', line 114</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/svm/one_class_svm.rb', line 129</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_n_support'>n_support</span>
   <span class='ivar'>@model</span><span class='lbracket'>[</span><span class='symbol'>:sv_indices</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
@@ -1178,7 +1222,7 @@
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The samples to predict the labels. If the kernel is &#39;precomputed&#39;, the shape of x must be [n_samples, n_training_samples].</p>
+<p>(shape: [n_samples, n_features]) The samples to predict the labels. If the kernel is ‘precomputed’, the shape of x must be [n_samples, n_training_samples].</p>
 </div>
       
     </li>
@@ -1210,19 +1254,104 @@
       <pre class="lines">
 
 
-79
-80
 81
 82
-83</pre>
+83
+84
+85</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/svm/one_class_svm.rb', line 79</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/svm/one_class_svm.rb', line 81</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>\#</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid___method__'>__method__</span><span class='embexpr_end'>}</span><span class='tstring_content'> expects to be called after training the model with the fit method.</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_trained?'>trained?</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='period'>.</span><span class='id identifier rubyid_cast'>cast</span><span class='lparen'>(</span><span class='const'>Numo</span><span class='op'>::</span><span class='const'>Libsvm</span><span class='period'>.</span><span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_libsvm_params'>libsvm_params</span><span class='comma'>,</span> <span class='ivar'>@model</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="predict_proba-instance_method">
+  
+    #<strong>predict_proba</strong>(x)  &#x21d2; <tt>Numo::DFloat</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Predict class probability for samples. This method works correctly only if the probability parameter is true.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>x</span>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_samples, n_features]) The samples to predict the probailities. If the kernel is ‘precomputed’, the shape of x must be [n_samples, n_training_samples].</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_samples, n_classes]) Predicted probability of each class per sample.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+93
+94
+95
+96
+97
+98</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rumale/svm/one_class_svm.rb', line 93</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_predict_proba'>predict_proba</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>\#</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid___method__'>__method__</span><span class='embexpr_end'>}</span><span class='tstring_content'> expects to be called after training the model with the fit method.</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_trained?'>trained?</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>\#</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid___method__'>__method__</span><span class='embexpr_end'>}</span><span class='tstring_content'> expects to be called after training the probablity parameters.</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_trained_probs?'>trained_probs?</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Libsvm</span><span class='period'>.</span><span class='id identifier rubyid_predict_proba'>predict_proba</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_libsvm_params'>libsvm_params</span><span class='comma'>,</span> <span class='ivar'>@model</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1273,12 +1402,12 @@
       <pre class="lines">
 
 
-102
-103
-104</pre>
+117
+118
+119</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/svm/one_class_svm.rb', line 102</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/svm/one_class_svm.rb', line 117</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_support'>support</span>
   <span class='ivar'>@model</span><span class='lbracket'>[</span><span class='symbol'>:sv_indices</span><span class='rbracket'>]</span>
@@ -1332,12 +1461,12 @@
       <pre class="lines">
 
 
-108
-109
-110</pre>
+123
+124
+125</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/svm/one_class_svm.rb', line 108</span>
+      <pre class="code"><span class="info file"># File 'lib/rumale/svm/one_class_svm.rb', line 123</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_support_vectors'>support_vectors</span>
   <span class='ivar'>@model</span><span class='lbracket'>[</span><span class='symbol'>:SV</span><span class='rbracket'>]</span>
@@ -1352,9 +1481,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sun May 15 21:56:03 2022 by
+  Generated on Sun Oct 16 00:55:16 2022 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.27 (ruby-3.0.4).
+  0.9.28 (ruby-3.1.2).
 </div>
 
     </div>
