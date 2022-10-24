@@ -518,7 +518,7 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>seed:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>algorithm:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>pcg64</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='comment'># rubocop:disable Lint/UnusedMethodArgument
 </span>  <span class='ivar'>@algorithm</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>pcg64</span><span class='tstring_end'>&#39;</span></span>
-  <span class='ivar'>@rng</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="PCG64.html" title="Numo::Random::PCG64 (class)">PCG64</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="PCG64.html#initialize-instance_method" title="Numo::Random::PCG64#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>seed:</span> <span class='id identifier rubyid_seed'>seed</span><span class='rparen'>)</span>
+  <span class='ivar'>@rng</span> <span class='op'>=</span> <span class='const'>PCG64</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>seed:</span> <span class='id identifier rubyid_seed'>seed</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1504,7 +1504,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Oct 23 17:27:15 2022 by
+  Generated on Mon Oct 24 22:00:45 2022 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.1.2).
 </div>
