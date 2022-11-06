@@ -94,7 +94,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/numo/random.rb</dd>
+    <dd>lib/numo/random/generator.rb</dd>
   </dl>
   
 </div>
@@ -115,10 +115,13 @@
       
       <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/random</span><span class='tstring_end'>&#39;</span></span>
 
-<span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>100</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_rng'>rng</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Random.html" title="Numo::Random (module)">Random</a></span></span><span class='op'>::</span><span class='const'>Generator</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Numo::Random::Generator#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>seed:</span> <span class='int'>496</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_uniform'>uniform</span><span class='lparen'>(</span><span class='label'>shape:</span> <span class='lbracket'>[</span><span class='int'>2</span><span class='comma'>,</span> <span class='int'>5</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>low:</span> <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span> <span class='label'>high:</span> <span class='int'>2</span><span class='rparen'>)</span>
 
-<span class='id identifier rubyid_rng'>rng</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Random.html" title="Numo::Random (module)">Random</a></span></span><span class='op'>::</span><span class='const'>Generator</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Numo::Random::Generator#initialize (method)">new</a></span></span>
-<span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_uniform'>uniform</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='label'>low:</span> <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span> <span class='label'>high:</span> <span class='int'>2</span><span class='rparen'>)</span></code></pre>
+<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_x'>x</span>
+<span class='comment'># Numo::DFloat#shape=[2,5]
+</span><span class='comment'># [[1.90546, -0.543299, 0.673332, 0.759583, -0.40945],
+</span><span class='comment'>#  [0.334635, -0.0558342, 1.28115, 1.93644, -0.0689543]]</span></code></pre>
     
   </div>
 
@@ -173,7 +176,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#cauchy-instance_method" title="#cauchy (instance method)">#<strong>cauchy</strong>(x, loc: 0.0, scale: 1.0)  &#x21d2; Object </a>
+      <a href="#cauchy-instance_method" title="#cauchy (instance method)">#<strong>cauchy</strong>(shape:, loc: 0.0, scale: 1.0, dtype: :float64)  &#x21d2; Numo::DFloat | Numo::SFloat </a>
     
 
     
@@ -188,7 +191,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Fills given array with random values according to the Cauchy (Lorentz) distribution.</p>
+<p>Generates array consists of random values according to the Cauchy (Lorentz) distribution.</p>
 </div></span>
   
 </li>
@@ -197,7 +200,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#chisquare-instance_method" title="#chisquare (instance method)">#<strong>chisquare</strong>(x, df:)  &#x21d2; Object </a>
+      <a href="#chisquare-instance_method" title="#chisquare (instance method)">#<strong>chisquare</strong>(shape:, df:, dtype: :float64)  &#x21d2; Numo::DFloat | Numo::SFloat </a>
     
 
     
@@ -212,7 +215,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Fills given array with random values according to the Chi-squared distribution.</p>
+<p>Generates array consists of random values according to the Chi-squared distribution.</p>
 </div></span>
   
 </li>
@@ -221,7 +224,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#f-instance_method" title="#f (instance method)">#<strong>f</strong>(x, dfnum:, dfden:)  &#x21d2; Object </a>
+      <a href="#discrete-instance_method" title="#discrete (instance method)">#<strong>discrete</strong>(shape:, weight:, dtype: :int32)  &#x21d2; Numo::IntX | Numo::UIntX </a>
     
 
     
@@ -236,7 +239,103 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Fills given array with random values according to the F-distribution.</p>
+<p>Generates array consists of random integer values in the interval [0, n).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#exponential-instance_method" title="#exponential (instance method)">#<strong>exponential</strong>(shape:, scale: 1.0, dtype: :float64)  &#x21d2; Numo::DFloat | Numo::SFloat </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Generates array consists of random values with an exponential distribution.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#f-instance_method" title="#f (instance method)">#<strong>f</strong>(shape:, dfnum:, dfden:, dtype: :float64)  &#x21d2; Numo::DFloat | Numo::SFloat </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Generates array consists of random values according to the F-distribution.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gamma-instance_method" title="#gamma (instance method)">#<strong>gamma</strong>(shape:, k:, scale: 1.0, dtype: :float64)  &#x21d2; Numo::DFloat | Numo::SFloat </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Generates array consists of random values with a gamma distribution.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gumbel-instance_method" title="#gumbel (instance method)">#<strong>gumbel</strong>(shape:, loc: 0.0, scale: 1.0, dtype: :float64)  &#x21d2; Numo::DFloat | Numo::SFloat </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Generates array consists of random values according to the Gumbel distribution.</p>
 </div></span>
   
 </li>
@@ -271,7 +370,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#lognormal-instance_method" title="#lognormal (instance method)">#<strong>lognormal</strong>(x, mean: 0.0, sigma: 1.0)  &#x21d2; Object </a>
+      <a href="#lognormal-instance_method" title="#lognormal (instance method)">#<strong>lognormal</strong>(shape:, mean: 0.0, sigma: 1.0, dtype: :float64)  &#x21d2; Numo::DFloat | Numo::SFloat </a>
     
 
     
@@ -286,7 +385,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Fills given array with random values according to a log-normal distribution.</p>
+<p>Generates array consists of random values according to a log-normal distribution.</p>
 </div></span>
   
 </li>
@@ -295,7 +394,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#normal-instance_method" title="#normal (instance method)">#<strong>normal</strong>(x, loc: 0.0, scale: 1.0)  &#x21d2; Object </a>
+      <a href="#normal-instance_method" title="#normal (instance method)">#<strong>normal</strong>(shape:, loc: 0.0, scale: 1.0, dtype: :float64)  &#x21d2; Numo::DFloat | Numo::SFloat </a>
     
 
     
@@ -310,7 +409,31 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Fills given array with random values according to a normal (Gaussian) distribution.</p>
+<p>Generates array consists of random values according to a normal (Gaussian) distribution.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#poisson-instance_method" title="#poisson (instance method)">#<strong>poisson</strong>(shape:, mean: 1.0, dtype: :int32)  &#x21d2; Numo::IntX | Numo::UIntX </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Generates array consists of random values according to the Poisson distribution.</p>
 </div></span>
   
 </li>
@@ -391,7 +514,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#standard_t-instance_method" title="#standard_t (instance method)">#<strong>standard_t</strong>(x, df:)  &#x21d2; Object </a>
+      <a href="#standard_t-instance_method" title="#standard_t (instance method)">#<strong>standard_t</strong>(shape:, df:, dtype: :float64)  &#x21d2; Numo::DFloat | Numo::SFloat </a>
     
 
     
@@ -406,7 +529,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Fills given array with random values according to the Student’s t-distribution.</p>
+<p>Generates array consists of random values according to the Student’s t-distribution.</p>
 </div></span>
   
 </li>
@@ -415,7 +538,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#uniform-instance_method" title="#uniform (instance method)">#<strong>uniform</strong>(x, low: 0.0, high: 1.0)  &#x21d2; Object </a>
+      <a href="#uniform-instance_method" title="#uniform (instance method)">#<strong>uniform</strong>(shape:, low: 0.0, high: 1.0, dtype: :float64)  &#x21d2; Numo::DFloat | Numo::SFloat </a>
     
 
     
@@ -430,7 +553,31 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Fills given array with uniformly distributed random values in the interval [low, high).</p>
+<p>Generates array consists of uniformly distributed random values in the interval [low, high).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#weibull-instance_method" title="#weibull (instance method)">#<strong>weibull</strong>(shape:, k:, scale: 1.0, dtype: :float64)  &#x21d2; Numo::DFloat | Numo::SFloat </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Generates array consists of random values with the Weibull distribution.</p>
 </div></span>
   
 </li>
@@ -508,13 +655,13 @@
       <pre class="lines">
 
 
+28
+29
 30
-31
-32
-33</pre>
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/numo/random.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/numo/random/generator.rb', line 28</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>seed:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>algorithm:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>pcg64</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='comment'># rubocop:disable Lint/UnusedMethodArgument
 </span>  <span class='ivar'>@algorithm</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>pcg64</span><span class='tstring_end'>&#39;</span></span>
@@ -571,12 +718,12 @@
       <pre class="lines">
 
 
-24
-25
-26</pre>
+22
+23
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/numo/random.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/numo/random/generator.rb', line 22</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_algorithm'>algorithm</span>
   <span class='ivar'>@algorithm</span>
@@ -596,7 +743,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="cauchy-instance_method">
   
-    #<strong>cauchy</strong>(x, loc: 0.0, scale: 1.0)  &#x21d2; <tt>Object</tt> 
+    #<strong>cauchy</strong>(shape:, loc: 0.0, scale: 1.0, dtype: :float64)  &#x21d2; <tt>Numo::DFloat | Numo::SFloat</tt> 
   
 
   
@@ -605,7 +752,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Fills given array with random values according to the Cauchy (Lorentz) distribution.</p>
+<p>Generates array consists of random values according to the Cauchy (Lorentz) distribution.</p>
 
 
   </div>
@@ -618,10 +765,8 @@
       
       <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/random</span><span class='tstring_end'>&#39;</span></span>
 
-<span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>100</span><span class='rparen'>)</span>
-
 <span class='id identifier rubyid_rng'>rng</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Random.html" title="Numo::Random (module)">Random</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Numo::Random::Generator (class)">Generator</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Numo::Random::Generator#initialize (method)">new</a></span></span>
-<span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_cauchy'>cauchy</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='label'>loc:</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='label'>scale:</span> <span class='float'>1.0</span><span class='rparen'>)</span></code></pre>
+<span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_cauchy'>cauchy</span><span class='lparen'>(</span><span class='label'>shape:</span> <span class='int'>100</span><span class='comma'>,</span> <span class='label'>loc:</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='label'>scale:</span> <span class='float'>1.0</span><span class='rparen'>)</span></code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -629,16 +774,16 @@
   
     <li>
       
-        <span class='name'>x</span>
+        <span class='name'>shape</span>
       
       
-        <span class='type'>(<tt>Numo::DFloat | Numo::SFloat</tt>)</span>
+        <span class='type'>(<tt>Integer | Array&lt;Integer&gt;</tt>)</span>
       
       
       
         &mdash;
         <div class='inline'>
-<p>array filled with random values.</p>
+<p>size of random array.</p>
 </div>
       
     </li>
@@ -679,8 +824,39 @@
       
     </li>
   
+    <li>
+      
+        <span class='name'>dtype</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>:float64</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>data type of random array.</p>
+</div>
+      
+    </li>
+  
 </ul>
 
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat | Numo::SFloat</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -688,15 +864,19 @@
       <pre class="lines">
 
 
-92
-93
-94</pre>
+211
+212
+213
+214
+215</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/numo/random.rb', line 92</span>
+      <pre class="code"><span class="info file"># File 'lib/numo/random/generator.rb', line 211</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_cauchy'>cauchy</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='label'>loc:</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='label'>scale:</span> <span class='float'>1.0</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_cauchy'>cauchy</span><span class='lparen'>(</span><span class='label'>shape:</span><span class='comma'>,</span> <span class='label'>loc:</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='label'>scale:</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='label'>dtype:</span> <span class='symbol'>:float64</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_klass'>klass</span><span class='lparen'>(</span><span class='id identifier rubyid_dtype'>dtype</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_shape'>shape</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_cauchy'>cauchy</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='label'>loc:</span> <span class='id identifier rubyid_loc'>loc</span><span class='comma'>,</span> <span class='label'>scale:</span> <span class='id identifier rubyid_scale'>scale</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -706,7 +886,7 @@
       <div class="method_details ">
   <h3 class="signature " id="chisquare-instance_method">
   
-    #<strong>chisquare</strong>(x, df:)  &#x21d2; <tt>Object</tt> 
+    #<strong>chisquare</strong>(shape:, df:, dtype: :float64)  &#x21d2; <tt>Numo::DFloat | Numo::SFloat</tt> 
   
 
   
@@ -715,7 +895,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Fills given array with random values according to the Chi-squared distribution.</p>
+<p>Generates array consists of random values according to the Chi-squared distribution.</p>
 
 
   </div>
@@ -728,10 +908,8 @@
       
       <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/random</span><span class='tstring_end'>&#39;</span></span>
 
-<span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>100</span><span class='rparen'>)</span>
-
 <span class='id identifier rubyid_rng'>rng</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Random.html" title="Numo::Random (module)">Random</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Numo::Random::Generator (class)">Generator</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Numo::Random::Generator#initialize (method)">new</a></span></span>
-<span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_chisquare'>chisquare</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='label'>df:</span> <span class='float'>2.0</span><span class='rparen'>)</span></code></pre>
+<span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_chisquare'>chisquare</span><span class='lparen'>(</span><span class='label'>shape:</span> <span class='int'>100</span><span class='comma'>,</span> <span class='label'>df:</span> <span class='float'>2.0</span><span class='rparen'>)</span></code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -739,16 +917,16 @@
   
     <li>
       
-        <span class='name'>x</span>
+        <span class='name'>shape</span>
       
       
-        <span class='type'>(<tt>Numo::DFloat | Numo::SFloat</tt>)</span>
+        <span class='type'>(<tt>Integer | Array&lt;Integer&gt;</tt>)</span>
       
       
       
         &mdash;
         <div class='inline'>
-<p>array filled with random values.</p>
+<p>size of random array.</p>
 </div>
       
     </li>
@@ -769,8 +947,39 @@
       
     </li>
   
+    <li>
+      
+        <span class='name'>dtype</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>:float64</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>data type of random array.</p>
+</div>
+      
+    </li>
+  
 </ul>
 
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat | Numo::SFloat</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -778,15 +987,19 @@
       <pre class="lines">
 
 
-108
-109
-110</pre>
+229
+230
+231
+232
+233</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/numo/random.rb', line 108</span>
+      <pre class="code"><span class="info file"># File 'lib/numo/random/generator.rb', line 229</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_chisquare'>chisquare</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='label'>df:</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_chisquare'>chisquare</span><span class='lparen'>(</span><span class='label'>shape:</span><span class='comma'>,</span> <span class='label'>df:</span><span class='comma'>,</span> <span class='label'>dtype:</span> <span class='symbol'>:float64</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_klass'>klass</span><span class='lparen'>(</span><span class='id identifier rubyid_dtype'>dtype</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_shape'>shape</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_chisquare'>chisquare</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='label'>df:</span> <span class='id identifier rubyid_df'>df</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -794,9 +1007,9 @@
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="f-instance_method">
+  <h3 class="signature " id="discrete-instance_method">
   
-    #<strong>f</strong>(x, dfnum:, dfden:)  &#x21d2; <tt>Object</tt> 
+    #<strong>discrete</strong>(shape:, weight:, dtype: :int32)  &#x21d2; <tt>Numo::IntX | Numo::UIntX</tt> 
   
 
   
@@ -805,7 +1018,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Fills given array with random values according to the F-distribution.</p>
+<p>Generates array consists of random integer values in the interval [0, n).</p>
 
 
   </div>
@@ -818,10 +1031,16 @@
       
       <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/random</span><span class='tstring_end'>&#39;</span></span>
 
-<span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>100</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_rng'>rng</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Random.html" title="Numo::Random (module)">Random</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Numo::Random::Generator (class)">Generator</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Numo::Random::Generator#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>seed:</span> <span class='int'>42</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_w'>w</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>DFloat</span><span class='lbracket'>[</span><span class='float'>0.1</span><span class='comma'>,</span> <span class='float'>0.6</span><span class='comma'>,</span> <span class='float'>0.2</span><span class='rbracket'>]</span>
+<span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_discrete'>discrete</span><span class='lparen'>(</span><span class='label'>shape:</span> <span class='lbracket'>[</span><span class='int'>3</span><span class='comma'>,</span> <span class='int'>10</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>weight:</span> <span class='id identifier rubyid_w'>w</span><span class='rparen'>)</span>
 
-<span class='id identifier rubyid_rng'>rng</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Random.html" title="Numo::Random (module)">Random</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Numo::Random::Generator (class)">Generator</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Numo::Random::Generator#initialize (method)">new</a></span></span>
-<span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_f'>f</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='label'>dfnum:</span> <span class='float'>2.0</span><span class='comma'>,</span> <span class='label'>dfden:</span> <span class='float'>4.0</span><span class='rparen'>)</span></code></pre>
+<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_x'>x</span>
+
+<span class='comment'># Numo::Int32#shape=[3,10]
+</span><span class='comment'># [[1, 1, 1, 1, 1, 1, 1, 1, 2, 1],
+</span><span class='comment'>#  [0, 1, 0, 1, 1, 0, 1, 1, 2, 1],
+</span><span class='comment'>#  [2, 1, 1, 1, 1, 2, 2, 1, 1, 2]]</span></code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -829,7 +1048,23 @@
   
     <li>
       
-        <span class='name'>x</span>
+        <span class='name'>shape</span>
+      
+      
+        <span class='type'>(<tt>Integer | Array&lt;Integer&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>size of random array.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>weight</span>
       
       
         <span class='type'>(<tt>Numo::DFloat | Numo::SFloat</tt>)</span>
@@ -838,7 +1073,239 @@
       
         &mdash;
         <div class='inline'>
-<p>array filled with random values.</p>
+<p>(shape: [n]) list of probabilities of each integer being generated.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dtype</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>:int32</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>data type of random array.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::IntX | Numo::UIntX</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+173
+174
+175
+176
+177</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/numo/random/generator.rb', line 173</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_discrete'>discrete</span><span class='lparen'>(</span><span class='label'>shape:</span><span class='comma'>,</span> <span class='label'>weight:</span><span class='comma'>,</span> <span class='label'>dtype:</span> <span class='symbol'>:int32</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_klass'>klass</span><span class='lparen'>(</span><span class='id identifier rubyid_dtype'>dtype</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_shape'>shape</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_discrete'>discrete</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='label'>weight:</span> <span class='id identifier rubyid_weight'>weight</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="exponential-instance_method">
+  
+    #<strong>exponential</strong>(shape:, scale: 1.0, dtype: :float64)  &#x21d2; <tt>Numo::DFloat | Numo::SFloat</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Generates array consists of random values with an exponential distribution.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/random</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='id identifier rubyid_rng'>rng</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Random.html" title="Numo::Random (module)">Random</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Numo::Random::Generator (class)">Generator</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Numo::Random::Generator#initialize (method)">new</a></span></span>
+<span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_exponential'>exponential</span><span class='lparen'>(</span><span class='label'>shape:</span> <span class='int'>100</span><span class='comma'>,</span> <span class='label'>scale:</span> <span class='int'>2</span><span class='rparen'>)</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>shape</span>
+      
+      
+        <span class='type'>(<tt>Integer | Array&lt;Integer&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>size of random array.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>scale</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>1.0</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>scale parameter, lambda = 1.fdiv(scale).</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dtype</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>:float64</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>data type of random array.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat | Numo::SFloat</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+72
+73
+74
+75
+76</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/numo/random/generator.rb', line 72</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_exponential'>exponential</span><span class='lparen'>(</span><span class='label'>shape:</span><span class='comma'>,</span> <span class='label'>scale:</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='label'>dtype:</span> <span class='symbol'>:float64</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_klass'>klass</span><span class='lparen'>(</span><span class='id identifier rubyid_dtype'>dtype</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_shape'>shape</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_exponential'>exponential</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='label'>scale:</span> <span class='id identifier rubyid_scale'>scale</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="f-instance_method">
+  
+    #<strong>f</strong>(shape:, dfnum:, dfden:, dtype: :float64)  &#x21d2; <tt>Numo::DFloat | Numo::SFloat</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Generates array consists of random values according to the F-distribution.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/random</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='id identifier rubyid_rng'>rng</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Random.html" title="Numo::Random (module)">Random</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Numo::Random::Generator (class)">Generator</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Numo::Random::Generator#initialize (method)">new</a></span></span>
+<span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_f'>f</span><span class='lparen'>(</span><span class='label'>shape:</span> <span class='int'>100</span><span class='comma'>,</span> <span class='label'>dfnum:</span> <span class='float'>2.0</span><span class='comma'>,</span> <span class='label'>dfden:</span> <span class='float'>4.0</span><span class='rparen'>)</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>shape</span>
+      
+      
+        <span class='type'>(<tt>Integer | Array&lt;Integer&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>size of random array.</p>
 </div>
       
     </li>
@@ -875,8 +1342,39 @@
       
     </li>
   
+    <li>
+      
+        <span class='name'>dtype</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>:float64</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>data type of random array.</p>
+</div>
+      
+    </li>
+  
 </ul>
 
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat | Numo::SFloat</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -884,15 +1382,19 @@
       <pre class="lines">
 
 
-125
-126
-127</pre>
+248
+249
+250
+251
+252</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/numo/random.rb', line 125</span>
+      <pre class="code"><span class="info file"># File 'lib/numo/random/generator.rb', line 248</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_f'>f</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='label'>dfnum:</span><span class='comma'>,</span> <span class='label'>dfden:</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_f'>f</span><span class='lparen'>(</span><span class='label'>shape:</span><span class='comma'>,</span> <span class='label'>dfnum:</span><span class='comma'>,</span> <span class='label'>dfden:</span><span class='comma'>,</span> <span class='label'>dtype:</span> <span class='symbol'>:float64</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_klass'>klass</span><span class='lparen'>(</span><span class='id identifier rubyid_dtype'>dtype</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_shape'>shape</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_f'>f</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='label'>dfnum:</span> <span class='id identifier rubyid_dfnum'>dfnum</span><span class='comma'>,</span> <span class='label'>dfden:</span> <span class='id identifier rubyid_dfden'>dfden</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -900,9 +1402,9 @@
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="lognormal-instance_method">
+  <h3 class="signature " id="gamma-instance_method">
   
-    #<strong>lognormal</strong>(x, mean: 0.0, sigma: 1.0)  &#x21d2; <tt>Object</tt> 
+    #<strong>gamma</strong>(shape:, k:, scale: 1.0, dtype: :float64)  &#x21d2; <tt>Numo::DFloat | Numo::SFloat</tt> 
   
 
   
@@ -911,7 +1413,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Fills given array with random values according to a log-normal distribution.</p>
+<p>Generates array consists of random values with a gamma distribution.</p>
 
 
   </div>
@@ -924,10 +1426,8 @@
       
       <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/random</span><span class='tstring_end'>&#39;</span></span>
 
-<span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>100</span><span class='rparen'>)</span>
-
 <span class='id identifier rubyid_rng'>rng</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Random.html" title="Numo::Random (module)">Random</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Numo::Random::Generator (class)">Generator</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Numo::Random::Generator#initialize (method)">new</a></span></span>
-<span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_lognormal'>lognormal</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='label'>mean:</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='label'>sigma:</span> <span class='float'>1.0</span><span class='rparen'>)</span></code></pre>
+<span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_gamma'>gamma</span><span class='lparen'>(</span><span class='label'>shape:</span> <span class='int'>100</span><span class='comma'>,</span> <span class='label'>k:</span> <span class='int'>9</span><span class='comma'>,</span> <span class='label'>scale:</span> <span class='float'>0.5</span><span class='rparen'>)</span></code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -935,16 +1435,300 @@
   
     <li>
       
-        <span class='name'>x</span>
+        <span class='name'>shape</span>
+      
+      
+        <span class='type'>(<tt>Integer | Array&lt;Integer&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>size of random array.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>k</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>shape parameter.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>scale</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>1.0</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>scale parameter.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dtype</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>:float64</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>data type of random array.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
       
       
         <span class='type'>(<tt>Numo::DFloat | Numo::SFloat</tt>)</span>
       
       
       
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+91
+92
+93
+94
+95</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/numo/random/generator.rb', line 91</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_gamma'>gamma</span><span class='lparen'>(</span><span class='label'>shape:</span><span class='comma'>,</span> <span class='label'>k:</span><span class='comma'>,</span> <span class='label'>scale:</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='label'>dtype:</span> <span class='symbol'>:float64</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_klass'>klass</span><span class='lparen'>(</span><span class='id identifier rubyid_dtype'>dtype</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_shape'>shape</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_gamma'>gamma</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='label'>k:</span> <span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='label'>scale:</span> <span class='id identifier rubyid_scale'>scale</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="gumbel-instance_method">
+  
+    #<strong>gumbel</strong>(shape:, loc: 0.0, scale: 1.0, dtype: :float64)  &#x21d2; <tt>Numo::DFloat | Numo::SFloat</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Generates array consists of random values according to the Gumbel distribution.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/random</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='id identifier rubyid_rng'>rng</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Random.html" title="Numo::Random (module)">Random</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Numo::Random::Generator (class)">Generator</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Numo::Random::Generator#initialize (method)">new</a></span></span>
+<span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_gumbel'>gumbel</span><span class='lparen'>(</span><span class='label'>shape:</span> <span class='int'>100</span><span class='comma'>,</span> <span class='label'>loc:</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='label'>scale:</span> <span class='float'>1.0</span><span class='rparen'>)</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>shape</span>
+      
+      
+        <span class='type'>(<tt>Integer | Array&lt;Integer&gt;</tt>)</span>
+      
+      
+      
         &mdash;
         <div class='inline'>
-<p>array filled with random values.</p>
+<p>size of random array.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>loc</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>0.0</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>location parameter.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>scale</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>1.0</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>scale parameter.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dtype</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>:float64</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>data type of random array.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat | Numo::SFloat</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+110
+111
+112
+113
+114</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/numo/random/generator.rb', line 110</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_gumbel'>gumbel</span><span class='lparen'>(</span><span class='label'>shape:</span><span class='comma'>,</span> <span class='label'>loc:</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='label'>scale:</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='label'>dtype:</span> <span class='symbol'>:float64</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_klass'>klass</span><span class='lparen'>(</span><span class='id identifier rubyid_dtype'>dtype</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_shape'>shape</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_gumbel'>gumbel</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='label'>loc:</span> <span class='id identifier rubyid_loc'>loc</span><span class='comma'>,</span> <span class='label'>scale:</span> <span class='id identifier rubyid_scale'>scale</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="lognormal-instance_method">
+  
+    #<strong>lognormal</strong>(shape:, mean: 0.0, sigma: 1.0, dtype: :float64)  &#x21d2; <tt>Numo::DFloat | Numo::SFloat</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Generates array consists of random values according to a log-normal distribution.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/random</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='id identifier rubyid_rng'>rng</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Random.html" title="Numo::Random (module)">Random</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Numo::Random::Generator (class)">Generator</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Numo::Random::Generator#initialize (method)">new</a></span></span>
+<span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_lognormal'>lognormal</span><span class='lparen'>(</span><span class='label'>shape:</span> <span class='int'>100</span><span class='comma'>,</span> <span class='label'>mean:</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='label'>sigma:</span> <span class='float'>1.0</span><span class='rparen'>)</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>shape</span>
+      
+      
+        <span class='type'>(<tt>Integer | Array&lt;Integer&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>size of random array.</p>
 </div>
       
     </li>
@@ -985,8 +1769,39 @@
       
     </li>
   
+    <li>
+      
+        <span class='name'>dtype</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>:float64</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>data type of random array.</p>
+</div>
+      
+    </li>
+  
 </ul>
 
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat | Numo::SFloat</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -994,15 +1809,19 @@
       <pre class="lines">
 
 
-159
-160
-161</pre>
+286
+287
+288
+289
+290</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/numo/random.rb', line 159</span>
+      <pre class="code"><span class="info file"># File 'lib/numo/random/generator.rb', line 286</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_lognormal'>lognormal</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='label'>mean:</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='label'>sigma:</span> <span class='float'>1.0</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_lognormal'>lognormal</span><span class='lparen'>(</span><span class='label'>shape:</span><span class='comma'>,</span> <span class='label'>mean:</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='label'>sigma:</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='label'>dtype:</span> <span class='symbol'>:float64</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_klass'>klass</span><span class='lparen'>(</span><span class='id identifier rubyid_dtype'>dtype</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_shape'>shape</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_lognormal'>lognormal</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='label'>mean:</span> <span class='id identifier rubyid_mean'>mean</span><span class='comma'>,</span> <span class='label'>sigma:</span> <span class='id identifier rubyid_sigma'>sigma</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1012,7 +1831,7 @@
       <div class="method_details ">
   <h3 class="signature " id="normal-instance_method">
   
-    #<strong>normal</strong>(x, loc: 0.0, scale: 1.0)  &#x21d2; <tt>Object</tt> 
+    #<strong>normal</strong>(shape:, loc: 0.0, scale: 1.0, dtype: :float64)  &#x21d2; <tt>Numo::DFloat | Numo::SFloat</tt> 
   
 
   
@@ -1021,7 +1840,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Fills given array with random values according to a normal (Gaussian) distribution.</p>
+<p>Generates array consists of random values according to a normal (Gaussian) distribution.</p>
 
 
   </div>
@@ -1034,10 +1853,8 @@
       
       <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/random</span><span class='tstring_end'>&#39;</span></span>
 
-<span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>100</span><span class='rparen'>)</span>
-
 <span class='id identifier rubyid_rng'>rng</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Random.html" title="Numo::Random (module)">Random</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Numo::Random::Generator (class)">Generator</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Numo::Random::Generator#initialize (method)">new</a></span></span>
-<span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_normal'>normal</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='label'>loc:</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='label'>scale:</span> <span class='float'>1.0</span><span class='rparen'>)</span></code></pre>
+<span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_normal'>normal</span><span class='lparen'>(</span><span class='label'>shape:</span> <span class='int'>100</span><span class='comma'>,</span> <span class='label'>loc:</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='label'>scale:</span> <span class='float'>1.0</span><span class='rparen'>)</span></code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -1045,16 +1862,16 @@
   
     <li>
       
-        <span class='name'>x</span>
+        <span class='name'>shape</span>
       
       
-        <span class='type'>(<tt>Numo::DFloat | Numo::SFloat</tt>)</span>
+        <span class='type'>(<tt>Integer | Array&lt;Integer&gt;</tt>)</span>
       
       
       
         &mdash;
         <div class='inline'>
-<p>array filled with random values.</p>
+<p>size of random array.</p>
 </div>
       
     </li>
@@ -1095,8 +1912,39 @@
       
     </li>
   
+    <li>
+      
+        <span class='name'>dtype</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>:float64</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>data type of random array.</p>
+</div>
+      
+    </li>
+  
 </ul>
 
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat | Numo::SFloat</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -1104,15 +1952,144 @@
       <pre class="lines">
 
 
-142
-143
-144</pre>
+267
+268
+269
+270
+271</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/numo/random.rb', line 142</span>
+      <pre class="code"><span class="info file"># File 'lib/numo/random/generator.rb', line 267</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_normal'>normal</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='label'>loc:</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='label'>scale:</span> <span class='float'>1.0</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_normal'>normal</span><span class='lparen'>(</span><span class='label'>shape:</span><span class='comma'>,</span> <span class='label'>loc:</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='label'>scale:</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='label'>dtype:</span> <span class='symbol'>:float64</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_klass'>klass</span><span class='lparen'>(</span><span class='id identifier rubyid_dtype'>dtype</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_shape'>shape</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_normal'>normal</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='label'>loc:</span> <span class='id identifier rubyid_loc'>loc</span><span class='comma'>,</span> <span class='label'>scale:</span> <span class='id identifier rubyid_scale'>scale</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="poisson-instance_method">
+  
+    #<strong>poisson</strong>(shape:, mean: 1.0, dtype: :int32)  &#x21d2; <tt>Numo::IntX | Numo::UIntX</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Generates array consists of random values according to the Poisson distribution.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/random</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='id identifier rubyid_rng'>rng</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Random.html" title="Numo::Random (module)">Random</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Numo::Random::Generator (class)">Generator</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Numo::Random::Generator#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>seed:</span> <span class='int'>42</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_poisson'>poisson</span><span class='lparen'>(</span><span class='label'>shape:</span> <span class='int'>1000</span><span class='comma'>,</span> <span class='label'>mean:</span> <span class='int'>4</span><span class='rparen'>)</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>shape</span>
+      
+      
+        <span class='type'>(<tt>Integer | Array&lt;Integer&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>size of random array.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>mean</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>1.0</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>mean of poisson distribution.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dtype</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>:int32</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>data type of random array.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::IntX | Numo::UIntX</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+128
+129
+130
+131
+132</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/numo/random/generator.rb', line 128</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_poisson'>poisson</span><span class='lparen'>(</span><span class='label'>shape:</span><span class='comma'>,</span> <span class='label'>mean:</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='label'>dtype:</span> <span class='symbol'>:int32</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_klass'>klass</span><span class='lparen'>(</span><span class='id identifier rubyid_dtype'>dtype</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_shape'>shape</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_poisson'>poisson</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='label'>mean:</span> <span class='id identifier rubyid_mean'>mean</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1169,12 +2146,12 @@
       <pre class="lines">
 
 
-58
-59
-60</pre>
+56
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/numo/random.rb', line 58</span>
+      <pre class="code"><span class="info file"># File 'lib/numo/random/generator.rb', line 56</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_random'>random</span>
   <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_random'>random</span>
@@ -1223,12 +2200,12 @@
       <pre class="lines">
 
 
-38
-39
-40</pre>
+36
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/numo/random.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/numo/random/generator.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_seed'>seed</span>
   <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_seed'>seed</span>
@@ -1284,12 +2261,12 @@
       <pre class="lines">
 
 
-45
-46
-47</pre>
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/numo/random.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'lib/numo/random/generator.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_seed='>seed=</span><span class='lparen'>(</span><span class='id identifier rubyid_val'>val</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_seed'>seed</span> <span class='op'>=</span> <span class='id identifier rubyid_val'>val</span>
@@ -1302,7 +2279,7 @@
       <div class="method_details ">
   <h3 class="signature " id="standard_t-instance_method">
   
-    #<strong>standard_t</strong>(x, df:)  &#x21d2; <tt>Object</tt> 
+    #<strong>standard_t</strong>(shape:, df:, dtype: :float64)  &#x21d2; <tt>Numo::DFloat | Numo::SFloat</tt> 
   
 
   
@@ -1311,7 +2288,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Fills given array with random values according to the Student’s t-distribution.</p>
+<p>Generates array consists of random values according to the Student’s t-distribution.</p>
 
 
   </div>
@@ -1324,10 +2301,8 @@
       
       <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/random</span><span class='tstring_end'>&#39;</span></span>
 
-<span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>100</span><span class='rparen'>)</span>
-
 <span class='id identifier rubyid_rng'>rng</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Random.html" title="Numo::Random (module)">Random</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Numo::Random::Generator (class)">Generator</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Numo::Random::Generator#initialize (method)">new</a></span></span>
-<span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_standard_t'>standard_t</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='label'>df:</span> <span class='float'>8.0</span><span class='rparen'>)</span></code></pre>
+<span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_standard_t'>standard_t</span><span class='lparen'>(</span><span class='label'>shape:</span> <span class='int'>100</span><span class='comma'>,</span> <span class='label'>df:</span> <span class='float'>8.0</span><span class='rparen'>)</span></code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -1335,16 +2310,16 @@
   
     <li>
       
-        <span class='name'>x</span>
+        <span class='name'>shape</span>
       
       
-        <span class='type'>(<tt>Numo::DFloat | Numo::SFloat</tt>)</span>
+        <span class='type'>(<tt>Integer | Array&lt;Integer&gt;</tt>)</span>
       
       
       
         &mdash;
         <div class='inline'>
-<p>array filled with random values.</p>
+<p>size of random array.</p>
 </div>
       
     </li>
@@ -1365,8 +2340,39 @@
       
     </li>
   
+    <li>
+      
+        <span class='name'>dtype</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>:float64</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>data type of random array.</p>
+</div>
+      
+    </li>
+  
 </ul>
 
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat | Numo::SFloat</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -1374,15 +2380,19 @@
       <pre class="lines">
 
 
-175
-176
-177</pre>
+304
+305
+306
+307
+308</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/numo/random.rb', line 175</span>
+      <pre class="code"><span class="info file"># File 'lib/numo/random/generator.rb', line 304</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_standard_t'>standard_t</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='label'>df:</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_standard_t'>standard_t</span><span class='lparen'>(</span><span class='label'>shape:</span><span class='comma'>,</span> <span class='label'>df:</span><span class='comma'>,</span> <span class='label'>dtype:</span> <span class='symbol'>:float64</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_klass'>klass</span><span class='lparen'>(</span><span class='id identifier rubyid_dtype'>dtype</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_shape'>shape</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_standard_t'>standard_t</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='label'>df:</span> <span class='id identifier rubyid_df'>df</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1392,7 +2402,7 @@
       <div class="method_details ">
   <h3 class="signature " id="uniform-instance_method">
   
-    #<strong>uniform</strong>(x, low: 0.0, high: 1.0)  &#x21d2; <tt>Object</tt> 
+    #<strong>uniform</strong>(shape:, low: 0.0, high: 1.0, dtype: :float64)  &#x21d2; <tt>Numo::DFloat | Numo::SFloat</tt> 
   
 
   
@@ -1401,7 +2411,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Fills given array with uniformly distributed random values in the interval [low, high).</p>
+<p>Generates array consists of uniformly distributed random values in the interval [low, high).</p>
 
 
   </div>
@@ -1414,10 +2424,8 @@
       
       <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/random</span><span class='tstring_end'>&#39;</span></span>
 
-<span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>100</span><span class='rparen'>)</span>
-
 <span class='id identifier rubyid_rng'>rng</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Random.html" title="Numo::Random (module)">Random</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Numo::Random::Generator (class)">Generator</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Numo::Random::Generator#initialize (method)">new</a></span></span>
-<span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_uniform'>uniform</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='label'>low:</span> <span class='op'>-</span><span class='float'>1.5</span><span class='comma'>,</span> <span class='label'>high:</span> <span class='float'>1.5</span><span class='rparen'>)</span></code></pre>
+<span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_uniform'>uniform</span><span class='lparen'>(</span><span class='label'>shape:</span> <span class='int'>100</span><span class='comma'>,</span> <span class='label'>low:</span> <span class='op'>-</span><span class='float'>1.5</span><span class='comma'>,</span> <span class='label'>high:</span> <span class='float'>1.5</span><span class='rparen'>)</span></code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -1425,16 +2433,16 @@
   
     <li>
       
-        <span class='name'>x</span>
+        <span class='name'>shape</span>
       
       
-        <span class='type'>(<tt>Numo::DFloat | Numo::SFloat</tt>)</span>
+        <span class='type'>(<tt>Integer | Array&lt;Integer&gt;</tt>)</span>
       
       
       
         &mdash;
         <div class='inline'>
-<p>array filled with random values.</p>
+<p>size of random array.</p>
 </div>
       
     </li>
@@ -1475,8 +2483,39 @@
       
     </li>
   
+    <li>
+      
+        <span class='name'>dtype</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>:float64</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>data type of random array.</p>
+</div>
+      
+    </li>
+  
 </ul>
 
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat | Numo::SFloat</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -1484,15 +2523,160 @@
       <pre class="lines">
 
 
-75
-76
-77</pre>
+192
+193
+194
+195
+196</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/numo/random.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'lib/numo/random/generator.rb', line 192</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_uniform'>uniform</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='label'>low:</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='label'>high:</span> <span class='float'>1.0</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_uniform'>uniform</span><span class='lparen'>(</span><span class='label'>shape:</span><span class='comma'>,</span> <span class='label'>low:</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='label'>high:</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='label'>dtype:</span> <span class='symbol'>:float64</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_klass'>klass</span><span class='lparen'>(</span><span class='id identifier rubyid_dtype'>dtype</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_shape'>shape</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_uniform'>uniform</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='label'>low:</span> <span class='id identifier rubyid_low'>low</span><span class='comma'>,</span> <span class='label'>high:</span> <span class='id identifier rubyid_high'>high</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="weibull-instance_method">
+  
+    #<strong>weibull</strong>(shape:, k:, scale: 1.0, dtype: :float64)  &#x21d2; <tt>Numo::DFloat | Numo::SFloat</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Generates array consists of random values with the Weibull distribution.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/random</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='id identifier rubyid_rng'>rng</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Random.html" title="Numo::Random (module)">Random</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Numo::Random::Generator (class)">Generator</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Numo::Random::Generator#initialize (method)">new</a></span></span>
+<span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_weibull'>weibull</span><span class='lparen'>(</span><span class='label'>shape:</span> <span class='int'>100</span><span class='comma'>,</span> <span class='label'>k:</span> <span class='int'>5</span><span class='comma'>,</span> <span class='label'>scale:</span> <span class='int'>2</span><span class='rparen'>)</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>shape</span>
+      
+      
+        <span class='type'>(<tt>Integer | Array&lt;Integer&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>size of random array.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>k</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>shape parameter.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>scale</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>1.0</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>scale parameter.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dtype</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>:float64</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>data type of random array.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat | Numo::SFloat</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+147
+148
+149
+150
+151</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/numo/random/generator.rb', line 147</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_weibull'>weibull</span><span class='lparen'>(</span><span class='label'>shape:</span><span class='comma'>,</span> <span class='label'>k:</span><span class='comma'>,</span> <span class='label'>scale:</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='label'>dtype:</span> <span class='symbol'>:float64</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_klass'>klass</span><span class='lparen'>(</span><span class='id identifier rubyid_dtype'>dtype</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_shape'>shape</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_rng'>rng</span><span class='period'>.</span><span class='id identifier rubyid_weibull'>weibull</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='label'>k:</span> <span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='label'>scale:</span> <span class='id identifier rubyid_scale'>scale</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1504,7 +2688,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Oct 24 22:00:45 2022 by
+  Generated on Sun Nov  6 10:22:55 2022 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.1.2).
 </div>
