@@ -6,7 +6,7 @@
 <title>
   Class: Rumale::Clustering::DBSCAN
   
-    &mdash; Documentation by YARD 0.9.27
+    &mdash; Documentation by YARD 0.9.28
   
 </title>
 
@@ -69,10 +69,12 @@
   <dl>
     <dt>Inherits:</dt>
     <dd>
-      <span class="inheritName">Object</span>
+      <span class="inheritName"><span class='object_link'><a href="../Base/Estimator.html" title="Rumale::Base::Estimator (class)">Base::Estimator</a></span></span>
       
         <ul class="fullTree">
           <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="../Base/Estimator.html" title="Rumale::Base::Estimator (class)">Base::Estimator</a></span></li>
           
             <li class="next">Rumale::Clustering::DBSCAN</li>
           
@@ -89,7 +91,7 @@
   
   <dl>
       <dt>Includes:</dt>
-      <dd><span class='object_link'><a href="../Base/BaseEstimator.html" title="Rumale::Base::BaseEstimator (module)">Base::BaseEstimator</a></span>, <span class='object_link'><a href="../Base/ClusterAnalyzer.html" title="Rumale::Base::ClusterAnalyzer (module)">Base::ClusterAnalyzer</a></span></dd>
+      <dd><span class='object_link'><a href="../Base/ClusterAnalyzer.html" title="Rumale::Base::ClusterAnalyzer (module)">Base::ClusterAnalyzer</a></span></dd>
   </dl>
   
   
@@ -99,7 +101,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/rumale/clustering/dbscan.rb</dd>
+    <dd>rumale-clustering/lib/rumale/clustering/dbscan.rb</dd>
   </dl>
   
 </div>
@@ -111,7 +113,7 @@
 
 <p><strong>Reference</strong></p>
 <ul><li>
-<p>Ester, M., Kriegel, H-P., Sander, J., and Xu, X., “A density-based algorithm for discovering clusters in large spatial databases with noise,” Proc. KDD&#39; 96, pp. 266–231, 1996.</p>
+<p>Ester, M., Kriegel, H-P., Sander, J., and Xu, X., “A density-based algorithm for discovering clusters in large spatial databases with noise,” Proc. KDD’ 96, pp. 266–231, 1996.</p>
 </li></ul>
 
 
@@ -123,7 +125,9 @@
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_analyzer'>analyzer</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Clustering.html" title="Rumale::Clustering (module)">Clustering</a></span></span><span class='op'>::</span><span class='const'>DBSCAN</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::Clustering::DBSCAN#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>eps:</span> <span class='float'>0.5</span><span class='comma'>,</span> <span class='label'>min_samples:</span> <span class='int'>5</span><span class='rparen'>)</span>
+      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rumale/clustering/dbscan</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='id identifier rubyid_analyzer'>analyzer</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Clustering.html" title="Rumale::Clustering (module)">Clustering</a></span></span><span class='op'>::</span><span class='const'>DBSCAN</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::Clustering::DBSCAN#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>eps:</span> <span class='float'>0.5</span><span class='comma'>,</span> <span class='label'>min_samples:</span> <span class='int'>5</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_cluster_labels'>cluster_labels</span> <span class='op'>=</span> <span class='id identifier rubyid_analyzer'>analyzer</span><span class='period'>.</span><span class='id identifier rubyid_fit_predict'>fit_predict</span><span class='lparen'>(</span><span class='id identifier rubyid_samples'>samples</span><span class='rparen'>)</span></code></pre>
     
   </div>
@@ -204,8 +208,8 @@
 
   
   
-  <h3 class="inherited">Attributes included from <span class='object_link'><a href="../Base/BaseEstimator.html" title="Rumale::Base::BaseEstimator (module)">Base::BaseEstimator</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../Base/BaseEstimator.html#params-instance_method" title="Rumale::Base::BaseEstimator#params (method)">#params</a></span></p>
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="../Base/Estimator.html" title="Rumale::Base::Estimator (class)">Base::Estimator</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../Base/Estimator.html#params-instance_method" title="Rumale::Base::Estimator#params (method)">#params</a></span></p>
 
 
   
@@ -310,12 +314,6 @@
   
   
   
-  
-  
-  
-  
-  
-  
   <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -389,7 +387,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The metric to calculate the distances. If metric is &#39;euclidean&#39;, Euclidean distance is calculated for distance between points. If metric is &#39;precomputed&#39;, the fit and fit_transform methods expect to be given a distance matrix.</p>
+<p>The metric to calculate the distances. If metric is ‘euclidean’, Euclidean distance is calculated for distance between points. If metric is ‘precomputed’, the fit and fit_transform methods expect to be given a distance matrix.</p>
 </div>
       
     </li>
@@ -403,8 +401,6 @@
       <pre class="lines">
 
 
-36
-37
 38
 39
 40
@@ -415,17 +411,15 @@
 45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/clustering/dbscan.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'rumale-clustering/lib/rumale/clustering/dbscan.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>eps:</span> <span class='float'>0.5</span><span class='comma'>,</span> <span class='label'>min_samples:</span> <span class='int'>5</span><span class='comma'>,</span> <span class='label'>metric:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>euclidean</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_numeric'>check_params_numeric</span><span class='lparen'>(</span><span class='label'>eps:</span> <span class='id identifier rubyid_eps'>eps</span><span class='comma'>,</span> <span class='label'>min_samples:</span> <span class='id identifier rubyid_min_samples'>min_samples</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_string'>check_params_string</span><span class='lparen'>(</span><span class='label'>metric:</span> <span class='id identifier rubyid_metric'>metric</span><span class='rparen'>)</span>
-  <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:eps</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_eps'>eps</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:min_samples</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_min_samples'>min_samples</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:metric</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_metric'>metric</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>precomputed</span><span class='tstring_end'>&#39;</span></span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>precomputed</span><span class='tstring_end'>&#39;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>euclidean</span><span class='tstring_end'>&#39;</span></span>
-  <span class='ivar'>@core_sample_ids</span> <span class='op'>=</span> <span class='kw'>nil</span>
-  <span class='ivar'>@labels</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='rparen'>)</span>
+  <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+    <span class='label'>eps:</span> <span class='id identifier rubyid_eps'>eps</span><span class='comma'>,</span>
+    <span class='label'>min_samples:</span> <span class='id identifier rubyid_min_samples'>min_samples</span><span class='comma'>,</span>
+    <span class='label'>metric:</span> <span class='lparen'>(</span><span class='id identifier rubyid_metric'>metric</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>precomputed</span><span class='tstring_end'>&#39;</span></span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>precomputed</span><span class='tstring_end'>&#39;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>euclidean</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -483,12 +477,12 @@
       <pre class="lines">
 
 
-23
-24
-25</pre>
+25
+26
+27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/clustering/dbscan.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'rumale-clustering/lib/rumale/clustering/dbscan.rb', line 25</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_core_sample_ids'>core_sample_ids</span>
   <span class='ivar'>@core_sample_ids</span>
@@ -544,12 +538,12 @@
       <pre class="lines">
 
 
-27
-28
-29</pre>
+29
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/clustering/dbscan.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'rumale-clustering/lib/rumale/clustering/dbscan.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_labels'>labels</span>
   <span class='ivar'>@labels</span>
@@ -585,8 +579,16 @@
 </div>
 <div class="tags">
   
-  
-<p class="tag_title">Parameters:</p>
+  <div class="docstring">
+  <div class="discussion">
+    
+<p>Returns The learned cluster analyzer itself.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -600,7 +602,7 @@
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for cluster analysis. If the metric is &#39;precomputed&#39;, x must be a square distance matrix (shape: [n_samples, n_samples]).</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for cluster analysis. If the metric is ‘precomputed’, x must be a square distance matrix (shape: [n_samples, n_samples]).</p>
 </div>
       
     </li>
@@ -625,6 +627,9 @@
     </li>
   
 </ul>
+
+</div>
+
 <p class="tag_title">Raises:</p>
 <ul class="raise">
   
@@ -645,20 +650,20 @@
       <pre class="lines">
 
 
+53
 54
 55
 56
 57
 58
-59
-60</pre>
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/clustering/dbscan.rb', line 54</span>
+      <pre class="code"><span class="info file"># File 'rumale-clustering/lib/rumale/clustering/dbscan.rb', line 53</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid__y'>_y</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect the input distance matrix to be square.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:metric</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>precomputed</span><span class='tstring_end'>&#39;</span></span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>the input distance matrix should be square</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_check_invalid_array_shape'>check_invalid_array_shape</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_partial_fit'>partial_fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='kw'>self</span>
@@ -700,7 +705,7 @@
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The samples to be used for cluster analysis. If the metric is &#39;precomputed&#39;, x must be a square distance matrix (shape: [n_samples, n_samples]).</p>
+<p>(shape: [n_samples, n_features]) The samples to be used for cluster analysis. If the metric is ‘precomputed’, x must be a square distance matrix (shape: [n_samples, n_samples]).</p>
 </div>
       
     </li>
@@ -745,20 +750,20 @@
       <pre class="lines">
 
 
+66
 67
 68
 69
 70
 71
-72
-73</pre>
+72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/clustering/dbscan.rb', line 67</span>
+      <pre class="code"><span class="info file"># File 'rumale-clustering/lib/rumale/clustering/dbscan.rb', line 66</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit_predict'>fit_predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect the input distance matrix to be square.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:metric</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>precomputed</span><span class='tstring_end'>&#39;</span></span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>the input distance matrix should be square</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_check_invalid_array_shape'>check_invalid_array_shape</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_partial_fit'>partial_fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_labels'>labels</span>
@@ -773,9 +778,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 17 23:50:04 2022 by
-  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.27 (ruby-3.0.4).
+  Generated on Sun Jan  1 00:39:37 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.28 (ruby-3.1.3).
 </div>
 
     </div>

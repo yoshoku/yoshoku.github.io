@@ -6,7 +6,7 @@
 <title>
   Class: Rumale::Decomposition::PCA
   
-    &mdash; Documentation by YARD 0.9.27
+    &mdash; Documentation by YARD 0.9.28
   
 </title>
 
@@ -69,10 +69,12 @@
   <dl>
     <dt>Inherits:</dt>
     <dd>
-      <span class="inheritName">Object</span>
+      <span class="inheritName"><span class='object_link'><a href="../Base/Estimator.html" title="Rumale::Base::Estimator (class)">Base::Estimator</a></span></span>
       
         <ul class="fullTree">
           <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="../Base/Estimator.html" title="Rumale::Base::Estimator (class)">Base::Estimator</a></span></li>
           
             <li class="next">Rumale::Decomposition::PCA</li>
           
@@ -89,7 +91,7 @@
   
   <dl>
       <dt>Includes:</dt>
-      <dd><span class='object_link'><a href="../Base/BaseEstimator.html" title="Rumale::Base::BaseEstimator (module)">Base::BaseEstimator</a></span>, <span class='object_link'><a href="../Base/Transformer.html" title="Rumale::Base::Transformer (module)">Base::Transformer</a></span></dd>
+      <dd><span class='object_link'><a href="../Base/Transformer.html" title="Rumale::Base::Transformer (module)">Base::Transformer</a></span></dd>
   </dl>
   
   
@@ -99,7 +101,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/rumale/decomposition/pca.rb</dd>
+    <dd>rumale-decomposition/lib/rumale/decomposition/pca.rb</dd>
   </dl>
   
 </div>
@@ -123,11 +125,15 @@
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_decomposer'>decomposer</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Decomposition.html" title="Rumale::Decomposition (module)">Decomposition</a></span></span><span class='op'>::</span><span class='const'>PCA</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::Decomposition::PCA#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>n_components:</span> <span class='int'>2</span><span class='comma'>,</span> <span class='label'>solver:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>fpt</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rumale/decomposition/pca</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='id identifier rubyid_decomposer'>decomposer</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Decomposition.html" title="Rumale::Decomposition (module)">Decomposition</a></span></span><span class='op'>::</span><span class='const'>PCA</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::Decomposition::PCA#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>n_components:</span> <span class='int'>2</span><span class='comma'>,</span> <span class='label'>solver:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>fpt</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 <span class='id identifier rubyid_representaion'>representaion</span> <span class='op'>=</span> <span class='id identifier rubyid_decomposer'>decomposer</span><span class='period'>.</span><span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_samples'>samples</span><span class='rparen'>)</span>
 
 <span class='comment'># If Numo::Linalg is installed, you can specify &#39;evd&#39; for the solver option.
 </span><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/linalg/autoloader</span><span class='tstring_end'>&#39;</span></span>
+<span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rumale/decomposition/pca</span><span class='tstring_end'>&#39;</span></span>
+
 <span class='id identifier rubyid_decomposer'>decomposer</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Decomposition.html" title="Rumale::Decomposition (module)">Decomposition</a></span></span><span class='op'>::</span><span class='const'>PCA</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::Decomposition::PCA#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>n_components:</span> <span class='int'>2</span><span class='comma'>,</span> <span class='label'>solver:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>evd</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 <span class='id identifier rubyid_representaion'>representaion</span> <span class='op'>=</span> <span class='id identifier rubyid_decomposer'>decomposer</span><span class='period'>.</span><span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_samples'>samples</span><span class='rparen'>)</span>
 
@@ -239,8 +245,8 @@
 
   
   
-  <h3 class="inherited">Attributes included from <span class='object_link'><a href="../Base/BaseEstimator.html" title="Rumale::Base::BaseEstimator (module)">Base::BaseEstimator</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../Base/BaseEstimator.html#params-instance_method" title="Rumale::Base::BaseEstimator#params (method)">#params</a></span></p>
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="../Base/Estimator.html" title="Rumale::Base::Estimator (class)">Base::Estimator</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../Base/Estimator.html#params-instance_method" title="Rumale::Base::Estimator#params (method)">#params</a></span></p>
 
 
   
@@ -388,12 +394,6 @@
   
   
   
-  
-  
-  
-  
-  
-  
   <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -449,7 +449,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The algorithm for the optimization (&#39;auto&#39;, &#39;fpt&#39; or &#39;evd&#39;). &#39;auto&#39; chooses the &#39;evd&#39; solver if Numo::Linalg is loaded. Otherwise, it chooses the &#39;fpt&#39; solver. &#39;fpt&#39; uses the fixed-point algorithm. &#39;evd&#39; performs eigen value decomposition of the covariance matrix of samples.</p>
+<p>The algorithm for the optimization (‘auto’, ‘fpt’ or ‘evd’). ‘auto’ chooses the ‘evd’ solver if Numo::Linalg is loaded. Otherwise, it chooses the ‘fpt’ solver. ‘fpt’ uses the fixed-point algorithm. ‘evd’ performs eigen value decomposition of the covariance matrix of samples.</p>
 </div>
       
     </li>
@@ -467,7 +467,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The maximum number of iterations. If solver = &#39;evd&#39;, this parameter is ignored.</p>
+<p>The maximum number of iterations. If solver = ‘evd’, this parameter is ignored.</p>
 </div>
       
     </li>
@@ -485,7 +485,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The tolerance of termination criterion. If solver = &#39;evd&#39;, this parameter is ignored.</p>
+<p>The tolerance of termination criterion. If solver = ‘evd’, this parameter is ignored.</p>
 </div>
       
     </li>
@@ -517,10 +517,6 @@
       <pre class="lines">
 
 
-53
-54
-55
-56
 57
 58
 59
@@ -532,33 +528,21 @@
 65
 66
 67
-68
-69
-70
-71
-72</pre>
+68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/decomposition/pca.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'rumale-decomposition/lib/rumale/decomposition/pca.rb', line 57</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>n_components:</span> <span class='int'>2</span><span class='comma'>,</span> <span class='label'>solver:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>auto</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>max_iter:</span> <span class='int'>100</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='float'>1.0e-4</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_numeric'>check_params_numeric</span><span class='lparen'>(</span><span class='label'>n_components:</span> <span class='id identifier rubyid_n_components'>n_components</span><span class='comma'>,</span> <span class='label'>max_iter:</span> <span class='id identifier rubyid_max_iter'>max_iter</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='id identifier rubyid_tol'>tol</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_string'>check_params_string</span><span class='lparen'>(</span><span class='label'>solver:</span> <span class='id identifier rubyid_solver'>solver</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_numeric_or_nil'>check_params_numeric_or_nil</span><span class='lparen'>(</span><span class='label'>random_seed:</span> <span class='id identifier rubyid_random_seed'>random_seed</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_positive'>check_params_positive</span><span class='lparen'>(</span><span class='label'>n_components:</span> <span class='id identifier rubyid_n_components'>n_components</span><span class='comma'>,</span> <span class='label'>max_iter:</span> <span class='id identifier rubyid_max_iter'>max_iter</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='id identifier rubyid_tol'>tol</span><span class='rparen'>)</span>
-  <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:solver</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='id identifier rubyid_solver'>solver</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>auto</span><span class='tstring_end'>&#39;</span></span>
-                       <span class='id identifier rubyid_load_linalg?'>load_linalg?</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>evd</span><span class='tstring_end'>&#39;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>fpt</span><span class='tstring_end'>&#39;</span></span>
-                     <span class='kw'>else</span>
-                       <span class='id identifier rubyid_solver'>solver</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>evd</span><span class='tstring_end'>&#39;</span></span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>fpt</span><span class='tstring_end'>&#39;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>evd</span><span class='tstring_end'>&#39;</span></span> <span class='comment'># rubocop:disable Style/NegatedIfElseCondition
-</span>                     <span class='kw'>end</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_components</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_n_components'>n_components</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_iter</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_max_iter'>max_iter</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:tol</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_tol'>tol</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:random_seed</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_random_seed'>random_seed</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:random_seed</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='id identifier rubyid_srand'>srand</span>
-  <span class='ivar'>@components</span> <span class='op'>=</span> <span class='kw'>nil</span>
-  <span class='ivar'>@mean</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='rparen'>)</span>
+  <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+    <span class='label'>n_components:</span> <span class='id identifier rubyid_n_components'>n_components</span><span class='comma'>,</span>
+    <span class='label'>solver:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>fpt</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>max_iter:</span> <span class='id identifier rubyid_max_iter'>max_iter</span><span class='comma'>,</span>
+    <span class='label'>tol:</span> <span class='id identifier rubyid_tol'>tol</span><span class='comma'>,</span>
+    <span class='label'>random_seed:</span> <span class='lparen'>(</span><span class='id identifier rubyid_random_seed'>random_seed</span> <span class='op'>||</span> <span class='id identifier rubyid_srand'>srand</span><span class='rparen'>)</span>
+  <span class='rbrace'>}</span>
+  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:solver</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>evd</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_solver'>solver</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>auto</span><span class='tstring_end'>&#39;</span></span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_enable_linalg?'>enable_linalg?</span><span class='lparen'>(</span><span class='label'>warning:</span> <span class='kw'>false</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='id identifier rubyid_solver'>solver</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>evd</span><span class='tstring_end'>&#39;</span></span>
   <span class='ivar'>@rng</span> <span class='op'>=</span> <span class='const'>Random</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:random_seed</span><span class='rbracket'>]</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -617,12 +601,12 @@
       <pre class="lines">
 
 
-33
-34
-35</pre>
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/decomposition/pca.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'rumale-decomposition/lib/rumale/decomposition/pca.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_components'>components</span>
   <span class='ivar'>@components</span>
@@ -678,12 +662,12 @@
       <pre class="lines">
 
 
-37
-38
-39</pre>
+41
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/decomposition/pca.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'rumale-decomposition/lib/rumale/decomposition/pca.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mean'>mean</span>
   <span class='ivar'>@mean</span>
@@ -734,12 +718,12 @@
       <pre class="lines">
 
 
-41
-42
-43</pre>
+45
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/decomposition/pca.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'rumale-decomposition/lib/rumale/decomposition/pca.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rng'>rng</span>
   <span class='ivar'>@rng</span>
@@ -775,8 +759,16 @@
 </div>
 <div class="tags">
   
-  
-<p class="tag_title">Parameters:</p>
+  <div class="docstring">
+  <div class="discussion">
+    
+<p>Returns The learned transformer itself.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -816,12 +808,20 @@
   
 </ul>
 
+</div>
+
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
+75
+76
+77
+78
+79
 80
 81
 82
@@ -846,17 +846,14 @@
 101
 102
 103
-104
-105
-106
-107
-108</pre>
+104</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/decomposition/pca.rb', line 80</span>
+      <pre class="code"><span class="info file"># File 'rumale-decomposition/lib/rumale/decomposition/pca.rb', line 75</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid__y'>_y</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+
   <span class='comment'># initialize some variables.
 </span>  <span class='ivar'>@components</span> <span class='op'>=</span> <span class='kw'>nil</span>
   <span class='id identifier rubyid_n_samples'>n_samples</span><span class='comma'>,</span> <span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span>
@@ -872,7 +869,7 @@
     <span class='ivar'>@components</span> <span class='op'>=</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_components</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='int'>1</span> <span class='op'>?</span> <span class='id identifier rubyid_comps'>comps</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span> <span class='op'>:</span> <span class='id identifier rubyid_comps'>comps</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
   <span class='kw'>else</span>
     <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_components</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span>
-      <span class='id identifier rubyid_comp_vec'>comp_vec</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_rand_uniform'>rand_uniform</span><span class='lparen'>(</span><span class='id identifier rubyid_n_features'>n_features</span><span class='comma'>,</span> <span class='id identifier rubyid_sub_rng'>sub_rng</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_comp_vec'>comp_vec</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_rand_uniform'>rand_uniform</span><span class='lparen'>(</span><span class='id identifier rubyid_n_features'>n_features</span><span class='comma'>,</span> <span class='id identifier rubyid_sub_rng'>sub_rng</span><span class='rparen'>)</span>
       <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_iter</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span>
         <span class='id identifier rubyid_updated'>updated</span> <span class='op'>=</span> <span class='id identifier rubyid_orthogonalize'>orthogonalize</span><span class='lparen'>(</span><span class='id identifier rubyid_covariance_mat'>covariance_mat</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='id identifier rubyid_comp_vec'>comp_vec</span><span class='rparen'>)</span><span class='rparen'>)</span>
         <span class='kw'>break</span> <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_updated'>updated</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='id identifier rubyid_comp_vec'>comp_vec</span><span class='rparen'>)</span> <span class='op'>-</span> <span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span> <span class='op'>&lt;</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:tol</span><span class='rbracket'>]</span>
@@ -908,8 +905,16 @@
 </div>
 <div class="tags">
   
-  
-<p class="tag_title">Parameters:</p>
+  <div class="docstring">
+  <div class="discussion">
+    
+<p>Returns (shape: [n_samples, n_components]) The transformed data.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -949,22 +954,27 @@
   
 </ul>
 
+</div>
+
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-116
-117
-118
-119</pre>
+111
+112
+113
+114
+115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/decomposition/pca.rb', line 116</span>
+      <pre class="code"><span class="info file"># File 'rumale-decomposition/lib/rumale/decomposition/pca.rb', line 111</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid__y'>_y</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+
   <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_transform'>transform</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1036,17 +1046,19 @@
       <pre class="lines">
 
 
+131
+132
+133
 134
 135
-136
-137
-138</pre>
+136</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/decomposition/pca.rb', line 134</span>
+      <pre class="code"><span class="info file"># File 'rumale-decomposition/lib/rumale/decomposition/pca.rb', line 131</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inverse_transform'>inverse_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_z'>z</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_z'>z</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_z'>z</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_z'>z</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_z'>z</span><span class='rparen'>)</span>
+
   <span class='id identifier rubyid_c'>c</span> <span class='op'>=</span> <span class='ivar'>@components</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>?</span> <span class='ivar'>@components</span><span class='period'>.</span><span class='id identifier rubyid_expand_dims'>expand_dims</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='ivar'>@components</span>
   <span class='id identifier rubyid_z'>z</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='id identifier rubyid_c'>c</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='ivar'>@mean</span>
 <span class='kw'>end</span></pre>
@@ -1119,16 +1131,18 @@
       <pre class="lines">
 
 
-125
-126
-127
-128</pre>
+121
+122
+123
+124
+125</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/decomposition/pca.rb', line 125</span>
+      <pre class="code"><span class="info file"># File 'rumale-decomposition/lib/rumale/decomposition/pca.rb', line 121</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_transform'>transform</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+
   <span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span> <span class='op'>-</span> <span class='ivar'>@mean</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='ivar'>@components</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1141,9 +1155,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 17 23:50:04 2022 by
-  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.27 (ruby-3.0.4).
+  Generated on Sun Jan  1 00:39:37 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.28 (ruby-3.1.3).
 </div>
 
     </div>

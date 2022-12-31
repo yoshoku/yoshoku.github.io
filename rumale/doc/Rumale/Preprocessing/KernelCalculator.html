@@ -6,7 +6,7 @@
 <title>
   Class: Rumale::Preprocessing::KernelCalculator
   
-    &mdash; Documentation by YARD 0.9.27
+    &mdash; Documentation by YARD 0.9.28
   
 </title>
 
@@ -69,10 +69,12 @@
   <dl>
     <dt>Inherits:</dt>
     <dd>
-      <span class="inheritName">Object</span>
+      <span class="inheritName"><span class='object_link'><a href="../Base/Estimator.html" title="Rumale::Base::Estimator (class)">Base::Estimator</a></span></span>
       
         <ul class="fullTree">
           <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="../Base/Estimator.html" title="Rumale::Base::Estimator (class)">Base::Estimator</a></span></li>
           
             <li class="next">Rumale::Preprocessing::KernelCalculator</li>
           
@@ -89,7 +91,7 @@
   
   <dl>
       <dt>Includes:</dt>
-      <dd><span class='object_link'><a href="../Base/BaseEstimator.html" title="Rumale::Base::BaseEstimator (module)">Base::BaseEstimator</a></span>, <span class='object_link'><a href="../Base/Transformer.html" title="Rumale::Base::Transformer (module)">Base::Transformer</a></span></dd>
+      <dd><span class='object_link'><a href="../Base/Transformer.html" title="Rumale::Base::Transformer (module)">Base::Transformer</a></span></dd>
   </dl>
   
   
@@ -99,7 +101,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/rumale/preprocessing/kernel_calculator.rb</dd>
+    <dd>rumale-preprocessing/lib/rumale/preprocessing/kernel_calculator.rb</dd>
   </dl>
   
 </div>
@@ -118,7 +120,11 @@
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_transformer'>transformer</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Preprocessing.html" title="Rumale::Preprocessing (module)">Preprocessing</a></span></span><span class='op'>::</span><span class='const'>KernelCalculator</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::Preprocessing::KernelCalculator#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>kernel:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rbf</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>gamma:</span> <span class='float'>0.5</span><span class='rparen'>)</span>
+      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rumale/preprocessing/kernel_calculator</span><span class='tstring_end'>&#39;</span></span>
+<span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rumale/kernel_machine/kernel_ridge</span><span class='tstring_end'>&#39;</span></span>
+<span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rumale/pipeline/pipeline</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='id identifier rubyid_transformer'>transformer</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Preprocessing.html" title="Rumale::Preprocessing (module)">Preprocessing</a></span></span><span class='op'>::</span><span class='const'>KernelCalculator</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::Preprocessing::KernelCalculator#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>kernel:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rbf</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>gamma:</span> <span class='float'>0.5</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_regressor'>regressor</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../KernelMachine.html" title="Rumale::KernelMachine (module)">KernelMachine</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../KernelMachine/KernelRidge.html" title="Rumale::KernelMachine::KernelRidge (class)">KernelRidge</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../KernelMachine/KernelRidge.html#initialize-instance_method" title="Rumale::KernelMachine::KernelRidge#initialize (method)">new</a></span></span>
 <span class='id identifier rubyid_pipeline'>pipeline</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Pipeline.html" title="Rumale::Pipeline (module)">Pipeline</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Pipeline/Pipeline.html" title="Rumale::Pipeline::Pipeline (class)">Pipeline</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Pipeline/Pipeline.html#initialize-instance_method" title="Rumale::Pipeline::Pipeline#initialize (method)">new</a></span></span><span class='lparen'>(</span>
   <span class='label'>steps:</span> <span class='lbrace'>{</span> <span class='label'>trs:</span> <span class='id identifier rubyid_transfomer'>transfomer</span><span class='comma'>,</span> <span class='label'>est:</span> <span class='id identifier rubyid_regressor'>regressor</span> <span class='rbrace'>}</span>
@@ -171,8 +177,8 @@
 
   
   
-  <h3 class="inherited">Attributes included from <span class='object_link'><a href="../Base/BaseEstimator.html" title="Rumale::Base::BaseEstimator (module)">Base::BaseEstimator</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../Base/BaseEstimator.html#params-instance_method" title="Rumale::Base::BaseEstimator#params (method)">#params</a></span></p>
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="../Base/Estimator.html" title="Rumale::Base::Estimator (class)">Base::Estimator</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../Base/Estimator.html#params-instance_method" title="Rumale::Base::Estimator#params (method)">#params</a></span></p>
 
 
   
@@ -296,12 +302,6 @@
   
   
   
-  
-  
-  
-  
-  
-  
   <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -339,7 +339,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The type of kernel function (&#39;rbf&#39;, &#39;linear&#39;, &#39;poly&#39;, and &#39;sigmoid&#39;).</p>
+<p>The type of kernel function (‘rbf’, ‘linear’, ‘poly’, and ‘sigmoid’).</p>
 </div>
       
     </li>
@@ -407,29 +407,27 @@
       <pre class="lines">
 
 
-33
-34
-35
-36
 37
 38
 39
 40
 41
-42</pre>
+42
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/preprocessing/kernel_calculator.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'rumale-preprocessing/lib/rumale/preprocessing/kernel_calculator.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>kernel:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rbf</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>gamma:</span> <span class='int'>1</span><span class='comma'>,</span> <span class='label'>degree:</span> <span class='int'>3</span><span class='comma'>,</span> <span class='label'>coef:</span> <span class='int'>1</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_string'>check_params_string</span><span class='lparen'>(</span><span class='label'>kernel:</span> <span class='id identifier rubyid_kernel'>kernel</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_numeric'>check_params_numeric</span><span class='lparen'>(</span><span class='label'>gamma:</span> <span class='id identifier rubyid_gamma'>gamma</span><span class='comma'>,</span> <span class='label'>coef:</span> <span class='id identifier rubyid_coef'>coef</span><span class='comma'>,</span> <span class='label'>degree:</span> <span class='id identifier rubyid_degree'>degree</span><span class='rparen'>)</span>
-  <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:kernel</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_kernel'>kernel</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:gamma</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_gamma'>gamma</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:degree</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_degree'>degree</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:coef</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_coef'>coef</span>
-  <span class='ivar'>@components</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='rparen'>)</span>
+  <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+    <span class='label'>kernel:</span> <span class='id identifier rubyid_kernel'>kernel</span><span class='comma'>,</span>
+    <span class='label'>gamma:</span> <span class='id identifier rubyid_gamma'>gamma</span><span class='comma'>,</span>
+    <span class='label'>degree:</span> <span class='id identifier rubyid_degree'>degree</span><span class='comma'>,</span>
+    <span class='label'>coef:</span> <span class='id identifier rubyid_coef'>coef</span>
+  <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -487,12 +485,12 @@
       <pre class="lines">
 
 
-25
-26
-27</pre>
+29
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/preprocessing/kernel_calculator.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'rumale-preprocessing/lib/rumale/preprocessing/kernel_calculator.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_components'>components</span>
   <span class='ivar'>@components</span>
@@ -584,17 +582,19 @@
       <pre class="lines">
 
 
-49
-50
-51
 52
-53</pre>
+53
+54
+55
+56
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/preprocessing/kernel_calculator.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'rumale-preprocessing/lib/rumale/preprocessing/kernel_calculator.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid__y'>_y</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+
   <span class='ivar'>@components</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
   <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
@@ -678,16 +678,18 @@
       <pre class="lines">
 
 
-60
-61
-62
-63</pre>
+64
+65
+66
+67
+68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/preprocessing/kernel_calculator.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'rumale-preprocessing/lib/rumale/preprocessing/kernel_calculator.rb', line 64</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+
   <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_transform'>transform</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -759,16 +761,18 @@
       <pre class="lines">
 
 
-69
-70
-71
-72</pre>
+74
+75
+76
+77
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/preprocessing/kernel_calculator.rb', line 69</span>
+      <pre class="code"><span class="info file"># File 'rumale-preprocessing/lib/rumale/preprocessing/kernel_calculator.rb', line 74</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_transform'>transform</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+
   <span class='id identifier rubyid_kernel_mat'>kernel_mat</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='ivar'>@components</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -781,9 +785,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 17 23:50:06 2022 by
-  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.27 (ruby-3.0.4).
+  Generated on Sun Jan  1 00:39:38 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.28 (ruby-3.1.3).
 </div>
 
     </div>

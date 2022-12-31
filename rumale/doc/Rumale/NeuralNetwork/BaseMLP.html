@@ -6,7 +6,7 @@
 <title>
   Class: Rumale::NeuralNetwork::BaseMLP
   
-    &mdash; Documentation by YARD 0.9.27
+    &mdash; Documentation by YARD 0.9.28
   
 </title>
 
@@ -69,10 +69,12 @@
   <dl>
     <dt>Inherits:</dt>
     <dd>
-      <span class="inheritName">Object</span>
+      <span class="inheritName"><span class='object_link'><a href="../Base/Estimator.html" title="Rumale::Base::Estimator (class)">Base::Estimator</a></span></span>
       
         <ul class="fullTree">
           <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="../Base/Estimator.html" title="Rumale::Base::Estimator (class)">Base::Estimator</a></span></li>
           
             <li class="next">Rumale::NeuralNetwork::BaseMLP</li>
           
@@ -87,11 +89,6 @@
   
   
   
-  <dl>
-      <dt>Includes:</dt>
-      <dd><span class='object_link'><a href="../Base/BaseEstimator.html" title="Rumale::Base::BaseEstimator (module)">Base::BaseEstimator</a></span></dd>
-  </dl>
-  
   
 
   
@@ -99,7 +96,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/rumale/neural_network/base_mlp.rb</dd>
+    <dd>rumale-neural_network/lib/rumale/neural_network/base_mlp.rb</dd>
   </dl>
   
 </div>
@@ -127,8 +124,8 @@
 
   <h2>Instance Attribute Summary</h2>
   
-  <h3 class="inherited">Attributes included from <span class='object_link'><a href="../Base/BaseEstimator.html" title="Rumale::Base::BaseEstimator (module)">Base::BaseEstimator</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../Base/BaseEstimator.html#params-instance_method" title="Rumale::Base::BaseEstimator#params (method)">#params</a></span></p>
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="../Base/Estimator.html" title="Rumale::Base::Estimator (class)">Base::Estimator</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../Base/Estimator.html#params-instance_method" title="Rumale::Base::Estimator#params (method)">#params</a></span></p>
 
 
   
@@ -387,42 +384,42 @@
       <pre class="lines">
 
 
-186
-187
-188
-189
-190
-191
-192
-193
-194
-195
-196
-197
-198
-199
-200
-201
-202</pre>
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/neural_network/base_mlp.rb', line 186</span>
+      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/base_mlp.rb', line 230</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>hidden_units:</span> <span class='lbracket'>[</span><span class='int'>128</span><span class='comma'>,</span> <span class='int'>128</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>dropout_rate:</span> <span class='float'>0.4</span><span class='comma'>,</span> <span class='label'>learning_rate:</span> <span class='float'>0.001</span><span class='comma'>,</span> <span class='label'>decay1:</span> <span class='float'>0.9</span><span class='comma'>,</span> <span class='label'>decay2:</span> <span class='float'>0.999</span><span class='comma'>,</span>
                <span class='label'>max_iter:</span> <span class='int'>200</span><span class='comma'>,</span> <span class='label'>batch_size:</span> <span class='int'>50</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='float'>1e-4</span><span class='comma'>,</span> <span class='label'>verbose:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:hidden_units</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_hidden_units'>hidden_units</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:dropout_rate</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_dropout_rate'>dropout_rate</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:learning_rate</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_learning_rate'>learning_rate</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:decay1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_decay1'>decay1</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:decay2</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_decay2'>decay2</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_iter</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_max_iter'>max_iter</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:batch_size</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_batch_size'>batch_size</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:tol</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_tol'>tol</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:verbose</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_verbose'>verbose</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:random_seed</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_random_seed'>random_seed</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:random_seed</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='id identifier rubyid_srand'>srand</span>
-  <span class='ivar'>@n_iter</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='rparen'>)</span>
+  <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+    <span class='label'>hidden_units:</span> <span class='id identifier rubyid_hidden_units'>hidden_units</span><span class='comma'>,</span>
+    <span class='label'>dropout_rate:</span> <span class='id identifier rubyid_dropout_rate'>dropout_rate</span><span class='comma'>,</span>
+    <span class='label'>learning_rate:</span> <span class='id identifier rubyid_learning_rate'>learning_rate</span><span class='comma'>,</span>
+    <span class='label'>decay1:</span> <span class='id identifier rubyid_decay1'>decay1</span><span class='comma'>,</span>
+    <span class='label'>decay2:</span> <span class='id identifier rubyid_decay2'>decay2</span><span class='comma'>,</span>
+    <span class='label'>max_iter:</span> <span class='id identifier rubyid_max_iter'>max_iter</span><span class='comma'>,</span>
+    <span class='label'>batch_size:</span> <span class='id identifier rubyid_batch_size'>batch_size</span><span class='comma'>,</span>
+    <span class='label'>tol:</span> <span class='id identifier rubyid_tol'>tol</span><span class='comma'>,</span>
+    <span class='label'>verbose:</span> <span class='id identifier rubyid_verbose'>verbose</span><span class='comma'>,</span>
+    <span class='label'>random_seed:</span> <span class='id identifier rubyid_random_seed'>random_seed</span> <span class='op'>||</span> <span class='id identifier rubyid_srand'>srand</span>
+  <span class='rbrace'>}</span>
   <span class='ivar'>@rng</span> <span class='op'>=</span> <span class='const'>Random</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:random_seed</span><span class='rbracket'>]</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -436,9 +433,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 17 23:50:04 2022 by
-  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.27 (ruby-3.0.4).
+  Generated on Sun Jan  1 00:39:38 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.28 (ruby-3.1.3).
 </div>
 
     </div>

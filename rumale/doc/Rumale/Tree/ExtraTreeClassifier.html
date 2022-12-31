@@ -6,7 +6,7 @@
 <title>
   Class: Rumale::Tree::ExtraTreeClassifier
   
-    &mdash; Documentation by YARD 0.9.27
+    &mdash; Documentation by YARD 0.9.28
   
 </title>
 
@@ -74,6 +74,8 @@
         <ul class="fullTree">
           <li>Object</li>
           
+            <li class="next"><span class='object_link'><a href="../Base/Estimator.html" title="Rumale::Base::Estimator (class)">Base::Estimator</a></span></li>
+          
             <li class="next"><span class='object_link'><a href="BaseDecisionTree.html" title="Rumale::Tree::BaseDecisionTree (class)">BaseDecisionTree</a></span></li>
           
             <li class="next"><span class='object_link'><a href="DecisionTreeClassifier.html" title="Rumale::Tree::DecisionTreeClassifier (class)">DecisionTreeClassifier</a></span></li>
@@ -98,7 +100,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/rumale/tree/extra_tree_classifier.rb</dd>
+    <dd>rumale-tree/lib/rumale/tree/extra_tree_classifier.rb</dd>
   </dl>
   
 </div>
@@ -122,7 +124,9 @@
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_estimator'>estimator</span> <span class='op'>=</span>
+      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rumale/tree/extra_tree_classifier</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='id identifier rubyid_estimator'>estimator</span> <span class='op'>=</span>
   <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Tree.html" title="Rumale::Tree (module)">Tree</a></span></span><span class='op'>::</span><span class='const'>ExtraTreeClassifier</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::Tree::ExtraTreeClassifier#initialize (method)">new</a></span></span><span class='lparen'>(</span>
     <span class='label'>criterion:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>gini</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>max_depth:</span> <span class='int'>3</span><span class='comma'>,</span> <span class='label'>max_leaf_nodes:</span> <span class='int'>10</span><span class='comma'>,</span> <span class='label'>min_samples_leaf:</span> <span class='int'>5</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='int'>1</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_estimator'>estimator</span><span class='period'>.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_training_samples'>training_samples</span><span class='comma'>,</span> <span class='id identifier rubyid_traininig_labels'>traininig_labels</span><span class='rparen'>)</span>
@@ -289,8 +293,8 @@
 
   
   
-  <h3 class="inherited">Attributes included from <span class='object_link'><a href="../Base/BaseEstimator.html" title="Rumale::Base::BaseEstimator (module)">Base::BaseEstimator</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../Base/BaseEstimator.html#params-instance_method" title="Rumale::Base::BaseEstimator#params (method)">#params</a></span></p>
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="../Base/Estimator.html" title="Rumale::Base::Estimator (class)">Base::Estimator</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../Base/Estimator.html#params-instance_method" title="Rumale::Base::Estimator#params (method)">#params</a></span></p>
 
 
   
@@ -300,30 +304,6 @@
     </h2>
 
     <ul class="summary">
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#fit-instance_method" title="#fit (instance method)">#<strong>fit</strong>(x, y)  &#x21d2; ExtraTreeClassifier </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Fit the model with given training data.</p>
-</div></span>
-  
-</li>
-
       
         <li class="public ">
   <span class="summary_signature">
@@ -351,54 +331,6 @@
 </li>
 
       
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#predict-instance_method" title="#predict (instance method)">#<strong>predict</strong>(x)  &#x21d2; Numo::Int32 </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Predict class labels for samples.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#predict_proba-instance_method" title="#predict_proba (instance method)">#<strong>predict_proba</strong>(x)  &#x21d2; Numo::DFloat </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Predict probability for samples.</p>
-</div></span>
-  
-</li>
-
-      
     </ul>
   
 
@@ -411,9 +343,9 @@
   
   
   
-  
-  
-  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="DecisionTreeClassifier.html" title="Rumale::Tree::DecisionTreeClassifier (class)">DecisionTreeClassifier</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="DecisionTreeClassifier.html#fit-instance_method" title="Rumale::Tree::DecisionTreeClassifier#fit (method)">#fit</a></span>, <span class='object_link'><a href="DecisionTreeClassifier.html#predict-instance_method" title="Rumale::Tree::DecisionTreeClassifier#predict (method)">#predict</a></span>, <span class='object_link'><a href="DecisionTreeClassifier.html#predict_proba-instance_method" title="Rumale::Tree::DecisionTreeClassifier#predict_proba (method)">#predict_proba</a></span></p>
+
   
   
   
@@ -424,14 +356,8 @@
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="../Base/Classifier.html" title="Rumale::Base::Classifier (module)">Base::Classifier</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../Base/Classifier.html#score-instance_method" title="Rumale::Base::Classifier#score (method)">#score</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../Base/Classifier.html#fit-instance_method" title="Rumale::Base::Classifier#fit (method)">#fit</a></span>, <span class='object_link'><a href="../Base/Classifier.html#predict-instance_method" title="Rumale::Base::Classifier#predict (method)">#predict</a></span>, <span class='object_link'><a href="../Base/Classifier.html#score-instance_method" title="Rumale::Base::Classifier#score (method)">#score</a></span></p>
 
-  
-  
-  
-  
-  
-  
   
   
   
@@ -485,7 +411,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The function to evaluate spliting point. Supported criteria are &#39;gini&#39; and &#39;entropy&#39;.</p>
+<p>The function to evaluate spliting point. Supported criteria are ‘gini’ and ‘entropy’.</p>
 </div>
       
     </li>
@@ -589,28 +515,16 @@
       <pre class="lines">
 
 
-51
-52
 53
 54
 55
-56
-57
-58
-59
-60</pre>
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/extra_tree_classifier.rb', line 51</span>
+      <pre class="code"><span class="info file"># File 'rumale-tree/lib/rumale/tree/extra_tree_classifier.rb', line 53</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>criterion:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>gini</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>max_depth:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>max_leaf_nodes:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>min_samples_leaf:</span> <span class='int'>1</span><span class='comma'>,</span> <span class='label'>max_features:</span> <span class='kw'>nil</span><span class='comma'>,</span>
                <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_numeric_or_nil'>check_params_numeric_or_nil</span><span class='lparen'>(</span><span class='label'>max_depth:</span> <span class='id identifier rubyid_max_depth'>max_depth</span><span class='comma'>,</span> <span class='label'>max_leaf_nodes:</span> <span class='id identifier rubyid_max_leaf_nodes'>max_leaf_nodes</span><span class='comma'>,</span>
-                              <span class='label'>max_features:</span> <span class='id identifier rubyid_max_features'>max_features</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='id identifier rubyid_random_seed'>random_seed</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_numeric'>check_params_numeric</span><span class='lparen'>(</span><span class='label'>min_samples_leaf:</span> <span class='id identifier rubyid_min_samples_leaf'>min_samples_leaf</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_string'>check_params_string</span><span class='lparen'>(</span><span class='label'>criterion:</span> <span class='id identifier rubyid_criterion'>criterion</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_positive'>check_params_positive</span><span class='lparen'>(</span><span class='label'>max_depth:</span> <span class='id identifier rubyid_max_depth'>max_depth</span><span class='comma'>,</span> <span class='label'>max_leaf_nodes:</span> <span class='id identifier rubyid_max_leaf_nodes'>max_leaf_nodes</span><span class='comma'>,</span>
-                        <span class='label'>min_samples_leaf:</span> <span class='id identifier rubyid_min_samples_leaf'>min_samples_leaf</span><span class='comma'>,</span> <span class='label'>max_features:</span> <span class='id identifier rubyid_max_features'>max_features</span><span class='rparen'>)</span>
   <span class='kw'>super</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -669,12 +583,12 @@
       <pre class="lines">
 
 
-21
-22
-23</pre>
+23
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/extra_tree_classifier.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'rumale-tree/lib/rumale/tree/extra_tree_classifier.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_classes'>classes</span>
   <span class='ivar'>@classes</span>
@@ -730,12 +644,12 @@
       <pre class="lines">
 
 
-25
-26
-27</pre>
+27
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/extra_tree_classifier.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'rumale-tree/lib/rumale/tree/extra_tree_classifier.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_feature_importances'>feature_importances</span>
   <span class='ivar'>@feature_importances</span>
@@ -791,12 +705,12 @@
       <pre class="lines">
 
 
-37
-38
-39</pre>
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/extra_tree_classifier.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'rumale-tree/lib/rumale/tree/extra_tree_classifier.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_leaf_labels'>leaf_labels</span>
   <span class='ivar'>@leaf_labels</span>
@@ -847,12 +761,12 @@
       <pre class="lines">
 
 
-33
-34
-35</pre>
+35
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/extra_tree_classifier.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'rumale-tree/lib/rumale/tree/extra_tree_classifier.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rng'>rng</span>
   <span class='ivar'>@rng</span>
@@ -903,12 +817,12 @@
       <pre class="lines">
 
 
-29
-30
-31</pre>
+31
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/extra_tree_classifier.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'rumale-tree/lib/rumale/tree/extra_tree_classifier.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tree'>tree</span>
   <span class='ivar'>@tree</span>
@@ -921,281 +835,12 @@
   </div>
 
 
-  <div id="instance_method_details" class="method_details_list">
-    <h2>Instance Method Details</h2>
-
-    
-      <div class="method_details first">
-  <h3 class="signature first" id="fit-instance_method">
-  
-    #<strong>fit</strong>(x, y)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::Tree::ExtraTreeClassifier (class)">ExtraTreeClassifier</a></span></tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Fit the model with given training data.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>x</span>
-      
-      
-        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for fitting the model.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>y</span>
-      
-      
-        <span class='type'>(<tt>Numo::Int32</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>(shape: [n_samples]) The labels to be used for fitting the model.</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt><span class='object_link'><a href="" title="Rumale::Tree::ExtraTreeClassifier (class)">ExtraTreeClassifier</a></span></tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The learned classifier itself.</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-67
-68
-69
-70
-71
-72</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/extra_tree_classifier.rb', line 67</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_label_array'>check_convert_label_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_sample_label_size'>check_sample_label_size</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-  <span class='kw'>super</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="predict-instance_method">
-  
-    #<strong>predict</strong>(x)  &#x21d2; <tt>Numo::Int32</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Predict class labels for samples.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>x</span>
-      
-      
-        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>(shape: [n_samples, n_features]) The samples to predict the labels.</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Numo::Int32</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>(shape: [n_samples]) Predicted class label per sample.</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-78
-79
-80
-81</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/extra_tree_classifier.rb', line 78</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='kw'>super</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="predict_proba-instance_method">
-  
-    #<strong>predict_proba</strong>(x)  &#x21d2; <tt>Numo::DFloat</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Predict probability for samples.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>x</span>
-      
-      
-        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>(shape: [n_samples, n_features]) The samples to predict the probailities.</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>(shape: [n_samples, n_classes]) Predicted probability of each class per sample.</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-87
-88
-89
-90</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/tree/extra_tree_classifier.rb', line 87</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_predict_proba'>predict_proba</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='kw'>super</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-  </div>
-
 </div>
 
       <div id="footer">
-  Generated on Tue May 17 23:50:05 2022 by
-  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.27 (ruby-3.0.4).
+  Generated on Sun Jan  1 00:39:37 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.28 (ruby-3.1.3).
 </div>
 
     </div>

@@ -6,7 +6,7 @@
 <title>
   Class: Rumale::Clustering::SNN
   
-    &mdash; Documentation by YARD 0.9.27
+    &mdash; Documentation by YARD 0.9.28
   
 </title>
 
@@ -74,6 +74,8 @@
         <ul class="fullTree">
           <li>Object</li>
           
+            <li class="next"><span class='object_link'><a href="../Base/Estimator.html" title="Rumale::Base::Estimator (class)">Base::Estimator</a></span></li>
+          
             <li class="next"><span class='object_link'><a href="DBSCAN.html" title="Rumale::Clustering::DBSCAN (class)">DBSCAN</a></span></li>
           
             <li class="next">Rumale::Clustering::SNN</li>
@@ -96,7 +98,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/rumale/clustering/snn.rb</dd>
+    <dd>rumale-clustering/lib/rumale/clustering/snn.rb</dd>
   </dl>
   
 </div>
@@ -108,9 +110,9 @@
 
 <p><strong>Reference</strong></p>
 <ul><li>
-<p>Ertoz, L., Steinbach, M., and Kumar, V., “Finding Clusters of Different Sizes, Shapes, and Densities in Noisy, High Dimensional Data,” Proc. SDM&#39;03, pp. 47–58, 2003.</p>
+<p>Ertoz, L., Steinbach, M., and Kumar, V., “Finding Clusters of Different Sizes, Shapes, and Densities in Noisy, High Dimensional Data,” Proc. SDM’03, pp. 47–58, 2003.</p>
 </li><li>
-<p>Houle, M E., Kriegel, H-P., Kroger, P., Schubert, E., and Zimek, A., “Can Shared-Neighbor Distances Defeat the Curse of Dimensionality?,” Proc. SSDBM&#39;10, pp. 482–500, 2010.</p>
+<p>Houle, M E., Kriegel, H-P., Kroger, P., Schubert, E., and Zimek, A., “Can Shared-Neighbor Distances Defeat the Curse of Dimensionality?,” Proc. SSDBM’10, pp. 482–500, 2010.</p>
 </li></ul>
 
 
@@ -122,7 +124,9 @@
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_analyzer'>analyzer</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Clustering.html" title="Rumale::Clustering (module)">Clustering</a></span></span><span class='op'>::</span><span class='const'>SNN</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::Clustering::SNN#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>n_neighbros:</span> <span class='int'>10</span><span class='comma'>,</span> <span class='label'>eps:</span> <span class='int'>5</span><span class='comma'>,</span> <span class='label'>min_samples:</span> <span class='int'>5</span><span class='rparen'>)</span>
+      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rumale/clustering/snn</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='id identifier rubyid_analyzer'>analyzer</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Clustering.html" title="Rumale::Clustering (module)">Clustering</a></span></span><span class='op'>::</span><span class='const'>SNN</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::Clustering::SNN#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>n_neighbros:</span> <span class='int'>10</span><span class='comma'>,</span> <span class='label'>eps:</span> <span class='int'>5</span><span class='comma'>,</span> <span class='label'>min_samples:</span> <span class='int'>5</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_cluster_labels'>cluster_labels</span> <span class='op'>=</span> <span class='id identifier rubyid_analyzer'>analyzer</span><span class='period'>.</span><span class='id identifier rubyid_fit_predict'>fit_predict</span><span class='lparen'>(</span><span class='id identifier rubyid_samples'>samples</span><span class='rparen'>)</span></code></pre>
     
   </div>
@@ -141,8 +145,8 @@
 
   
   
-  <h3 class="inherited">Attributes included from <span class='object_link'><a href="../Base/BaseEstimator.html" title="Rumale::Base::BaseEstimator (module)">Base::BaseEstimator</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../Base/BaseEstimator.html#params-instance_method" title="Rumale::Base::BaseEstimator#params (method)">#params</a></span></p>
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="../Base/Estimator.html" title="Rumale::Base::Estimator (class)">Base::Estimator</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../Base/Estimator.html#params-instance_method" title="Rumale::Base::Estimator#params (method)">#params</a></span></p>
 
 
   
@@ -253,12 +257,6 @@
   
   
   
-  
-  
-  
-  
-  
-  
   <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -350,7 +348,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The metric to calculate the distances. If metric is &#39;euclidean&#39;, Euclidean distance is calculated for distance between points. If metric is &#39;precomputed&#39;, the fit and fit_transform methods expect to be given a distance matrix.</p>
+<p>The metric to calculate the distances. If metric is ‘euclidean’, Euclidean distance is calculated for distance between points. If metric is ‘precomputed’, the fit and fit_transform methods expect to be given a distance matrix.</p>
 </div>
       
     </li>
@@ -364,8 +362,6 @@
       <pre class="lines">
 
 
-27
-28
 29
 30
 31
@@ -373,22 +369,18 @@
 33
 34
 35
-36
-37</pre>
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/clustering/snn.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'rumale-clustering/lib/rumale/clustering/snn.rb', line 29</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>n_neighbors:</span> <span class='int'>10</span><span class='comma'>,</span> <span class='label'>eps:</span> <span class='int'>5</span><span class='comma'>,</span> <span class='label'>min_samples:</span> <span class='int'>5</span><span class='comma'>,</span> <span class='label'>metric:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>euclidean</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_numeric'>check_params_numeric</span><span class='lparen'>(</span><span class='label'>n_neighbors:</span> <span class='id identifier rubyid_n_neighbors'>n_neighbors</span><span class='comma'>,</span> <span class='label'>min_samples:</span> <span class='id identifier rubyid_min_samples'>min_samples</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_string'>check_params_string</span><span class='lparen'>(</span><span class='label'>metric:</span> <span class='id identifier rubyid_metric'>metric</span><span class='rparen'>)</span>
-  <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_neighbors</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_n_neighbors'>n_neighbors</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:eps</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_eps'>eps</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:min_samples</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_min_samples'>min_samples</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:metric</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_metric'>metric</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>precomputed</span><span class='tstring_end'>&#39;</span></span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>precomputed</span><span class='tstring_end'>&#39;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>euclidean</span><span class='tstring_end'>&#39;</span></span>
-  <span class='ivar'>@core_sample_ids</span> <span class='op'>=</span> <span class='kw'>nil</span>
-  <span class='ivar'>@labels</span> <span class='op'>=</span> <span class='kw'>nil</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>n_neighbors:</span> <span class='int'>10</span><span class='comma'>,</span> <span class='label'>eps:</span> <span class='int'>5</span><span class='comma'>,</span> <span class='label'>min_samples:</span> <span class='int'>5</span><span class='comma'>,</span> <span class='label'>metric:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>euclidean</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='comment'># rubocop:disable Lint/MissingSuper
+</span>  <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+    <span class='label'>n_neighbors:</span> <span class='id identifier rubyid_n_neighbors'>n_neighbors</span><span class='comma'>,</span>
+    <span class='label'>eps:</span> <span class='id identifier rubyid_eps'>eps</span><span class='comma'>,</span>
+    <span class='label'>min_samples:</span> <span class='id identifier rubyid_min_samples'>min_samples</span><span class='comma'>,</span>
+    <span class='label'>metric:</span> <span class='lparen'>(</span><span class='id identifier rubyid_metric'>metric</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>precomputed</span><span class='tstring_end'>&#39;</span></span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>precomputed</span><span class='tstring_end'>&#39;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>euclidean</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -424,6 +416,8 @@
   <div class="docstring">
   <div class="discussion">
     
+<p>Returns The learned cluster analyzer itself.</p>
+
 
   </div>
 </div>
@@ -442,15 +436,12 @@
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The training data to be used for cluster analysis. If the metric is &#39;precomputed&#39;, x must be a square distance matrix (shape: [n_samples, n_samples]).</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for cluster analysis. If the metric is ‘precomputed’, x must be a square distance matrix (shape: [n_samples, n_samples]).</p>
 </div>
       
     </li>
   
 </ul>
-
-
-</div>
 
 <p class="tag_title">Returns:</p>
 <ul class="return">
@@ -471,18 +462,21 @@
   
 </ul>
 
+</div>
+
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
+44
 45
-46
-47</pre>
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/clustering/snn.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'rumale-clustering/lib/rumale/clustering/snn.rb', line 44</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid__y'>_y</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>super</span>
@@ -524,7 +518,7 @@
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_features]) The samples to be used for cluster analysis. If the metric is &#39;precomputed&#39;, x must be a square distance matrix (shape: [n_samples, n_samples]).</p>
+<p>(shape: [n_samples, n_features]) The samples to be used for cluster analysis. If the metric is ‘precomputed’, x must be a square distance matrix (shape: [n_samples, n_samples]).</p>
 </div>
       
     </li>
@@ -556,12 +550,12 @@
       <pre class="lines">
 
 
+53
 54
-55
-56</pre>
+55</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/clustering/snn.rb', line 54</span>
+      <pre class="code"><span class="info file"># File 'rumale-clustering/lib/rumale/clustering/snn.rb', line 53</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit_predict'>fit_predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span> <span class='comment'># rubocop:disable Lint/UselessMethodDefinition
 </span>  <span class='kw'>super</span>
@@ -576,9 +570,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 17 23:50:04 2022 by
-  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.27 (ruby-3.0.4).
+  Generated on Sun Jan  1 00:39:37 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.28 (ruby-3.1.3).
 </div>
 
     </div>

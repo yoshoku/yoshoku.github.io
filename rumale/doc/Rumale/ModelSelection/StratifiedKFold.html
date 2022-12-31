@@ -6,7 +6,7 @@
 <title>
   Class: Rumale::ModelSelection::StratifiedKFold
   
-    &mdash; Documentation by YARD 0.9.27
+    &mdash; Documentation by YARD 0.9.28
   
 </title>
 
@@ -99,7 +99,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/rumale/model_selection/stratified_k_fold.rb</dd>
+    <dd>rumale-model_selection/lib/rumale/model_selection/stratified_k_fold.rb</dd>
   </dl>
   
 </div>
@@ -118,7 +118,9 @@
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>kf = Rumale::ModelSelection::StratifiedKFold.new(n_splits: 3, shuffle: true, random_seed: 1)
+      <pre class="example code"><code>require &#39;rumale/model_selection/stratified_k_fold&#39;
+
+kf = Rumale::ModelSelection::StratifiedKFold.new(n_splits: 3, shuffle: true, random_seed: 1)
 kf.split(samples, labels).each do |train_ids, test_ids|
   train_samples = samples[train_ids, true]
   test_samples = samples[test_ids, true]
@@ -294,12 +296,6 @@ end</code></pre>
   
   
   
-  
-  
-  
-  
-  
-  
   <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -387,26 +383,18 @@ end</code></pre>
       <pre class="lines">
 
 
-38
-39
 40
 41
 42
 43
 44
 45
-46
-47
-48</pre>
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/model_selection/stratified_k_fold.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'rumale-model_selection/lib/rumale/model_selection/stratified_k_fold.rb', line 40</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>n_splits:</span> <span class='int'>3</span><span class='comma'>,</span> <span class='label'>shuffle:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_numeric'>check_params_numeric</span><span class='lparen'>(</span><span class='label'>n_splits:</span> <span class='id identifier rubyid_n_splits'>n_splits</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_boolean'>check_params_boolean</span><span class='lparen'>(</span><span class='label'>shuffle:</span> <span class='id identifier rubyid_shuffle'>shuffle</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_numeric_or_nil'>check_params_numeric_or_nil</span><span class='lparen'>(</span><span class='label'>random_seed:</span> <span class='id identifier rubyid_random_seed'>random_seed</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_params_positive'>check_params_positive</span><span class='lparen'>(</span><span class='label'>n_splits:</span> <span class='id identifier rubyid_n_splits'>n_splits</span><span class='rparen'>)</span>
   <span class='ivar'>@n_splits</span> <span class='op'>=</span> <span class='id identifier rubyid_n_splits'>n_splits</span>
   <span class='ivar'>@shuffle</span> <span class='op'>=</span> <span class='id identifier rubyid_shuffle'>shuffle</span>
   <span class='ivar'>@random_seed</span> <span class='op'>=</span> <span class='id identifier rubyid_random_seed'>random_seed</span>
@@ -464,12 +452,12 @@ end</code></pre>
       <pre class="lines">
 
 
-23
-24
-25</pre>
+25
+26
+27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/model_selection/stratified_k_fold.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'rumale-model_selection/lib/rumale/model_selection/stratified_k_fold.rb', line 25</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_n_splits'>n_splits</span>
   <span class='ivar'>@n_splits</span>
@@ -520,12 +508,12 @@ end</code></pre>
       <pre class="lines">
 
 
-31
-32
-33</pre>
+33
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/model_selection/stratified_k_fold.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'rumale-model_selection/lib/rumale/model_selection/stratified_k_fold.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rng'>rng</span>
   <span class='ivar'>@rng</span>
@@ -576,12 +564,12 @@ end</code></pre>
       <pre class="lines">
 
 
-27
-28
-29</pre>
+29
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/model_selection/stratified_k_fold.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'rumale-model_selection/lib/rumale/model_selection/stratified_k_fold.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_shuffle'>shuffle</span>
   <span class='ivar'>@shuffle</span>
@@ -611,6 +599,16 @@ end</code></pre>
   <div class="discussion">
     
 <p>Generate data indices for stratified K-fold cross validation.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+<p>Returns The set of data indices for constructing the training and testing dataset in each fold.</p>
 
 
   </div>
@@ -672,12 +670,16 @@ end</code></pre>
   
 </ul>
 
+</div>
+
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
+57
 58
 59
 60
@@ -688,19 +690,12 @@ end</code></pre>
 65
 66
 67
-68
-69
-70
-71
-72</pre>
+68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rumale/model_selection/stratified_k_fold.rb', line 58</span>
+      <pre class="code"><span class="info file"># File 'rumale-model_selection/lib/rumale/model_selection/stratified_k_fold.rb', line 57</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='id identifier rubyid_check_convert_label_array'>check_convert_label_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_check_sample_label_size'>check_sample_label_size</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='id identifier rubyid__x'>_x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='comment'># Check the number of samples in each class.
 </span>  <span class='kw'>unless</span> <span class='id identifier rubyid_valid_n_splits?'>valid_n_splits?</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span>
@@ -722,9 +717,9 @@ end</code></pre>
 </div>
 
       <div id="footer">
-  Generated on Tue May 17 23:50:06 2022 by
-  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.27 (ruby-3.0.4).
+  Generated on Sun Jan  1 00:39:39 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.28 (ruby-3.1.3).
 </div>
 
     </div>
