@@ -69,14 +69,14 @@
   <dl>
     <dt>Inherits:</dt>
     <dd>
-      <span class="inheritName"><span class='object_link'><a href="BaseSGD.html" title="Rumale::LinearModel::BaseSGD (class)">BaseSGD</a></span></span>
+      <span class="inheritName"><span class='object_link'><a href="BaseEstimator.html" title="Rumale::LinearModel::BaseEstimator (class)">BaseEstimator</a></span></span>
       
         <ul class="fullTree">
           <li>Object</li>
           
             <li class="next"><span class='object_link'><a href="../Base/Estimator.html" title="Rumale::Base::Estimator (class)">Base::Estimator</a></span></li>
           
-            <li class="next"><span class='object_link'><a href="BaseSGD.html" title="Rumale::LinearModel::BaseSGD (class)">BaseSGD</a></span></li>
+            <li class="next"><span class='object_link'><a href="BaseEstimator.html" title="Rumale::LinearModel::BaseEstimator (class)">BaseEstimator</a></span></li>
           
             <li class="next">Rumale::LinearModel::LinearRegression</li>
           
@@ -111,12 +111,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>LinearRegression is a class that implements ordinary least square linear regression with stochastic gradient descent (SGD) optimization, singular value decomposition (SVD), or L-BFGS optimization.</p>
-
-<p><strong>Reference</strong></p>
-<ul><li>
-<p>Bottou, L., “Large-Scale Machine Learning with Stochastic Gradient Descent,” Proc. COMPSTAT’10, pp. 177–186, 2010.</p>
-</li></ul>
+<p>LinearRegression is a class that implements ordinary least square linear regression with singular value decomposition (SVD) or L-BFGS optimization.</p>
 
 
   </div>
@@ -129,8 +124,7 @@
       
       <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rumale/linear_model/linear_regression</span><span class='tstring_end'>&#39;</span></span>
 
-<span class='id identifier rubyid_estimator'>estimator</span> <span class='op'>=</span>
-  <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../LinearModel.html" title="Rumale::LinearModel (module)">LinearModel</a></span></span><span class='op'>::</span><span class='const'>LinearRegression</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::LinearModel::LinearRegression#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>max_iter:</span> <span class='int'>1000</span><span class='comma'>,</span> <span class='label'>batch_size:</span> <span class='int'>20</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='int'>1</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_estimator'>estimator</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../LinearModel.html" title="Rumale::LinearModel (module)">LinearModel</a></span></span><span class='op'>::</span><span class='const'>LinearRegression</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::LinearModel::LinearRegression#initialize (method)">new</a></span></span>
 <span class='id identifier rubyid_estimator'>estimator</span><span class='period'>.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_training_samples'>training_samples</span><span class='comma'>,</span> <span class='id identifier rubyid_traininig_values'>traininig_values</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_estimator'>estimator</span><span class='period'>.</span><span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_testing_samples'>testing_samples</span><span class='rparen'>)</span>
 
@@ -149,99 +143,12 @@
 
 
 
-  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
-  <ul class="summary">
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#bias_term-instance_method" title="#bias_term (instance method)">#<strong>bias_term</strong>  &#x21d2; Numo::DFloat </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-      <span class="note title readonly">readonly</span>
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Return the bias term (a.k.a. intercept).</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#rng-instance_method" title="#rng (instance method)">#<strong>rng</strong>  &#x21d2; Random </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-      <span class="note title readonly">readonly</span>
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Return the random generator for random sampling.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#weight_vec-instance_method" title="#weight_vec (instance method)">#<strong>weight_vec</strong>  &#x21d2; Numo::DFloat </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-      <span class="note title readonly">readonly</span>
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Return the weight vector.</p>
-</div></span>
-  
-</li>
-
-    
-  </ul>
 
 
+  <h2>Instance Attribute Summary</h2>
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="BaseEstimator.html" title="Rumale::LinearModel::BaseEstimator (class)">BaseEstimator</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="BaseEstimator.html#bias_term-instance_method" title="Rumale::LinearModel::BaseEstimator#bias_term (method)">#bias_term</a></span>, <span class='object_link'><a href="BaseEstimator.html#weight_vec-instance_method" title="Rumale::LinearModel::BaseEstimator#weight_vec (method)">#weight_vec</a></span></p>
 
   
   
@@ -284,7 +191,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(learning_rate: 0.01, decay: nil, momentum: 0.9, fit_bias: true, bias_scale: 1.0, max_iter: 1000, batch_size: 50, tol: 1e-4, solver: &#39;auto&#39;, n_jobs: nil, verbose: false, random_seed: nil)  &#x21d2; LinearRegression </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(fit_bias: true, bias_scale: 1.0, max_iter: 1000, tol: 1e-4, solver: &#39;auto&#39;, verbose: false)  &#x21d2; LinearRegression </a>
     
 
     
@@ -363,7 +270,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(learning_rate: 0.01, decay: nil, momentum: 0.9, fit_bias: true, bias_scale: 1.0, max_iter: 1000, batch_size: 50, tol: 1e-4, solver: &#39;auto&#39;, n_jobs: nil, verbose: false, random_seed: nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::LinearModel::LinearRegression (class)">LinearRegression</a></span></tt> 
+    #<strong>initialize</strong>(fit_bias: true, bias_scale: 1.0, max_iter: 1000, tol: 1e-4, solver: &#39;auto&#39;, verbose: false)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::LinearModel::LinearRegression (class)">LinearRegression</a></span></tt> 
   
 
   
@@ -380,60 +287,6 @@
 <div class="tags">
   <p class="tag_title">Parameters:</p>
 <ul class="param">
-  
-    <li>
-      
-        <span class='name'>learning_rate</span>
-      
-      
-        <span class='type'>(<tt>Float</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>0.01</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The initial value of learning rate. The learning rate decreases as the iteration proceeds according to the equation: learning_rate / (1 + decay * t). If solver is not ‘sgd’, this parameter is ignored.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>decay</span>
-      
-      
-        <span class='type'>(<tt>Float</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>nil</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The smoothing parameter for decreasing learning rate as the iteration proceeds. If nil is given, the decay sets to ‘learning_rate’. If solver is not ‘sgd’, this parameter is ignored.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>momentum</span>
-      
-      
-        <span class='type'>(<tt>Float</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>0.9</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The momentum factor. If solver is not ‘sgd’, this parameter is ignored.</p>
-</div>
-      
-    </li>
   
     <li>
       
@@ -491,24 +344,6 @@
   
     <li>
       
-        <span class='name'>batch_size</span>
-      
-      
-        <span class='type'>(<tt>Integer</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>50</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The size of the mini batches. If solver is not ‘sgd’, this parameter is ignored.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
         <span class='name'>tol</span>
       
       
@@ -538,25 +373,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The algorithm to calculate weights. (‘auto’, ‘sgd’, ‘svd’ or ‘lbfgs’). ‘auto’ chooses the ‘svd’ solver if Numo::Linalg is loaded. Otherwise, it chooses the ‘lbfgs’ solver. ‘sgd’ uses the stochastic gradient descent optimization. ‘svd’ performs singular value decomposition of samples. ‘lbfgs’ uses the L-BFGS method for optimization.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>n_jobs</span>
-      
-      
-        <span class='type'>(<tt>Integer</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>nil</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The number of jobs for running the fit method in parallel. If nil is given, the method does not execute in parallel. If zero or less is given, it becomes equal to the number of processors. This parameter is ignored if the Parallel gem is not loaded or solver is not ‘sgd’.</p>
+<p>The algorithm to calculate weights. (‘auto’, ‘svd’ or ‘lbfgs’). ‘auto’ chooses the ‘svd’ solver if Numo::Linalg is loaded. Otherwise, it chooses the ‘lbfgs’ solver. ‘svd’ performs singular value decomposition of samples. ‘lbfgs’ uses the L-BFGS method for optimization.</p>
 </div>
       
     </li>
@@ -579,24 +396,6 @@
       
     </li>
   
-    <li>
-      
-        <span class='name'>random_seed</span>
-      
-      
-        <span class='type'>(<tt>Integer</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>nil</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The seed value using to initialize the random generator.</p>
-</div>
-      
-    </li>
-  
 </ul>
 
 
@@ -606,41 +405,39 @@
       <pre class="lines">
 
 
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94</pre>
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-linear_model/lib/rumale/linear_model/linear_regression.rb', line 79</span>
+      <pre class="code"><span class="info file"># File 'rumale-linear_model/lib/rumale/linear_model/linear_regression.rb', line 48</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>learning_rate:</span> <span class='float'>0.01</span><span class='comma'>,</span> <span class='label'>decay:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>momentum:</span> <span class='float'>0.9</span><span class='comma'>,</span>
-               <span class='label'>fit_bias:</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='label'>bias_scale:</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='label'>max_iter:</span> <span class='int'>1000</span><span class='comma'>,</span> <span class='label'>batch_size:</span> <span class='int'>50</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='float'>1e-4</span><span class='comma'>,</span>
-               <span class='label'>solver:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>auto</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
-               <span class='label'>n_jobs:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>verbose:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>fit_bias:</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='label'>bias_scale:</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='label'>max_iter:</span> <span class='int'>1000</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='float'>1e-4</span><span class='comma'>,</span> <span class='label'>solver:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>auto</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>verbose:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='kw'>super</span><span class='lparen'>(</span><span class='rparen'>)</span>
-  <span class='ivar'>@params</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='id identifier rubyid_method'>method</span><span class='lparen'>(</span><span class='symbol'>:initialize</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_parameters'>parameters</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid__t'>_t</span><span class='comma'>,</span> <span class='id identifier rubyid_arg'>arg</span><span class='op'>|</span> <span class='lbracket'>[</span><span class='id identifier rubyid_arg'>arg</span><span class='comma'>,</span> <span class='id identifier rubyid_binding'>binding</span><span class='period'>.</span><span class='id identifier rubyid_local_variable_get'>local_variable_get</span><span class='lparen'>(</span><span class='id identifier rubyid_arg'>arg</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+    <span class='label'>fit_bias:</span> <span class='id identifier rubyid_fit_bias'>fit_bias</span><span class='comma'>,</span>
+    <span class='label'>bias_scale:</span> <span class='id identifier rubyid_bias_scale'>bias_scale</span><span class='comma'>,</span>
+    <span class='label'>max_iter:</span> <span class='id identifier rubyid_max_iter'>max_iter</span><span class='comma'>,</span>
+    <span class='label'>tol:</span> <span class='id identifier rubyid_tol'>tol</span><span class='comma'>,</span>
+    <span class='label'>verbose:</span> <span class='id identifier rubyid_verbose'>verbose</span>
+  <span class='rbrace'>}</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:solver</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='id identifier rubyid_solver'>solver</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>auto</span><span class='tstring_end'>&#39;</span></span>
                        <span class='id identifier rubyid_enable_linalg?'>enable_linalg?</span><span class='lparen'>(</span><span class='label'>warning:</span> <span class='kw'>false</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>svd</span><span class='tstring_end'>&#39;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>lbfgs</span><span class='tstring_end'>&#39;</span></span>
                      <span class='kw'>else</span>
-                       <span class='id identifier rubyid_solver'>solver</span><span class='period'>.</span><span class='id identifier rubyid_match?'>match?</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^svd$|^sgd$|^lbfgs$</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_solver'>solver</span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>lbfgs</span><span class='tstring_end'>&#39;</span></span>
+                       <span class='id identifier rubyid_solver'>solver</span><span class='period'>.</span><span class='id identifier rubyid_match?'>match?</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^svd$|^lbfgs$</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_solver'>solver</span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>lbfgs</span><span class='tstring_end'>&#39;</span></span>
                      <span class='kw'>end</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:decay</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:learning_rate</span><span class='rbracket'>]</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:random_seed</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='id identifier rubyid_srand'>srand</span>
-  <span class='ivar'>@rng</span> <span class='op'>=</span> <span class='const'>Random</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:random_seed</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-  <span class='ivar'>@loss_func</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../LinearModel.html" title="Rumale::LinearModel (module)">LinearModel</a></span></span><span class='op'>::</span><span class='const'>Loss</span><span class='op'>::</span><span class='const'>MeanSquaredError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -648,189 +445,6 @@
 </div>
   
 </div>
-
-  <div id="instance_attr_details" class="attr_details">
-    <h2>Instance Attribute Details</h2>
-    
-      
-      <span id=""></span>
-      <div class="method_details first">
-  <h3 class="signature first" id="bias_term-instance_method">
-  
-    #<strong>bias_term</strong>  &#x21d2; <tt>Numo::DFloat</tt>  <span class="extras">(readonly)</span>
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Return the bias term (a.k.a. intercept).</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>(shape: [n_outputs])</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-42
-43
-44</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'rumale-linear_model/lib/rumale/linear_model/linear_regression.rb', line 42</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_bias_term'>bias_term</span>
-  <span class='ivar'>@bias_term</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id=""></span>
-      <div class="method_details ">
-  <h3 class="signature " id="rng-instance_method">
-  
-    #<strong>rng</strong>  &#x21d2; <tt>Random</tt>  <span class="extras">(readonly)</span>
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Return the random generator for random sampling.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Random</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-46
-47
-48</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'rumale-linear_model/lib/rumale/linear_model/linear_regression.rb', line 46</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_rng'>rng</span>
-  <span class='ivar'>@rng</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id=""></span>
-      <div class="method_details ">
-  <h3 class="signature " id="weight_vec-instance_method">
-  
-    #<strong>weight_vec</strong>  &#x21d2; <tt>Numo::DFloat</tt>  <span class="extras">(readonly)</span>
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Return the weight vector.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>(shape: [n_outputs, n_features])</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-38
-39
-40</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'rumale-linear_model/lib/rumale/linear_model/linear_regression.rb', line 38</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_weight_vec'>weight_vec</span>
-  <span class='ivar'>@weight_vec</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-  </div>
 
 
   <div id="instance_method_details" class="method_details_list">
@@ -917,37 +531,33 @@
       <pre class="lines">
 
 
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115</pre>
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-linear_model/lib/rumale/linear_model/linear_regression.rb', line 101</span>
+      <pre class="code"><span class="info file"># File 'rumale-linear_model/lib/rumale/linear_model/linear_regression.rb', line 69</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_target_value_array'>check_convert_target_value_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-  <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_sample_size'>check_sample_size</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_target_value_array'>check_convert_target_value_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_sample_size'>check_sample_size</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
 
-  <span class='kw'>if</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:solver</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>svd</span><span class='tstring_end'>&#39;</span></span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_enable_linalg?'>enable_linalg?</span><span class='lparen'>(</span><span class='label'>warning:</span> <span class='kw'>false</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_fit_svd'>fit_svd</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-  <span class='kw'>elsif</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:solver</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>lbfgs</span><span class='tstring_end'>&#39;</span></span>
-    <span class='id identifier rubyid_fit_lbfgs'>fit_lbfgs</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_fit_sgd'>fit_sgd</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-  <span class='kw'>end</span>
+  <span class='ivar'>@weight_vec</span><span class='comma'>,</span> <span class='ivar'>@bias_term</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:solver</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>svd</span><span class='tstring_end'>&#39;</span></span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_enable_linalg?'>enable_linalg?</span><span class='lparen'>(</span><span class='label'>warning:</span> <span class='kw'>false</span><span class='rparen'>)</span>
+                              <span class='id identifier rubyid_partial_fit_svd'>partial_fit_svd</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
+                            <span class='kw'>else</span>
+                              <span class='id identifier rubyid_partial_fit_lbfgs'>partial_fit_lbfgs</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
+                            <span class='kw'>end</span>
 
   <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
@@ -1020,17 +630,17 @@
       <pre class="lines">
 
 
-121
-122
-123
-124
-125</pre>
+87
+88
+89
+90
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-linear_model/lib/rumale/linear_model/linear_regression.rb', line 121</span>
+      <pre class="code"><span class="info file"># File 'rumale-linear_model/lib/rumale/linear_model/linear_regression.rb', line 87</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='ivar'>@weight_vec</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='ivar'>@bias_term</span>
 <span class='kw'>end</span></pre>
@@ -1044,7 +654,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  1 00:39:38 2023 by
+  Generated on Wed Jan 18 23:57:26 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.1.3).
 </div>

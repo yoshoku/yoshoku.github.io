@@ -62,7 +62,7 @@
 
 <p><img src="https://dl.dropboxusercontent.com/s/joxruk2720ur66o/rumale_header_400.png"></p>
 
-<p><a href="https://badge.fury.io/rb/rumale"><img src="https://badge.fury.io/rb/rumale.svg"></a> <a href="https://github.com/yoshoku/rumale/blob/main/LICENSE.txt"><img src="https://img.shields.io/badge/License-BSD%203--Clause-orange.svg"></a> <a href="https://yoshoku.github.io/rumale/doc/"><img src="https://img.shields.io/badge/api-reference-blue.svg"></a></p>
+<p><a href="https://github.com/yoshoku/rumale/actions/workflows/main.yml"><img src="https://github.com/yoshoku/rumale/actions/workflows/main.yml/badge.svg"></a> <a href="https://badge.fury.io/rb/rumale"><img src="https://badge.fury.io/rb/rumale.svg"></a> <a href="https://github.com/yoshoku/rumale/blob/main/LICENSE.txt"><img src="https://img.shields.io/badge/License-BSD%203--Clause-orange.svg"></a> <a href="https://yoshoku.github.io/rumale/doc/"><img src="https://img.shields.io/badge/api-reference-blue.svg"></a></p>
 
 <p>Rumale (*Ru*by *ma*chine *le*arning) is a machine learning library in Ruby. Rumale provides machine learning algorithms with interfaces similar to Scikit-Learn in Python. Rumale supports Support Vector Machine, Logistic Regression, Ridge, Lasso, Multi-layer Perceptron, Naive Bayes, Decision Tree, Gradient Tree Boosting, Random Forest, K-Means, Gaussian Mixture Model, DBSCAN, Spectral Clustering, Mutidimensional Scaling, t-SNE, Fisher Discriminant Analysis, Neighbourhood Component Analysis, Principal Component Analysis, Non-negative Matrix Factorization, and many other algorithms.</p>
 
@@ -110,7 +110,7 @@ $ wget https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/multiclass/pendig
 <span class='id identifier rubyid_transformed'>transformed</span> <span class='op'>=</span> <span class='id identifier rubyid_transformer'>transformer</span><span class='period'>.</span><span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_samples'>samples</span><span class='rparen'>)</span>
 
 <span class='comment'># Train linear SVM classifier.
-</span><span class='id identifier rubyid_classifier'>classifier</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Rumale/LinearModel.html" title="Rumale::LinearModel (module)">LinearModel</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Rumale/LinearModel/SVC.html" title="Rumale::LinearModel::SVC (class)">SVC</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Rumale/LinearModel/SVC.html#initialize-instance_method" title="Rumale::LinearModel::SVC#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>reg_param:</span> <span class='float'>0.0001</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='int'>1</span><span class='rparen'>)</span>
+</span><span class='id identifier rubyid_classifier'>classifier</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Rumale/LinearModel.html" title="Rumale::LinearModel (module)">LinearModel</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Rumale/LinearModel/SVC.html" title="Rumale::LinearModel::SVC (class)">SVC</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Rumale/LinearModel/SVC.html#initialize-instance_method" title="Rumale::LinearModel::SVC#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>reg_param:</span> <span class='float'>0.0001</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_classifier'>classifier</span><span class='period'>.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_transformed'>transformed</span><span class='comma'>,</span> <span class='id identifier rubyid_labels'>labels</span><span class='rparen'>)</span>
 
 <span class='comment'># Save the model.
@@ -145,7 +145,7 @@ $ wget https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/multiclass/pendig
 
 <pre class="code ruby"><code class="ruby">$ ruby train.rb
 $ ruby test.rb
-Accuracy: 98.7%
+Accuracy: 98.5%
 </code></pre>
 
 <h3 id="label-Example+2.+Cross-validation">Example 2. Cross-validation</h3>
@@ -174,7 +174,7 @@ Accuracy: 98.7%
 <p>Execution of the above scripts result in the following.</p>
 
 <pre class="code ruby"><code class="ruby">$ ruby cross_validation.rb
-5-CV mean accuracy: 95.4%
+5-CV mean accuracy: 95.5%
 </code></pre>
 
 <h2 id="label-Speedup">Speedup</h2>
@@ -258,7 +258,7 @@ Accuracy: 98.7%
 </div></div>
 
       <div id="footer">
-  Generated on Sun Jan  1 00:39:36 2023 by
+  Generated on Wed Jan 18 23:57:24 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.1.3).
 </div>

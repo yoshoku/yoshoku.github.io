@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: Rumale::LinearModel::BaseSGD
+  Class: Rumale::LinearModel::SGDEstimator
   
     &mdash; Documentation by YARD 0.9.28
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "Rumale::LinearModel::BaseSGD";
+  pathId = "Rumale::LinearModel::SGDEstimator";
   relpath = '../../';
 </script>
 
@@ -36,10 +36,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../../_index.html">Index (B)</a> &raquo;
+    <a href="../../_index.html">Index (S)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../LinearModel.html" title="Rumale::LinearModel (module)">LinearModel</a></span></span>
      &raquo; 
-    <span class="title">BaseSGD</span>
+    <span class="title">SGDEstimator</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: Rumale::LinearModel::BaseSGD
+      <div id="content"><h1>Class: Rumale::LinearModel::SGDEstimator
   
   
   
@@ -69,14 +69,16 @@
   <dl>
     <dt>Inherits:</dt>
     <dd>
-      <span class="inheritName"><span class='object_link'><a href="../Base/Estimator.html" title="Rumale::Base::Estimator (class)">Base::Estimator</a></span></span>
+      <span class="inheritName"><span class='object_link'><a href="BaseEstimator.html" title="Rumale::LinearModel::BaseEstimator (class)">BaseEstimator</a></span></span>
       
         <ul class="fullTree">
           <li>Object</li>
           
             <li class="next"><span class='object_link'><a href="../Base/Estimator.html" title="Rumale::Base::Estimator (class)">Base::Estimator</a></span></li>
           
-            <li class="next">Rumale::LinearModel::BaseSGD</li>
+            <li class="next"><span class='object_link'><a href="BaseEstimator.html" title="Rumale::LinearModel::BaseEstimator (class)">BaseEstimator</a></span></li>
+          
+            <li class="next">Rumale::LinearModel::SGDEstimator</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -96,7 +98,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>rumale-linear_model/lib/rumale/linear_model/base_sgd.rb</dd>
+    <dd>rumale-linear_model/lib/rumale/linear_model/sgd_estimator.rb</dd>
   </dl>
   
 </div>
@@ -104,7 +106,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>BaseSGD is an abstract class for implementation of linear model with mini-batch stochastic gradient descent (SGD) optimization. This class is used internally.</p>
+<p>SGDEstimator is an abstract class for implementation of linear model with mini-batch stochastic gradient descent (SGD) optimization. This class is used internally.</p>
 
 
   </div>
@@ -114,7 +116,7 @@
 
 </div><div id="subclasses">
   <h2>Direct Known Subclasses</h2>
-  <p class="children"><span class='object_link'><a href="ElasticNet.html" title="Rumale::LinearModel::ElasticNet (class)">ElasticNet</a></span>, <span class='object_link'><a href="Lasso.html" title="Rumale::LinearModel::Lasso (class)">Lasso</a></span>, <span class='object_link'><a href="LinearRegression.html" title="Rumale::LinearModel::LinearRegression (class)">LinearRegression</a></span>, <span class='object_link'><a href="LogisticRegression.html" title="Rumale::LinearModel::LogisticRegression (class)">LogisticRegression</a></span>, <span class='object_link'><a href="Ridge.html" title="Rumale::LinearModel::Ridge (class)">Ridge</a></span>, <span class='object_link'><a href="SVC.html" title="Rumale::LinearModel::SVC (class)">SVC</a></span>, <span class='object_link'><a href="SVR.html" title="Rumale::LinearModel::SVR (class)">SVR</a></span></p>
+  <p class="children"><span class='object_link'><a href="SGDClassifier.html" title="Rumale::LinearModel::SGDClassifier (class)">SGDClassifier</a></span>, <span class='object_link'><a href="SGDRegressor.html" title="Rumale::LinearModel::SGDRegressor (class)">SGDRegressor</a></span></p>
 </div>
 
 
@@ -123,6 +125,11 @@
 
 
   <h2>Instance Attribute Summary</h2>
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="BaseEstimator.html" title="Rumale::LinearModel::BaseEstimator (class)">BaseEstimator</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="BaseEstimator.html#bias_term-instance_method" title="Rumale::LinearModel::BaseEstimator#bias_term (method)">#bias_term</a></span>, <span class='object_link'><a href="BaseEstimator.html#weight_vec-instance_method" title="Rumale::LinearModel::BaseEstimator#weight_vec (method)">#weight_vec</a></span></p>
+
+  
   
   <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="../Base/Estimator.html" title="Rumale::Base::Estimator (class)">Base::Estimator</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="../Base/Estimator.html#params-instance_method" title="Rumale::Base::Estimator#params (method)">#params</a></span></p>
@@ -139,7 +146,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>  &#x21d2; BaseSGD </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>  &#x21d2; SGDEstimator </a>
     
 
     
@@ -156,7 +163,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Create an initial linear model.</p>
+<p>Create an initial linear model with SGD.</p>
 </div></span>
   
 </li>
@@ -171,13 +178,19 @@
   
   
   
+  
+  
+  
+  
+  
+  
   <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::LinearModel::BaseSGD (class)">BaseSGD</a></span></tt> 
+    #<strong>initialize</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::LinearModel::SGDEstimator (class)">SGDEstimator</a></span></tt> 
   
 
   
@@ -186,7 +199,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Create an initial linear model.</p>
+<p>Create an initial linear model with SGD.</p>
 
 
   </div>
@@ -200,25 +213,25 @@
       <pre class="lines">
 
 
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170
-171
-172
-173
-174
-175
-176</pre>
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-linear_model/lib/rumale/linear_model/base_sgd.rb', line 161</span>
+      <pre class="code"><span class="info file"># File 'rumale-linear_model/lib/rumale/linear_model/sgd_estimator.rb', line 193</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
   <span class='kw'>super</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -247,7 +260,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  1 00:39:37 2023 by
+  Generated on Wed Jan 18 23:57:26 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.1.3).
 </div>
