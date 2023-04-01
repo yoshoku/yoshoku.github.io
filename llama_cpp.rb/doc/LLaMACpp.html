@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: LLaMACpp
+  
+    &mdash; Documentation by YARD 0.9.28
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "LLaMACpp";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index (L)</a> &raquo;
+    
+    
+    <span class="title">LLaMACpp</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: LLaMACpp
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/llama_cpp.rb<span class="defines">,<br />
+  lib/llama_cpp/version.rb,<br /> ext/llama_cpp/dummy.rb,<br /> ext/llama_cpp/dummy.rb</span>
+</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>llama_cpp.rb provides Ruby bindings for the llama.cpp.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="LLaMACpp/Context.html" title="LLaMACpp::Context (class)">Context</a></span>, <span class='object_link'><a href="LLaMACpp/ContextParams.html" title="LLaMACpp::ContextParams (class)">ContextParams</a></span>
+    
+  
+</p>
+
+  
+    <h2>
+      Constant Summary
+      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+    </h2>
+
+    <dl class="constants">
+      
+        <dt id="VERSION-constant" class="">VERSION =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>The version of llama_cpp.rb you install.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.0.1</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+        <dt id="LLAMA_CPP_VERSION-constant" class="">LLAMA_CPP_VERSION =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>The version of llama.cpp bundled with llama_cpp.rb.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>master-2a98bc1</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+        <dt id="LLAMA_FILE_VERSION-constant" class="">LLAMA_FILE_VERSION =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>LLaMA file version.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+        <dt id="LLAMA_FILE_MAGIC-constant" class="">LLAMA_FILE_MAGIC =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>LLaMA file magic.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0x67676d66</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+        <dt id="LLAMA_FILE_MAGIC_UNVERSIONED-constant" class="">LLAMA_FILE_MAGIC_UNVERSIONED =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>LLaMA file magic unversioned.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0x67676d6c</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#generate-class_method" title="generate (class method)">.<strong>generate</strong>(context, prompt)  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Generates sentences following the given prompt for operation check.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#print_system_info-class_method" title="print_system_info (class method)">.<strong>print_system_info</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Prints system information.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#token_bos-class_method" title="token_bos (class method)">.<strong>token_bos</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the token id the beginning of sentence token.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#token_eos-class_method" title="token_eos (class method)">.<strong>token_eos</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the token id the end of sentence token.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="generate-class_method">
+  
+    .<strong>generate</strong>(context, prompt)  &#x21d2; <tt>String</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Generates sentences following the given prompt for operation check.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>context</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="LLaMACpp/Context.html" title="LLaMACpp::Context (class)">LLaMACpp::Context</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>prompt</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/llama_cpp.rb', line 15</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_generate'>generate</span><span class='lparen'>(</span><span class='id identifier rubyid_context'>context</span><span class='comma'>,</span> <span class='id identifier rubyid_prompt'>prompt</span><span class='rparen'>)</span> <span class='comment'># rubocop:disable Metrics/AbcSize, Metrics/MethodLength, Metrics/PerceivedComplexity
+</span>  <span class='id identifier rubyid_prompt'>prompt</span><span class='period'>.</span><span class='id identifier rubyid_insert'>insert</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> </span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_embd_input'>embd_input</span> <span class='op'>=</span> <span class='id identifier rubyid_context'>context</span><span class='period'>.</span><span class='id identifier rubyid_tokenize'>tokenize</span><span class='lparen'>(</span><span class='label'>text:</span> <span class='id identifier rubyid_prompt'>prompt</span><span class='comma'>,</span> <span class='label'>add_bos:</span> <span class='kw'>true</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_n_ctx'>n_ctx</span> <span class='op'>=</span> <span class='id identifier rubyid_context'>context</span><span class='period'>.</span><span class='id identifier rubyid_n_ctx'>n_ctx</span>
+  <span class='id identifier rubyid_last_n_tokens'>last_n_tokens</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_n_ctx'>n_ctx</span>
+
+  <span class='id identifier rubyid_embd'>embd</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_n_consumed'>n_consumed</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='id identifier rubyid_n_keep'>n_keep</span> <span class='op'>=</span> <span class='int'>10</span>
+  <span class='id identifier rubyid_n_past'>n_past</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='id identifier rubyid_n_remain'>n_remain</span> <span class='op'>=</span> <span class='int'>128</span>
+  <span class='id identifier rubyid_repeat_last_n'>repeat_last_n</span> <span class='op'>=</span> <span class='int'>64</span>
+  <span class='id identifier rubyid_output'>output</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+
+  <span class='kw'>while</span> <span class='id identifier rubyid_n_remain'>n_remain</span> <span class='op'>!=</span> <span class='int'>0</span>
+    <span class='kw'>unless</span> <span class='id identifier rubyid_embd'>embd</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_n_past'>n_past</span> <span class='op'>+</span> <span class='id identifier rubyid_embd'>embd</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_n_ctx'>n_ctx</span>
+        <span class='id identifier rubyid_n_left'>n_left</span> <span class='op'>=</span> <span class='id identifier rubyid_n_past'>n_past</span> <span class='op'>-</span> <span class='id identifier rubyid_n_keep'>n_keep</span>
+        <span class='id identifier rubyid_n_past'>n_past</span> <span class='op'>=</span> <span class='id identifier rubyid_n_keep'>n_keep</span>
+        <span class='id identifier rubyid_embd'>embd</span><span class='period'>.</span><span class='id identifier rubyid_insert'>insert</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_last_n_tokens'>last_n_tokens</span><span class='lbracket'>[</span><span class='lparen'>(</span><span class='id identifier rubyid_n_ctx'>n_ctx</span> <span class='op'>-</span> <span class='lparen'>(</span><span class='id identifier rubyid_n_left'>n_left</span> <span class='op'>/</span> <span class='int'>2</span><span class='rparen'>)</span> <span class='op'>-</span> <span class='id identifier rubyid_embd'>embd</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='rparen'>)</span><span class='op'>...</span><span class='op'>-</span><span class='id identifier rubyid_embd'>embd</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+
+      <span class='id identifier rubyid_context'>context</span><span class='period'>.</span><span class='id identifier rubyid_eval'>eval</span><span class='lparen'>(</span><span class='label'>tokens:</span> <span class='id identifier rubyid_embd'>embd</span><span class='comma'>,</span> <span class='label'>n_past:</span> <span class='id identifier rubyid_n_past'>n_past</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_n_past'>n_past</span> <span class='op'>+=</span> <span class='id identifier rubyid_embd'>embd</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
+    <span class='id identifier rubyid_embd'>embd</span><span class='period'>.</span><span class='id identifier rubyid_clear'>clear</span>
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_embd_input'>embd_input</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>&lt;=</span> <span class='id identifier rubyid_n_consumed'>n_consumed</span>
+      <span class='id identifier rubyid_start'>start</span> <span class='op'>=</span> <span class='id identifier rubyid_n_ctx'>n_ctx</span> <span class='op'>-</span> <span class='id identifier rubyid_repeat_last_n'>repeat_last_n</span>
+      <span class='id identifier rubyid_id'>id</span> <span class='op'>=</span> <span class='id identifier rubyid_context'>context</span><span class='period'>.</span><span class='id identifier rubyid_sample_top_p_top_k'>sample_top_p_top_k</span><span class='lparen'>(</span>
+        <span class='id identifier rubyid_last_n_tokens'>last_n_tokens</span><span class='lbracket'>[</span><span class='id identifier rubyid_start'>start</span><span class='op'>...</span><span class='lparen'>(</span><span class='id identifier rubyid_start'>start</span> <span class='op'>+</span> <span class='id identifier rubyid_repeat_last_n'>repeat_last_n</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>top_k:</span> <span class='int'>40</span><span class='comma'>,</span> <span class='label'>top_p:</span> <span class='float'>0.95</span><span class='comma'>,</span> <span class='label'>temp:</span> <span class='float'>0.80</span><span class='comma'>,</span> <span class='label'>penalty:</span> <span class='float'>1.1</span>
+      <span class='rparen'>)</span>
+      <span class='id identifier rubyid_last_n_tokens'>last_n_tokens</span><span class='period'>.</span><span class='id identifier rubyid_shift'>shift</span>
+      <span class='id identifier rubyid_last_n_tokens'>last_n_tokens</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+
+      <span class='id identifier rubyid_embd'>embd</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_n_remain'>n_remain</span> <span class='op'>-=</span> <span class='int'>1</span>
+    <span class='kw'>else</span>
+      <span class='kw'>while</span> <span class='id identifier rubyid_embd_input'>embd_input</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_n_consumed'>n_consumed</span>
+        <span class='id identifier rubyid_embd'>embd</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_embd_input'>embd_input</span><span class='lbracket'>[</span><span class='id identifier rubyid_n_consumed'>n_consumed</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_last_n_tokens'>last_n_tokens</span><span class='period'>.</span><span class='id identifier rubyid_shift'>shift</span>
+        <span class='id identifier rubyid_last_n_tokens'>last_n_tokens</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_embd_input'>embd_input</span><span class='lbracket'>[</span><span class='id identifier rubyid_n_consumed'>n_consumed</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_n_consumed'>n_consumed</span> <span class='op'>+=</span> <span class='int'>1</span>
+        <span class='kw'>break</span> <span class='kw'>if</span> <span class='id identifier rubyid_embd'>embd</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>&gt;=</span> <span class='int'>512</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_embd'>embd</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_token'>token</span><span class='op'>|</span> <span class='id identifier rubyid_output'>output</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_context'>context</span><span class='period'>.</span><span class='id identifier rubyid_token_to_str'>token_to_str</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+
+    <span class='kw'>break</span> <span class='kw'>if</span> <span class='id identifier rubyid_embd'>embd</span><span class='lbracket'>[</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="" title="LLaMACpp (module)">LLaMACpp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_token_eos'><span class='object_link'><a href="#token_eos-class_method" title="LLaMACpp.token_eos (method)">token_eos</a></span></span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_output'>output</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='period'>.</span><span class='id identifier rubyid_delete_prefix'>delete_prefix</span><span class='lparen'>(</span><span class='id identifier rubyid_prompt'>prompt</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="print_system_info-class_method">
+  
+    .<strong>print_system_info</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Prints system information.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 27</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_print_system_info'>print_system_info</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="token_bos-class_method">
+  
+    .<strong>token_bos</strong>  &#x21d2; <tt>Integer</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the token id the beginning of sentence token.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 20</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_token_bos'>token_bos</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="token_eos-class_method">
+  
+    .<strong>token_eos</strong>  &#x21d2; <tt>Integer</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the token id the end of sentence token.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+24</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 24</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_token_eos'>token_eos</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Sun Apr  2 00:47:22 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.28 (ruby-3.1.3).
+</div>
+
+    </div>
+  </body>
+</html>
