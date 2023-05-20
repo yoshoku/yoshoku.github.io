@@ -274,6 +274,30 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#kv_cache_token_count-instance_method" title="#kv_cache_token_count (instance method)">#<strong>kv_cache_token_count</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the number of tokens in the kv cache.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#load-instance_method" title="#load (instance method)">#<strong>load</strong>(model_path:, params:)  &#x21d2; Object </a>
     
 
@@ -418,7 +442,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#sample_top_p_top_k-instance_method" title="#sample_top_p_top_k (instance method)">#<strong>sample_top_p_top_k</strong>(last_n_token, top_k:, top_p:, temp:, penalty:)  &#x21d2; Integer </a>
+      <a href="#sample_frequency_and_presence_penalties-instance_method" title="#sample_frequency_and_presence_penalties (instance method)">#<strong>sample_frequency_and_presence_penalties</strong>(candidates, last_n_tokens, frequency:, presence:)  &#x21d2; Nil </a>
     
 
     
@@ -433,7 +457,295 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Samples token id along with top_p and top_k.</p>
+<p>Sampling with frequency and presence penalties.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sample_repetition_penalty-instance_method" title="#sample_repetition_penalty (instance method)">#<strong>sample_repetition_penalty</strong>(candidates, last_n_tokens, penalty:)  &#x21d2; Nil </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Sampling with repetition penalty.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sample_softmax-instance_method" title="#sample_softmax (instance method)">#<strong>sample_softmax</strong>(candidates)  &#x21d2; Nil </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Sorts candates by their probablities with logits.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sample_tail_free-instance_method" title="#sample_tail_free (instance method)">#<strong>sample_tail_free</strong>(candidates, z:, min_keep: 1)  &#x21d2; Nil </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Tail free samplling.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sample_temperature-instance_method" title="#sample_temperature (instance method)">#<strong>sample_temperature</strong>(candidates, temperature:)  &#x21d2; Nil </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Samples temeperature.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sample_token-instance_method" title="#sample_token (instance method)">#<strong>sample_token</strong>(candidates)  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the randomly selected token from the candidates based on their probabilities.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sample_token_greedy-instance_method" title="#sample_token_greedy (instance method)">#<strong>sample_token_greedy</strong>(candidates)  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the selected token with the highest probability.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sample_token_mirostat-instance_method" title="#sample_token_mirostat (instance method)">#<strong>sample_token_mirostat</strong>(candidates, tau:, eta:, m:, mu:)  &#x21d2; Array&lt;Integer, Float&gt; </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the token with Mirostat 1.0 algorithm.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sample_token_mirostat_v2-instance_method" title="#sample_token_mirostat_v2 (instance method)">#<strong>sample_token_mirostat_v2</strong>(candidates, tau:, eta:, mu:)  &#x21d2; Array&lt;Integer, Float&gt; </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the token with Mirostat 2.0 algorithm.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sample_top_k-instance_method" title="#sample_top_k (instance method)">#<strong>sample_top_k</strong>(candidates, k:, min_keep: 1)  &#x21d2; Nil </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Top-K sampling.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sample_top_p-instance_method" title="#sample_top_p (instance method)">#<strong>sample_top_p</strong>(candidates, prob:, min_keep: 1)  &#x21d2; Nil </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Nucleus sampling.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sample_typical-instance_method" title="#sample_typical (instance method)">#<strong>sample_typical</strong>(candidates, prob:, min_keep: 1)  &#x21d2; Nil </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Typical samplling.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_rng_seed-instance_method" title="#set_rng_seed (instance method)">#<strong>set_rng_seed</strong>(seed)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Sets the current rng seed.</p>
 </div></span>
   
 </li>
@@ -559,10 +871,10 @@
       <pre class="lines">
 
 
-84</pre>
+134</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 84</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 134</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>model_path:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='kw'>nil</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -659,10 +971,10 @@
       <pre class="lines">
 
 
-170</pre>
+210</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 170</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 210</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_apply_lora_from_file'>apply_lora_from_file</span><span class='lparen'>(</span><span class='label'>lora_path:</span><span class='comma'>,</span> <span class='label'>base_model_path:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>n_threads:</span> <span class='int'>1</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -709,10 +1021,10 @@
       <pre class="lines">
 
 
-106</pre>
+156</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 106</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 156</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_embeddings'>embeddings</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -759,10 +1071,10 @@
       <pre class="lines">
 
 
-157</pre>
+197</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 157</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 197</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_empty?'>empty?</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -881,10 +1193,10 @@
       <pre class="lines">
 
 
-93</pre>
+143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 93</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 143</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_eval'>eval</span><span class='lparen'>(</span><span class='label'>tokens:</span><span class='comma'>,</span> <span class='label'>n_past:</span><span class='comma'>,</span> <span class='label'>n_tokens:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>n_threads:</span> <span class='int'>1</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -931,12 +1243,62 @@
       <pre class="lines">
 
 
-152</pre>
+192</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 152</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 192</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_free'>free</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="kv_cache_token_count-instance_method">
+  
+    #<strong>kv_cache_token_count</strong>  &#x21d2; <tt>Integer</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the number of tokens in the kv cache.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+215</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 215</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_kv_cache_token_count'>kv_cache_token_count</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -1004,10 +1366,10 @@
       <pre class="lines">
 
 
-163</pre>
+203</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 163</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 203</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='label'>model_path:</span><span class='comma'>,</span> <span class='label'>params:</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1054,10 +1416,10 @@
       <pre class="lines">
 
 
-132</pre>
+172</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 132</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 172</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_n_ctx'>n_ctx</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1104,10 +1466,10 @@
       <pre class="lines">
 
 
-137</pre>
+177</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 137</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 177</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_n_embd'>n_embd</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1154,10 +1516,10 @@
       <pre class="lines">
 
 
-127</pre>
+167</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 127</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 167</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_n_vocab'>n_vocab</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1204,10 +1566,10 @@
       <pre class="lines">
 
 
-142</pre>
+182</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 142</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 182</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_print_timings'>print_timings</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1254,10 +1616,10 @@
       <pre class="lines">
 
 
-147</pre>
+187</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 147</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 187</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_reset_timings'>reset_timings</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1266,9 +1628,9 @@
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="sample_top_p_top_k-instance_method">
+  <h3 class="signature " id="sample_frequency_and_presence_penalties-instance_method">
   
-    #<strong>sample_top_p_top_k</strong>(last_n_token, top_k:, top_p:, temp:, penalty:)  &#x21d2; <tt>Integer</tt> 
+    #<strong>sample_frequency_and_presence_penalties</strong>(candidates, last_n_tokens, frequency:, presence:)  &#x21d2; <tt>Nil</tt> 
   
 
   
@@ -1277,7 +1639,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Samples token id along with top_p and top_k.</p>
+<p>Sampling with frequency and presence penalties.</p>
 
 
   </div>
@@ -1288,45 +1650,151 @@
   
     <li>
       
-        <span class='name'>last_n_token</span>
+        <span class='name'>candidates</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="TokenDataArray.html" title="LLaMACpp::TokenDataArray (class)">TokenDataArray</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The array of token data.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>last_n_tokens</span>
       
       
         <span class='type'>(<tt>Array&lt;Integer&gt;</tt>)</span>
       
       
       
-    </li>
-  
-    <li>
-      
-        <span class='name'>top_k</span>
-      
-      
-        <span class='type'>(<tt>Integer</tt>)</span>
-      
-      
+        &mdash;
+        <div class='inline'>
+<p>The last n tokens.</p>
+</div>
       
     </li>
   
     <li>
       
-        <span class='name'>top_p</span>
+        <span class='name'>frequency</span>
       
       
         <span class='type'>(<tt>Float</tt>)</span>
       
       
       
+        &mdash;
+        <div class='inline'>
+<p>The frequency.</p>
+</div>
+      
     </li>
   
     <li>
       
-        <span class='name'>temp</span>
+        <span class='name'>presence</span>
       
       
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+      
+        &mdash;
+        <div class='inline'>
+<p>The presence.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+237</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 237</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sample_frequency_and_presence_penalties'>sample_frequency_and_presence_penalties</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='comma'>,</span> <span class='id identifier rubyid_last_n_tokens'>last_n_tokens</span><span class='comma'>,</span> <span class='label'>frequency:</span><span class='comma'>,</span> <span class='label'>presence:</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sample_repetition_penalty-instance_method">
+  
+    #<strong>sample_repetition_penalty</strong>(candidates, last_n_tokens, penalty:)  &#x21d2; <tt>Nil</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Sampling with repetition penalty.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>candidates</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="TokenDataArray.html" title="LLaMACpp::TokenDataArray (class)">TokenDataArray</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The array of token data.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>last_n_tokens</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;Integer&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The last n tokens.</p>
+</div>
       
     </li>
   
@@ -1338,6 +1806,341 @@
         <span class='type'>(<tt>Float</tt>)</span>
       
       
+      
+        &mdash;
+        <div class='inline'>
+<p>The penalty.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+228</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 228</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sample_repetition_penalty'>sample_repetition_penalty</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='comma'>,</span> <span class='id identifier rubyid_last_n_tokens'>last_n_tokens</span><span class='comma'>,</span> <span class='label'>penalty:</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sample_softmax-instance_method">
+  
+    #<strong>sample_softmax</strong>(candidates)  &#x21d2; <tt>Nil</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Sorts candates by their probablities with logits.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>candidates</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="TokenDataArray.html" title="LLaMACpp::TokenDataArray (class)">TokenDataArray</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The array of token data.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+243</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 243</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sample_softmax'>sample_softmax</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sample_tail_free-instance_method">
+  
+    #<strong>sample_tail_free</strong>(candidates, z:, min_keep: 1)  &#x21d2; <tt>Nil</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Tail free samplling.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>candidates</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="TokenDataArray.html" title="LLaMACpp::TokenDataArray (class)">TokenDataArray</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The array of token data.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>z</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The tail free sampling parameter.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>min_keep</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>1</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The minimum number of tokens to keep.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+267</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 267</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sample_tail_free'>sample_tail_free</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='comma'>,</span> <span class='label'>z:</span><span class='comma'>,</span> <span class='label'>min_keep:</span> <span class='int'>1</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sample_temperature-instance_method">
+  
+    #<strong>sample_temperature</strong>(candidates, temperature:)  &#x21d2; <tt>Nil</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Samples temeperature.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>candidates</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="TokenDataArray.html" title="LLaMACpp::TokenDataArray (class)">TokenDataArray</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The array of token data.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>temperature</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The temperature.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+282</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 282</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sample_temperature'>sample_temperature</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='comma'>,</span> <span class='label'>temperature:</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sample_token-instance_method">
+  
+    #<strong>sample_token</strong>(candidates)  &#x21d2; <tt>Integer</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the randomly selected token from the candidates based on their probabilities.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>candidates</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="TokenDataArray.html" title="LLaMACpp::TokenDataArray (class)">TokenDataArray</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The array of token data.</p>
+</div>
       
     </li>
   
@@ -1363,12 +2166,713 @@
       <pre class="lines">
 
 
-122</pre>
+313</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 122</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 313</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_sample_top_p_top_k'>sample_top_p_top_k</span><span class='lparen'>(</span><span class='id identifier rubyid_last_n_token'>last_n_token</span><span class='comma'>,</span> <span class='label'>top_k:</span><span class='comma'>,</span> <span class='label'>top_p:</span><span class='comma'>,</span> <span class='label'>temp:</span><span class='comma'>,</span> <span class='label'>penalty:</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_sample_token'>sample_token</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sample_token_greedy-instance_method">
+  
+    #<strong>sample_token_greedy</strong>(candidates)  &#x21d2; <tt>Integer</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the selected token with the highest probability.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>candidates</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="TokenDataArray.html" title="LLaMACpp::TokenDataArray (class)">TokenDataArray</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The array of token data.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+307</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 307</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sample_token_greedy'>sample_token_greedy</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sample_token_mirostat-instance_method">
+  
+    #<strong>sample_token_mirostat</strong>(candidates, tau:, eta:, m:, mu:)  &#x21d2; <tt>Array&lt;Integer, Float&gt;</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the token with Mirostat 1.0 algorithm.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>candidates</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="TokenDataArray.html" title="LLaMACpp::TokenDataArray (class)">TokenDataArray</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The array of token data.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>tau</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The target cross-entropy value.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>eta</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The learning rate.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>m</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The number of tokens considered in the estimation of ‘s_hat`.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>mu</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The maximum cross-entropy.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;Integer, Float&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The array of token id and updated mu.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+292</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 292</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sample_token_mirostat'>sample_token_mirostat</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='comma'>,</span> <span class='label'>tau:</span><span class='comma'>,</span> <span class='label'>eta:</span><span class='comma'>,</span> <span class='label'>m:</span><span class='comma'>,</span> <span class='label'>mu:</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sample_token_mirostat_v2-instance_method">
+  
+    #<strong>sample_token_mirostat_v2</strong>(candidates, tau:, eta:, mu:)  &#x21d2; <tt>Array&lt;Integer, Float&gt;</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the token with Mirostat 2.0 algorithm.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>candidates</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="TokenDataArray.html" title="LLaMACpp::TokenDataArray (class)">TokenDataArray</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The array of token data.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>tau</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The target cross-entropy value.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>eta</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The learning rate.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>mu</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The maximum cross-entropy.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;Integer, Float&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The array of token id and updated mu.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+301</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 301</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sample_token_mirostat_v2'>sample_token_mirostat_v2</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='comma'>,</span> <span class='label'>tau:</span><span class='comma'>,</span> <span class='label'>eta:</span><span class='comma'>,</span> <span class='label'>mu:</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sample_top_k-instance_method">
+  
+    #<strong>sample_top_k</strong>(candidates, k:, min_keep: 1)  &#x21d2; <tt>Nil</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Top-K sampling.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>candidates</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="TokenDataArray.html" title="LLaMACpp::TokenDataArray (class)">TokenDataArray</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The array of token data.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>k</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The top-k.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>min_keep</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>1</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The minimum number of tokens to keep.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+251</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 251</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sample_top_k'>sample_top_k</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='comma'>,</span> <span class='label'>k:</span><span class='comma'>,</span> <span class='label'>min_keep:</span> <span class='int'>1</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sample_top_p-instance_method">
+  
+    #<strong>sample_top_p</strong>(candidates, prob:, min_keep: 1)  &#x21d2; <tt>Nil</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Nucleus sampling.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>candidates</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="TokenDataArray.html" title="LLaMACpp::TokenDataArray (class)">TokenDataArray</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The array of token data.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>prob</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The probability.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>min_keep</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>1</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The minimum number of tokens to keep.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+259</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 259</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sample_top_p'>sample_top_p</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='comma'>,</span> <span class='label'>prob:</span><span class='comma'>,</span> <span class='label'>min_keep:</span> <span class='int'>1</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sample_typical-instance_method">
+  
+    #<strong>sample_typical</strong>(candidates, prob:, min_keep: 1)  &#x21d2; <tt>Nil</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Typical samplling.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>candidates</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="TokenDataArray.html" title="LLaMACpp::TokenDataArray (class)">TokenDataArray</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The array of token data.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>prob</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The probability.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>min_keep</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>1</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The minimum number of tokens to keep.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+275</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 275</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sample_typical'>sample_typical</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='comma'>,</span> <span class='label'>prob:</span><span class='comma'>,</span> <span class='label'>min_keep:</span> <span class='int'>1</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="set_rng_seed-instance_method">
+  
+    #<strong>set_rng_seed</strong>(seed)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Sets the current rng seed.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>seed</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The rng seed.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+220</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 220</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_set_rng_seed'>set_rng_seed</span><span class='lparen'>(</span><span class='id identifier rubyid_seed'>seed</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -1428,10 +2932,10 @@
       <pre class="lines">
 
 
-112</pre>
+162</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 112</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 162</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_token_to_str'>token_to_str</span><span class='lparen'>(</span><span class='id identifier rubyid_token_id'>token_id</span><span class='rparen'>)</span> <span class='kw'>end</span></pre>
     </td>
@@ -1534,10 +3038,10 @@
       <pre class="lines">
 
 
-101</pre>
+151</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 101</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 151</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tokenize'>tokenize</span><span class='lparen'>(</span><span class='label'>text:</span><span class='comma'>,</span> <span class='label'>n_max_tokens:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>add_bos:</span> <span class='kw'>true</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1550,7 +3054,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Apr 29 09:46:20 2023 by
+  Generated on Sat May 20 17:29:04 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.1.3).
 </div>
