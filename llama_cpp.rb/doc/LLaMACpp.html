@@ -102,7 +102,7 @@
     
   
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="LLaMACpp/Client.html" title="LLaMACpp::Client (class)">Client</a></span>, <span class='object_link'><a href="LLaMACpp/Context.html" title="LLaMACpp::Context (class)">Context</a></span>, <span class='object_link'><a href="LLaMACpp/ContextParams.html" title="LLaMACpp::ContextParams (class)">ContextParams</a></span>, <span class='object_link'><a href="LLaMACpp/TokenData.html" title="LLaMACpp::TokenData (class)">TokenData</a></span>, <span class='object_link'><a href="LLaMACpp/TokenDataArray.html" title="LLaMACpp::TokenDataArray (class)">TokenDataArray</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="LLaMACpp/Client.html" title="LLaMACpp::Client (class)">Client</a></span>, <span class='object_link'><a href="LLaMACpp/Context.html" title="LLaMACpp::Context (class)">Context</a></span>, <span class='object_link'><a href="LLaMACpp/ContextParams.html" title="LLaMACpp::ContextParams (class)">ContextParams</a></span>, <span class='object_link'><a href="LLaMACpp/ModelQuantizeParams.html" title="LLaMACpp::ModelQuantizeParams (class)">ModelQuantizeParams</a></span>, <span class='object_link'><a href="LLaMACpp/TokenData.html" title="LLaMACpp::TokenData (class)">TokenData</a></span>, <span class='object_link'><a href="LLaMACpp/TokenDataArray.html" title="LLaMACpp::TokenDataArray (class)">TokenDataArray</a></span>
     
   
 </p>
@@ -145,7 +145,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.1.3</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.2.0</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
         <dt id="LLAMA_CPP_VERSION-constant" class="">LLAMA_CPP_VERSION =
           <div class="docstring">
@@ -161,7 +161,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>master-66874d4</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>master-4de0334</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
         <dt id="LLAMA_FILE_VERSION-constant" class="">LLAMA_FILE_VERSION =
           <div class="docstring">
@@ -242,6 +242,22 @@
 </div>
         </dt>
         <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+        <dt id="LLAMA_MAX_DEVICES-constant" class="">LLAMA_MAX_DEVICES =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>LLaMA cuda max devices.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>1</span></pre></dd>
       
         <dt id="LLAMA_FTYPE_ALL_F32-constant" class="">LLAMA_FTYPE_ALL_F32 =
           <div class="docstring">
@@ -371,6 +387,150 @@
         </dt>
         <dd><pre class="code"><span class='int'>9</span></pre></dd>
       
+        <dt id="LLAMA_FTYPE_MOSTLY_Q2_K-constant" class="">LLAMA_FTYPE_MOSTLY_Q2_K =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>LLaMA model file type.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>10</span></pre></dd>
+      
+        <dt id="LLAMA_FTYPE_MOSTLY_Q3_K_S-constant" class="">LLAMA_FTYPE_MOSTLY_Q3_K_S =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>LLaMA model file type.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>11</span></pre></dd>
+      
+        <dt id="LLAMA_FTYPE_MOSTLY_Q3_K_M-constant" class="">LLAMA_FTYPE_MOSTLY_Q3_K_M =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>LLaMA model file type.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>12</span></pre></dd>
+      
+        <dt id="LLAMA_FTYPE_MOSTLY_Q3_K_L-constant" class="">LLAMA_FTYPE_MOSTLY_Q3_K_L =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>LLaMA model file type.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>13</span></pre></dd>
+      
+        <dt id="LLAMA_FTYPE_MOSTLY_Q4_K_S-constant" class="">LLAMA_FTYPE_MOSTLY_Q4_K_S =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>LLaMA model file type.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>14</span></pre></dd>
+      
+        <dt id="LLAMA_FTYPE_MOSTLY_Q4_K_M-constant" class="">LLAMA_FTYPE_MOSTLY_Q4_K_M =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>LLaMA model file type.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>15</span></pre></dd>
+      
+        <dt id="LLAMA_FTYPE_MOSTLY_Q5_K_S-constant" class="">LLAMA_FTYPE_MOSTLY_Q5_K_S =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>LLaMA model file type.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>16</span></pre></dd>
+      
+        <dt id="LLAMA_FTYPE_MOSTLY_Q5_K_M-constant" class="">LLAMA_FTYPE_MOSTLY_Q5_K_M =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>LLaMA model file type.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>17</span></pre></dd>
+      
+        <dt id="LLAMA_FTYPE_MOSTLY_Q6_K-constant" class="">LLAMA_FTYPE_MOSTLY_Q6_K =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>LLaMA model file type.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>18</span></pre></dd>
+      
     </dl>
   
 
@@ -463,7 +623,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#model_quantize-class_method" title="model_quantize (class method)">.<strong>model_quantize</strong>(input_path:, output_path:, ftype:, n_threads: 1)  &#x21d2; Object </a>
+      <a href="#model_quantize-class_method" title="model_quantize (class method)">.<strong>model_quantize</strong>(input_path:, output_path:, params:)  &#x21d2; Object </a>
     
 
     
@@ -935,10 +1095,10 @@
       <pre class="lines">
 
 
-77</pre>
+106</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 77</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 106</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mlock_supported?'>mlock_supported?</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -985,10 +1145,10 @@
       <pre class="lines">
 
 
-73</pre>
+102</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 102</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mmap_supported?'>mmap_supported?</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -999,7 +1159,7 @@
       <div class="method_details ">
   <h3 class="signature " id="model_quantize-class_method">
   
-    .<strong>model_quantize</strong>(input_path:, output_path:, ftype:, n_threads: 1)  &#x21d2; <tt>Object</tt> 
+    .<strong>model_quantize</strong>(input_path:, output_path:, params:)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -1051,34 +1211,16 @@
   
     <li>
       
-        <span class='name'>ftype</span>
+        <span class='name'>params</span>
       
       
-        <span class='type'>(<tt>Integer</tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="LLaMACpp/ModelQuantizeParams.html" title="LLaMACpp::ModelQuantizeParams (class)">ModelQuantizeParams</a></span></tt>)</span>
       
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The file type.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>n_threads</span>
-      
-      
-        <span class='type'>(<tt>Integer</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>1</tt>)</em>
       
       
         &mdash;
         <div class='inline'>
-<p>The number of threads.</p>
+<p>The paramters for model quantization.</p>
 </div>
       
     </li>
@@ -1092,12 +1234,12 @@
       <pre class="lines">
 
 
-54</pre>
+83</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 54</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 83</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_model_quantize'>model_quantize</span><span class='lparen'>(</span><span class='label'>input_path:</span><span class='comma'>,</span> <span class='label'>output_path:</span><span class='comma'>,</span> <span class='label'>ftype:</span><span class='comma'>,</span> <span class='label'>n_threads:</span> <span class='int'>1</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_model_quantize'>model_quantize</span><span class='lparen'>(</span><span class='label'>input_path:</span><span class='comma'>,</span> <span class='label'>output_path:</span><span class='comma'>,</span> <span class='label'>params:</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -1129,10 +1271,10 @@
       <pre class="lines">
 
 
-69</pre>
+98</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 69</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 98</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_print_system_info'>print_system_info</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1179,10 +1321,10 @@
       <pre class="lines">
 
 
-58</pre>
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 58</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 87</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_token_bos'>token_bos</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1229,10 +1371,10 @@
       <pre class="lines">
 
 
-62</pre>
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 91</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_token_eos'>token_eos</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1279,10 +1421,10 @@
       <pre class="lines">
 
 
-66</pre>
+95</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 66</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 95</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_token_nl'>token_nl</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1295,7 +1437,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat May 27 01:05:46 2023 by
+  Generated on Sun Jun 11 10:01:19 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.1.3).
 </div>
