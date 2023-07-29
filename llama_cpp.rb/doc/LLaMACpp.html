@@ -102,7 +102,7 @@
     
   
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="LLaMACpp/Context.html" title="LLaMACpp::Context (class)">Context</a></span>, <span class='object_link'><a href="LLaMACpp/ContextParams.html" title="LLaMACpp::ContextParams (class)">ContextParams</a></span>, <span class='object_link'><a href="LLaMACpp/Model.html" title="LLaMACpp::Model (class)">Model</a></span>, <span class='object_link'><a href="LLaMACpp/ModelQuantizeParams.html" title="LLaMACpp::ModelQuantizeParams (class)">ModelQuantizeParams</a></span>, <span class='object_link'><a href="LLaMACpp/Timings.html" title="LLaMACpp::Timings (class)">Timings</a></span>, <span class='object_link'><a href="LLaMACpp/TokenData.html" title="LLaMACpp::TokenData (class)">TokenData</a></span>, <span class='object_link'><a href="LLaMACpp/TokenDataArray.html" title="LLaMACpp::TokenDataArray (class)">TokenDataArray</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="LLaMACpp/Context.html" title="LLaMACpp::Context (class)">Context</a></span>, <span class='object_link'><a href="LLaMACpp/ContextParams.html" title="LLaMACpp::ContextParams (class)">ContextParams</a></span>, <span class='object_link'><a href="LLaMACpp/Grammar.html" title="LLaMACpp::Grammar (class)">Grammar</a></span>, <span class='object_link'><a href="LLaMACpp/GrammarElement.html" title="LLaMACpp::GrammarElement (class)">GrammarElement</a></span>, <span class='object_link'><a href="LLaMACpp/Model.html" title="LLaMACpp::Model (class)">Model</a></span>, <span class='object_link'><a href="LLaMACpp/ModelQuantizeParams.html" title="LLaMACpp::ModelQuantizeParams (class)">ModelQuantizeParams</a></span>, <span class='object_link'><a href="LLaMACpp/Timings.html" title="LLaMACpp::Timings (class)">Timings</a></span>, <span class='object_link'><a href="LLaMACpp/TokenData.html" title="LLaMACpp::TokenData (class)">TokenData</a></span>, <span class='object_link'><a href="LLaMACpp/TokenDataArray.html" title="LLaMACpp::TokenDataArray (class)">TokenDataArray</a></span>
     
   
 </p>
@@ -145,7 +145,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.3.4</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.3.5</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
         <dt id="LLAMA_CPP_VERSION-constant" class="">LLAMA_CPP_VERSION =
           <div class="docstring">
@@ -161,7 +161,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>master-d924522</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>master-1a94186</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
         <dt id="LLAMA_FILE_VERSION-constant" class="">LLAMA_FILE_VERSION =
           <div class="docstring">
@@ -547,6 +547,118 @@
         </dt>
         <dd><pre class="code"><span class='int'>18</span></pre></dd>
       
+        <dt id="LLAMA_GRETYPE_END-constant" class="">LLAMA_GRETYPE_END =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>GrammarElement type: end of rule definition.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>0</span></pre></dd>
+      
+        <dt id="LLAMA_GRETYPE_ALT-constant" class="">LLAMA_GRETYPE_ALT =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>GrammarElement type: start of alternate definition for rule.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>1</span></pre></dd>
+      
+        <dt id="LLAMA_GRETYPE_RULE_REF-constant" class="">LLAMA_GRETYPE_RULE_REF =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>GrammarElement type: non-terminal element: reference to rule.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>2</span></pre></dd>
+      
+        <dt id="LLAMA_GRETYPE_CHAR-constant" class="">LLAMA_GRETYPE_CHAR =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>GrammarElement type: terminal element: character (code point).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>3</span></pre></dd>
+      
+        <dt id="LLAMA_GRETYPE_CHAR_NOT-constant" class="">LLAMA_GRETYPE_CHAR_NOT =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>GrammarElement type: inverse char(s) ([^a], [^a-b] [^abc]).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>4</span></pre></dd>
+      
+        <dt id="LLAMA_GRETYPE_CHAR_RNG_UPPER-constant" class="">LLAMA_GRETYPE_CHAR_RNG_UPPER =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>GrammarElement type: modifies a preceding LLAMA_GRETYPE_CHAR or LLAMA_GRETYPE_CHAR_ALT to be an inclusive range ([a-z]).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>5</span></pre></dd>
+      
+        <dt id="LLAMA_GRETYPE_CHAR_ALT-constant" class="">LLAMA_GRETYPE_CHAR_ALT =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>GrammarElement type: modifies a preceding LLAMA_GRETYPE_CHAR or LLAMA_GRETYPE_CHAR_RNG_UPPER to add an alternate char to match ([ab], [a-zA]).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>6</span></pre></dd>
+      
     </dl>
   
 
@@ -863,10 +975,10 @@
       <pre class="lines">
 
 
-87</pre>
+108</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 87</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 108</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_backend_free'>backend_free</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -922,10 +1034,10 @@
       <pre class="lines">
 
 
-84</pre>
+105</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 84</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 105</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_backend_init'>backend_init</span><span class='lparen'>(</span><span class='label'>numa:</span> <span class='kw'>false</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1459,10 +1571,10 @@
       <pre class="lines">
 
 
-121</pre>
+142</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 121</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 142</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_max_devices'>max_devices</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1509,10 +1621,10 @@
       <pre class="lines">
 
 
-117</pre>
+138</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 117</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 138</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mlock_supported?'>mlock_supported?</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1559,10 +1671,10 @@
       <pre class="lines">
 
 
-113</pre>
+134</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 113</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 134</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mmap_supported?'>mmap_supported?</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1648,10 +1760,10 @@
       <pre class="lines">
 
 
-94</pre>
+115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 94</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 115</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_model_quantize'>model_quantize</span><span class='lparen'>(</span><span class='label'>input_path:</span><span class='comma'>,</span> <span class='label'>output_path:</span><span class='comma'>,</span> <span class='label'>params:</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1685,10 +1797,10 @@
       <pre class="lines">
 
 
-109</pre>
+130</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 109</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 130</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_print_system_info'>print_system_info</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1735,10 +1847,10 @@
       <pre class="lines">
 
 
-98</pre>
+119</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 98</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 119</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_token_bos'>token_bos</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1785,10 +1897,10 @@
       <pre class="lines">
 
 
-102</pre>
+123</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 102</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 123</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_token_eos'>token_eos</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1835,10 +1947,10 @@
       <pre class="lines">
 
 
-106</pre>
+127</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 106</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 127</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_token_nl'>token_nl</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1851,7 +1963,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Jul 23 01:11:22 2023 by
+  Generated on Sun Jul 30 07:52:34 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.1.3).
 </div>
