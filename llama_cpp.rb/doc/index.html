@@ -78,6 +78,17 @@
 <pre class="code ruby"><code class="ruby">$ gem install llama_cpp
 </code></pre>
 
+<p>There are several installation options for improving execution performance:</p>
+
+<pre class="code ruby"><code class="ruby"># use OpenBLAS
+$ gem install llama_cpp -- --with-openblas
+
+# use Metal on macOS
+$ gem install llama_cpp -- --with-metal
+</code></pre>
+
+<p>Those options are defined in <a href="https://github.com/yoshoku/llama_cpp.rb/blob/main/ext/llama_cpp/extconf.rb">extconf.rb</a> by with_config method.</p>
+
 <h2 id="label-Usage">Usage</h2>
 
 <p>Prepare the quantized model by refering to <a href="https://github.com/ggerganov/llama.cpp#usage">the usage section on the llama.cpp README</a>. For example, preparing the quatization model based on <a href="https://huggingface.co/openlm-research/open_llama_7b">open_llama_7b</a> is as follows:</p>
@@ -147,7 +158,7 @@ $ ruby chat.rb --model ggml-vicuna-7b-1.1-q4_0.bin --file prompt_jp.txt
 </div></div>
 
       <div id="footer">
-  Generated on Sun Jul 30 07:52:34 2023 by
+  Generated on Sat Aug 12 08:03:42 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.1.3).
 </div>
