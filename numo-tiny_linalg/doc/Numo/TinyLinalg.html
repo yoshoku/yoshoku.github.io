@@ -119,7 +119,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.1.0</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.3.0</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
     </dl>
   
@@ -157,6 +157,54 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>Returns BLAS char ([sdcz]) defined by data-type of arguments.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cho_solve-class_method" title="cho_solve (class method)">.<strong>cho_solve</strong>(a, b, uplo: &#39;U&#39;)  &#x21d2; Numo::NArray </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Solves linear equation ‘A * x = b` or `A * X = B` for `x` with the Cholesky factorization of `A`.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cholesky-class_method" title="cholesky (class method)">.<strong>cholesky</strong>(a, uplo: &#39;U&#39;)  &#x21d2; Numo::NArray </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Computes the Cholesky decomposition of a symmetric / Hermitian positive-definite matrix.</p>
 </div></span>
   
 </li>
@@ -213,7 +261,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#eigh-class_method" title="eigh (class method)">.<strong>eigh</strong>(a, b = nil, vals_only: false, vals_range: nil, uplo: &#39;U&#39;, turbo: false)  &#x21d2; Array&lt;Numo::NArray, Numo::NArray&gt; </a>
+      <a href="#eigh-class_method" title="eigh (class method)">.<strong>eigh</strong>(a, b = nil, vals_only: false, vals_range: nil, uplo: &#39;U&#39;, turbo: false)  &#x21d2; Array&lt;Numo::NArray&gt; </a>
     
 
     
@@ -276,7 +324,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Compute the (Moore-Penrose) pseudo-inverse of a matrix using singular value decomposition.</p>
+<p>Computes the (Moore-Penrose) pseudo-inverse of a matrix using singular value decomposition.</p>
 </div></span>
   
 </li>
@@ -285,7 +333,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#qr-class_method" title="qr (class method)">.<strong>qr</strong>(a, mode: &#39;reduce&#39;)  &#x21d2; Numo::NArray, Array&lt;Numo::NArray,Numo::NArray&gt; </a>
+      <a href="#qr-class_method" title="qr (class method)">.<strong>qr</strong>(a, mode: &#39;reduce&#39;)  &#x21d2; Numo::NArray<sup>+</sup> </a>
     
 
     
@@ -300,7 +348,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Compute QR decomposition of a matrix.</p>
+<p>Computes the QR decomposition of a matrix.</p>
 </div></span>
   
 </li>
@@ -324,7 +372,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Solves linear equation ‘A * x = b` or `A * X = B` for `x` from square matrix `a`.</p>
+<p>Solves linear equation ‘A * x = b` or `A * X = B` for `x` from square matrix `A`.</p>
 </div></span>
   
 </li>
@@ -348,7 +396,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Calculates the Singular Value Decomposition (SVD) of a matrix: ‘A = U * S * V^T`.</p>
+<p>Computes the Singular Value Decomposition (SVD) of a matrix: ‘A = U * S * V^T`.</p>
 </div></span>
   
 </li>
@@ -428,21 +476,21 @@
       <pre class="lines">
 
 
-97
-98
-99
-100
-101
-102
-103
-104
 105
 106
 107
-108</pre>
+108
+109
+110
+111
+112
+113
+114
+115
+116</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/numo/tiny_linalg/tiny_linalg.cpp', line 97</span>
+      <pre class="code"><span class="info file"># File 'ext/numo/tiny_linalg/tiny_linalg.cpp', line 105</span>
 
 static VALUE tiny_linalg_blas_char(int argc, VALUE* argv, VALUE self) {
   VALUE nary_arr = Qnil;
@@ -456,6 +504,348 @@ static VALUE tiny_linalg_blas_char(int argc, VALUE* argv, VALUE self) {
 
   return rb_str_new(&amp;type, 1);
 }</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="cho_solve-class_method">
+  
+    .<strong>cho_solve</strong>(a, b, uplo: &#39;U&#39;)  &#x21d2; <tt>Numo::NArray</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Solves linear equation ‘A * x = b` or `A * X = B` for `x` with the Cholesky factorization of `A`.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>require &#39;numo/tiny_linalg&#39;
+
+Numo::Linalg = Numo::TinyLinalg unless defined?(Numo::Linalg)
+
+s = Numo::DFloat.new(3, 3).rand - 0.5
+a = s.transpose.dot(s)
+u = Numo::Linalg.cholesky(a)
+
+b = Numo::DFloat.new(3).rand
+x = Numo::Linalg.cho_solve(u, b)
+
+puts (b - a.dot(x)).abs.max
+=&gt; 0.0</code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>a</span>
+      
+      
+        <span class='type'>(<tt>Numo::NArray</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The n-by-n cholesky factor.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>b</span>
+      
+      
+        <span class='type'>(<tt>Numo::NArray</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The n right-hand side vector, or n-by-nrhs right-hand side matrix.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>uplo</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;U&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Whether to compute the upper- or lower-triangular Cholesky factor (‘U’ or ‘L’).</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::NArray</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The solution vector or matrix ‘X`.</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ArgumentError</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/numo/tiny_linalg.rb', line 175</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_cho_solve'>cho_solve</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='comma'>,</span> <span class='label'>uplo:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>U</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>input array a must be 2-dimensional</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_ndim'>ndim</span> <span class='op'>!=</span> <span class='int'>2</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>input array a must be square</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>incompatible dimensions: a.shape[0] = </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'> != b.shape[0] = </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+
+  <span class='id identifier rubyid_bchr'>bchr</span> <span class='op'>=</span> <span class='id identifier rubyid_blas_char'>blas_char</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>invalid array type: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_bchr'>bchr</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>n</span><span class='tstring_end'>&#39;</span></span>
+
+  <span class='id identifier rubyid_fnc'>fnc</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_bchr'>bchr</span><span class='embexpr_end'>}</span><span class='tstring_content'>potrs</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
+  <span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid__info'>_info</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Numo::TinyLinalg (module)">TinyLinalg</a></span></span><span class='op'>::</span><span class='const'>Lapack</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_fnc'>fnc</span><span class='comma'>,</span> <span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='comma'>,</span> <span class='label'>uplo:</span> <span class='id identifier rubyid_uplo'>uplo</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="cholesky-class_method">
+  
+    .<strong>cholesky</strong>(a, uplo: &#39;U&#39;)  &#x21d2; <tt>Numo::NArray</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Computes the Cholesky decomposition of a symmetric / Hermitian positive-definite matrix.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/tiny_linalg</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>Linalg</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Numo::TinyLinalg (module)">TinyLinalg</a></span></span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>Linalg</span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_s'>s</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>3</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_rand'>rand</span> <span class='op'>-</span> <span class='float'>0.5</span>
+<span class='id identifier rubyid_a'>a</span> <span class='op'>=</span> <span class='id identifier rubyid_s'>s</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='id identifier rubyid_s'>s</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_u'>u</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>Linalg</span><span class='period'>.</span><span class='id identifier rubyid_cholesky'>cholesky</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_pp'>pp</span> <span class='id identifier rubyid_u'>u</span>
+<span class='comment'># =&gt;
+</span><span class='comment'># Numo::DFloat#shape=[3,3]
+</span><span class='comment'># [[0.532006, 0.338183, -0.18036],
+</span><span class='comment'>#  [0, 0.325153, 0.011721],
+</span><span class='comment'>#  [0, 0, 0.436738]]
+</span>
+<span class='id identifier rubyid_pp'>pp</span> <span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span> <span class='op'>-</span> <span class='id identifier rubyid_u'>u</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='id identifier rubyid_u'>u</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span>
+<span class='comment'># =&gt; 1.3877787807814457e-17
+</span>
+<span class='id identifier rubyid_l'>l</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'>Linalg</span><span class='period'>.</span><span class='id identifier rubyid_cholesky'>cholesky</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='label'>uplo:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>L</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_pp'>pp</span> <span class='id identifier rubyid_l'>l</span>
+<span class='comment'># =&gt;
+</span><span class='comment'># Numo::DFloat#shape=[3,3]
+</span><span class='comment'># [[0.532006, 0, 0],
+</span><span class='comment'>#  [0.338183, 0.325153, 0],
+</span><span class='comment'>#  [-0.18036, 0.011721, 0.436738]]
+</span>
+<span class='id identifier rubyid_pp'>pp</span> <span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span> <span class='op'>-</span> <span class='id identifier rubyid_l'>l</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='id identifier rubyid_l'>l</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span>
+<span class='comment'># =&gt; 1.3877787807814457e-17</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>a</span>
+      
+      
+        <span class='type'>(<tt>Numo::NArray</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The n-by-n symmetric matrix.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>uplo</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;U&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Whether to compute the upper- or lower-triangular Cholesky factor (‘U’ or ‘L’).</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::NArray</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The upper- or lower-triangular Cholesky factor of a.</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ArgumentError</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/numo/tiny_linalg.rb', line 134</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_cholesky'>cholesky</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='label'>uplo:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>U</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>input array a must be 2-dimensional</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_ndim'>ndim</span> <span class='op'>!=</span> <span class='int'>2</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>input array a must be square</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+
+  <span class='id identifier rubyid_bchr'>bchr</span> <span class='op'>=</span> <span class='id identifier rubyid_blas_char'>blas_char</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>invalid array type: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_bchr'>bchr</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>n</span><span class='tstring_end'>&#39;</span></span>
+
+  <span class='id identifier rubyid_fnc'>fnc</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_bchr'>bchr</span><span class='embexpr_end'>}</span><span class='tstring_content'>potrf</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
+  <span class='id identifier rubyid_c'>c</span><span class='comma'>,</span> <span class='id identifier rubyid__info'>_info</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Numo::TinyLinalg (module)">TinyLinalg</a></span></span><span class='op'>::</span><span class='const'>Lapack</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_fnc'>fnc</span><span class='comma'>,</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='comma'>,</span> <span class='label'>uplo:</span> <span class='id identifier rubyid_uplo'>uplo</span><span class='rparen'>)</span>
+
+  <span class='kw'>case</span> <span class='id identifier rubyid_uplo'>uplo</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>U</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_triu'>triu</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>L</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_tril'>tril</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>invalid uplo: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_uplo'>uplo</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -507,7 +897,7 @@ static VALUE tiny_linalg_blas_char(int argc, VALUE* argv, VALUE self) {
       
         &mdash;
         <div class='inline'>
-<p>n-by-n square matrix.</p>
+<p>The n-by-n square matrix.</p>
 </div>
       
     </li>
@@ -552,30 +942,30 @@ static VALUE tiny_linalg_blas_char(int argc, VALUE* argv, VALUE self) {
       <pre class="lines">
 
 
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116</pre>
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/numo/tiny_linalg.rb', line 96</span>
+      <pre class="code"><span class="info file"># File 'lib/numo/tiny_linalg.rb', line 201</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_det'>det</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>input array a must be 2-dimensional</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_ndim'>ndim</span> <span class='op'>!=</span> <span class='int'>2</span>
@@ -679,14 +1069,6 @@ static VALUE tiny_linalg_blas_char(int argc, VALUE* argv, VALUE self) {
       <pre class="lines">
 
 
-146
-147
-148
-149
-150
-151
-152
-153
 154
 155
 156
@@ -753,10 +1135,18 @@ static VALUE tiny_linalg_blas_char(int argc, VALUE* argv, VALUE self) {
 217
 218
 219
-220</pre>
+220
+221
+222
+223
+224
+225
+226
+227
+228</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/numo/tiny_linalg/tiny_linalg.cpp', line 146</span>
+      <pre class="code"><span class="info file"># File 'ext/numo/tiny_linalg/tiny_linalg.cpp', line 154</span>
 
 static VALUE tiny_linalg_dot(VALUE self, VALUE a_, VALUE b_) {
   VALUE a = IsNArray(a_) ? a_ : rb_funcall(numo_cNArray, rb_intern(&quot;asarray&quot;), 1, a_);
@@ -841,7 +1231,7 @@ static VALUE tiny_linalg_dot(VALUE self, VALUE a_, VALUE b_) {
       <div class="method_details ">
   <h3 class="signature " id="eigh-class_method">
   
-    .<strong>eigh</strong>(a, b = nil, vals_only: false, vals_range: nil, uplo: &#39;U&#39;, turbo: false)  &#x21d2; <tt>Array&lt;Numo::NArray, Numo::NArray&gt;</tt> 
+    .<strong>eigh</strong>(a, b = nil, vals_only: false, vals_range: nil, uplo: &#39;U&#39;, turbo: false)  &#x21d2; <tt>Array&lt;Numo::NArray&gt;</tt> 
   
 
   
@@ -901,7 +1291,7 @@ static VALUE tiny_linalg_dot(VALUE self, VALUE a_, VALUE b_) {
       
         &mdash;
         <div class='inline'>
-<p>n-by-n symmetric / Hermitian matrix.</p>
+<p>The n-by-n symmetric / Hermitian matrix.</p>
 </div>
       
     </li>
@@ -919,7 +1309,7 @@ static VALUE tiny_linalg_dot(VALUE self, VALUE a_, VALUE b_) {
       
         &mdash;
         <div class='inline'>
-<p>n-by-n symmetric / Hermitian matrix. If nil, identity matrix is assumed.</p>
+<p>The n-by-n symmetric / Hermitian matrix. If nil, identity matrix is assumed.</p>
 </div>
       
     </li>
@@ -1004,7 +1394,7 @@ static VALUE tiny_linalg_dot(VALUE self, VALUE a_, VALUE b_) {
     <li>
       
       
-        <span class='type'>(<tt>Array&lt;Numo::NArray, Numo::NArray&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;Numo::NArray&gt;</tt>)</span>
       
       
       
@@ -1066,40 +1456,70 @@ static VALUE tiny_linalg_dot(VALUE self, VALUE a_, VALUE b_) {
 78
 79
 80
-81</pre>
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/numo/tiny_linalg.rb', line 51</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_eigh'>eigh</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>vals_only:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>vals_range:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>uplo:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>U</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>turbo:</span> <span class='kw'>false</span><span class='rparen'>)</span> <span class='comment'># rubocop:disable Metrics/AbcSize, Metrics/ParameterLists, Lint/UnusedMethodArgument
+<span class='kw'>def</span> <span class='id identifier rubyid_eigh'>eigh</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>vals_only:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>vals_range:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>uplo:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>U</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>turbo:</span> <span class='kw'>false</span><span class='rparen'>)</span> <span class='comment'># rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/ParameterLists, Metrics/PerceivedComplexity, Lint/UnusedMethodArgument
 </span>  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>input array a must be 2-dimensional</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_ndim'>ndim</span> <span class='op'>!=</span> <span class='int'>2</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>input array a must be square</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+
+  <span class='id identifier rubyid_b_given'>b_given</span> <span class='op'>=</span> <span class='op'>!</span><span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>input array b must be 2-dimensional</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_b_given'>b_given</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_ndim'>ndim</span> <span class='op'>!=</span> <span class='int'>2</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>input array b must be square</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_b_given'>b_given</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>invalid array type: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_b_given'>b_given</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_blas_char'>blas_char</span><span class='lparen'>(</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>n</span><span class='tstring_end'>&#39;</span></span>
 
   <span class='id identifier rubyid_bchr'>bchr</span> <span class='op'>=</span> <span class='id identifier rubyid_blas_char'>blas_char</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>invalid array type: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_bchr'>bchr</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>n</span><span class='tstring_end'>&#39;</span></span>
 
-  <span class='kw'>unless</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>input array b must be 2-dimensional</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_ndim'>ndim</span> <span class='op'>!=</span> <span class='int'>2</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>input array b must be square</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>invalid array type: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_blas_char'>blas_char</span><span class='lparen'>(</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>n</span><span class='tstring_end'>&#39;</span></span>
-  <span class='kw'>end</span>
-
   <span class='id identifier rubyid_jobz'>jobz</span> <span class='op'>=</span> <span class='id identifier rubyid_vals_only'>vals_only</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>N</span><span class='tstring_end'>&#39;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>V</span><span class='tstring_end'>&#39;</span></span>
-  <span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_eye'>eye</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-  <span class='id identifier rubyid_sy_he_gv'>sy_he_gv</span> <span class='op'>=</span> <span class='qwords_beg'>%w[</span><span class='tstring_content'>d</span><span class='words_sep'> </span><span class='tstring_content'>s</span><span class='tstring_end'>]</span></span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_bchr'>bchr</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_bchr'>bchr</span><span class='embexpr_end'>}</span><span class='tstring_content'>sygv</span><span class='tstring_end'>&quot;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_bchr'>bchr</span><span class='embexpr_end'>}</span><span class='tstring_content'>hegv</span><span class='tstring_end'>&quot;</span></span>
 
-  <span class='kw'>if</span> <span class='id identifier rubyid_vals_range'>vals_range</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-    <span class='id identifier rubyid_sy_he_gv'>sy_he_gv</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>d</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_turbo'>turbo</span>
-    <span class='id identifier rubyid_vecs'>vecs</span><span class='comma'>,</span> <span class='id identifier rubyid__b'>_b</span><span class='comma'>,</span> <span class='id identifier rubyid_vals'>vals</span><span class='comma'>,</span> <span class='id identifier rubyid__info'>_info</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Numo::TinyLinalg (module)">TinyLinalg</a></span></span><span class='op'>::</span><span class='const'>Lapack</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_sy_he_gv'>sy_he_gv</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='comma'>,</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='comma'>,</span> <span class='label'>jobz:</span> <span class='id identifier rubyid_jobz'>jobz</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_b_given'>b_given</span>
+    <span class='id identifier rubyid_fnc'>fnc</span> <span class='op'>=</span> <span class='qwords_beg'>%w[</span><span class='tstring_content'>d</span><span class='words_sep'> </span><span class='tstring_content'>s</span><span class='tstring_end'>]</span></span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_bchr'>bchr</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_bchr'>bchr</span><span class='embexpr_end'>}</span><span class='tstring_content'>sygv</span><span class='tstring_end'>&quot;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_bchr'>bchr</span><span class='embexpr_end'>}</span><span class='tstring_content'>hegv</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_vals_range'>vals_range</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+      <span class='id identifier rubyid_fnc'>fnc</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>d</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_turbo'>turbo</span>
+      <span class='id identifier rubyid_vecs'>vecs</span><span class='comma'>,</span> <span class='id identifier rubyid__b'>_b</span><span class='comma'>,</span> <span class='id identifier rubyid_vals'>vals</span><span class='comma'>,</span> <span class='id identifier rubyid__info'>_info</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Numo::TinyLinalg (module)">TinyLinalg</a></span></span><span class='op'>::</span><span class='const'>Lapack</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_fnc'>fnc</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='comma'>,</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='comma'>,</span> <span class='label'>jobz:</span> <span class='id identifier rubyid_jobz'>jobz</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_fnc'>fnc</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>x</span><span class='tstring_end'>&#39;</span></span>
+      <span class='id identifier rubyid_il'>il</span> <span class='op'>=</span> <span class='id identifier rubyid_vals_range'>vals_range</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='int'>1</span>
+      <span class='id identifier rubyid_iu'>iu</span> <span class='op'>=</span> <span class='id identifier rubyid_vals_range'>vals_range</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='int'>1</span>
+      <span class='id identifier rubyid__a'>_a</span><span class='comma'>,</span> <span class='id identifier rubyid__b'>_b</span><span class='comma'>,</span> <span class='id identifier rubyid__m'>_m</span><span class='comma'>,</span> <span class='id identifier rubyid_vals'>vals</span><span class='comma'>,</span> <span class='id identifier rubyid_vecs'>vecs</span><span class='comma'>,</span> <span class='id identifier rubyid__ifail'>_ifail</span><span class='comma'>,</span> <span class='id identifier rubyid__info'>_info</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Numo::TinyLinalg (module)">TinyLinalg</a></span></span><span class='op'>::</span><span class='const'>Lapack</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span>
+        <span class='id identifier rubyid_fnc'>fnc</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='comma'>,</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='comma'>,</span> <span class='label'>jobz:</span> <span class='id identifier rubyid_jobz'>jobz</span><span class='comma'>,</span> <span class='label'>range:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>I</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>il:</span> <span class='id identifier rubyid_il'>il</span><span class='comma'>,</span> <span class='label'>iu:</span> <span class='id identifier rubyid_iu'>iu</span>
+      <span class='rparen'>)</span>
+    <span class='kw'>end</span>
   <span class='kw'>else</span>
-    <span class='id identifier rubyid_sy_he_gv'>sy_he_gv</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>x</span><span class='tstring_end'>&#39;</span></span>
-    <span class='id identifier rubyid_il'>il</span> <span class='op'>=</span> <span class='id identifier rubyid_vals_range'>vals_range</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span> <span class='op'>+</span> <span class='int'>1</span>
-    <span class='id identifier rubyid_iu'>iu</span> <span class='op'>=</span> <span class='id identifier rubyid_vals_range'>vals_range</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span> <span class='op'>+</span> <span class='int'>1</span>
-    <span class='id identifier rubyid__a'>_a</span><span class='comma'>,</span> <span class='id identifier rubyid__b'>_b</span><span class='comma'>,</span> <span class='id identifier rubyid__m'>_m</span><span class='comma'>,</span> <span class='id identifier rubyid_vals'>vals</span><span class='comma'>,</span> <span class='id identifier rubyid_vecs'>vecs</span><span class='comma'>,</span> <span class='id identifier rubyid__ifail'>_ifail</span><span class='comma'>,</span> <span class='id identifier rubyid__info'>_info</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Numo::TinyLinalg (module)">TinyLinalg</a></span></span><span class='op'>::</span><span class='const'>Lapack</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span>
-      <span class='id identifier rubyid_sy_he_gv'>sy_he_gv</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='comma'>,</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='comma'>,</span> <span class='label'>jobz:</span> <span class='id identifier rubyid_jobz'>jobz</span><span class='comma'>,</span> <span class='label'>range:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>I</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>il:</span> <span class='id identifier rubyid_il'>il</span><span class='comma'>,</span> <span class='label'>iu:</span> <span class='id identifier rubyid_iu'>iu</span>
-    <span class='rparen'>)</span>
+    <span class='id identifier rubyid_fnc'>fnc</span> <span class='op'>=</span> <span class='qwords_beg'>%w[</span><span class='tstring_content'>d</span><span class='words_sep'> </span><span class='tstring_content'>s</span><span class='tstring_end'>]</span></span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_bchr'>bchr</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_bchr'>bchr</span><span class='embexpr_end'>}</span><span class='tstring_content'>syev</span><span class='tstring_end'>&quot;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_bchr'>bchr</span><span class='embexpr_end'>}</span><span class='tstring_content'>heev</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_vals_range'>vals_range</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+      <span class='id identifier rubyid_fnc'>fnc</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>d</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_turbo'>turbo</span>
+      <span class='id identifier rubyid_vecs'>vecs</span><span class='comma'>,</span> <span class='id identifier rubyid_vals'>vals</span><span class='comma'>,</span> <span class='id identifier rubyid__info'>_info</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Numo::TinyLinalg (module)">TinyLinalg</a></span></span><span class='op'>::</span><span class='const'>Lapack</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_fnc'>fnc</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='comma'>,</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='comma'>,</span> <span class='label'>jobz:</span> <span class='id identifier rubyid_jobz'>jobz</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_fnc'>fnc</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>r</span><span class='tstring_end'>&#39;</span></span>
+      <span class='id identifier rubyid_il'>il</span> <span class='op'>=</span> <span class='id identifier rubyid_vals_range'>vals_range</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='int'>1</span>
+      <span class='id identifier rubyid_iu'>iu</span> <span class='op'>=</span> <span class='id identifier rubyid_vals_range'>vals_range</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='int'>1</span>
+      <span class='id identifier rubyid__a'>_a</span><span class='comma'>,</span> <span class='id identifier rubyid__m'>_m</span><span class='comma'>,</span> <span class='id identifier rubyid_vals'>vals</span><span class='comma'>,</span> <span class='id identifier rubyid_vecs'>vecs</span><span class='comma'>,</span> <span class='id identifier rubyid__isuppz'>_isuppz</span><span class='comma'>,</span> <span class='id identifier rubyid__info'>_info</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Numo.html" title="Numo (module)">Numo</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Numo::TinyLinalg (module)">TinyLinalg</a></span></span><span class='op'>::</span><span class='const'>Lapack</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span>
+        <span class='id identifier rubyid_fnc'>fnc</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='comma'>,</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='comma'>,</span> <span class='label'>jobz:</span> <span class='id identifier rubyid_jobz'>jobz</span><span class='comma'>,</span> <span class='label'>range:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>I</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>il:</span> <span class='id identifier rubyid_il'>il</span><span class='comma'>,</span> <span class='label'>iu:</span> <span class='id identifier rubyid_iu'>iu</span>
+      <span class='rparen'>)</span>
+    <span class='kw'>end</span>
   <span class='kw'>end</span>
+
   <span class='id identifier rubyid_vecs'>vecs</span> <span class='op'>=</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id identifier rubyid_vals_only'>vals_only</span>
+
   <span class='lbracket'>[</span><span class='id identifier rubyid_vals'>vals</span><span class='comma'>,</span> <span class='id identifier rubyid_vecs'>vecs</span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1159,7 +1579,7 @@ static VALUE tiny_linalg_dot(VALUE self, VALUE a_, VALUE b_) {
       
         &mdash;
         <div class='inline'>
-<p>n-by-n square matrix.</p>
+<p>The n-by-n square matrix.</p>
 </div>
       
     </li>
@@ -1240,28 +1660,28 @@ static VALUE tiny_linalg_dot(VALUE self, VALUE a_, VALUE b_) {
       <pre class="lines">
 
 
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157</pre>
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/numo/tiny_linalg.rb', line 139</span>
+      <pre class="code"><span class="info file"># File 'lib/numo/tiny_linalg.rb', line 244</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inv'>inv</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='label'>driver:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>getrf</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>uplo:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>U</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='comment'># rubocop:disable Lint/UnusedMethodArgument
 </span>  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>input array a must be 2-dimensional</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_ndim'>ndim</span> <span class='op'>!=</span> <span class='int'>2</span>
@@ -1299,7 +1719,7 @@ static VALUE tiny_linalg_dot(VALUE self, VALUE a_, VALUE b_) {
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Compute the (Moore-Penrose) pseudo-inverse of a matrix using singular value decomposition.</p>
+<p>Computes the (Moore-Penrose) pseudo-inverse of a matrix using singular value decomposition.</p>
 
 
   </div>
@@ -1357,7 +1777,7 @@ static VALUE tiny_linalg_dot(VALUE self, VALUE a_, VALUE b_) {
       
         &mdash;
         <div class='inline'>
-<p>LAPACK driver to be used (‘svd’ or ‘sdd’).</p>
+<p>The LAPACK driver to be used (‘svd’ or ‘sdd’).</p>
 </div>
       
     </li>
@@ -1407,17 +1827,17 @@ static VALUE tiny_linalg_dot(VALUE self, VALUE a_, VALUE b_) {
       <pre class="lines">
 
 
-180
-181
-182
-183
-184
-185
-186
-187</pre>
+285
+286
+287
+288
+289
+290
+291
+292</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/numo/tiny_linalg.rb', line 180</span>
+      <pre class="code"><span class="info file"># File 'lib/numo/tiny_linalg.rb', line 285</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pinv'>pinv</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='label'>driver:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>svd</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>rcond:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_s'>s</span><span class='comma'>,</span> <span class='id identifier rubyid_u'>u</span><span class='comma'>,</span> <span class='id identifier rubyid_vh'>vh</span> <span class='op'>=</span> <span class='id identifier rubyid_svd'>svd</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='label'>driver:</span> <span class='id identifier rubyid_driver'>driver</span><span class='comma'>,</span> <span class='label'>job:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>S</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
@@ -1435,7 +1855,7 @@ static VALUE tiny_linalg_dot(VALUE self, VALUE a_, VALUE b_) {
       <div class="method_details ">
   <h3 class="signature " id="qr-class_method">
   
-    .<strong>qr</strong>(a, mode: &#39;reduce&#39;)  &#x21d2; <tt>Numo::NArray</tt>, <tt>Array&lt;Numo::NArray,Numo::NArray&gt;</tt> 
+    .<strong>qr</strong>(a, mode: &#39;reduce&#39;)  &#x21d2; <tt>Numo::NArray</tt><sup>+</sup> 
   
 
   
@@ -1444,7 +1864,7 @@ static VALUE tiny_linalg_dot(VALUE self, VALUE a_, VALUE b_) {
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Compute QR decomposition of a matrix.</p>
+<p>Computes the QR decomposition of a matrix.</p>
 
 
   </div>
@@ -1543,7 +1963,7 @@ static VALUE tiny_linalg_dot(VALUE self, VALUE a_, VALUE b_) {
       
         &mdash;
         <div class='inline'>
-<p>if mode=‘r’</p>
+<p>if mode=‘r’.</p>
 </div>
       
     </li>
@@ -1551,27 +1971,13 @@ static VALUE tiny_linalg_dot(VALUE self, VALUE a_, VALUE b_) {
     <li>
       
       
-        <span class='type'>(<tt>Array&lt;Numo::NArray,Numo::NArray&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;Numo::NArray&gt;</tt>)</span>
       
       
       
         &mdash;
         <div class='inline'>
-<p>if mode=‘reduce’ or mode=‘economic’</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Array&lt;Numo::NArray,Numo::NArray&gt;</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>if mode=‘raw’ (LAPACK geqrf result)</p>
+<p>if mode=‘reduce’ or ‘economic’ or ‘raw’.</p>
 </div>
       
     </li>
@@ -1597,40 +2003,40 @@ static VALUE tiny_linalg_dot(VALUE self, VALUE a_, VALUE b_) {
       <pre class="lines">
 
 
-228
-229
-230
-231
-232
-233
-234
-235
-236
-237
-238
-239
-240
-241
-242
-243
-244
-245
-246
-247
-248
-249
-250
-251
-252
-253
-254
-255
-256
-257
-258</pre>
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/numo/tiny_linalg.rb', line 228</span>
+      <pre class="code"><span class="info file"># File 'lib/numo/tiny_linalg.rb', line 332</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_qr'>qr</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='label'>mode:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>reduce</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>input array a must be 2-dimensional</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_ndim'>ndim</span> <span class='op'>!=</span> <span class='int'>2</span>
@@ -1680,7 +2086,7 @@ static VALUE tiny_linalg_dot(VALUE self, VALUE a_, VALUE b_) {
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Solves linear equation ‘A * x = b` or `A * X = B` for `x` from square matrix `a`.</p>
+<p>Solves linear equation ‘A * x = b` or `A * X = B` for `x` from square matrix `A`.</p>
 
 
   </div>
@@ -1741,7 +2147,7 @@ static VALUE tiny_linalg_dot(VALUE self, VALUE a_, VALUE b_) {
       
         &mdash;
         <div class='inline'>
-<p>The n right-hand side vector, or n-by-nrhs right-hand side matrix (&gt;= 1-dimensinal NArray).</p>
+<p>The n right-hand side vector, or n-by-nrhs right-hand side matrix.</p>
 </div>
       
     </li>
@@ -1796,7 +2202,7 @@ static VALUE tiny_linalg_dot(VALUE self, VALUE a_, VALUE b_) {
       
         &mdash;
         <div class='inline'>
-<p>The solusion vector / matrix ‘x`.</p>
+<p>The solusion vector / matrix ‘X`.</p>
 </div>
       
     </li>
@@ -1822,19 +2228,19 @@ static VALUE tiny_linalg_dot(VALUE self, VALUE a_, VALUE b_) {
       <pre class="lines">
 
 
-287
-288
-289
-290
-291
-292
-293
-294
-295
-296</pre>
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/numo/tiny_linalg.rb', line 287</span>
+      <pre class="code"><span class="info file"># File 'lib/numo/tiny_linalg.rb', line 391</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_solve'>solve</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='comma'>,</span> <span class='label'>driver:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>gen</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>uplo:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>U</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='comment'># rubocop:disable Lint/UnusedMethodArgument
 </span>  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>input array a must be 2-dimensional</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_ndim'>ndim</span> <span class='op'>!=</span> <span class='int'>2</span>
@@ -1863,7 +2269,7 @@ static VALUE tiny_linalg_dot(VALUE self, VALUE a_, VALUE b_) {
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Calculates the Singular Value Decomposition (SVD) of a matrix: ‘A = U * S * V^T`</p>
+<p>Computes the Singular Value Decomposition (SVD) of a matrix: ‘A = U * S * V^T`</p>
 
 
   </div>
@@ -1936,7 +2342,7 @@ static VALUE tiny_linalg_dot(VALUE self, VALUE a_, VALUE b_) {
       
         &mdash;
         <div class='inline'>
-<p>LAPACK driver to be used (‘svd’ or ‘sdd’).</p>
+<p>The LAPACK driver to be used (‘svd’ or ‘sdd’).</p>
 </div>
       
     </li>
@@ -1954,7 +2360,7 @@ static VALUE tiny_linalg_dot(VALUE self, VALUE a_, VALUE b_) {
       
         &mdash;
         <div class='inline'>
-<p>Job option (‘A’, ‘S’, or ‘N’).</p>
+<p>The job option (‘A’, ‘S’, or ‘N’).</p>
 </div>
       
     </li>
@@ -1973,7 +2379,7 @@ static VALUE tiny_linalg_dot(VALUE self, VALUE a_, VALUE b_) {
       
         &mdash;
         <div class='inline'>
-<p>Singular values and singular vectors ([s, u, vt]).</p>
+<p>The singular values and singular vectors ([s, u, vt]).</p>
 </div>
       
     </li>
@@ -1999,32 +2405,32 @@ static VALUE tiny_linalg_dot(VALUE self, VALUE a_, VALUE b_) {
       <pre class="lines">
 
 
-334
-335
-336
-337
-338
-339
-340
-341
-342
-343
-344
-345
-346
-347
-348
-349
-350
-351
-352
-353
-354
-355
-356</pre>
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/numo/tiny_linalg.rb', line 334</span>
+      <pre class="code"><span class="info file"># File 'lib/numo/tiny_linalg.rb', line 438</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_svd'>svd</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='label'>driver:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>svd</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>job:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>A</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>invalid job: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_job'>job</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^[ASN]</span><span class='regexp_end'>/i</span></span><span class='period'>.</span><span class='id identifier rubyid_match?'>match?</span><span class='lparen'>(</span><span class='id identifier rubyid_job'>job</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span>
@@ -2059,7 +2465,7 @@ static VALUE tiny_linalg_dot(VALUE self, VALUE a_, VALUE b_) {
 </div>
 
       <div id="footer">
-  Generated on Sun Aug  6 23:34:10 2023 by
+  Generated on Sun Aug 13 11:51:54 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.1.3).
 </div>
