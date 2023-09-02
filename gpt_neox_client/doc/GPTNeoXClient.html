@@ -954,7 +954,8 @@ static VALUE gpt_neox_client_initialize(int argc, VALUE* argv, VALUE self) {
 245
 246
 247
-248</pre>
+248
+249</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'ext/gpt_neox_client/gpt_neox_client.cpp', line 143</span>
@@ -1027,6 +1028,7 @@ static VALUE gpt_neox_client_completions(int argc, VALUE* argv, VALUE self) {
   std::mt19937 rng(seed);
   std::vector&lt;gpt_vocab::id&gt; embd;
   std::vector&lt;int32_t&gt; last_n_tokens(model-&gt;hparams.n_ctx, 0);
+  gpt_vocab::id token_eos = vocab-&gt;token_to_id[&quot;&lt;/s&gt;&quot;];
 
   while (n_sampled &lt; n_predict) {
     if (embd.size() &gt; 0) {
@@ -1059,7 +1061,7 @@ static VALUE gpt_neox_client_completions(int argc, VALUE* argv, VALUE self) {
     }
 
     for (auto id : embd) completions += vocab-&gt;id_to_token[id];
-    if (embd.back() == 0) break;
+    if (!embd.empty() &amp;&amp; embd.back() == token_eos) break;
   }
 
   RB_GC_GUARD(prompt_);
@@ -1075,7 +1077,7 @@ static VALUE gpt_neox_client_completions(int argc, VALUE* argv, VALUE self) {
 </div>
 
       <div id="footer">
-  Generated on Fri Sep  1 23:05:08 2023 by
+  Generated on Sat Sep  2 09:58:11 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-3.1.3).
 </div>
