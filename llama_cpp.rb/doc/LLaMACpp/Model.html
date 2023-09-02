@@ -152,6 +152,30 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#desc-instance_method" title="#desc (instance method)">#<strong>desc</strong>  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the model type.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#empty%3F-instance_method" title="#empty? (instance method)">#<strong>empty?</strong>  &#x21d2; Boolean </a>
     
 
@@ -298,6 +322,30 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#n_params-instance_method" title="#n_params (instance method)">#<strong>n_params</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the number of parameters in the model.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#n_vocab-instance_method" title="#n_vocab (instance method)">#<strong>n_vocab</strong>  &#x21d2; Integer </a>
     
 
@@ -322,7 +370,31 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#token_to_str-instance_method" title="#token_to_str (instance method)">#<strong>token_to_str</strong>(token)  &#x21d2; String </a>
+      <a href="#size-instance_method" title="#size (instance method)">#<strong>size</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the total size of all the tensors in the model in bytes.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#token_to_piece-instance_method" title="#token_to_piece (instance method)">#<strong>token_to_piece</strong>(token)  &#x21d2; String </a>
     
 
     
@@ -362,30 +434,6 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>Returns the logits.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#type-instance_method" title="#type (instance method)">#<strong>type</strong>  &#x21d2; String </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the model type.</p>
 </div></span>
   
 </li>
@@ -569,6 +617,56 @@
       <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 208</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_apply_lora_from_file'>apply_lora_from_file</span><span class='lparen'>(</span><span class='label'>lora_path:</span><span class='comma'>,</span> <span class='label'>base_model_path:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>n_threads:</span> <span class='int'>1</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="desc-instance_method">
+  
+    #<strong>desc</strong>  &#x21d2; <tt>String</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the model type.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+236</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 236</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_desc'>desc</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -835,6 +933,56 @@
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="n_params-instance_method">
+  
+    #<strong>n_params</strong>  &#x21d2; <tt>Integer</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the number of parameters in the model</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+244</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 244</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_n_params'>n_params</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="n_vocab-instance_method">
   
     #<strong>n_vocab</strong>  &#x21d2; <tt>Integer</tt> 
@@ -885,9 +1033,59 @@
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="token_to_str-instance_method">
+  <h3 class="signature " id="size-instance_method">
   
-    #<strong>token_to_str</strong>(token)  &#x21d2; <tt>String</tt> 
+    #<strong>size</strong>  &#x21d2; <tt>Integer</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the total size of all the tensors in the model in bytes</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+240</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 240</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_size'>size</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="token_to_piece-instance_method">
+  
+    #<strong>token_to_piece</strong>(token)  &#x21d2; <tt>String</tt> 
   
 
   
@@ -948,7 +1146,7 @@
     <td>
       <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 224</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_token_to_str'>token_to_str</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_token_to_piece'>token_to_piece</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -1058,62 +1256,12 @@
 </table>
 </div>
     
-      <div class="method_details ">
-  <h3 class="signature " id="type-instance_method">
-  
-    #<strong>type</strong>  &#x21d2; <tt>String</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Returns the model type.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-236</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 236</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_type'>type</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
   </div>
 
 </div>
 
       <div id="footer">
-  Generated on Sat Aug 26 17:48:23 2023 by
+  Generated on Sat Sep  2 09:58:54 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.1.3).
 </div>
