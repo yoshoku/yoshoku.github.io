@@ -128,7 +128,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#apply_lora_from_file-instance_method" title="#apply_lora_from_file (instance method)">#<strong>apply_lora_from_file</strong>(lora_path:, base_model_path: nil, n_threads: 1)  &#x21d2; Object </a>
+      <a href="#apply_lora_from_file-instance_method" title="#apply_lora_from_file (instance method)">#<strong>apply_lora_from_file</strong>(lora_path:, scale: 1.0, base_model_path: nil, n_threads: 1)  &#x21d2; Object </a>
     
 
     
@@ -266,30 +266,6 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>Loads model.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#n_ctx-instance_method" title="#n_ctx (instance method)">#<strong>n_ctx</strong>  &#x21d2; Integer </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the number of context.</p>
 </div></span>
   
 </li>
@@ -513,7 +489,7 @@
         <span class='name'>params</span>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="ContextParams.html" title="LLaMACpp::ContextParams (class)">ContextParams</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="ModelParams.html" title="LLaMACpp::ModelParams (class)">ModelParams</a></span></tt>)</span>
       
       
         <em class="default">(defaults to: <tt>nil</tt>)</em>
@@ -556,7 +532,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="apply_lora_from_file-instance_method">
   
-    #<strong>apply_lora_from_file</strong>(lora_path:, base_model_path: nil, n_threads: 1)  &#x21d2; <tt>Object</tt> 
+    #<strong>apply_lora_from_file</strong>(lora_path:, scale: 1.0, base_model_path: nil, n_threads: 1)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -586,6 +562,24 @@
         &mdash;
         <div class='inline'>
 <p>The path to the LoRA file.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>scale</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>1.0</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The scale.</p>
 </div>
       
     </li>
@@ -635,12 +629,12 @@
       <pre class="lines">
 
 
-208</pre>
+209</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 208</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 209</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_apply_lora_from_file'>apply_lora_from_file</span><span class='lparen'>(</span><span class='label'>lora_path:</span><span class='comma'>,</span> <span class='label'>base_model_path:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>n_threads:</span> <span class='int'>1</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_apply_lora_from_file'>apply_lora_from_file</span><span class='lparen'>(</span><span class='label'>lora_path:</span><span class='comma'>,</span> <span class='label'>scale:</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='label'>base_model_path:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>n_threads:</span> <span class='int'>1</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -685,10 +679,10 @@
       <pre class="lines">
 
 
-240</pre>
+237</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 240</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 237</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_desc'>desc</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -838,7 +832,7 @@
         <span class='name'>params</span>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="ContextParams.html" title="LLaMACpp::ContextParams (class)">ContextParams</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="ModelParams.html" title="LLaMACpp::ModelParams (class)">ModelParams</a></span></tt>)</span>
       
       
       
@@ -864,56 +858,6 @@
       <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 201</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='label'>model_path:</span><span class='comma'>,</span> <span class='label'>params:</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="n_ctx-instance_method">
-  
-    #<strong>n_ctx</strong>  &#x21d2; <tt>Integer</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Returns the number of context.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Integer</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-216</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 216</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_n_ctx'>n_ctx</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -958,10 +902,10 @@
       <pre class="lines">
 
 
-220</pre>
+217</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 220</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 217</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_n_ctx_train'>n_ctx_train</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -995,10 +939,10 @@
       <pre class="lines">
 
 
-223</pre>
+220</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 223</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 220</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_n_embd'>n_embd</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1045,10 +989,10 @@
       <pre class="lines">
 
 
-248</pre>
+245</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 248</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 245</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_n_params'>n_params</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1095,10 +1039,10 @@
       <pre class="lines">
 
 
-212</pre>
+213</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 212</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 213</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_n_vocab'>n_vocab</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1145,10 +1089,10 @@
       <pre class="lines">
 
 
-244</pre>
+241</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 244</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 241</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_size'>size</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1215,10 +1159,10 @@
       <pre class="lines">
 
 
-228</pre>
+225</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 228</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 225</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_token_to_piece'>token_to_piece</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1319,10 +1263,10 @@
       <pre class="lines">
 
 
-236</pre>
+233</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 236</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 233</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tokenize'>tokenize</span><span class='lparen'>(</span><span class='label'>text:</span><span class='comma'>,</span> <span class='label'>n_max_tokens:</span><span class='comma'>,</span> <span class='label'>add_bos:</span> <span class='kw'>true</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1335,9 +1279,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Sep 23 01:16:17 2023 by
+  Generated on Sat Sep 30 19:50:13 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-3.1.3).
+  0.9.28 (ruby-3.2.2).
 </div>
 
     </div>
