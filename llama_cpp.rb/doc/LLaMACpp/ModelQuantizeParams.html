@@ -320,6 +320,54 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#prue=-instance_method" title="#prue= (instance method)">#<strong>prue=</strong>(flag)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Sets the flag to disable k-quant mixtures and quantize all tensors to the same type.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pure-instance_method" title="#pure (instance method)">#<strong>pure</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the flag to disable k-quant mixtures and quantize all tensors to the same type.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#quantize_output_tensor-instance_method" title="#quantize_output_tensor (instance method)">#<strong>quantize_output_tensor</strong>  &#x21d2; Boolean </a>
     
 
@@ -413,10 +461,10 @@
       <pre class="lines">
 
 
-809</pre>
+865</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 809</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 865</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_allow_quantization'>allow_quantization</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -465,10 +513,10 @@
       <pre class="lines">
 
 
-805</pre>
+861</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 805</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 861</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_allow_quantization='>allow_quantization=</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -515,10 +563,10 @@
       <pre class="lines">
 
 
-801</pre>
+857</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 801</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 857</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ftype'>ftype</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -567,10 +615,10 @@
       <pre class="lines">
 
 
-797</pre>
+853</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 797</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 853</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ftype='>ftype=</span><span class='lparen'>(</span><span class='id identifier rubyid_ftype'>ftype</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -617,10 +665,10 @@
       <pre class="lines">
 
 
-793</pre>
+849</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 793</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 849</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_n_thread'>n_thread</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -669,10 +717,10 @@
       <pre class="lines">
 
 
-789</pre>
+845</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 789</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 845</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_n_thread='>n_thread=</span><span class='lparen'>(</span><span class='id identifier rubyid_n_thread'>n_thread</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -719,10 +767,10 @@
       <pre class="lines">
 
 
-825</pre>
+881</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 825</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 881</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_only_copy'>only_copy</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -771,12 +819,114 @@
       <pre class="lines">
 
 
-821</pre>
+877</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 821</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 877</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_only_copy='>only_copy=</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="prue=-instance_method">
+  
+    #<strong>prue=</strong>(flag)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Sets the flag to disable k-quant mixtures and quantize all tensors to the same type.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>flag</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+885</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 885</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_prue='>prue=</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="pure-instance_method">
+  
+    #<strong>pure</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the flag to disable k-quant mixtures and quantize all tensors to the same type.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+889</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 889</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pure'>pure</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -821,10 +971,10 @@
       <pre class="lines">
 
 
-817</pre>
+873</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 817</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 873</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_quantize_output_tensor'>quantize_output_tensor</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -873,10 +1023,10 @@
       <pre class="lines">
 
 
-813</pre>
+869</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 813</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 869</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_quantize_output_tensor='>quantize_output_tensor=</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -889,7 +1039,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Oct 28 17:31:12 2023 by
+  Generated on Fri Nov  3 17:20:14 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.2.2).
 </div>
