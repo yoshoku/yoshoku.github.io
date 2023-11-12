@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: Rumale::NeuralNetwork::MLPRegressor
+  Class: Rumale::NeuralNetwork::RBFRegressor
   
     &mdash; Documentation by YARD 0.9.34
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "Rumale::NeuralNetwork::MLPRegressor";
+  pathId = "Rumale::NeuralNetwork::RBFRegressor";
   relpath = '../../';
 </script>
 
@@ -36,10 +36,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../../_index.html">Index (M)</a> &raquo;
+    <a href="../../_index.html">Index (R)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../NeuralNetwork.html" title="Rumale::NeuralNetwork (module)">NeuralNetwork</a></span></span>
      &raquo; 
-    <span class="title">MLPRegressor</span>
+    <span class="title">RBFRegressor</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: Rumale::NeuralNetwork::MLPRegressor
+      <div id="content"><h1>Class: Rumale::NeuralNetwork::RBFRegressor
   
   
   
@@ -69,16 +69,16 @@
   <dl>
     <dt>Inherits:</dt>
     <dd>
-      <span class="inheritName"><span class='object_link'><a href="BaseMLP.html" title="Rumale::NeuralNetwork::BaseMLP (class)">BaseMLP</a></span></span>
+      <span class="inheritName"><span class='object_link'><a href="BaseRBF.html" title="Rumale::NeuralNetwork::BaseRBF (class)">BaseRBF</a></span></span>
       
         <ul class="fullTree">
           <li>Object</li>
           
             <li class="next"><span class='object_link'><a href="../Base/Estimator.html" title="Rumale::Base::Estimator (class)">Base::Estimator</a></span></li>
           
-            <li class="next"><span class='object_link'><a href="BaseMLP.html" title="Rumale::NeuralNetwork::BaseMLP (class)">BaseMLP</a></span></li>
+            <li class="next"><span class='object_link'><a href="BaseRBF.html" title="Rumale::NeuralNetwork::BaseRBF (class)">BaseRBF</a></span></li>
           
-            <li class="next">Rumale::NeuralNetwork::MLPRegressor</li>
+            <li class="next">Rumale::NeuralNetwork::RBFRegressor</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -103,7 +103,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>rumale-neural_network/lib/rumale/neural_network/mlp_regressor.rb</dd>
+    <dd>rumale-neural_network/lib/rumale/neural_network/rbf_regressor.rb</dd>
   </dl>
   
 </div>
@@ -111,7 +111,14 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>MLPRegressor is a class that implements regressor based on multi-layer perceptron. MLPRegressor use ReLu as the activation function and Adam as the optimization method and mean squared error as the loss function.</p>
+<p>RBFRegressor is a class that implements regressor based on (k-means) radial basis function (RBF) networks.</p>
+
+<p><strong>Reference</strong></p>
+<ul><li>
+<p>Bugmann, G., “Normalized Gaussian Radial Basis Function networks,” Neural Computation, vol. 20, pp. 97–110, 1998.</p>
+</li><li>
+<p>Que, Q., and Belkin, M., “Back to the Future: Radial Basis Function Networks Revisited,” Proc. of AISTATS’16, pp. 1375–1383, 2016.</p>
+</li></ul>
 
 
   </div>
@@ -122,9 +129,12 @@
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rumale/neural_network/mlp_regressor</span><span class='tstring_end'>&#39;</span></span>
+      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/tiny_linalg</span><span class='tstring_end'>&#39;</span></span>
+<span class='const'>Numo</span><span class='op'>::</span><span class='const'>Linalg</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>TinyLinalg</span>
 
-<span class='id identifier rubyid_estimator'>estimator</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../NeuralNetwork.html" title="Rumale::NeuralNetwork (module)">NeuralNetwork</a></span></span><span class='op'>::</span><span class='const'>MLPRegressor</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::NeuralNetwork::MLPRegressor#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>hidden_units:</span> <span class='lbracket'>[</span><span class='int'>100</span><span class='comma'>,</span> <span class='int'>100</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>dropout_rate:</span> <span class='float'>0.3</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rumale/neural_network/rbf_regressor</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='id identifier rubyid_estimator'>estimator</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../NeuralNetwork.html" title="Rumale::NeuralNetwork (module)">NeuralNetwork</a></span></span><span class='op'>::</span><span class='const'>RBFRegressor</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::NeuralNetwork::RBFRegressor#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>hidden_units:</span> <span class='int'>128</span><span class='comma'>,</span> <span class='label'>reg_param:</span> <span class='float'>100.0</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_estimator'>estimator</span><span class='period'>.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_training_samples'>training_samples</span><span class='comma'>,</span> <span class='id identifier rubyid_traininig_values'>traininig_values</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_estimator'>estimator</span><span class='period'>.</span><span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_testing_samples'>testing_samples</span><span class='rparen'>)</span></code></pre>
     
@@ -141,7 +151,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#n_iter-instance_method" title="#n_iter (instance method)">#<strong>n_iter</strong>  &#x21d2; Integer </a>
+      <a href="#centers-instance_method" title="#centers (instance method)">#<strong>centers</strong>  &#x21d2; Numo::DFloat </a>
     
 
     
@@ -161,36 +171,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Return the number of iterations run for optimization.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#network-instance_method" title="#network (instance method)">#<strong>network</strong>  &#x21d2; Rumale::NeuralNetwork::Model::Sequential </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-      <span class="note title readonly">readonly</span>
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Return the network.</p>
+<p>Return the centers in the hidden layer of RBF network.</p>
 </div></span>
   
 </li>
@@ -220,6 +201,35 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>Return the random generator.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#weight_vec-instance_method" title="#weight_vec (instance method)">#<strong>weight_vec</strong>  &#x21d2; Numo::DFloat </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the weight vector.</p>
 </div></span>
   
 </li>
@@ -270,7 +280,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(hidden_units: [128, 128], dropout_rate: 0.4, learning_rate: 0.001, decay1: 0.9, decay2: 0.999, max_iter: 200, batch_size: 50, tol: 1e-4, verbose: false, random_seed: nil)  &#x21d2; MLPRegressor </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(hidden_units: 128, gamma: nil, reg_param: 100.0, normalize: false, max_iter: 50, tol: 1e-4, random_seed: nil)  &#x21d2; RBFRegressor </a>
     
 
     
@@ -287,7 +297,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Create a new regressor with multi-layer perceptron.</p>
+<p>Create a new regressor with (k-means) RBF networks.</p>
 </div></span>
   
 </li>
@@ -349,7 +359,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(hidden_units: [128, 128], dropout_rate: 0.4, learning_rate: 0.001, decay1: 0.9, decay2: 0.999, max_iter: 200, batch_size: 50, tol: 1e-4, verbose: false, random_seed: nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::NeuralNetwork::MLPRegressor (class)">MLPRegressor</a></span></tt> 
+    #<strong>initialize</strong>(hidden_units: 128, gamma: nil, reg_param: 100.0, normalize: false, max_iter: 50, tol: 1e-4, random_seed: nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::NeuralNetwork::RBFRegressor (class)">RBFRegressor</a></span></tt> 
   
 
   
@@ -358,7 +368,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Create a new regressor with multi-layer perceptron.</p>
+<p>Create a new regressor with (k-means) RBF networks.</p>
 
 
   </div>
@@ -375,84 +385,66 @@
         <span class='type'>(<tt>Array</tt>)</span>
       
       
-        <em class="default">(defaults to: <tt>[128, 128]</tt>)</em>
+        <em class="default">(defaults to: <tt>128</tt>)</em>
       
       
         &mdash;
         <div class='inline'>
-<p>The number of units in the i-th hidden layer.</p>
+<p>The number of units in the hidden layer.</p>
 </div>
       
     </li>
   
     <li>
       
-        <span class='name'>dropout_rate</span>
+        <span class='name'>gamma</span>
       
       
         <span class='type'>(<tt>Float</tt>)</span>
       
       
-        <em class="default">(defaults to: <tt>0.4</tt>)</em>
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
         &mdash;
         <div class='inline'>
-<p>The rate of the units to drop.</p>
+<p>The parameter for the radial basis function, if nil it is 1 / n_features.</p>
 </div>
       
     </li>
   
     <li>
       
-        <span class='name'>learning_rate</span>
+        <span class='name'>reg_param</span>
       
       
         <span class='type'>(<tt>Float</tt>)</span>
       
       
-        <em class="default">(defaults to: <tt>0.001</tt>)</em>
+        <em class="default">(defaults to: <tt>100.0</tt>)</em>
       
       
         &mdash;
         <div class='inline'>
-<p>The initial value of learning rate in Adam optimizer.</p>
+<p>The regularization parameter.</p>
 </div>
       
     </li>
   
     <li>
       
-        <span class='name'>decay1</span>
+        <span class='name'>normalize</span>
       
       
-        <span class='type'>(<tt>Float</tt>)</span>
+        <span class='type'>(<tt>Boolean</tt>)</span>
       
       
-        <em class="default">(defaults to: <tt>0.9</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The smoothing parameter for the first moment in Adam optimizer.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>decay2</span>
-      
-      
-        <span class='type'>(<tt>Float</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>0.999</tt>)</em>
+        <em class="default">(defaults to: <tt>false</tt>)</em>
       
       
         &mdash;
         <div class='inline'>
-<p>The smoothing parameter for the second moment in Adam optimizer.</p>
+<p>The flag indicating whether to normalize the hidden layer output or not.</p>
 </div>
       
     </li>
@@ -465,30 +457,12 @@
         <span class='type'>(<tt>Integer</tt>)</span>
       
       
-        <em class="default">(defaults to: <tt>200</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The maximum number of epochs that indicates how many times the whole data is given to the training process.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>batch_size</span>
-      
-      
-        <span class='type'>(<tt>Intger</tt>)</span>
-      
-      
         <em class="default">(defaults to: <tt>50</tt>)</em>
       
       
         &mdash;
         <div class='inline'>
-<p>The size of the mini batches.</p>
+<p>The maximum number of iterations for finding centers.</p>
 </div>
       
     </li>
@@ -506,25 +480,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The tolerance of loss for terminating optimization.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>verbose</span>
-      
-      
-        <span class='type'>(<tt>Boolean</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>false</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The flag indicating whether to output loss during iteration.</p>
+<p>The tolerance of termination criterion for finding centers.</p>
 </div>
       
     </li>
@@ -556,16 +512,16 @@
       <pre class="lines">
 
 
-47
 48
 49
-50</pre>
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/mlp_regressor.rb', line 47</span>
+      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rbf_regressor.rb', line 48</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>hidden_units:</span> <span class='lbracket'>[</span><span class='int'>128</span><span class='comma'>,</span> <span class='int'>128</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>dropout_rate:</span> <span class='float'>0.4</span><span class='comma'>,</span> <span class='label'>learning_rate:</span> <span class='float'>0.001</span><span class='comma'>,</span> <span class='label'>decay1:</span> <span class='float'>0.9</span><span class='comma'>,</span> <span class='label'>decay2:</span> <span class='float'>0.999</span><span class='comma'>,</span>
-               <span class='label'>max_iter:</span> <span class='int'>200</span><span class='comma'>,</span> <span class='label'>batch_size:</span> <span class='int'>50</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='float'>1e-4</span><span class='comma'>,</span> <span class='label'>verbose:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>hidden_units:</span> <span class='int'>128</span><span class='comma'>,</span> <span class='label'>gamma:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>reg_param:</span> <span class='float'>100.0</span><span class='comma'>,</span> <span class='label'>normalize:</span> <span class='kw'>false</span><span class='comma'>,</span>
+               <span class='label'>max_iter:</span> <span class='int'>50</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='float'>1e-4</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>super</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -581,9 +537,9 @@
       
       <span id=""></span>
       <div class="method_details first">
-  <h3 class="signature first" id="n_iter-instance_method">
+  <h3 class="signature first" id="centers-instance_method">
   
-    #<strong>n_iter</strong>  &#x21d2; <tt>Integer</tt>  <span class="extras">(readonly)</span>
+    #<strong>centers</strong>  &#x21d2; <tt>Numo::DFloat</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -592,7 +548,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Return the number of iterations run for optimization</p>
+<p>Return the centers in the hidden layer of RBF network.</p>
 
 
   </div>
@@ -605,9 +561,14 @@
     <li>
       
       
-        <span class='type'>(<tt>Integer</tt>)</span>
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
       
       
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_centers, n_features])</p>
+</div>
       
     </li>
   
@@ -619,71 +580,15 @@
       <pre class="lines">
 
 
-28
 29
-30</pre>
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/mlp_regressor.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rbf_regressor.rb', line 29</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_n_iter'>n_iter</span>
-  <span class='ivar'>@n_iter</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id=""></span>
-      <div class="method_details ">
-  <h3 class="signature " id="network-instance_method">
-  
-    #<strong>network</strong>  &#x21d2; <tt><span class='object_link'>Rumale::NeuralNetwork::Model::Sequential</span></tt>  <span class="extras">(readonly)</span>
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Return the network.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt><span class='object_link'>Rumale::NeuralNetwork::Model::Sequential</span></tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-24
-25
-26</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/mlp_regressor.rb', line 24</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_network'>network</span>
-  <span class='ivar'>@network</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_centers'>centers</span>
+  <span class='ivar'>@centers</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -731,15 +636,76 @@
       <pre class="lines">
 
 
-32
-33
-34</pre>
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/mlp_regressor.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rbf_regressor.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rng'>rng</span>
   <span class='ivar'>@rng</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="weight_vec-instance_method">
+  
+    #<strong>weight_vec</strong>  &#x21d2; <tt>Numo::DFloat</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the weight vector.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_centers, n_outputs])</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+33
+34
+35</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rbf_regressor.rb', line 33</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_weight_vec'>weight_vec</span>
+  <span class='ivar'>@weight_vec</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -756,7 +722,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="fit-instance_method">
   
-    #<strong>fit</strong>(x, y)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::NeuralNetwork::MLPRegressor (class)">MLPRegressor</a></span></tt> 
+    #<strong>fit</strong>(x, y)  &#x21d2; <tt><span class='object_link'><a href="MLPRegressor.html" title="Rumale::NeuralNetwork::MLPRegressor (class)">MLPRegressor</a></span></tt> 
   
 
   
@@ -814,7 +780,7 @@
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="" title="Rumale::NeuralNetwork::MLPRegressor (class)">MLPRegressor</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="MLPRegressor.html" title="Rumale::NeuralNetwork::MLPRegressor (class)">MLPRegressor</a></span></tt>)</span>
       
       
       
@@ -833,7 +799,6 @@
       <pre class="lines">
 
 
-57
 58
 59
 60
@@ -845,29 +810,20 @@
 66
 67
 68
-69
-70
-71
-72
-73</pre>
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/mlp_regressor.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rbf_regressor.rb', line 58</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_target_value_array'>check_convert_target_value_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_sample_size'>check_sample_size</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>RBFRegressor#fit requires Numo::Linalg but that is not loaded.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_enable_linalg?'>enable_linalg?</span><span class='lparen'>(</span><span class='label'>warning:</span> <span class='kw'>false</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_expand_dims'>expand_dims</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_ndim'>ndim</span> <span class='op'>==</span> <span class='int'>1</span>
-  <span class='id identifier rubyid_n_targets'>n_targets</span> <span class='op'>=</span> <span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
-  <span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
-  <span class='id identifier rubyid_sub_rng'>sub_rng</span> <span class='op'>=</span> <span class='ivar'>@rng</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
 
-  <span class='id identifier rubyid_loss'>loss</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../NeuralNetwork.html" title="Rumale::NeuralNetwork (module)">NeuralNetwork</a></span></span><span class='op'>::</span><span class='const'>Loss</span><span class='op'>::</span><span class='const'>MeanSquaredError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
-  <span class='ivar'>@network</span> <span class='op'>=</span> <span class='id identifier rubyid_buld_network'>buld_network</span><span class='lparen'>(</span><span class='id identifier rubyid_n_features'>n_features</span><span class='comma'>,</span> <span class='id identifier rubyid_n_targets'>n_targets</span><span class='comma'>,</span> <span class='id identifier rubyid_sub_rng'>sub_rng</span><span class='rparen'>)</span>
-  <span class='ivar'>@network</span> <span class='op'>=</span> <span class='id identifier rubyid_train'>train</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='ivar'>@network</span><span class='comma'>,</span> <span class='id identifier rubyid_loss'>loss</span><span class='comma'>,</span> <span class='id identifier rubyid_sub_rng'>sub_rng</span><span class='rparen'>)</span>
-  <span class='ivar'>@network</span><span class='period'>.</span><span class='id identifier rubyid_delete_dropout'>delete_dropout</span>
+  <span class='id identifier rubyid_partial_fit'>partial_fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
 
   <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
@@ -940,21 +896,23 @@
       <pre class="lines">
 
 
+75
+76
+77
+78
 79
 80
 81
-82
-83
-84
-85</pre>
+82</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/mlp_regressor.rb', line 79</span>
+      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rbf_regressor.rb', line 75</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
 
-  <span class='id identifier rubyid_out'>out</span><span class='comma'>,</span> <span class='op'>=</span> <span class='ivar'>@network</span><span class='period'>.</span><span class='id identifier rubyid_forward'>forward</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_h'>h</span> <span class='op'>=</span> <span class='id identifier rubyid_hidden_output'>hidden_output</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_out'>out</span> <span class='op'>=</span> <span class='id identifier rubyid_h'>h</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='ivar'>@weight_vec</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_out'>out</span> <span class='op'>=</span> <span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='kw'>true</span><span class='comma'>,</span> <span class='int'>0</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_out'>out</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='int'>1</span>
   <span class='id identifier rubyid_out'>out</span>
 <span class='kw'>end</span></pre>

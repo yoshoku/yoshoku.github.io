@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: Rumale::Tree::DecisionTreeRegressor
+  Class: Rumale::NeuralNetwork::RVFLRegressor
   
     &mdash; Documentation by YARD 0.9.34
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "Rumale::Tree::DecisionTreeRegressor";
+  pathId = "Rumale::NeuralNetwork::RVFLRegressor";
   relpath = '../../';
 </script>
 
@@ -36,10 +36,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../../_index.html">Index (D)</a> &raquo;
-    <span class='title'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Tree.html" title="Rumale::Tree (module)">Tree</a></span></span>
+    <a href="../../_index.html">Index (R)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../NeuralNetwork.html" title="Rumale::NeuralNetwork (module)">NeuralNetwork</a></span></span>
      &raquo; 
-    <span class="title">DecisionTreeRegressor</span>
+    <span class="title">RVFLRegressor</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: Rumale::Tree::DecisionTreeRegressor
+      <div id="content"><h1>Class: Rumale::NeuralNetwork::RVFLRegressor
   
   
   
@@ -69,16 +69,16 @@
   <dl>
     <dt>Inherits:</dt>
     <dd>
-      <span class="inheritName"><span class='object_link'><a href="BaseDecisionTree.html" title="Rumale::Tree::BaseDecisionTree (class)">BaseDecisionTree</a></span></span>
+      <span class="inheritName"><span class='object_link'><a href="BaseRVFL.html" title="Rumale::NeuralNetwork::BaseRVFL (class)">BaseRVFL</a></span></span>
       
         <ul class="fullTree">
           <li>Object</li>
           
             <li class="next"><span class='object_link'><a href="../Base/Estimator.html" title="Rumale::Base::Estimator (class)">Base::Estimator</a></span></li>
           
-            <li class="next"><span class='object_link'><a href="BaseDecisionTree.html" title="Rumale::Tree::BaseDecisionTree (class)">BaseDecisionTree</a></span></li>
+            <li class="next"><span class='object_link'><a href="BaseRVFL.html" title="Rumale::NeuralNetwork::BaseRVFL (class)">BaseRVFL</a></span></li>
           
-            <li class="next">Rumale::Tree::DecisionTreeRegressor</li>
+            <li class="next">Rumale::NeuralNetwork::RVFLRegressor</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -93,7 +93,7 @@
   
   <dl>
       <dt>Includes:</dt>
-      <dd><span class='object_link'><a href="../Base/Regressor.html" title="Rumale::Base::Regressor (module)">Base::Regressor</a></span>, ExtDecisionTreeRegressor</dd>
+      <dd><span class='object_link'><a href="../Base/Regressor.html" title="Rumale::Base::Regressor (module)">Base::Regressor</a></span></dd>
   </dl>
   
   
@@ -103,7 +103,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>rumale-tree/lib/rumale/tree/decision_tree_regressor.rb</dd>
+    <dd>rumale-neural_network/lib/rumale/neural_network/rvfl_regressor.rb</dd>
   </dl>
   
 </div>
@@ -111,7 +111,14 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>DecisionTreeRegressor is a class that implements decision tree for regression.</p>
+<p>RVFLRegressor is a class that implements regressor based on random vector functional link (RVFL) network. The current implementation uses sigmoid function as activation function.</p>
+
+<p><strong>Reference</strong></p>
+<ul><li>
+<p>Malik, A. K., Gao, R., Ganaie, M. A., Tanveer, M., and Suganthan, P. N., “Random vector functional link network: recent developments, applications, and future directions,” Applied Soft Computing, vol. 143, 2023.</p>
+</li><li>
+<p>Zhang, L., and Suganthan, P. N., “A comprehensive evaluation of random vector functional link networks,” Information Sciences, vol. 367–368, pp. 1094–1105, 2016.</p>
+</li></ul>
 
 
   </div>
@@ -122,22 +129,19 @@
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rumale/tree/decision_tree_regressor</span><span class='tstring_end'>&#39;</span></span>
+      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/tiny_linalg</span><span class='tstring_end'>&#39;</span></span>
+<span class='const'>Numo</span><span class='op'>::</span><span class='const'>Linalg</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>TinyLinalg</span>
 
-<span class='id identifier rubyid_estimator'>estimator</span> <span class='op'>=</span>
-  <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Tree.html" title="Rumale::Tree (module)">Tree</a></span></span><span class='op'>::</span><span class='const'>DecisionTreeRegressor</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::Tree::DecisionTreeRegressor#initialize (method)">new</a></span></span><span class='lparen'>(</span>
-    <span class='label'>max_depth:</span> <span class='int'>3</span><span class='comma'>,</span> <span class='label'>max_leaf_nodes:</span> <span class='int'>10</span><span class='comma'>,</span> <span class='label'>min_samples_leaf:</span> <span class='int'>5</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='int'>1</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rumale/neural_network/rvfl_regressor</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='id identifier rubyid_estimator'>estimator</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../NeuralNetwork.html" title="Rumale::NeuralNetwork (module)">NeuralNetwork</a></span></span><span class='op'>::</span><span class='const'>RVFLRegressor</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::NeuralNetwork::RVFLRegressor#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>hidden_units:</span> <span class='int'>128</span><span class='comma'>,</span> <span class='label'>reg_param:</span> <span class='float'>100.0</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_estimator'>estimator</span><span class='period'>.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_training_samples'>training_samples</span><span class='comma'>,</span> <span class='id identifier rubyid_traininig_values'>traininig_values</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_estimator'>estimator</span><span class='period'>.</span><span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_testing_samples'>testing_samples</span><span class='rparen'>)</span></code></pre>
     
   </div>
 
 
-</div><div id="subclasses">
-  <h2>Direct Known Subclasses</h2>
-  <p class="children"><span class='object_link'><a href="ExtraTreeRegressor.html" title="Rumale::Tree::ExtraTreeRegressor (class)">ExtraTreeRegressor</a></span></p>
 </div>
-
 
 
 
@@ -147,7 +151,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#feature_importances-instance_method" title="#feature_importances (instance method)">#<strong>feature_importances</strong>  &#x21d2; Numo::DFloat </a>
+      <a href="#random_bias-instance_method" title="#random_bias (instance method)">#<strong>random_bias</strong>  &#x21d2; Numo::DFloat </a>
     
 
     
@@ -167,7 +171,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Return the importance for each feature.</p>
+<p>Return the bias vector in the hidden layer of RVFL network.</p>
 </div></span>
   
 </li>
@@ -176,7 +180,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#leaf_values-instance_method" title="#leaf_values (instance method)">#<strong>leaf_values</strong>  &#x21d2; Numo::DFloat </a>
+      <a href="#random_weight_vec-instance_method" title="#random_weight_vec (instance method)">#<strong>random_weight_vec</strong>  &#x21d2; Numo::DFloat </a>
     
 
     
@@ -196,7 +200,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Return the values assigned each leaf.</p>
+<p>Return the weight vector in the hidden layer of RVFL network.</p>
 </div></span>
   
 </li>
@@ -225,7 +229,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Return the random generator for random selection of feature index.</p>
+<p>Return the random generator.</p>
 </div></span>
   
 </li>
@@ -234,7 +238,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#tree-instance_method" title="#tree (instance method)">#<strong>tree</strong>  &#x21d2; Node </a>
+      <a href="#weight_vec-instance_method" title="#weight_vec (instance method)">#<strong>weight_vec</strong>  &#x21d2; Numo::DFloat </a>
     
 
     
@@ -254,7 +258,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Return the learned tree.</p>
+<p>Return the weight vector.</p>
 </div></span>
   
 </li>
@@ -281,7 +285,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#fit-instance_method" title="#fit (instance method)">#<strong>fit</strong>(x, y)  &#x21d2; DecisionTreeRegressor </a>
+      <a href="#fit-instance_method" title="#fit (instance method)">#<strong>fit</strong>(x, y)  &#x21d2; RVFLRegressor </a>
     
 
     
@@ -305,7 +309,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(criterion: &#39;mse&#39;, max_depth: nil, max_leaf_nodes: nil, min_samples_leaf: 1, max_features: nil, random_seed: nil)  &#x21d2; DecisionTreeRegressor </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(hidden_units: 128, reg_param: 100.0, scale: 1.0, random_seed: nil)  &#x21d2; RVFLRegressor </a>
     
 
     
@@ -322,7 +326,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Create a new regressor with decision tree algorithm.</p>
+<p>Create a new regressor with RVFL network.</p>
 </div></span>
   
 </li>
@@ -364,7 +368,6 @@
   
   
   
-  
   <h3 class="inherited">Methods included from <span class='object_link'><a href="../Base/Regressor.html" title="Rumale::Base::Regressor (module)">Base::Regressor</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="../Base/Regressor.html#score-instance_method" title="Rumale::Base::Regressor#score (method)">#score</a></span></p>
 
@@ -376,11 +379,6 @@
   
   
   
-  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="BaseDecisionTree.html" title="Rumale::Tree::BaseDecisionTree (class)">BaseDecisionTree</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="BaseDecisionTree.html#apply-instance_method" title="Rumale::Tree::BaseDecisionTree#apply (method)">#apply</a></span></p>
-
-  
-  
   
   
   
@@ -390,7 +388,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(criterion: &#39;mse&#39;, max_depth: nil, max_leaf_nodes: nil, min_samples_leaf: 1, max_features: nil, random_seed: nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::Tree::DecisionTreeRegressor (class)">DecisionTreeRegressor</a></span></tt> 
+    #<strong>initialize</strong>(hidden_units: 128, reg_param: 100.0, scale: 1.0, random_seed: nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::NeuralNetwork::RVFLRegressor (class)">RVFLRegressor</a></span></tt> 
   
 
   
@@ -399,7 +397,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Create a new regressor with decision tree algorithm.</p>
+<p>Create a new regressor with RVFL network.</p>
 
 
   </div>
@@ -410,90 +408,54 @@
   
     <li>
       
-        <span class='name'>criterion</span>
+        <span class='name'>hidden_units</span>
       
       
-        <span class='type'>(<tt>String</tt>)</span>
+        <span class='type'>(<tt>Array</tt>)</span>
       
       
-        <em class="default">(defaults to: <tt>&#39;mse&#39;</tt>)</em>
+        <em class="default">(defaults to: <tt>128</tt>)</em>
       
       
         &mdash;
         <div class='inline'>
-<p>The function to evaluate spliting point. Supported criteria are ‘mae’ and ‘mse’.</p>
+<p>The number of units in the hidden layer.</p>
 </div>
       
     </li>
   
     <li>
       
-        <span class='name'>max_depth</span>
+        <span class='name'>reg_param</span>
       
       
-        <span class='type'>(<tt>Integer</tt>)</span>
+        <span class='type'>(<tt>Float</tt>)</span>
       
       
-        <em class="default">(defaults to: <tt>nil</tt>)</em>
+        <em class="default">(defaults to: <tt>100.0</tt>)</em>
       
       
         &mdash;
         <div class='inline'>
-<p>The maximum depth of the tree. If nil is given, decision tree grows without concern for depth.</p>
+<p>The regularization parameter.</p>
 </div>
       
     </li>
   
     <li>
       
-        <span class='name'>max_leaf_nodes</span>
+        <span class='name'>scale</span>
       
       
-        <span class='type'>(<tt>Integer</tt>)</span>
+        <span class='type'>(<tt>Float</tt>)</span>
       
       
-        <em class="default">(defaults to: <tt>nil</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The maximum number of leaves on decision tree. If nil is given, number of leaves is not limited.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>min_samples_leaf</span>
-      
-      
-        <span class='type'>(<tt>Integer</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>1</tt>)</em>
+        <em class="default">(defaults to: <tt>1.0</tt>)</em>
       
       
         &mdash;
         <div class='inline'>
-<p>The minimum number of samples at a leaf node.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>max_features</span>
-      
-      
-        <span class='type'>(<tt>Integer</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>nil</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The number of features to consider when searching optimal split point. If nil is given, split process considers all features.</p>
+<p>The scale parameter for random weight and bias.</p>
 </div>
       
     </li>
@@ -511,7 +473,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The seed value using to initialize the random generator. It is used to randomly determine the order of features when deciding spliting point.</p>
+<p>The seed value using to initialize the random generator.</p>
 </div>
       
     </li>
@@ -525,16 +487,14 @@
       <pre class="lines">
 
 
+50
 51
-52
-53
-54</pre>
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-tree/lib/rumale/tree/decision_tree_regressor.rb', line 51</span>
+      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rvfl_regressor.rb', line 50</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>criterion:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mse</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>max_depth:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>max_leaf_nodes:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>min_samples_leaf:</span> <span class='int'>1</span><span class='comma'>,</span> <span class='label'>max_features:</span> <span class='kw'>nil</span><span class='comma'>,</span>
-               <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>hidden_units:</span> <span class='int'>128</span><span class='comma'>,</span> <span class='label'>reg_param:</span> <span class='float'>100.0</span><span class='comma'>,</span> <span class='label'>scale:</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>super</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -550,9 +510,9 @@
       
       <span id=""></span>
       <div class="method_details first">
-  <h3 class="signature first" id="feature_importances-instance_method">
+  <h3 class="signature first" id="random_bias-instance_method">
   
-    #<strong>feature_importances</strong>  &#x21d2; <tt>Numo::DFloat</tt>  <span class="extras">(readonly)</span>
+    #<strong>random_bias</strong>  &#x21d2; <tt>Numo::DFloat</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -561,7 +521,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Return the importance for each feature.</p>
+<p>Return the bias vector in the hidden layer of RVFL network.</p>
 
 
   </div>
@@ -580,7 +540,7 @@
       
         &mdash;
         <div class='inline'>
-<p>(size: n_features)</p>
+<p>(shape: [n_hidden_units])</p>
 </div>
       
     </li>
@@ -593,15 +553,15 @@
       <pre class="lines">
 
 
-25
-26
-27</pre>
+34
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-tree/lib/rumale/tree/decision_tree_regressor.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rvfl_regressor.rb', line 34</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_feature_importances'>feature_importances</span>
-  <span class='ivar'>@feature_importances</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_random_bias'>random_bias</span>
+  <span class='ivar'>@random_bias</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -611,9 +571,9 @@
       
       <span id=""></span>
       <div class="method_details ">
-  <h3 class="signature " id="leaf_values-instance_method">
+  <h3 class="signature " id="random_weight_vec-instance_method">
   
-    #<strong>leaf_values</strong>  &#x21d2; <tt>Numo::DFloat</tt>  <span class="extras">(readonly)</span>
+    #<strong>random_weight_vec</strong>  &#x21d2; <tt>Numo::DFloat</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -622,7 +582,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Return the values assigned each leaf.</p>
+<p>Return the weight vector in the hidden layer of RVFL network.</p>
 
 
   </div>
@@ -641,7 +601,7 @@
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_leafs, n_outputs])</p>
+<p>(shape: [n_hidden_units, n_features])</p>
 </div>
       
     </li>
@@ -654,15 +614,15 @@
       <pre class="lines">
 
 
-37
-38
-39</pre>
+30
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-tree/lib/rumale/tree/decision_tree_regressor.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rvfl_regressor.rb', line 30</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_leaf_values'>leaf_values</span>
-  <span class='ivar'>@leaf_values</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_random_weight_vec'>random_weight_vec</span>
+  <span class='ivar'>@random_weight_vec</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -683,7 +643,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Return the random generator for random selection of feature index.</p>
+<p>Return the random generator.</p>
 
 
   </div>
@@ -710,12 +670,12 @@
       <pre class="lines">
 
 
-33
-34
-35</pre>
+42
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-tree/lib/rumale/tree/decision_tree_regressor.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rvfl_regressor.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rng'>rng</span>
   <span class='ivar'>@rng</span>
@@ -728,9 +688,9 @@
       
       <span id=""></span>
       <div class="method_details ">
-  <h3 class="signature " id="tree-instance_method">
+  <h3 class="signature " id="weight_vec-instance_method">
   
-    #<strong>tree</strong>  &#x21d2; <tt><span class='object_link'><a href="Node.html" title="Rumale::Tree::Node (class)">Node</a></span></tt>  <span class="extras">(readonly)</span>
+    #<strong>weight_vec</strong>  &#x21d2; <tt>Numo::DFloat</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -739,7 +699,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Return the learned tree.</p>
+<p>Return the weight vector.</p>
 
 
   </div>
@@ -752,9 +712,14 @@
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="Node.html" title="Rumale::Tree::Node (class)">Node</a></span></tt>)</span>
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
       
       
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_features + n_hidden_units, n_outputs])</p>
+</div>
       
     </li>
   
@@ -766,15 +731,15 @@
       <pre class="lines">
 
 
-29
-30
-31</pre>
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-tree/lib/rumale/tree/decision_tree_regressor.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rvfl_regressor.rb', line 38</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_tree'>tree</span>
-  <span class='ivar'>@tree</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_weight_vec'>weight_vec</span>
+  <span class='ivar'>@weight_vec</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -791,7 +756,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="fit-instance_method">
   
-    #<strong>fit</strong>(x, y)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::Tree::DecisionTreeRegressor (class)">DecisionTreeRegressor</a></span></tt> 
+    #<strong>fit</strong>(x, y)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::NeuralNetwork::RVFLRegressor (class)">RVFLRegressor</a></span></tt> 
   
 
   
@@ -849,7 +814,7 @@
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="" title="Rumale::Tree::DecisionTreeRegressor (class)">DecisionTreeRegressor</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Rumale::NeuralNetwork::RVFLRegressor (class)">RVFLRegressor</a></span></tt>)</span>
       
       
       
@@ -868,6 +833,8 @@
       <pre class="lines">
 
 
+59
+60
 61
 62
 63
@@ -877,35 +844,21 @@
 67
 68
 69
-70
-71
-72
-73
-74
-75
-76
-77
-78</pre>
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-tree/lib/rumale/tree/decision_tree_regressor.rb', line 61</span>
+      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rvfl_regressor.rb', line 59</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_target_value_array'>check_convert_target_value_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_sample_size'>check_sample_size</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>RVFLRegressor#fit requires Numo::Linalg but that is not loaded.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_enable_linalg?'>enable_linalg?</span><span class='lparen'>(</span><span class='label'>warning:</span> <span class='kw'>false</span><span class='rparen'>)</span>
 
-  <span class='id identifier rubyid_n_samples'>n_samples</span><span class='comma'>,</span> <span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_features</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_n_features'>n_features</span> <span class='kw'>if</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_features</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_features</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_features</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_n_features'>n_features</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span>
-  <span class='ivar'>@n_leaves</span> <span class='op'>=</span> <span class='int'>0</span>
-  <span class='ivar'>@leaf_values</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-  <span class='ivar'>@feature_ids</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_v'>v</span><span class='op'>|</span> <span class='id identifier rubyid_v'>v</span> <span class='rbrace'>}</span>
-  <span class='ivar'>@sub_rng</span> <span class='op'>=</span> <span class='ivar'>@rng</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
-  <span class='id identifier rubyid_build_tree'>build_tree</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_eval_importance'>eval_importance</span><span class='lparen'>(</span><span class='id identifier rubyid_n_samples'>n_samples</span><span class='comma'>,</span> <span class='id identifier rubyid_n_features'>n_features</span><span class='rparen'>)</span>
-  <span class='ivar'>@leaf_values</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_cast'>cast</span><span class='lparen'>(</span><span class='ivar'>@leaf_values</span><span class='rparen'>)</span>
-  <span class='ivar'>@leaf_values</span> <span class='op'>=</span> <span class='ivar'>@leaf_values</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span> <span class='kw'>if</span> <span class='ivar'>@leaf_values</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='int'>1</span>
+  <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_expand_dims'>expand_dims</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_ndim'>ndim</span> <span class='op'>==</span> <span class='int'>1</span>
+
+  <span class='id identifier rubyid_partial_fit'>partial_fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
+
   <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -964,7 +917,7 @@
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_outputs]) Predicted values per sample.</p>
+<p>(shape: [n_samples, n_outputs]) The predicted values per sample.</p>
 </div>
       
     </li>
@@ -977,19 +930,25 @@
       <pre class="lines">
 
 
-84
-85
-86
-87
-88</pre>
+76
+77
+78
+79
+80
+81
+82
+83</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-tree/lib/rumale/tree/decision_tree_regressor.rb', line 84</span>
+      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rvfl_regressor.rb', line 76</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
 
-  <span class='ivar'>@leaf_values</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>?</span> <span class='ivar'>@leaf_values</span><span class='lbracket'>[</span><span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span> <span class='op'>:</span> <span class='ivar'>@leaf_values</span><span class='lbracket'>[</span><span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
+  <span class='id identifier rubyid_h'>h</span> <span class='op'>=</span> <span class='id identifier rubyid_hidden_output'>hidden_output</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_out'>out</span> <span class='op'>=</span> <span class='id identifier rubyid_h'>h</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='ivar'>@weight_vec</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_out'>out</span> <span class='op'>=</span> <span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='kw'>true</span><span class='comma'>,</span> <span class='int'>0</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_out'>out</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='int'>1</span>
+  <span class='id identifier rubyid_out'>out</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1001,7 +960,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Nov 12 00:48:14 2023 by
+  Generated on Sun Nov 12 00:48:16 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-3.2.2).
 </div>

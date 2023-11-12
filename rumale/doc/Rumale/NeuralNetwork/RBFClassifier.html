@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: Rumale::KernelMachine::KernelRidgeClassifier
+  Class: Rumale::NeuralNetwork::RBFClassifier
   
     &mdash; Documentation by YARD 0.9.34
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "Rumale::KernelMachine::KernelRidgeClassifier";
+  pathId = "Rumale::NeuralNetwork::RBFClassifier";
   relpath = '../../';
 </script>
 
@@ -36,10 +36,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../../_index.html">Index (K)</a> &raquo;
-    <span class='title'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../KernelMachine.html" title="Rumale::KernelMachine (module)">KernelMachine</a></span></span>
+    <a href="../../_index.html">Index (R)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../NeuralNetwork.html" title="Rumale::NeuralNetwork (module)">NeuralNetwork</a></span></span>
      &raquo; 
-    <span class="title">KernelRidgeClassifier</span>
+    <span class="title">RBFClassifier</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: Rumale::KernelMachine::KernelRidgeClassifier
+      <div id="content"><h1>Class: Rumale::NeuralNetwork::RBFClassifier
   
   
   
@@ -69,14 +69,16 @@
   <dl>
     <dt>Inherits:</dt>
     <dd>
-      <span class="inheritName"><span class='object_link'><a href="../Base/Estimator.html" title="Rumale::Base::Estimator (class)">Base::Estimator</a></span></span>
+      <span class="inheritName"><span class='object_link'><a href="BaseRBF.html" title="Rumale::NeuralNetwork::BaseRBF (class)">BaseRBF</a></span></span>
       
         <ul class="fullTree">
           <li>Object</li>
           
             <li class="next"><span class='object_link'><a href="../Base/Estimator.html" title="Rumale::Base::Estimator (class)">Base::Estimator</a></span></li>
           
-            <li class="next">Rumale::KernelMachine::KernelRidgeClassifier</li>
+            <li class="next"><span class='object_link'><a href="BaseRBF.html" title="Rumale::NeuralNetwork::BaseRBF (class)">BaseRBF</a></span></li>
+          
+            <li class="next">Rumale::NeuralNetwork::RBFClassifier</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -101,7 +103,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>rumale-kernel_machine/lib/rumale/kernel_machine/kernel_ridge_classifier.rb</dd>
+    <dd>rumale-neural_network/lib/rumale/neural_network/rbf_classifier.rb</dd>
   </dl>
   
 </div>
@@ -109,7 +111,14 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>KernelRidgeClassifier is a class that implements classifier based-on kernel ridge regression. It learns a classifier by converting labels to target values { -1, 1 } and performing kernel ridge regression.</p>
+<p>RBFClassifier is a class that implements classifier based on (k-means) radial basis function (RBF) networks.</p>
+
+<p><strong>Reference</strong></p>
+<ul><li>
+<p>Bugmann, G., “Normalized Gaussian Radial Basis Function networks,” Neural Computation, vol. 20, pp. 97–110, 1998.</p>
+</li><li>
+<p>Que, Q., and Belkin, M., “Back to the Future: Radial Basis Function Networks Revisited,” Proc. of AISTATS’16, pp. 1375–1383, 2016.</p>
+</li></ul>
 
 
   </div>
@@ -120,16 +129,14 @@
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/linalg/autoloader</span><span class='tstring_end'>&#39;</span></span>
-<span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rumale/pairwise_metric</span><span class='tstring_end'>&#39;</span></span>
-<span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rumale/kernel_machine/kernel_ridge_classifier</span><span class='tstring_end'>&#39;</span></span>
+      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/tiny_linalg</span><span class='tstring_end'>&#39;</span></span>
+<span class='const'>Numo</span><span class='op'>::</span><span class='const'>Linalg</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>TinyLinalg</span>
 
-<span class='id identifier rubyid_kernel_mat_train'>kernel_mat_train</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../PairwiseMetric.html" title="Rumale::PairwiseMetric (module)">PairwiseMetric</a></span></span><span class='op'>::</span><span class='id identifier rubyid_rbf_kernel'><span class='object_link'><a href="../PairwiseMetric.html#rbf_kernel-class_method" title="Rumale::PairwiseMetric.rbf_kernel (method)">rbf_kernel</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_training_samples'>training_samples</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_kridge'>kridge</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../KernelMachine.html" title="Rumale::KernelMachine (module)">KernelMachine</a></span></span><span class='op'>::</span><span class='const'>KernelRidgeClassifier</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::KernelMachine::KernelRidgeClassifier#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>reg_param:</span> <span class='float'>0.5</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_kridge'>kridge</span><span class='period'>.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_kernel_mat_train'>kernel_mat_train</span><span class='comma'>,</span> <span class='id identifier rubyid_traininig_values'>traininig_values</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rumale/neural_network/rbf_classifier</span><span class='tstring_end'>&#39;</span></span>
 
-<span class='id identifier rubyid_kernel_mat_test'>kernel_mat_test</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../PairwiseMetric.html" title="Rumale::PairwiseMetric (module)">PairwiseMetric</a></span></span><span class='op'>::</span><span class='id identifier rubyid_rbf_kernel'><span class='object_link'><a href="../PairwiseMetric.html#rbf_kernel-class_method" title="Rumale::PairwiseMetric.rbf_kernel (method)">rbf_kernel</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_test_samples'>test_samples</span><span class='comma'>,</span> <span class='id identifier rubyid_training_samples'>training_samples</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_kridge'>kridge</span><span class='period'>.</span><span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_kernel_mat_test'>kernel_mat_test</span><span class='rparen'>)</span></code></pre>
+<span class='id identifier rubyid_estimator'>estimator</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../NeuralNetwork.html" title="Rumale::NeuralNetwork (module)">NeuralNetwork</a></span></span><span class='op'>::</span><span class='const'>RBFClassifier</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::NeuralNetwork::RBFClassifier#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>hidden_units:</span> <span class='int'>128</span><span class='comma'>,</span> <span class='label'>reg_param:</span> <span class='float'>100.0</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_estimator'>estimator</span><span class='period'>.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_training_samples'>training_samples</span><span class='comma'>,</span> <span class='id identifier rubyid_traininig_labels'>traininig_labels</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_estimator'>estimator</span><span class='period'>.</span><span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_testing_samples'>testing_samples</span><span class='rparen'>)</span></code></pre>
     
   </div>
 
@@ -140,6 +147,35 @@
 
   <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
   <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#centers-instance_method" title="#centers (instance method)">#<strong>centers</strong>  &#x21d2; Numo::DFloat </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the centers in the hidden layer of RBF network.</p>
+</div></span>
+  
+</li>
+
     
       <li class="public ">
   <span class="summary_signature">
@@ -165,6 +201,35 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>Return the class labels.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rng-instance_method" title="#rng (instance method)">#<strong>rng</strong>  &#x21d2; Random </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return the random generator.</p>
 </div></span>
   
 </li>
@@ -244,7 +309,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#fit-instance_method" title="#fit (instance method)">#<strong>fit</strong>(x, y)  &#x21d2; KernelRidgeClassifier </a>
+      <a href="#fit-instance_method" title="#fit (instance method)">#<strong>fit</strong>(x, y)  &#x21d2; RBFClassifier </a>
     
 
     
@@ -268,7 +333,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(reg_param: 1.0)  &#x21d2; KernelRidgeClassifier </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(hidden_units: 128, gamma: nil, reg_param: 100.0, normalize: false, max_iter: 50, tol: 1e-4, random_seed: nil)  &#x21d2; RBFClassifier </a>
     
 
     
@@ -285,7 +350,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Create a new regressor with kernel ridge classifier.</p>
+<p>Create a new classifier with (k-means) RBF networks.</p>
 </div></span>
   
 </li>
@@ -335,13 +400,19 @@
   
   
   
+  
+  
+  
+  
+  
+  
   <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(reg_param: 1.0)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::KernelMachine::KernelRidgeClassifier (class)">KernelRidgeClassifier</a></span></tt> 
+    #<strong>initialize</strong>(hidden_units: 128, gamma: nil, reg_param: 100.0, normalize: false, max_iter: 50, tol: 1e-4, random_seed: nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::NeuralNetwork::RBFClassifier (class)">RBFClassifier</a></span></tt> 
   
 
   
@@ -350,7 +421,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Create a new regressor with kernel ridge classifier.</p>
+<p>Create a new classifier with (k-means) RBF networks.</p>
 
 
   </div>
@@ -361,18 +432,126 @@
   
     <li>
       
+        <span class='name'>hidden_units</span>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>128</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The number of units in the hidden layer.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>gamma</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The parameter for the radial basis function, if nil it is 1 / n_features.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
         <span class='name'>reg_param</span>
       
       
-        <span class='type'>(<tt>Float/Numo::DFloat</tt>)</span>
+        <span class='type'>(<tt>Float</tt>)</span>
       
       
-        <em class="default">(defaults to: <tt>1.0</tt>)</em>
+        <em class="default">(defaults to: <tt>100.0</tt>)</em>
       
       
         &mdash;
         <div class='inline'>
 <p>The regularization parameter.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>normalize</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The flag indicating whether to normalize the hidden layer output or not.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>max_iter</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>50</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The maximum number of iterations for finding centers.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>tol</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>1e-4</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The tolerance of termination criterion for finding centers.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>random_seed</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The seed value using to initialize the random generator.</p>
 </div>
       
     </li>
@@ -386,21 +565,17 @@
       <pre class="lines">
 
 
-38
-39
-40
-41
-42
-43</pre>
+53
+54
+55
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-kernel_machine/lib/rumale/kernel_machine/kernel_ridge_classifier.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rbf_classifier.rb', line 53</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>reg_param:</span> <span class='float'>1.0</span><span class='rparen'>)</span>
-  <span class='kw'>super</span><span class='lparen'>(</span><span class='rparen'>)</span>
-  <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbrace'>{</span>
-    <span class='label'>reg_param:</span> <span class='id identifier rubyid_reg_param'>reg_param</span>
-  <span class='rbrace'>}</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>hidden_units:</span> <span class='int'>128</span><span class='comma'>,</span> <span class='label'>gamma:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>reg_param:</span> <span class='float'>100.0</span><span class='comma'>,</span> <span class='label'>normalize:</span> <span class='kw'>false</span><span class='comma'>,</span>
+               <span class='label'>max_iter:</span> <span class='int'>50</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='float'>1e-4</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='kw'>super</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -415,7 +590,68 @@
       
       <span id=""></span>
       <div class="method_details first">
-  <h3 class="signature first" id="classes-instance_method">
+  <h3 class="signature first" id="centers-instance_method">
+  
+    #<strong>centers</strong>  &#x21d2; <tt>Numo::DFloat</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the centers in the hidden layer of RBF network.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numo::DFloat</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(shape: [n_centers, n_features])</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rbf_classifier.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_centers'>centers</span>
+  <span class='ivar'>@centers</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="classes-instance_method">
   
     #<strong>classes</strong>  &#x21d2; <tt>Numo::Int32</tt>  <span class="extras">(readonly)</span>
   
@@ -458,15 +694,71 @@
       <pre class="lines">
 
 
-29
 30
-31</pre>
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-kernel_machine/lib/rumale/kernel_machine/kernel_ridge_classifier.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rbf_classifier.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_classes'>classes</span>
   <span class='ivar'>@classes</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="rng-instance_method">
+  
+    #<strong>rng</strong>  &#x21d2; <tt>Random</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return the random generator.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Random</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rbf_classifier.rb', line 42</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_rng'>rng</span>
+  <span class='ivar'>@rng</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -506,7 +798,7 @@
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_training_sample, n_classes])</p>
+<p>(shape: [n_centers, n_classes])</p>
 </div>
       
     </li>
@@ -519,12 +811,12 @@
       <pre class="lines">
 
 
-33
-34
-35</pre>
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-kernel_machine/lib/rumale/kernel_machine/kernel_ridge_classifier.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rbf_classifier.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_weight_vec'>weight_vec</span>
   <span class='ivar'>@weight_vec</span>
@@ -573,7 +865,7 @@
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_testing_samples, n_training_samples]) The kernel matrix between testing samples and training samples to predict values.</p>
+<p>(shape: [n_samples, n_features]) The samples to compute the scores.</p>
 </div>
       
     </li>
@@ -592,7 +884,7 @@
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_samples, n_classes]) The confidence score per sample.</p>
+<p>(shape: [n_samples, n_classes]) Confidence score per sample.</p>
 </div>
       
     </li>
@@ -605,19 +897,21 @@
       <pre class="lines">
 
 
-73
-74
-75
-76
-77</pre>
+80
+81
+82
+83
+84
+85</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-kernel_machine/lib/rumale/kernel_machine/kernel_ridge_classifier.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rbf_classifier.rb', line 80</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_decision_function'>decision_function</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
 
-  <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='ivar'>@weight_vec</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_h'>h</span> <span class='op'>=</span> <span class='id identifier rubyid_hidden_output'>hidden_output</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_h'>h</span><span class='period'>.</span><span class='id identifier rubyid_dot'>dot</span><span class='lparen'>(</span><span class='ivar'>@weight_vec</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -627,7 +921,7 @@
       <div class="method_details ">
   <h3 class="signature " id="fit-instance_method">
   
-    #<strong>fit</strong>(x, y)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::KernelMachine::KernelRidgeClassifier (class)">KernelRidgeClassifier</a></span></tt> 
+    #<strong>fit</strong>(x, y)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::NeuralNetwork::RBFClassifier (class)">RBFClassifier</a></span></tt> 
   
 
   
@@ -656,7 +950,7 @@
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_training_samples, n_training_samples]) The kernel matrix of the training data to be used for fitting the model.</p>
+<p>(shape: [n_samples, n_features]) The training data to be used for fitting the model.</p>
 </div>
       
     </li>
@@ -672,7 +966,7 @@
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_training_samples]) The labels to be used for fitting the model.</p>
+<p>(shape: [n_samples]) The labels to be used for fitting the model.</p>
 </div>
       
     </li>
@@ -685,7 +979,7 @@
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="" title="Rumale::KernelMachine::KernelRidgeClassifier (class)">KernelRidgeClassifier</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Rumale::NeuralNetwork::RBFClassifier (class)">RBFClassifier</a></span></tt>)</span>
       
       
       
@@ -697,19 +991,6 @@
     </li>
   
 </ul>
-<p class="tag_title">Raises:</p>
-<ul class="raise">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>ArgumentError</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
 
 </div><table class="source_code">
   <tr>
@@ -717,39 +998,31 @@
       <pre class="lines">
 
 
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
 63
 64
 65
-66</pre>
+66
+67
+68
+69
+70
+71
+72
+73
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-kernel_machine/lib/rumale/kernel_machine/kernel_ridge_classifier.rb', line 51</span>
+      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rbf_classifier.rb', line 63</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_label_array'>check_convert_label_array</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_sample_size'>check_sample_size</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expect the kernel matrix of training data to be square.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>KernelRidgeClassifier#fit requires Numo::Linalg but that is not loaded.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_enable_linalg?'>enable_linalg?</span><span class='lparen'>(</span><span class='label'>warning:</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>RBFClassifier#fit requires Numo::Linalg but that is not loaded.</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_enable_linalg?'>enable_linalg?</span><span class='lparen'>(</span><span class='label'>warning:</span> <span class='kw'>false</span><span class='rparen'>)</span>
 
-  <span class='id identifier rubyid_y_encoded'>y_encoded</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_cast'>cast</span><span class='lparen'>(</span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_binarize_labels'>binarize_labels</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='int'>2</span> <span class='op'>-</span> <span class='int'>1</span>
   <span class='ivar'>@classes</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>NArray</span><span class='lbracket'>[</span><span class='op'>*</span><span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span><span class='period'>.</span><span class='id identifier rubyid_uniq'>uniq</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span><span class='rbracket'>]</span>
 
-  <span class='id identifier rubyid_n_samples'>n_samples</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
-  <span class='id identifier rubyid_reg_kernel_mat'>reg_kernel_mat</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span> <span class='op'>+</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_eye'>eye</span><span class='lparen'>(</span><span class='id identifier rubyid_n_samples'>n_samples</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:reg_param</span><span class='rbracket'>]</span>
-  <span class='ivar'>@weight_vec</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Linalg</span><span class='period'>.</span><span class='id identifier rubyid_solve'>solve</span><span class='lparen'>(</span><span class='id identifier rubyid_reg_kernel_mat'>reg_kernel_mat</span><span class='comma'>,</span> <span class='id identifier rubyid_y_encoded'>y_encoded</span><span class='comma'>,</span> <span class='label'>driver:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>sym</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_partial_fit'>partial_fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_one_hot_encode'>one_hot_encode</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span><span class='rparen'>)</span>
 
   <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
@@ -790,7 +1063,7 @@
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_testing_samples, n_training_samples]) The kernel matrix between testing samples and training samples to predict the labels.</p>
+<p>(shape: [n_samples, n_features]) The samples to predict the labels.</p>
 </div>
       
     </li>
@@ -809,7 +1082,7 @@
       
         &mdash;
         <div class='inline'>
-<p>(shape: [n_testing_samples]) Predicted class label per sample.</p>
+<p>(shape: [n_samples]) Predicted class label per sample.</p>
 </div>
       
     </li>
@@ -822,17 +1095,17 @@
       <pre class="lines">
 
 
-84
-85
-86
-87
-88
-89
-90
-91</pre>
+91
+92
+93
+94
+95
+96
+97
+98</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-kernel_machine/lib/rumale/kernel_machine/kernel_ridge_classifier.rb', line 84</span>
+      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rbf_classifier.rb', line 91</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
