@@ -128,6 +128,54 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#add_bos_token%3F-instance_method" title="#add_bos_token? (instance method)">#<strong>add_bos_token?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the flag to add the beginning of sentence token.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_eos_token%3F-instance_method" title="#add_eos_token? (instance method)">#<strong>add_eos_token?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the flag to add the end of sentence token.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#apply_lora_from_file-instance_method" title="#apply_lora_from_file (instance method)">#<strong>apply_lora_from_file</strong>(lora_path:, scale: 1.0, base_model_path: nil, n_threads: 1)  &#x21d2; Object </a>
     
 
@@ -794,7 +842,107 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="apply_lora_from_file-instance_method">
+  <h3 class="signature first" id="add_bos_token?-instance_method">
+  
+    #<strong>add_bos_token?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the flag to add the beginning of sentence token.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+285</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 285</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_add_bos_token?'>add_bos_token?</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="add_eos_token?-instance_method">
+  
+    #<strong>add_eos_token?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the flag to add the end of sentence token.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+289</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 289</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_add_eos_token?'>add_eos_token?</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="apply_lora_from_file-instance_method">
   
     #<strong>apply_lora_from_file</strong>(lora_path:, scale: 1.0, base_model_path: nil, n_threads: 1)  &#x21d2; <tt>Object</tt> 
   
@@ -1696,10 +1844,10 @@
       <pre class="lines">
 
 
-297</pre>
+305</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 297</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 305</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_token_eot'>token_eot</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1746,10 +1894,10 @@
       <pre class="lines">
 
 
-289</pre>
+297</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 289</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 297</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_token_middle'>token_middle</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1846,10 +1994,10 @@
       <pre class="lines">
 
 
-285</pre>
+293</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 285</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 293</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_token_prefix'>token_prefix</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1896,10 +2044,10 @@
       <pre class="lines">
 
 
-293</pre>
+301</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 293</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 301</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_token_suffix'>token_suffix</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2169,7 +2317,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Nov 11 18:42:27 2023 by
+  Generated on Sat Nov 18 10:18:04 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.2.2).
 </div>
