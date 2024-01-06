@@ -296,6 +296,30 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#get_n_seq_id-instance_method" title="#get_n_seq_id (instance method)">#<strong>get_n_seq_id</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the number of seq_id elements.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#get_pos-instance_method" title="#get_pos (instance method)">#<strong>get_pos</strong>(id)  &#x21d2; Object </a>
     
 
@@ -368,7 +392,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(n_tokens:, embd:, n_seq_max:)  &#x21d2; Batch </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(max_n_token:, n_embd:, max_n_seq:)  &#x21d2; Batch </a>
     
 
     
@@ -466,6 +490,30 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#set_n_seq_id-instance_method" title="#set_n_seq_id (instance method)">#<strong>set_n_seq_id</strong>(id, value)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Sets the number of seq_id elements.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#set_pos-instance_method" title="#set_pos (instance method)">#<strong>set_pos</strong>(id, value)  &#x21d2; Integer </a>
     
 
@@ -544,7 +592,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(n_tokens:, embd:, n_seq_max:)  &#x21d2; <tt><span class='object_link'><a href="" title="LLaMACpp::Batch (class)">Batch</a></span></tt> 
+    #<strong>initialize</strong>(max_n_token:, n_embd:, max_n_seq:)  &#x21d2; <tt><span class='object_link'><a href="" title="LLaMACpp::Batch (class)">Batch</a></span></tt> 
   
 
   
@@ -564,7 +612,7 @@
   
     <li>
       
-        <span class='name'>n_tokens</span>
+        <span class='name'>max_n_token</span>
       
       
         <span class='type'>(<tt>Integer</tt>)</span>
@@ -573,14 +621,14 @@
       
         &mdash;
         <div class='inline'>
-<p>The number of tokens.</p>
+<p>The maximum number of tokens.</p>
 </div>
       
     </li>
   
     <li>
       
-        <span class='name'>embd</span>
+        <span class='name'>n_embd</span>
       
       
         <span class='type'>(<tt>Array&lt;Float&gt;</tt>)</span>
@@ -596,7 +644,7 @@
   
     <li>
       
-        <span class='name'>n_seq_max</span>
+        <span class='name'>max_n_seq</span>
       
       
         <span class='type'>(<tt>Integer</tt>)</span>
@@ -624,7 +672,7 @@
     <td>
       <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 398</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>n_tokens:</span><span class='comma'>,</span> <span class='label'>embd:</span><span class='comma'>,</span> <span class='label'>n_seq_max:</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>max_n_token:</span><span class='comma'>,</span> <span class='label'>n_embd:</span><span class='comma'>,</span> <span class='label'>max_n_seq:</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -1041,12 +1089,62 @@
       <pre class="lines">
 
 
-479</pre>
+488</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 479</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 488</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_logits'>get_logits</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_n_seq_id-instance_method">
+  
+    #<strong>get_n_seq_id</strong>  &#x21d2; <tt>Integer</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the number of seq_id elements.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+464</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 464</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_n_seq_id'>get_n_seq_id</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -1184,10 +1282,10 @@
       <pre class="lines">
 
 
-468</pre>
+477</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 468</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 477</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_seq_id'>get_seq_id</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span> <span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1455,12 +1553,85 @@
       <pre class="lines">
 
 
-474</pre>
+483</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 474</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 483</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_set_logits'>set_logits</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="set_n_seq_id-instance_method">
+  
+    #<strong>set_n_seq_id</strong>(id, value)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Sets the number of seq_id elements.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The id of n_seq_id array.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>value</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The value of n_seq_id.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+460</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 460</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_set_n_seq_id'>set_n_seq_id</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -1643,10 +1814,10 @@
       <pre class="lines">
 
 
-462</pre>
+471</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 462</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 471</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_set_seq_id'>set_seq_id</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span> <span class='id identifier rubyid_j'>j</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1745,7 +1916,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Dec 24 00:24:33 2023 by
+  Generated on Sun Jan  7 08:39:30 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.2.2).
 </div>
