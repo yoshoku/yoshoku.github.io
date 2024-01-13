@@ -207,7 +207,7 @@
 </li>
 
       
-        <li class="public ">
+        <li class="public deprecated">
   <span class="summary_signature">
     
       <a href="#eval-instance_method" title="#eval (instance method)">#<strong>eval</strong>(tokens:, n_past:, n_tokens: nil)  &#x21d2; NilClass </a>
@@ -220,18 +220,18 @@
   
   
   
-  
+  <span class="deprecated note title">deprecated</span>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Evaluates the tokens.</p>
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'>
+<p>Use decode instead.</p>
 </div></span>
   
 </li>
 
       
-        <li class="public ">
+        <li class="public deprecated">
   <span class="summary_signature">
     
       <a href="#eval_embd-instance_method" title="#eval_embd (instance method)">#<strong>eval_embd</strong>(embd:, n_past:, n_tokens: nil)  &#x21d2; NilClass </a>
@@ -244,12 +244,12 @@
   
   
   
-  
+  <span class="deprecated note title">deprecated</span>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Evaluates the embedding.</p>
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'>
+<p>Use decode instead.</p>
 </div></span>
   
 </li>
@@ -348,6 +348,30 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>Copies all tokens that belong to the specified sequnce to another sequence.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#kv_cache_seq_div-instance_method" title="#kv_cache_seq_div (instance method)">#<strong>kv_cache_seq_div</strong>(seq_id, p0, p1, d)  &#x21d2; NilClass </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Integer division of the positions by factor of ‘d &gt; 1`.</p>
 </div></span>
   
 </li>
@@ -466,6 +490,30 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>Loads session file.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#logits-instance_method" title="#logits (instance method)">#<strong>logits</strong>  &#x21d2; Array&lt;Float&gt; </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Retunrs the logits.</p>
 </div></span>
   
 </li>
@@ -735,7 +783,7 @@
 </li>
 
       
-        <li class="public ">
+        <li class="public deprecated">
   <span class="summary_signature">
     
       <a href="#sample_temperature-instance_method" title="#sample_temperature (instance method)">#<strong>sample_temperature</strong>(candidates, temperature:)  &#x21d2; Nil </a>
@@ -748,12 +796,12 @@
   
   
   
-  
+  <span class="deprecated note title">deprecated</span>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Samples temeperature.</p>
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'>
+<p>Use sample_temp instead.</p>
 </div></span>
   
 </li>
@@ -1067,10 +1115,10 @@
       <pre class="lines">
 
 
-501</pre>
+518</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 501</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 518</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>model:</span><span class='comma'>,</span> <span class='label'>params:</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1124,12 +1172,12 @@
       <pre class="lines">
 
 
-495
-496
-497</pre>
+512
+513
+514</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 495</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 512</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_model'>model</span>
   <span class='ivar'>@model</span>
@@ -1205,10 +1253,10 @@
       <pre class="lines">
 
 
-523</pre>
+542</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 523</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 542</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_decode'>decode</span><span class='lparen'>(</span><span class='id identifier rubyid_batch'>batch</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1255,10 +1303,10 @@
       <pre class="lines">
 
 
-528</pre>
+552</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 528</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 552</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_embeddings'>embeddings</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1277,7 +1325,10 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'>
+<p>Use decode instead.</p>
+</div></div>
+
 <p>Evaluates the tokens.</p>
 
 
@@ -1359,10 +1410,10 @@
       <pre class="lines">
 
 
-509</pre>
+527</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 509</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 527</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_eval'>eval</span><span class='lparen'>(</span><span class='label'>tokens:</span><span class='comma'>,</span> <span class='label'>n_past:</span><span class='comma'>,</span> <span class='label'>n_tokens:</span> <span class='kw'>nil</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1381,7 +1432,10 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'>
+<p>Use decode instead.</p>
+</div></div>
+
 <p>Evaluates the embedding.</p>
 
 
@@ -1463,10 +1517,10 @@
       <pre class="lines">
 
 
-517</pre>
+536</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 517</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 536</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_eval_embd'>eval_embd</span><span class='lparen'>(</span><span class='label'>embd:</span><span class='comma'>,</span> <span class='label'>n_past:</span><span class='comma'>,</span> <span class='label'>n_tokens:</span> <span class='kw'>nil</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1549,10 +1603,10 @@
       <pre class="lines">
 
 
-732</pre>
+766</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 732</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 766</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_grammar_accept_token'>grammar_accept_token</span><span class='lparen'>(</span><span class='label'>grammar:</span><span class='comma'>,</span> <span class='label'>token:</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1599,10 +1653,10 @@
       <pre class="lines">
 
 
-563</pre>
+587</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 563</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 587</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_kv_cache_clear'>kv_cache_clear</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1717,12 +1771,130 @@
       <pre class="lines">
 
 
-580</pre>
+604</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 580</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 604</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_kv_cache_seq_cp'>kv_cache_seq_cp</span><span class='lparen'>(</span><span class='id identifier rubyid_seq_id_src'>seq_id_src</span><span class='comma'>,</span> <span class='id identifier rubyid_seq_id_dst'>seq_id_dst</span><span class='comma'>,</span> <span class='id identifier rubyid_p0'>p0</span><span class='comma'>,</span> <span class='id identifier rubyid_p1'>p1</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="kv_cache_seq_div-instance_method">
+  
+    #<strong>kv_cache_seq_div</strong>(seq_id, p0, p1, d)  &#x21d2; <tt>NilClass</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Integer division of the positions by factor of ‘d &gt; 1`</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>seq_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The sequence id.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>p0</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The start position.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>p1</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The end position.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>d</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The factor.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>NilClass</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+624</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 624</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_kv_cache_seq_div'>kv_cache_seq_div</span><span class='lparen'>(</span><span class='id identifier rubyid_seq_id'>seq_id</span><span class='comma'>,</span> <span class='id identifier rubyid_p0'>p0</span><span class='comma'>,</span> <span class='id identifier rubyid_p1'>p1</span><span class='comma'>,</span> <span class='id identifier rubyid_d'>d</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -1743,10 +1915,10 @@
       <pre class="lines">
 
 
-582</pre>
+606</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 582</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 606</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_kv_cache_seq_keep'>kv_cache_seq_keep</span><span class='lparen'>(</span><span class='id identifier rubyid_seq_id'>seq_id</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1845,10 +2017,10 @@
       <pre class="lines">
 
 
-571</pre>
+595</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 571</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 595</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_kv_cache_seq_rm'>kv_cache_seq_rm</span><span class='lparen'>(</span><span class='id identifier rubyid_seq_id'>seq_id</span><span class='comma'>,</span> <span class='id identifier rubyid_p0'>p0</span><span class='comma'>,</span> <span class='id identifier rubyid_p1'>p1</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1963,10 +2135,10 @@
       <pre class="lines">
 
 
-591</pre>
+615</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 591</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 615</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_kv_cache_seq_shift'>kv_cache_seq_shift</span><span class='lparen'>(</span><span class='id identifier rubyid_seq_id'>seq_id</span><span class='comma'>,</span> <span class='id identifier rubyid_p0'>p0</span><span class='comma'>,</span> <span class='id identifier rubyid_p1'>p1</span><span class='comma'>,</span> <span class='id identifier rubyid_delta'>delta</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2013,10 +2185,10 @@
       <pre class="lines">
 
 
-558</pre>
+582</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 558</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 582</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_kv_cache_token_count'>kv_cache_token_count</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2083,12 +2255,62 @@
       <pre class="lines">
 
 
-602</pre>
+635</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 602</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 635</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_load_session_file'>load_session_file</span><span class='lparen'>(</span><span class='label'>session_path:</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="logits-instance_method">
+  
+    #<strong>logits</strong>  &#x21d2; <tt>Array&lt;Float&gt;</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Retunrs the logits.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;Float&gt;</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+547</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 547</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_logits'>logits</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -2133,10 +2355,10 @@
       <pre class="lines">
 
 
-538</pre>
+562</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 538</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 562</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_n_batch'>n_batch</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2183,10 +2405,10 @@
       <pre class="lines">
 
 
-533</pre>
+557</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 533</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 557</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_n_ctx'>n_ctx</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2233,10 +2455,10 @@
       <pre class="lines">
 
 
-548</pre>
+572</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 548</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 572</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_print_timings'>print_timings</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2283,10 +2505,10 @@
       <pre class="lines">
 
 
-553</pre>
+577</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 553</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 577</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_reset_timings'>reset_timings</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2385,10 +2607,10 @@
       <pre class="lines">
 
 
-627</pre>
+660</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 627</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 660</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sample_classifier_free_guidance'>sample_classifier_free_guidance</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='comma'>,</span> <span class='label'>guidance:</span><span class='comma'>,</span> <span class='label'>scale:</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2471,10 +2693,10 @@
       <pre class="lines">
 
 
-725</pre>
+759</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 725</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 759</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sample_grammar'>sample_grammar</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='comma'>,</span> <span class='label'>grammar:</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2575,10 +2797,10 @@
       <pre class="lines">
 
 
-657</pre>
+690</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 657</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 690</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sample_min_p'>sample_min_p</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='comma'>,</span> <span class='label'>prob:</span><span class='comma'>,</span> <span class='label'>min_keep:</span> <span class='int'>1</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2709,10 +2931,10 @@
       <pre class="lines">
 
 
-619</pre>
+652</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 619</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 652</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sample_repetition_penalties'>sample_repetition_penalties</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='comma'>,</span> <span class='id identifier rubyid_last_n_tokens'>last_n_tokens</span><span class='comma'>,</span> <span class='label'>penalty_repeat:</span><span class='comma'>,</span> <span class='label'>penalty_freq:</span><span class='comma'>,</span> <span class='label'>penalty_present:</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2779,10 +3001,10 @@
       <pre class="lines">
 
 
-633</pre>
+666</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 633</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 666</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sample_softmax'>sample_softmax</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2883,10 +3105,10 @@
       <pre class="lines">
 
 
-665</pre>
+698</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 665</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 698</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sample_tail_free'>sample_tail_free</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='comma'>,</span> <span class='label'>z:</span><span class='comma'>,</span> <span class='label'>min_keep:</span> <span class='int'>1</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2969,10 +3191,10 @@
       <pre class="lines">
 
 
-687</pre>
+721</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 687</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 721</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sample_temp'>sample_temp</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='comma'>,</span> <span class='label'>temp:</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2991,7 +3213,10 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'>
+<p>Use sample_temp instead.</p>
+</div></div>
+
 <p>Samples temeperature.</p>
 
 
@@ -3055,10 +3280,10 @@
       <pre class="lines">
 
 
-680</pre>
+714</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 680</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 714</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sample_temperature'>sample_temperature</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='comma'>,</span> <span class='label'>temperature:</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -3125,10 +3350,10 @@
       <pre class="lines">
 
 
-718</pre>
+752</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 718</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 752</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sample_token'>sample_token</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -3195,10 +3420,10 @@
       <pre class="lines">
 
 
-712</pre>
+746</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 712</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 746</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sample_token_greedy'>sample_token_greedy</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -3334,10 +3559,10 @@
       <pre class="lines">
 
 
-697</pre>
+731</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 697</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 731</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sample_token_mirostat'>sample_token_mirostat</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='comma'>,</span> <span class='label'>tau:</span><span class='comma'>,</span> <span class='label'>eta:</span><span class='comma'>,</span> <span class='label'>m:</span><span class='comma'>,</span> <span class='label'>mu:</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -3457,10 +3682,10 @@
       <pre class="lines">
 
 
-706</pre>
+740</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 706</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 740</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sample_token_mirostat_v2'>sample_token_mirostat_v2</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='comma'>,</span> <span class='label'>tau:</span><span class='comma'>,</span> <span class='label'>eta:</span><span class='comma'>,</span> <span class='label'>mu:</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -3561,10 +3786,10 @@
       <pre class="lines">
 
 
-641</pre>
+674</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 641</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 674</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sample_top_k'>sample_top_k</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='comma'>,</span> <span class='label'>k:</span><span class='comma'>,</span> <span class='label'>min_keep:</span> <span class='int'>1</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -3665,10 +3890,10 @@
       <pre class="lines">
 
 
-649</pre>
+682</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 649</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 682</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sample_top_p'>sample_top_p</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='comma'>,</span> <span class='label'>prob:</span><span class='comma'>,</span> <span class='label'>min_keep:</span> <span class='int'>1</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -3769,10 +3994,10 @@
       <pre class="lines">
 
 
-673</pre>
+706</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 673</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 706</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sample_typical'>sample_typical</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='comma'>,</span> <span class='label'>prob:</span><span class='comma'>,</span> <span class='label'>min_keep:</span> <span class='int'>1</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -3855,10 +4080,10 @@
       <pre class="lines">
 
 
-609</pre>
+642</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 609</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 642</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_save_session_file'>save_session_file</span><span class='lparen'>(</span><span class='label'>session_path:</span><span class='comma'>,</span> <span class='label'>session_tokens:</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -3912,10 +4137,10 @@
       <pre class="lines">
 
 
-596</pre>
+629</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 596</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 629</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_set_rng_seed'>set_rng_seed</span><span class='lparen'>(</span><span class='id identifier rubyid_seed'>seed</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -3962,10 +4187,10 @@
       <pre class="lines">
 
 
-543</pre>
+567</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 543</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 567</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_timings'>timings</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -3978,7 +4203,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  7 08:39:30 2024 by
+  Generated on Sat Jan 13 10:32:05 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.2.2).
 </div>

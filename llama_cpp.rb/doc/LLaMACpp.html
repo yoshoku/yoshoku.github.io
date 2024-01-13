@@ -129,7 +129,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.11.0</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.12.1</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
         <dt id="LLAMA_CPP_VERSION-constant" class="">LLAMA_CPP_VERSION =
           <div class="docstring">
@@ -145,7 +145,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>b1768</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>b1833</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
         <dt id="LLAMA_SESSION_MAGIC-constant" class="">LLAMA_SESSION_MAGIC =
           <div class="docstring">
@@ -482,6 +482,54 @@
 </div>
         </dt>
         <dd><pre class="code"><span class='int'>18</span></pre></dd>
+      
+        <dt id="LLAMA_FTYPE_MOSTLY_IQ2_XXS-constant" class="">LLAMA_FTYPE_MOSTLY_IQ2_XXS =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>LLaMA model file type.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>19</span></pre></dd>
+      
+        <dt id="LLAMA_FTYPE_MOSTLY_IQ2_XS-constant" class="">LLAMA_FTYPE_MOSTLY_IQ2_XS =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>LLaMA model file type.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>20</span></pre></dd>
+      
+        <dt id="LLAMA_FTYPE_MOSTLY_Q2_K_S-constant" class="">LLAMA_FTYPE_MOSTLY_Q2_K_S =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>LLaMA model file type.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>21</span></pre></dd>
       
         <dt id="LLAMA_KV_OVERRIDE_INT-constant" class="">LLAMA_KV_OVERRIDE_INT =
           <div class="docstring">
@@ -911,10 +959,10 @@
       <pre class="lines">
 
 
-108</pre>
+117</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 108</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 117</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_backend_free'>backend_free</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -970,10 +1018,10 @@
       <pre class="lines">
 
 
-105</pre>
+114</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 105</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 114</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_backend_init'>backend_init</span><span class='lparen'>(</span><span class='label'>numa:</span> <span class='kw'>false</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1397,7 +1445,7 @@
         <span class='id identifier rubyid_embd'>embd</span><span class='period'>.</span><span class='id identifier rubyid_insert'>insert</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_last_n_tokens'>last_n_tokens</span><span class='lbracket'>[</span><span class='lparen'>(</span><span class='id identifier rubyid_n_ctx'>n_ctx</span> <span class='op'>-</span> <span class='lparen'>(</span><span class='id identifier rubyid_n_left'>n_left</span> <span class='op'>/</span> <span class='int'>2</span><span class='rparen'>)</span> <span class='op'>-</span> <span class='id identifier rubyid_embd'>embd</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='rparen'>)</span><span class='op'>...</span><span class='op'>-</span><span class='id identifier rubyid_embd'>embd</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='rbracket'>]</span><span class='rparen'>)</span>
       <span class='kw'>end</span>
 
-      <span class='id identifier rubyid_context'>context</span><span class='period'>.</span><span class='id identifier rubyid_eval'>eval</span><span class='lparen'>(</span><span class='label'>tokens:</span> <span class='id identifier rubyid_embd'>embd</span><span class='comma'>,</span> <span class='label'>n_past:</span> <span class='id identifier rubyid_n_past'>n_past</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_context'>context</span><span class='period'>.</span><span class='id identifier rubyid_decode'>decode</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="" title="LLaMACpp (module)">LLaMACpp</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLaMACpp/Batch.html" title="LLaMACpp::Batch (class)">Batch</a></span></span><span class='period'>.</span><span class='id identifier rubyid_get_one'><span class='object_link'><a href="LLaMACpp/Batch.html#get_one-class_method" title="LLaMACpp::Batch.get_one (method)">get_one</a></span></span><span class='lparen'>(</span><span class='label'>tokens:</span> <span class='id identifier rubyid_embd'>embd</span><span class='comma'>,</span> <span class='label'>n_tokens:</span> <span class='id identifier rubyid_embd'>embd</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='comma'>,</span> <span class='label'>pos_zero:</span> <span class='id identifier rubyid_n_past'>n_past</span><span class='comma'>,</span> <span class='label'>seq_id:</span> <span class='int'>0</span><span class='rparen'>)</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
 
     <span class='id identifier rubyid_n_past'>n_past</span> <span class='op'>+=</span> <span class='id identifier rubyid_embd'>embd</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
@@ -1420,7 +1468,7 @@
       <span class='id identifier rubyid_context'>context</span><span class='period'>.</span><span class='id identifier rubyid_sample_tail_free'>sample_tail_free</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='comma'>,</span> <span class='label'>z:</span> <span class='id identifier rubyid_tfs_z'>tfs_z</span><span class='rparen'>)</span>
       <span class='id identifier rubyid_context'>context</span><span class='period'>.</span><span class='id identifier rubyid_sample_typical'>sample_typical</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='comma'>,</span> <span class='label'>prob:</span> <span class='id identifier rubyid_typical_p'>typical_p</span><span class='rparen'>)</span>
       <span class='id identifier rubyid_context'>context</span><span class='period'>.</span><span class='id identifier rubyid_sample_top_p'>sample_top_p</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='comma'>,</span> <span class='label'>prob:</span> <span class='id identifier rubyid_top_p'>top_p</span><span class='rparen'>)</span>
-      <span class='id identifier rubyid_context'>context</span><span class='period'>.</span><span class='id identifier rubyid_sample_temperature'>sample_temperature</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='comma'>,</span> <span class='label'>temperature:</span> <span class='id identifier rubyid_temperature'>temperature</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_context'>context</span><span class='period'>.</span><span class='id identifier rubyid_sample_temp'>sample_temp</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='comma'>,</span> <span class='label'>temp:</span> <span class='id identifier rubyid_temperature'>temperature</span><span class='rparen'>)</span>
       <span class='id identifier rubyid_id'>id</span> <span class='op'>=</span> <span class='id identifier rubyid_context'>context</span><span class='period'>.</span><span class='id identifier rubyid_sample_token'>sample_token</span><span class='lparen'>(</span><span class='id identifier rubyid_candidates'>candidates</span><span class='rparen'>)</span>
 
       <span class='id identifier rubyid_last_n_tokens'>last_n_tokens</span><span class='period'>.</span><span class='id identifier rubyid_shift'>shift</span>
@@ -1489,10 +1537,10 @@
       <pre class="lines">
 
 
-134</pre>
+143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 134</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 143</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_max_devices'>max_devices</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1539,10 +1587,10 @@
       <pre class="lines">
 
 
-130</pre>
+139</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 130</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 139</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mlock_supported?'>mlock_supported?</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1589,10 +1637,10 @@
       <pre class="lines">
 
 
-126</pre>
+135</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 126</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 135</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mmap_supported?'>mmap_supported?</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1678,10 +1726,10 @@
       <pre class="lines">
 
 
-115</pre>
+124</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 115</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 124</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_model_quantize'>model_quantize</span><span class='lparen'>(</span><span class='label'>input_path:</span><span class='comma'>,</span> <span class='label'>output_path:</span><span class='comma'>,</span> <span class='label'>params:</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1715,10 +1763,10 @@
       <pre class="lines">
 
 
-118</pre>
+127</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 118</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 127</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_print_system_info'>print_system_info</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1765,10 +1813,10 @@
       <pre class="lines">
 
 
-122</pre>
+131</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 122</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 131</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_time_us'>time_us</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1781,7 +1829,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Jan  7 08:39:30 2024 by
+  Generated on Sat Jan 13 10:32:05 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.2.2).
 </div>

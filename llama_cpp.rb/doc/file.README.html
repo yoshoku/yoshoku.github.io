@@ -78,13 +78,13 @@
 <pre class="code ruby"><code class="ruby">$ gem install llama_cpp
 </code></pre>
 
-<p>There are several installation options for improving execution performance:</p>
+<p>There are several installation options:</p>
 
 <pre class="code ruby"><code class="ruby"># use OpenBLAS
 $ gem install llama_cpp -- --with-openblas
 
-# use Metal on macOS
-$ gem install llama_cpp -- --with-metal
+# use CUDA
+$ gem install llama_cpp -- --with-cuda
 </code></pre>
 
 <p>Those options are defined in <a href="https://github.com/yoshoku/llama_cpp.rb/blob/main/ext/llama_cpp/extconf.rb">extconf.rb</a> by with_config method.</p>
@@ -159,7 +159,7 @@ $ ruby chat.rb --model ggml-vicuna-7b-1.1-q4_0.bin --file prompt_jp.txt
 </div></div>
 
       <div id="footer">
-  Generated on Sun Jan  7 08:39:30 2024 by
+  Generated on Sat Jan 13 10:32:05 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.2.2).
 </div>
