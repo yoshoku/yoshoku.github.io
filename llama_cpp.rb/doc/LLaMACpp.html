@@ -129,7 +129,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.12.3</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.12.4</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
         <dt id="LLAMA_CPP_VERSION-constant" class="">LLAMA_CPP_VERSION =
           <div class="docstring">
@@ -145,7 +145,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>b1971</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>b2047</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
         <dt id="LLAMA_SESSION_MAGIC-constant" class="">LLAMA_SESSION_MAGIC =
           <div class="docstring">
@@ -194,22 +194,6 @@
 </div>
         </dt>
         <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0xFFFFFFFF</span><span class='tstring_end'>&#39;</span></span></pre></dd>
-      
-        <dt id="LLAMA_MAX_DEVICES-constant" class="">LLAMA_MAX_DEVICES =
-          <div class="docstring">
-  <div class="discussion">
-    
-<p>LLaMA cuda max devices.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-        </dt>
-        <dd><pre class="code"><span class='int'>1</span></pre></dd>
       
         <dt id="LLAMA_FTYPE_ALL_F32-constant" class="">LLAMA_FTYPE_ALL_F32 =
           <div class="docstring">
@@ -547,6 +531,22 @@
         </dt>
         <dd><pre class="code"><span class='int'>22</span></pre></dd>
       
+        <dt id="LLAMA_FTYPE_MOSTLY_IQ3_XXS-constant" class="">LLAMA_FTYPE_MOSTLY_IQ3_XXS =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>LLaMA model file type.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>23</span></pre></dd>
+      
         <dt id="LLAMA_KV_OVERRIDE_INT-constant" class="">LLAMA_KV_OVERRIDE_INT =
           <div class="docstring">
   <div class="discussion">
@@ -868,7 +868,7 @@
 </li>
 
       
-        <li class="public ">
+        <li class="public deprecated">
   <span class="summary_signature">
     
       <a href="#mlock_supported%3F-class_method" title="mlock_supported? (class method)">.<strong>mlock_supported?</strong>  &#x21d2; Boolean </a>
@@ -881,18 +881,18 @@
   
   
   
-  
+  <span class="deprecated note title">deprecated</span>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the flag for supporting mlock.</p>
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'>
+<p>Use supports_mlock? instead.</p>
 </div></span>
   
 </li>
 
       
-        <li class="public ">
+        <li class="public deprecated">
   <span class="summary_signature">
     
       <a href="#mmap_supported%3F-class_method" title="mmap_supported? (class method)">.<strong>mmap_supported?</strong>  &#x21d2; Boolean </a>
@@ -905,12 +905,12 @@
   
   
   
-  
+  <span class="deprecated note title">deprecated</span>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the flag for supporting mmap.</p>
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'>
+<p>Use supports_mmap? instead.</p>
 </div></span>
   
 </li>
@@ -959,6 +959,78 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>Prints system information.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#supports_gpu_offload%3F-class_method" title="supports_gpu_offload? (class method)">.<strong>supports_gpu_offload?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the flag for supporting GPU offload.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#supports_mlock%3F-class_method" title="supports_mlock? (class method)">.<strong>supports_mlock?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the flag for supporting mlock.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#supports_mmap%3F-class_method" title="supports_mmap? (class method)">.<strong>supports_mmap?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the flag for supporting mmap.</p>
 </div></span>
   
 </li>
@@ -1601,10 +1673,10 @@
       <pre class="lines">
 
 
-155</pre>
+157</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 155</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 157</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_max_devices'>max_devices</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1623,7 +1695,10 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'>
+<p>Use supports_mlock? instead.</p>
+</div></div>
+
 <p>Returns the flag for supporting mlock.</p>
 
 
@@ -1651,10 +1726,10 @@
       <pre class="lines">
 
 
-151</pre>
+153</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 151</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 153</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mlock_supported?'>mlock_supported?</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1673,7 +1748,10 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'>
+<p>Use supports_mmap? instead.</p>
+</div></div>
+
 <p>Returns the flag for supporting mmap.</p>
 
 
@@ -1701,10 +1779,10 @@
       <pre class="lines">
 
 
-147</pre>
+148</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 147</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 148</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mmap_supported?'>mmap_supported?</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1839,6 +1917,156 @@
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="supports_gpu_offload?-class_method">
+  
+    .<strong>supports_gpu_offload?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the flag for supporting GPU offload.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+169</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 169</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_supports_gpu_offload?'>supports_gpu_offload?</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="supports_mlock?-class_method">
+  
+    .<strong>supports_mlock?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the flag for supporting mlock.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+165</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 165</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_supports_mlock?'>supports_mlock?</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="supports_mmap?-class_method">
+  
+    .<strong>supports_mmap?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the flag for supporting mmap.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+161</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 161</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_supports_mmap?'>supports_mmap?</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="time_us-class_method">
   
     .<strong>time_us</strong>  &#x21d2; <tt>Integer</tt> 
@@ -1893,7 +2121,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Jan 27 09:18:49 2024 by
+  Generated on Sat Feb  3 09:02:40 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.2.3).
 </div>
