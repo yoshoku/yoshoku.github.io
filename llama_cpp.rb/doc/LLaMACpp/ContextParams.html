@@ -287,7 +287,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Returns the batch size of prompt processing.</p>
+<p>Returns the logical maximum batch size.</p>
 </div></span>
   
 </li>
@@ -311,7 +311,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Sets the batch size of prompt processing.</p>
+<p>Sets the logical maximum batch size.</p>
 </div></span>
   
 </li>
@@ -360,6 +360,102 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>Sets the number of text context.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#n_seq_max-instance_method" title="#n_seq_max (instance method)">#<strong>n_seq_max</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the max number of sequences.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#n_seq_max=-instance_method" title="#n_seq_max= (instance method)">#<strong>n_seq_max=</strong>(n_seq_max)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Sets the max number of sequences.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#n_ubatch-instance_method" title="#n_ubatch (instance method)">#<strong>n_ubatch</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the physical maximum batch size.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#n_ubatch=-instance_method" title="#n_ubatch= (instance method)">#<strong>n_ubatch=</strong>(n_ubatch)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Sets the physical maximum batch size.</p>
 </div></span>
   
 </li>
@@ -1037,10 +1133,10 @@
       <pre class="lines">
 
 
-982</pre>
+1041</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 982</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1041</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_defrag_thold'>defrag_thold</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1089,10 +1185,10 @@
       <pre class="lines">
 
 
-978</pre>
+1037</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 978</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1037</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_defrag_thold='>defrag_thold=</span><span class='lparen'>(</span><span class='id identifier rubyid_defrag_thold'>defrag_thold</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1139,10 +1235,10 @@
       <pre class="lines">
 
 
-1014</pre>
+1073</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1014</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1073</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_embeddings'>embeddings</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1191,10 +1287,10 @@
       <pre class="lines">
 
 
-1010</pre>
+1069</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1010</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1069</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_embeddings='>embeddings=</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1241,10 +1337,10 @@
       <pre class="lines">
 
 
-1006</pre>
+1065</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1006</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1065</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_logits_all'>logits_all</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1293,10 +1389,10 @@
       <pre class="lines">
 
 
-1002</pre>
+1061</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1002</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1061</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_logits_all='>logits_all=</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1316,7 +1412,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the batch size of prompt processing.</p>
+<p>Returns the logical maximum batch size.</p>
 
 
   </div>
@@ -1343,10 +1439,10 @@
       <pre class="lines">
 
 
-902</pre>
+941</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 902</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 941</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_n_batch'>n_batch</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1366,7 +1462,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Sets the batch size of prompt processing.</p>
+<p>Sets the logical maximum batch size.</p>
 
 
   </div>
@@ -1395,10 +1491,10 @@
       <pre class="lines">
 
 
-898</pre>
+936</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 898</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 936</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_n_batch='>n_batch=</span><span class='lparen'>(</span><span class='id identifier rubyid_n_batch'>n_batch</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1445,10 +1541,10 @@
       <pre class="lines">
 
 
-894</pre>
+931</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 894</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 931</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_n_ctx'>n_ctx</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1497,12 +1593,216 @@
       <pre class="lines">
 
 
-890</pre>
+927</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 890</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 927</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_n_ctx='>n_ctx=</span><span class='lparen'>(</span><span class='id identifier rubyid_n_ctx'>n_ctx</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="n_seq_max-instance_method">
+  
+    #<strong>n_seq_max</strong>  &#x21d2; <tt>Integer</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the max number of sequences.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+961</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 961</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_n_seq_max'>n_seq_max</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="n_seq_max=-instance_method">
+  
+    #<strong>n_seq_max=</strong>(n_seq_max)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Sets the max number of sequences.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>n_seq_max</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+956</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 956</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_n_seq_max='>n_seq_max=</span><span class='lparen'>(</span><span class='id identifier rubyid_n_seq_max'>n_seq_max</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="n_ubatch-instance_method">
+  
+    #<strong>n_ubatch</strong>  &#x21d2; <tt>Integer</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the physical maximum batch size.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+951</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 951</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_n_ubatch'>n_ubatch</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="n_ubatch=-instance_method">
+  
+    #<strong>n_ubatch=</strong>(n_ubatch)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Sets the physical maximum batch size.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>n_ubatch</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+946</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 946</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_n_ubatch='>n_ubatch=</span><span class='lparen'>(</span><span class='id identifier rubyid_n_ubatch'>n_ubatch</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -1549,10 +1849,10 @@
       <pre class="lines">
 
 
-1018</pre>
+1077</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1018</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1077</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_offload_kqv='>offload_kqv=</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1599,10 +1899,10 @@
       <pre class="lines">
 
 
-1022</pre>
+1081</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1022</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1081</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_oofload_kwv'>oofload_kwv</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1649,10 +1949,10 @@
       <pre class="lines">
 
 
-918</pre>
+977</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 918</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 977</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pooling_type'>pooling_type</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1701,10 +2001,10 @@
       <pre class="lines">
 
 
-914</pre>
+973</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 914</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 973</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pooling_type='>pooling_type=</span><span class='lparen'>(</span><span class='id identifier rubyid_pooling_type'>pooling_type</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1751,10 +2051,10 @@
       <pre class="lines">
 
 
-926</pre>
+985</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 926</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 985</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rope_freq_base'>rope_freq_base</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1803,10 +2103,10 @@
       <pre class="lines">
 
 
-922</pre>
+981</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 922</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 981</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rope_freq_base='>rope_freq_base=</span><span class='lparen'>(</span><span class='id identifier rubyid_rope_freq_base'>rope_freq_base</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1853,10 +2153,10 @@
       <pre class="lines">
 
 
-934</pre>
+993</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 934</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 993</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rope_freq_scale'>rope_freq_scale</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1905,10 +2205,10 @@
       <pre class="lines">
 
 
-930</pre>
+989</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 930</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 989</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rope_freq_scale='>rope_freq_scale=</span><span class='lparen'>(</span><span class='id identifier rubyid_rope_freq_scale'>rope_freq_scale</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -1955,10 +2255,10 @@
       <pre class="lines">
 
 
-910</pre>
+969</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 910</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 969</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rope_scaling_type'>rope_scaling_type</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2007,10 +2307,10 @@
       <pre class="lines">
 
 
-906</pre>
+965</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 906</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 965</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rope_scaling_type='>rope_scaling_type=</span><span class='lparen'>(</span><span class='id identifier rubyid_scaling_type'>scaling_type</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2057,10 +2357,10 @@
       <pre class="lines">
 
 
-886</pre>
+923</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 886</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 923</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_seed'>seed</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2109,10 +2409,10 @@
       <pre class="lines">
 
 
-882</pre>
+919</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 882</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 919</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_seed='>seed=</span><span class='lparen'>(</span><span class='id identifier rubyid_seed'>seed</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2159,10 +2459,10 @@
       <pre class="lines">
 
 
-990</pre>
+1049</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 990</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1049</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_type_k'>type_k</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2211,10 +2511,10 @@
       <pre class="lines">
 
 
-986</pre>
+1045</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 986</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1045</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_type_k='>type_k=</span><span class='lparen'>(</span><span class='id identifier rubyid_type_k'>type_k</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2261,10 +2561,10 @@
       <pre class="lines">
 
 
-998</pre>
+1057</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 998</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1057</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_type_v'>type_v</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2313,10 +2613,10 @@
       <pre class="lines">
 
 
-994</pre>
+1053</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 994</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1053</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_type_v='>type_v=</span><span class='lparen'>(</span><span class='id identifier rubyid_type_v'>type_v</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2363,10 +2663,10 @@
       <pre class="lines">
 
 
-950</pre>
+1009</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 950</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1009</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_yarn_attn_factor'>yarn_attn_factor</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2415,10 +2715,10 @@
       <pre class="lines">
 
 
-946</pre>
+1005</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 946</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1005</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_yarn_attn_factor='>yarn_attn_factor=</span><span class='lparen'>(</span><span class='id identifier rubyid_yarn_attn_factor'>yarn_attn_factor</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2465,10 +2765,10 @@
       <pre class="lines">
 
 
-958</pre>
+1017</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 958</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1017</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_yarn_beta_fast'>yarn_beta_fast</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2517,10 +2817,10 @@
       <pre class="lines">
 
 
-954</pre>
+1013</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 954</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1013</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_yarn_beta_fast='>yarn_beta_fast=</span><span class='lparen'>(</span><span class='id identifier rubyid_yarn_beta_fast'>yarn_beta_fast</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2567,10 +2867,10 @@
       <pre class="lines">
 
 
-966</pre>
+1025</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 966</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1025</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_yarn_beta_slow'>yarn_beta_slow</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2619,10 +2919,10 @@
       <pre class="lines">
 
 
-962</pre>
+1021</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 962</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1021</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_yarn_beta_slow='>yarn_beta_slow=</span><span class='lparen'>(</span><span class='id identifier rubyid_yarn_beta_slow'>yarn_beta_slow</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2669,10 +2969,10 @@
       <pre class="lines">
 
 
-942</pre>
+1001</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 942</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1001</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_yarn_ext_factor'>yarn_ext_factor</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2721,10 +3021,10 @@
       <pre class="lines">
 
 
-938</pre>
+997</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 938</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 997</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_yarn_ext_factor='>yarn_ext_factor=</span><span class='lparen'>(</span><span class='id identifier rubyid_yarn_ext_factor'>yarn_ext_factor</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2771,10 +3071,10 @@
       <pre class="lines">
 
 
-974</pre>
+1033</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 974</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1033</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_yarn_orig_ctx'>yarn_orig_ctx</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2823,10 +3123,10 @@
       <pre class="lines">
 
 
-970</pre>
+1029</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 970</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1029</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_yarn_orig_ctx='>yarn_orig_ctx=</span><span class='lparen'>(</span><span class='id identifier rubyid_yarn_orig_ctx'>yarn_orig_ctx</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2839,9 +3139,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Mar  9 23:49:21 2024 by
+  Generated on Sat Mar 23 01:08:53 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-3.2.3).
+  0.9.28 (ruby-3.3.0).
 </div>
 
     </div>
