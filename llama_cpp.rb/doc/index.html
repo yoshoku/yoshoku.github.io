@@ -83,8 +83,8 @@
 <pre class="code ruby"><code class="ruby"># use OpenBLAS
 $ gem install llama_cpp -- --with-openblas
 
-# use cuBLAS
-$ gem install llama_cpp -- --with-cublas
+# use CUDA
+$ gem install llama_cpp -- --with-cuda
 </code></pre>
 
 <p>Those options are defined in <a href="https://github.com/yoshoku/llama_cpp.rb/blob/main/ext/llama_cpp/extconf.rb">extconf.rb</a> by with_config method.</p>
@@ -159,9 +159,9 @@ $ ruby chat.rb --model ggml-vicuna-7b-1.1-q4_0.bin --file prompt_jp.txt
 </div></div>
 
       <div id="footer">
-  Generated on Sat Mar 23 01:08:52 2024 by
+  Generated on Sat May  4 00:34:53 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-3.3.0).
+  0.9.28 (ruby-3.3.1).
 </div>
 
     </div>
