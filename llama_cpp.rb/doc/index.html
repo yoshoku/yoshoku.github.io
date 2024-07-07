@@ -86,7 +86,7 @@ $ bundle add llama_cpp
 
 <h2 id="label-Usage">Usage</h2>
 
-<p>Prepare the quantized model by refering to <a href="https://github.com/ggerganov/llama.cpp#usage">the usage section on the llama.cpp README</a>. For example, preparing the quatization model based on <a href="https://huggingface.co/openlm-research/open_llama_7b">open_llama_7b</a> is as follows:</p>
+<p>Prepare the quantized model by refering to <a href="https://github.com/ggerganov/llama.cpp#usage">the usage section on the llama.cpp README</a>. For example, you could prepare the quatization model based on <a href="https://huggingface.co/openlm-research/open_llama_7b">open_llama_7b</a> or more useful in the context of Ruby might be a smaller model such as <a href="https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0">tiny_llama_1b</a>:</p>
 
 <pre class="code ruby"><code class="ruby">$ cd ~/
 $ brew install git-lfs
@@ -97,9 +97,9 @@ $ python3 -m pip install -r requirements.txt
 $ cd models
 $ git clone https://huggingface.co/openlm-research/open_llama_7b
 $ cd ../
-$ python3 convert.py models/open_llama_7b
+$ python3 convert-hf-to-gguf.py models/open_llama_7b
 $ make
-$ ./quantize ./models/open_llama_7b/ggml-model-f16.gguf ./models/open_llama_7b/ggml-model-q4_0.bin q4_0
+$ ./llama-quantize ./models/open_llama_7b/ggml-model-f16.gguf ./models/open_llama_7b/ggml-model-q4_0.bin q4_0
 </code></pre>
 
 <p>An example of Ruby code that generates sentences with the quantization model is as follows:</p>
@@ -154,7 +154,7 @@ $ ruby chat.rb --model ggml-vicuna-7b-1.1-q4_0.bin --file prompt_jp.txt
 </div></div>
 
       <div id="footer">
-  Generated on Sun Jun 30 23:42:50 2024 by
+  Generated on Sun Jul  7 09:38:10 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.3.2).
 </div>
