@@ -129,7 +129,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.17.1</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.17.2</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
         <dt id="LLAMA_CPP_VERSION-constant" class="">LLAMA_CPP_VERSION =
           <div class="docstring">
@@ -145,7 +145,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>b3291</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>b3358</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
         <dt id="LLAMA_FILE_MAGIC_GGLA-constant" class="">LLAMA_FILE_MAGIC_GGLA =
           <div class="docstring">
@@ -611,7 +611,7 @@
         </dt>
         <dd><pre class="code"><span class='int'>15</span></pre></dd>
       
-        <dt id="LLAMA_VOCAB_PRE_TYPE_VIKING-constant" class="">LLAMA_VOCAB_PRE_TYPE_VIKING =
+        <dt id="LLAMA_VOCAB_PRE_TYPE_CHATGLM3-constant" class="">LLAMA_VOCAB_PRE_TYPE_CHATGLM3 =
           <div class="docstring">
   <div class="discussion">
     
@@ -627,7 +627,7 @@
         </dt>
         <dd><pre class="code"><span class='int'>16</span></pre></dd>
       
-        <dt id="LLAMA_VOCAB_PRE_TYPE_JAIS-constant" class="">LLAMA_VOCAB_PRE_TYPE_JAIS =
+        <dt id="LLAMA_VOCAB_PRE_TYPE_CHATGLM4-constant" class="">LLAMA_VOCAB_PRE_TYPE_CHATGLM4 =
           <div class="docstring">
   <div class="discussion">
     
@@ -642,6 +642,38 @@
 </div>
         </dt>
         <dd><pre class="code"><span class='int'>17</span></pre></dd>
+      
+        <dt id="LLAMA_VOCAB_PRE_TYPE_VIKING-constant" class="">LLAMA_VOCAB_PRE_TYPE_VIKING =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>LLaMA vocabulary pre-tokenization type.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>18</span></pre></dd>
+      
+        <dt id="LLAMA_VOCAB_PRE_TYPE_JAIS-constant" class="">LLAMA_VOCAB_PRE_TYPE_JAIS =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>LLaMA vocabulary pre-tokenization type.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>19</span></pre></dd>
       
         <dt id="LLAMA_TOKEN_ATTR_UNDEFINED-constant" class="">LLAMA_TOKEN_ATTR_UNDEFINED =
           <div class="docstring">
@@ -1667,6 +1699,54 @@
         </dt>
         <dd><pre class="code"><span class='int'>3</span></pre></dd>
       
+        <dt id="LLAMA_ATTENTION_TYPE_UNSPECIFIED-constant" class="">LLAMA_ATTENTION_TYPE_UNSPECIFIED =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>LLaMA attention type.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='op'>-</span><span class='int'>1</span></pre></dd>
+      
+        <dt id="LLAMA_ATTENTION_TYPE_CAUSAL-constant" class="">LLAMA_ATTENTION_TYPE_CAUSAL =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>LLaMA attention type.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>0</span></pre></dd>
+      
+        <dt id="LLAMA_ATTENTION_TYPE_NON_CAUSAL-constant" class="">LLAMA_ATTENTION_TYPE_NON_CAUSAL =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>LLaMA attention type.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>1</span></pre></dd>
+      
         <dt id="LLAMA_SPLIT_MODE_NONE-constant" class="">LLAMA_SPLIT_MODE_NONE =
           <div class="docstring">
   <div class="discussion">
@@ -2031,10 +2111,10 @@
       <pre class="lines">
 
 
-307</pre>
+322</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 307</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 322</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_backend_free'>backend_free</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2068,10 +2148,10 @@
       <pre class="lines">
 
 
-304</pre>
+319</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 304</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 319</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_backend_init'>backend_init</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2587,10 +2667,10 @@
       <pre class="lines">
 
 
-330</pre>
+345</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 330</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 345</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_max_devices'>max_devices</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2676,10 +2756,10 @@
       <pre class="lines">
 
 
-319</pre>
+334</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 319</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 334</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_model_quantize'>model_quantize</span><span class='lparen'>(</span><span class='label'>input_path:</span><span class='comma'>,</span> <span class='label'>output_path:</span><span class='comma'>,</span> <span class='label'>params:</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2733,10 +2813,10 @@
       <pre class="lines">
 
 
-312</pre>
+327</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 312</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 327</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_numa_init'>numa_init</span><span class='lparen'>(</span><span class='id identifier rubyid_strategy'>strategy</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2770,10 +2850,10 @@
       <pre class="lines">
 
 
-322</pre>
+337</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 322</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 337</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_print_system_info'>print_system_info</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2820,10 +2900,10 @@
       <pre class="lines">
 
 
-342</pre>
+357</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 342</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 357</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_supports_gpu_offload?'>supports_gpu_offload?</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2870,10 +2950,10 @@
       <pre class="lines">
 
 
-338</pre>
+353</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 338</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 353</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_supports_mlock?'>supports_mlock?</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2920,10 +3000,10 @@
       <pre class="lines">
 
 
-334</pre>
+349</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 334</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 349</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_supports_mmap?'>supports_mmap?</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2970,10 +3050,10 @@
       <pre class="lines">
 
 
-326</pre>
+341</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 326</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 341</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_time_us'>time_us</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -2986,7 +3066,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Jul  7 09:38:10 2024 by
+  Generated on Sun Jul 14 13:21:49 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.3.2).
 </div>
