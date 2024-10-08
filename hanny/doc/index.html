@@ -6,7 +6,7 @@
 <title>
   File: README
   
-    &mdash; Documentation by YARD 0.9.28
+    &mdash; Documentation by YARD 0.9.37
   
 </title>
 
@@ -19,8 +19,6 @@
   relpath = '';
 </script>
 
-
-  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
 
   <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
 
@@ -60,13 +58,13 @@
       <div id="content"><div id='filecontents'>
 <h1 id="label-Hanny">Hanny</h1>
 
-<p><a href="https://github.com/yoshoku/hanny/actions/workflows/build.yml"><img src="https://github.com/yoshoku/hanny/actions/workflows/build.yml/badge.svg"></a> <a href="https://coveralls.io/github/yoshoku/hanny?branch=main"><img src="https://coveralls.io/repos/github/yoshoku/hanny/badge.svg?branch=main"></a> <a href="https://badge.fury.io/rb/hanny"><img src="https://badge.fury.io/rb/hanny.svg"></a> <a href="https://github.com/yoshoku/Hanny/blob/main/LICENSE.txt"><img src="https://img.shields.io/badge/License-BSD%202--Clause-orange.svg"></a> <a href="https://yoshoku.github.io/hanny/doc/"><img src="https://img.shields.io/badge/api-reference-blue.svg"></a></p>
+<p><a href="https://github.com/yoshoku/hanny/actions/workflows/build.yml"><img src="https://github.com/yoshoku/hanny/actions/workflows/build.yml/badge.svg"></a> <a href="https://badge.fury.io/rb/hanny"><img src="https://badge.fury.io/rb/hanny.svg"></a> <a href="https://github.com/yoshoku/Hanny/blob/main/LICENSE.txt"><img src="https://img.shields.io/badge/License-BSD%202--Clause-orange.svg"></a> <a href="https://yoshoku.github.io/hanny/doc/"><img src="https://img.shields.io/badge/api-reference-blue.svg"></a></p>
 
 <p>Hanny is a Hash-based Approximate Nearest Neighbor (ANN) search library in Ruby. Hash-based ANN converts vector data into binary codes and builds a hash table by using the binary codes as hash keys. To build the hash table, Hanny uses Locality Sensitive Hashing (LSH) of approximating cosine similarity. It is known that if the code length is sufficiently long (ex. greater than 128-bit), LSH can obtain high search performance. In the experiment, Hanny achieved about twenty times faster search speed than the brute-force search by Euclidean distance.</p>
 
 <h2 id="label-Installation">Installation</h2>
 
-<p>Add this line to your application&#39;s Gemfile:</p>
+<p>Add this line to your application’s Gemfile:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>hanny</span><span class='tstring_end'>&#39;</span></span>
 </code></pre>
@@ -121,7 +119,7 @@
 
 <h2 id="label-Experiment">Experiment</h2>
 
-<p>I confirmed the search speed of Hanny&#39;s LSH with <a href="https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/multiclass.html#mnist">MNIST</a> data set. The experiment is carried out on MacBook Early 2016 (Core m3 1.1 GHz CPU and 8 GB memory).</p>
+<p>I confirmed the search speed of Hanny’s LSH with <a href="https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/multiclass.html#mnist">MNIST</a> data set. The experiment is carried out on MacBook Early 2016 (Core m3 1.1 GHz CPU and 8 GB memory).</p>
 
 <p>Code:</p>
 
@@ -197,13 +195,13 @@ query label: 2, neighbors label: 2, 2, 2, 2, 2,
 
 <h2 id="label-Code+of+Conduct">Code of Conduct</h2>
 
-<p>Everyone interacting in the Hanny project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the <a href="https://github_com/yoshoku/Hanny/blob/main/CODE_OF_CONDUCT_md.html">code of conduct</a>.</p>
+<p>Everyone interacting in the Hanny project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the <a href="https://github.com/yoshoku/Hanny/blob/main/CODE_OF_CONDUCT.md">code of conduct</a>.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Sat Aug 27 13:43:34 2022 by
+  Generated on Wed Oct  9 00:00:56 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-3.0.4).
+  0.9.37 (ruby-3.3.2).
 </div>
 
     </div>
