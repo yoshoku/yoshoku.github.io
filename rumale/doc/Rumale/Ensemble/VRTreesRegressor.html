@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: Rumale::Ensemble::RandomForestRegressor
+  Class: Rumale::Ensemble::VRTreesRegressor
   
     &mdash; Documentation by YARD 0.9.37
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "Rumale::Ensemble::RandomForestRegressor";
+  pathId = "Rumale::Ensemble::VRTreesRegressor";
   relpath = '../../';
 </script>
 
@@ -34,10 +34,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../../_index.html">Index (R)</a> &raquo;
+    <a href="../../_index.html">Index (V)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Ensemble.html" title="Rumale::Ensemble (module)">Ensemble</a></span></span>
      &raquo; 
-    <span class="title">RandomForestRegressor</span>
+    <span class="title">VRTreesRegressor</span>
   
 </div>
 
@@ -57,7 +57,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: Rumale::Ensemble::RandomForestRegressor
+      <div id="content"><h1>Class: Rumale::Ensemble::VRTreesRegressor
   
   
   
@@ -67,14 +67,16 @@
   <dl>
     <dt>Inherits:</dt>
     <dd>
-      <span class="inheritName"><span class='object_link'><a href="../Base/Estimator.html" title="Rumale::Base::Estimator (class)">Base::Estimator</a></span></span>
+      <span class="inheritName"><span class='object_link'><a href="RandomForestRegressor.html" title="Rumale::Ensemble::RandomForestRegressor (class)">RandomForestRegressor</a></span></span>
       
         <ul class="fullTree">
           <li>Object</li>
           
             <li class="next"><span class='object_link'><a href="../Base/Estimator.html" title="Rumale::Base::Estimator (class)">Base::Estimator</a></span></li>
           
-            <li class="next">Rumale::Ensemble::RandomForestRegressor</li>
+            <li class="next"><span class='object_link'><a href="RandomForestRegressor.html" title="Rumale::Ensemble::RandomForestRegressor (class)">RandomForestRegressor</a></span></li>
+          
+            <li class="next">Rumale::Ensemble::VRTreesRegressor</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -87,11 +89,6 @@
   
   
   
-  <dl>
-      <dt>Includes:</dt>
-      <dd><span class='object_link'><a href="../Base/Regressor.html" title="Rumale::Base::Regressor (module)">Base::Regressor</a></span></dd>
-  </dl>
-  
   
 
   
@@ -99,7 +96,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>rumale-ensemble/lib/rumale/ensemble/random_forest_regressor.rb</dd>
+    <dd>rumale-ensemble/lib/rumale/ensemble/vr_trees_regressor.rb</dd>
   </dl>
   
 </div>
@@ -107,7 +104,12 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>RandomForestRegressor is a class that implements random forest for regression</p>
+<p>VRTreesRegressor is a class that implements variable-random (VR) trees for regression</p>
+
+<p><strong>Reference</strong></p>
+<ul><li>
+<p>Liu, F. T., Ting, K. M., Yu, Y., and Zhou, Z. H., “Spectrum of Variable-Random Trees,” Journal of Artificial Intelligence Research, vol. 32, pp. 355–384, 2008.</p>
+</li></ul>
 
 
   </div>
@@ -118,22 +120,18 @@
     <h4 class="tag_title">Examples:</h4>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rumale/ensemble/random_forest_regressor</span><span class='tstring_end'>&#39;</span></span>
+      <pre class="example code"><code>@require &#39;rumale/ensemble/vr_trees_regressor&#39;
 
-<span class='id identifier rubyid_estimator'>estimator</span> <span class='op'>=</span>
-  <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Ensemble.html" title="Rumale::Ensemble (module)">Ensemble</a></span></span><span class='op'>::</span><span class='const'>RandomForestRegressor</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::Ensemble::RandomForestRegressor#initialize (method)">new</a></span></span><span class='lparen'>(</span>
-    <span class='label'>n_estimators:</span> <span class='int'>10</span><span class='comma'>,</span> <span class='label'>criterion:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mse</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>max_depth:</span> <span class='int'>3</span><span class='comma'>,</span> <span class='label'>max_leaf_nodes:</span> <span class='int'>10</span><span class='comma'>,</span> <span class='label'>min_samples_leaf:</span> <span class='int'>5</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='int'>1</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_estimator'>estimator</span><span class='period'>.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_training_samples'>training_samples</span><span class='comma'>,</span> <span class='id identifier rubyid_traininig_values'>traininig_values</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_estimator'>estimator</span><span class='period'>.</span><span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_testing_samples'>testing_samples</span><span class='rparen'>)</span></code></pre>
+estimator =
+  Rumale::Ensemble::VRTreesRegressor.new(
+    n_estimators: 10, criterion: &#39;mse&#39;, max_depth: 3, max_leaf_nodes: 10, min_samples_leaf: 5, random_seed: 1)
+estimator.fit(training_samples, traininig_values)
+results = estimator.predict(testing_samples)</code></pre>
     
   </div>
 
 
-</div><div id="subclasses">
-  <h2>Direct Known Subclasses</h2>
-  <p class="children"><span class='object_link'><a href="ExtraTreesRegressor.html" title="Rumale::Ensemble::ExtraTreesRegressor (class)">ExtraTreesRegressor</a></span>, <span class='object_link'><a href="VRTreesRegressor.html" title="Rumale::Ensemble::VRTreesRegressor (class)">VRTreesRegressor</a></span></p>
 </div>
-
 
 
 
@@ -143,7 +141,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#estimators-instance_method" title="#estimators (instance method)">#<strong>estimators</strong>  &#x21d2; Array&lt;DecisionTreeRegressor&gt; </a>
+      <a href="#estimators-instance_method" title="#estimators (instance method)">#<strong>estimators</strong>  &#x21d2; Array&lt;VRTreeRegressor&gt; </a>
     
 
     
@@ -272,7 +270,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#fit-instance_method" title="#fit (instance method)">#<strong>fit</strong>(x, y)  &#x21d2; RandomForestRegressor </a>
+      <a href="#fit-instance_method" title="#fit (instance method)">#<strong>fit</strong>(x, y)  &#x21d2; VRTreesRegressor </a>
     
 
     
@@ -296,7 +294,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(n_estimators: 10, criterion: &#39;mse&#39;, max_depth: nil, max_leaf_nodes: nil, min_samples_leaf: 1, max_features: nil, n_jobs: nil, random_seed: nil)  &#x21d2; RandomForestRegressor </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(n_estimators: 10, criterion: &#39;mse&#39;, max_depth: nil, max_leaf_nodes: nil, min_samples_leaf: 1, max_features: nil, n_jobs: nil, random_seed: nil)  &#x21d2; VRTreesRegressor </a>
     
 
     
@@ -313,7 +311,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Create a new regressor with random forest.</p>
+<p>Create a new regressor with variable-random trees.</p>
 </div></span>
   
 </li>
@@ -355,6 +353,12 @@
   
   
   
+  
+  
+  
+  
+  
+  
   <h3 class="inherited">Methods included from <span class='object_link'><a href="../Base/Regressor.html" title="Rumale::Base::Regressor (module)">Base::Regressor</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="../Base/Regressor.html#score-instance_method" title="Rumale::Base::Regressor#score (method)">#score</a></span></p>
 
@@ -369,7 +373,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(n_estimators: 10, criterion: &#39;mse&#39;, max_depth: nil, max_leaf_nodes: nil, min_samples_leaf: 1, max_features: nil, n_jobs: nil, random_seed: nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::Ensemble::RandomForestRegressor (class)">RandomForestRegressor</a></span></tt> 
+    #<strong>initialize</strong>(n_estimators: 10, criterion: &#39;mse&#39;, max_depth: nil, max_leaf_nodes: nil, min_samples_leaf: 1, max_features: nil, n_jobs: nil, random_seed: nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::Ensemble::VRTreesRegressor (class)">VRTreesRegressor</a></span></tt> 
   
 
   
@@ -378,7 +382,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Create a new regressor with random forest.</p>
+<p>Create a new regressor with variable-random trees.</p>
 
 
   </div>
@@ -400,7 +404,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The numeber of decision trees for contructing random forest.</p>
+<p>The numeber of trees for contructing variable-random trees.</p>
 </div>
       
     </li>
@@ -436,7 +440,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The maximum depth of the tree. If nil is given, decision tree grows without concern for depth.</p>
+<p>The maximum depth of the tree. If nil is given, variable-random tree grows without concern for depth.</p>
 </div>
       
     </li>
@@ -454,7 +458,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The maximum number of leaves on decision tree. If nil is given, number of leaves is not limited.</p>
+<p>The maximum number of leaves on variable-random tree. If nil is given, number of leaves is not limited.</p>
 </div>
       
     </li>
@@ -490,7 +494,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The number of features to consider when searching optimal split point. If nil is given, split process considers ‘Math.sqrt(n_features)’ features.</p>
+<p>The number of features to consider when searching optimal split point. If nil is given, split process considers ‘n_features’ features.</p>
 </div>
       
     </li>
@@ -540,41 +544,19 @@
       <pre class="lines">
 
 
+53
 54
 55
 56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69</pre>
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-ensemble/lib/rumale/ensemble/random_forest_regressor.rb', line 54</span>
+      <pre class="code"><span class="info file"># File 'rumale-ensemble/lib/rumale/ensemble/vr_trees_regressor.rb', line 53</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>n_estimators:</span> <span class='int'>10</span><span class='comma'>,</span>
                <span class='label'>criterion:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mse</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>max_depth:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>max_leaf_nodes:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>min_samples_leaf:</span> <span class='int'>1</span><span class='comma'>,</span>
                <span class='label'>max_features:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>n_jobs:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='kw'>super</span><span class='lparen'>(</span><span class='rparen'>)</span>
-  <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbrace'>{</span>
-    <span class='label'>n_estimators:</span> <span class='id identifier rubyid_n_estimators'>n_estimators</span><span class='comma'>,</span>
-    <span class='label'>criterion:</span> <span class='id identifier rubyid_criterion'>criterion</span><span class='comma'>,</span>
-    <span class='label'>max_depth:</span> <span class='id identifier rubyid_max_depth'>max_depth</span><span class='comma'>,</span>
-    <span class='label'>max_leaf_nodes:</span> <span class='id identifier rubyid_max_leaf_nodes'>max_leaf_nodes</span><span class='comma'>,</span>
-    <span class='label'>min_samples_leaf:</span> <span class='id identifier rubyid_min_samples_leaf'>min_samples_leaf</span><span class='comma'>,</span>
-    <span class='label'>max_features:</span> <span class='id identifier rubyid_max_features'>max_features</span><span class='comma'>,</span>
-    <span class='label'>n_jobs:</span> <span class='id identifier rubyid_n_jobs'>n_jobs</span><span class='comma'>,</span>
-    <span class='label'>random_seed:</span> <span class='id identifier rubyid_random_seed'>random_seed</span> <span class='op'>||</span> <span class='id identifier rubyid_srand'>srand</span>
-  <span class='rbrace'>}</span>
-  <span class='ivar'>@rng</span> <span class='op'>=</span> <span class='const'>Random</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:random_seed</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='kw'>super</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -591,7 +573,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="estimators-instance_method">
   
-    #<strong>estimators</strong>  &#x21d2; <tt>Array&lt;DecisionTreeRegressor&gt;</tt>  <span class="extras">(readonly)</span>
+    #<strong>estimators</strong>  &#x21d2; <tt>Array&lt;VRTreeRegressor&gt;</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -613,7 +595,7 @@
     <li>
       
       
-        <span class='type'>(<tt>Array&lt;DecisionTreeRegressor&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;VRTreeRegressor&gt;</tt>)</span>
       
       
       
@@ -627,12 +609,12 @@
       <pre class="lines">
 
 
+26
 27
-28
-29</pre>
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-ensemble/lib/rumale/ensemble/random_forest_regressor.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'rumale-ensemble/lib/rumale/ensemble/vr_trees_regressor.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_estimators'>estimators</span>
   <span class='ivar'>@estimators</span>
@@ -688,12 +670,12 @@
       <pre class="lines">
 
 
+30
 31
-32
-33</pre>
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-ensemble/lib/rumale/ensemble/random_forest_regressor.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'rumale-ensemble/lib/rumale/ensemble/vr_trees_regressor.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_feature_importances'>feature_importances</span>
   <span class='ivar'>@feature_importances</span>
@@ -744,12 +726,12 @@
       <pre class="lines">
 
 
+34
 35
-36
-37</pre>
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-ensemble/lib/rumale/ensemble/random_forest_regressor.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'rumale-ensemble/lib/rumale/ensemble/vr_trees_regressor.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rng'>rng</span>
   <span class='ivar'>@rng</span>
@@ -830,19 +812,19 @@
       <pre class="lines">
 
 
-129
-130
-131
-132
-133</pre>
+107
+108
+109
+110
+111</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-ensemble/lib/rumale/ensemble/random_forest_regressor.rb', line 129</span>
+      <pre class="code"><span class="info file"># File 'rumale-ensemble/lib/rumale/ensemble/vr_trees_regressor.rb', line 107</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
 
-  <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Int32</span><span class='lbracket'>[</span><span class='op'>*</span><span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_estimators</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='ivar'>@estimators</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_transpose'>transpose</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
+  <span class='kw'>super</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -852,7 +834,7 @@
       <div class="method_details ">
   <h3 class="signature " id="fit-instance_method">
   
-    #<strong>fit</strong>(x, y)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::Ensemble::RandomForestRegressor (class)">RandomForestRegressor</a></span></tt> 
+    #<strong>fit</strong>(x, y)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::Ensemble::VRTreesRegressor (class)">VRTreesRegressor</a></span></tt> 
   
 
   
@@ -910,7 +892,7 @@
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="" title="Rumale::Ensemble::RandomForestRegressor (class)">RandomForestRegressor</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Rumale::Ensemble::VRTreesRegressor (class)">VRTreesRegressor</a></span></tt>)</span>
       
       
       
@@ -929,6 +911,18 @@
       <pre class="lines">
 
 
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
 76
 77
 78
@@ -944,28 +938,10 @@
 88
 89
 90
-91
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109</pre>
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-ensemble/lib/rumale/ensemble/random_forest_regressor.rb', line 76</span>
+      <pre class="code"><span class="info file"># File 'rumale-ensemble/lib/rumale/ensemble/vr_trees_regressor.rb', line 64</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -973,25 +949,19 @@
   <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_sample_size'>check_sample_size</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
 
   <span class='comment'># Initialize some variables.
-</span>  <span class='id identifier rubyid_n_samples'>n_samples</span><span class='comma'>,</span> <span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_features</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_sqrt'>sqrt</span><span class='lparen'>(</span><span class='id identifier rubyid_n_features'>n_features</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span> <span class='kw'>if</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_features</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_features</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_features</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span><span class='comma'>,</span> <span class='id identifier rubyid_n_features'>n_features</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span> <span class='comment'># rubocop:disable Style/ComparableClamp
-</span>  <span class='id identifier rubyid_single_target'>single_target</span> <span class='op'>=</span> <span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+</span>  <span class='id identifier rubyid_n_features'>n_features</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_features</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_n_features'>n_features</span> <span class='kw'>if</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_features</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_features</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_features</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_clamp'>clamp</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='id identifier rubyid_n_features'>n_features</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_sub_rng'>sub_rng</span> <span class='op'>=</span> <span class='ivar'>@rng</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
-  <span class='id identifier rubyid_rngs'>rngs</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_estimators</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='const'>Random</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_sub_rng'>sub_rng</span><span class='period'>.</span><span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Ensemble.html" title="Rumale::Ensemble (module)">Ensemble</a></span></span><span class='op'>::</span><span class='const'>Value</span><span class='op'>::</span><span class='const'>SEED_BASE</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
   <span class='comment'># Construct forest.
-</span>  <span class='ivar'>@estimators</span> <span class='op'>=</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_enable_parallel?'>enable_parallel?</span>
-      <span class='id identifier rubyid_parallel_map'>parallel_map</span><span class='lparen'>(</span><span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_estimators</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span>
-        <span class='id identifier rubyid_bootstrap_ids'>bootstrap_ids</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_n_samples'>n_samples</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_rngs'>rngs</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>0</span><span class='op'>...</span><span class='id identifier rubyid_n_samples'>n_samples</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
-        <span class='id identifier rubyid_plant_tree'>plant_tree</span><span class='lparen'>(</span><span class='id identifier rubyid_rngs'>rngs</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_seed'>seed</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='lbracket'>[</span><span class='id identifier rubyid_bootstrap_ids'>bootstrap_ids</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_single_target'>single_target</span> <span class='op'>?</span> <span class='id identifier rubyid_y'>y</span><span class='lbracket'>[</span><span class='id identifier rubyid_bootstrap_ids'>bootstrap_ids</span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='id identifier rubyid_y'>y</span><span class='lbracket'>[</span><span class='id identifier rubyid_bootstrap_ids'>bootstrap_ids</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-      <span class='kw'>end</span>
-    <span class='kw'>else</span>
-      <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_estimators</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span>
-        <span class='id identifier rubyid_bootstrap_ids'>bootstrap_ids</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_n_samples'>n_samples</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_rngs'>rngs</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>0</span><span class='op'>...</span><span class='id identifier rubyid_n_samples'>n_samples</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
-        <span class='id identifier rubyid_plant_tree'>plant_tree</span><span class='lparen'>(</span><span class='id identifier rubyid_rngs'>rngs</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_seed'>seed</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='lbracket'>[</span><span class='id identifier rubyid_bootstrap_ids'>bootstrap_ids</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_single_target'>single_target</span> <span class='op'>?</span> <span class='id identifier rubyid_y'>y</span><span class='lbracket'>[</span><span class='id identifier rubyid_bootstrap_ids'>bootstrap_ids</span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='id identifier rubyid_y'>y</span><span class='lbracket'>[</span><span class='id identifier rubyid_bootstrap_ids'>bootstrap_ids</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-      <span class='kw'>end</span>
-    <span class='kw'>end</span>
+</span>  <span class='id identifier rubyid_rng_seeds'>rng_seeds</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_estimators</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_sub_rng'>sub_rng</span><span class='period'>.</span><span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Ensemble.html" title="Rumale::Ensemble (module)">Ensemble</a></span></span><span class='op'>::</span><span class='const'>Value</span><span class='op'>::</span><span class='const'>SEED_BASE</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_alpha_ratio'>alpha_ratio</span> <span class='op'>=</span> <span class='float'>0.5</span> <span class='op'>/</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_estimators</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_alphas'>alphas</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_estimators</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_v'>v</span><span class='op'>|</span> <span class='id identifier rubyid_v'>v</span> <span class='op'>*</span> <span class='id identifier rubyid_alpha_ratio'>alpha_ratio</span> <span class='rbrace'>}</span>
+  <span class='ivar'>@estimators</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='id identifier rubyid_enable_parallel?'>enable_parallel?</span>
+                  <span class='id identifier rubyid_parallel_map'>parallel_map</span><span class='lparen'>(</span><span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_estimators</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='id identifier rubyid_plant_tree'>plant_tree</span><span class='lparen'>(</span><span class='id identifier rubyid_alphas'>alphas</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_rng_seeds'>rng_seeds</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+                <span class='kw'>else</span>
+                  <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_estimators</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='id identifier rubyid_plant_tree'>plant_tree</span><span class='lparen'>(</span><span class='id identifier rubyid_alphas'>alphas</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_rng_seeds'>rng_seeds</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+                <span class='kw'>end</span>
   <span class='ivar'>@feature_importances</span> <span class='op'>=</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_enable_parallel?'>enable_parallel?</span>
       <span class='id identifier rubyid_parallel_map'>parallel_map</span><span class='lparen'>(</span><span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_estimators</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='ivar'>@estimators</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_feature_importances'>feature_importances</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span>
@@ -1070,27 +1040,19 @@
       <pre class="lines">
 
 
-115
-116
-117
-118
-119
-120
-121
-122
-123</pre>
+97
+98
+99
+100
+101</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-ensemble/lib/rumale/ensemble/random_forest_regressor.rb', line 115</span>
+      <pre class="code"><span class="info file"># File 'rumale-ensemble/lib/rumale/ensemble/vr_trees_regressor.rb', line 97</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
 
-  <span class='kw'>if</span> <span class='id identifier rubyid_enable_parallel?'>enable_parallel?</span>
-    <span class='id identifier rubyid_parallel_map'>parallel_map</span><span class='lparen'>(</span><span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_estimators</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='ivar'>@estimators</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span> <span class='op'>/</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_estimators</span><span class='rbracket'>]</span>
-  <span class='kw'>else</span>
-    <span class='ivar'>@estimators</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_tree'>tree</span><span class='op'>|</span> <span class='id identifier rubyid_tree'>tree</span><span class='period'>.</span><span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span> <span class='rbrace'>}</span> <span class='op'>/</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:n_estimators</span><span class='rbracket'>]</span>
-  <span class='kw'>end</span>
+  <span class='kw'>super</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1102,7 +1064,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan  2 19:00:56 2025 by
+  Generated on Thu Jan  2 19:00:55 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-3.4.1).
 </div>

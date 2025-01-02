@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: Rumale::Tree::ExtraTreeRegressor
+  Class: Rumale::Tree::VRTreeRegressor
   
     &mdash; Documentation by YARD 0.9.37
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "Rumale::Tree::ExtraTreeRegressor";
+  pathId = "Rumale::Tree::VRTreeRegressor";
   relpath = '../../';
 </script>
 
@@ -34,10 +34,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../../_index.html">Index (E)</a> &raquo;
+    <a href="../../_index.html">Index (V)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Tree.html" title="Rumale::Tree (module)">Tree</a></span></span>
      &raquo; 
-    <span class="title">ExtraTreeRegressor</span>
+    <span class="title">VRTreeRegressor</span>
   
 </div>
 
@@ -57,7 +57,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: Rumale::Tree::ExtraTreeRegressor
+      <div id="content"><h1>Class: Rumale::Tree::VRTreeRegressor
   
   
   
@@ -78,7 +78,7 @@
           
             <li class="next"><span class='object_link'><a href="DecisionTreeRegressor.html" title="Rumale::Tree::DecisionTreeRegressor (class)">DecisionTreeRegressor</a></span></li>
           
-            <li class="next">Rumale::Tree::ExtraTreeRegressor</li>
+            <li class="next">Rumale::Tree::VRTreeRegressor</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -98,7 +98,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>rumale-tree/lib/rumale/tree/extra_tree_regressor.rb</dd>
+    <dd>rumale-tree/lib/rumale/tree/vr_tree_regressor.rb</dd>
   </dl>
   
 </div>
@@ -106,11 +106,11 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>ExtraTreeRegressor is a class that implements extra randomized tree for regression.</p>
+<p>VRTreeRegressor is a class that implements Variable-Random (VR) tree for regression.</p>
 
 <p><strong>Reference</strong></p>
 <ul><li>
-<p>Geurts, P., Ernst, D., and Wehenkel, L., “Extremely randomized trees,” Machine Learning, vol. 63 (1), pp. 3–42, 2006.</p>
+<p>Liu, F. T., Ting, K. M., Yu, Y., and Zhou, Z. H., “Spectrum of Variable-Random Trees,” Journal of Artificial Intelligence Research, vol. 32, pp. 355–384, 2008.</p>
 </li></ul>
 
 
@@ -122,10 +122,10 @@
     <h4 class="tag_title">Examples:</h4>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rumale/tree/extra_tree_regressor</span><span class='tstring_end'>&#39;</span></span>
+      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rumale/tree/vr_tree_regressor</span><span class='tstring_end'>&#39;</span></span>
 
 <span class='id identifier rubyid_estimator'>estimator</span> <span class='op'>=</span>
-  <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Tree.html" title="Rumale::Tree (module)">Tree</a></span></span><span class='op'>::</span><span class='const'>ExtraTreeRegressor</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::Tree::ExtraTreeRegressor#initialize (method)">new</a></span></span><span class='lparen'>(</span>
+  <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Tree.html" title="Rumale::Tree (module)">Tree</a></span></span><span class='op'>::</span><span class='const'>VRTreeRegressor</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::Tree::VRTreeRegressor#initialize (method)">new</a></span></span><span class='lparen'>(</span>
     <span class='label'>max_depth:</span> <span class='int'>3</span><span class='comma'>,</span> <span class='label'>max_leaf_nodes:</span> <span class='int'>10</span><span class='comma'>,</span> <span class='label'>min_samples_leaf:</span> <span class='int'>5</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='int'>1</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_estimator'>estimator</span><span class='period'>.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_training_samples'>training_samples</span><span class='comma'>,</span> <span class='id identifier rubyid_traininig_values'>traininig_values</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_estimator'>estimator</span><span class='period'>.</span><span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_testing_samples'>testing_samples</span><span class='rparen'>)</span></code></pre>
@@ -277,7 +277,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(criterion: &#39;mse&#39;, max_depth: nil, max_leaf_nodes: nil, min_samples_leaf: 1, max_features: nil, random_seed: nil)  &#x21d2; ExtraTreeRegressor </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(criterion: &#39;mse&#39;, alpha: 0.5, max_depth: nil, max_leaf_nodes: nil, min_samples_leaf: 1, max_features: nil, random_seed: nil)  &#x21d2; VRTreeRegressor </a>
     
 
     
@@ -294,7 +294,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Create a new regressor with extra randomized tree algorithm.</p>
+<p>Create a new regressor with variable-random tree algorithm.</p>
 </div></span>
   
 </li>
@@ -349,7 +349,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(criterion: &#39;mse&#39;, max_depth: nil, max_leaf_nodes: nil, min_samples_leaf: 1, max_features: nil, random_seed: nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::Tree::ExtraTreeRegressor (class)">ExtraTreeRegressor</a></span></tt> 
+    #<strong>initialize</strong>(criterion: &#39;mse&#39;, alpha: 0.5, max_depth: nil, max_leaf_nodes: nil, min_samples_leaf: 1, max_features: nil, random_seed: nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Rumale::Tree::VRTreeRegressor (class)">VRTreeRegressor</a></span></tt> 
   
 
   
@@ -358,7 +358,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Create a new regressor with extra randomized tree algorithm.</p>
+<p>Create a new regressor with variable-random tree algorithm.</p>
 
 
   </div>
@@ -387,6 +387,24 @@
   
     <li>
       
+        <span class='name'>alpha</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>0.5</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The probability of choosing a deterministic or random spliting point. If 1.0 is given, the tree is the same as the normal decision tree.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
         <span class='name'>max_depth</span>
       
       
@@ -398,7 +416,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The maximum depth of the tree. If nil is given, extra tree grows without concern for depth.</p>
+<p>The maximum depth of the tree. If nil is given, variable-random tree grows without concern for depth.</p>
 </div>
       
     </li>
@@ -416,7 +434,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The maximum number of leaves on extra tree. If nil is given, number of leaves is not limited.</p>
+<p>The maximum number of leaves on variable-random tree. If nil is given, number of leaves is not limited.</p>
 </div>
       
     </li>
@@ -484,17 +502,21 @@
       <pre class="lines">
 
 
-49
-50
 51
-52</pre>
+52
+53
+54
+55
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-tree/lib/rumale/tree/extra_tree_regressor.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'rumale-tree/lib/rumale/tree/vr_tree_regressor.rb', line 51</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>criterion:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mse</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>max_depth:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>max_leaf_nodes:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>min_samples_leaf:</span> <span class='int'>1</span><span class='comma'>,</span> <span class='label'>max_features:</span> <span class='kw'>nil</span><span class='comma'>,</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>criterion:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mse</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>alpha:</span> <span class='float'>0.5</span><span class='comma'>,</span> <span class='label'>max_depth:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>max_leaf_nodes:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>min_samples_leaf:</span> <span class='int'>1</span><span class='comma'>,</span> <span class='label'>max_features:</span> <span class='kw'>nil</span><span class='comma'>,</span>
                <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='kw'>super</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='label'>criterion:</span> <span class='id identifier rubyid_criterion'>criterion</span><span class='comma'>,</span> <span class='label'>max_depth:</span> <span class='id identifier rubyid_max_depth'>max_depth</span><span class='comma'>,</span> <span class='label'>max_leaf_nodes:</span> <span class='id identifier rubyid_max_leaf_nodes'>max_leaf_nodes</span><span class='comma'>,</span> <span class='label'>min_samples_leaf:</span> <span class='id identifier rubyid_min_samples_leaf'>min_samples_leaf</span><span class='comma'>,</span>
+        <span class='label'>max_features:</span> <span class='id identifier rubyid_max_features'>max_features</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='id identifier rubyid_random_seed'>random_seed</span><span class='rparen'>)</span>
+  <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:alpha</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_alpha'>alpha</span><span class='period'>.</span><span class='id identifier rubyid_clamp'>clamp</span><span class='lparen'>(</span><span class='float'>0.0</span><span class='comma'>,</span> <span class='float'>1.0</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -557,7 +579,7 @@
 25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-tree/lib/rumale/tree/extra_tree_regressor.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'rumale-tree/lib/rumale/tree/vr_tree_regressor.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_feature_importances'>feature_importances</span>
   <span class='ivar'>@feature_importances</span>
@@ -618,7 +640,7 @@
 37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-tree/lib/rumale/tree/extra_tree_regressor.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'rumale-tree/lib/rumale/tree/vr_tree_regressor.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_leaf_values'>leaf_values</span>
   <span class='ivar'>@leaf_values</span>
@@ -674,7 +696,7 @@
 33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-tree/lib/rumale/tree/extra_tree_regressor.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'rumale-tree/lib/rumale/tree/vr_tree_regressor.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rng'>rng</span>
   <span class='ivar'>@rng</span>
@@ -730,7 +752,7 @@
 29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-tree/lib/rumale/tree/extra_tree_regressor.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'rumale-tree/lib/rumale/tree/vr_tree_regressor.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tree'>tree</span>
   <span class='ivar'>@tree</span>
