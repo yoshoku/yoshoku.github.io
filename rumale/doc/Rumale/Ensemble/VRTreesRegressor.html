@@ -120,13 +120,13 @@
     <h4 class="tag_title">Examples:</h4>
     
       
-      <pre class="example code"><code>@require &#39;rumale/ensemble/vr_trees_regressor&#39;
+      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rumale/ensemble/vr_trees_regressor</span><span class='tstring_end'>&#39;</span></span>
 
-estimator =
-  Rumale::Ensemble::VRTreesRegressor.new(
-    n_estimators: 10, criterion: &#39;mse&#39;, max_depth: 3, max_leaf_nodes: 10, min_samples_leaf: 5, random_seed: 1)
-estimator.fit(training_samples, traininig_values)
-results = estimator.predict(testing_samples)</code></pre>
+<span class='id identifier rubyid_estimator'>estimator</span> <span class='op'>=</span>
+  <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Ensemble.html" title="Rumale::Ensemble (module)">Ensemble</a></span></span><span class='op'>::</span><span class='const'>VRTreesRegressor</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::Ensemble::VRTreesRegressor#initialize (method)">new</a></span></span><span class='lparen'>(</span>
+    <span class='label'>n_estimators:</span> <span class='int'>10</span><span class='comma'>,</span> <span class='label'>criterion:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mse</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>max_depth:</span> <span class='int'>3</span><span class='comma'>,</span> <span class='label'>max_leaf_nodes:</span> <span class='int'>10</span><span class='comma'>,</span> <span class='label'>min_samples_leaf:</span> <span class='int'>5</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='int'>1</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_estimator'>estimator</span><span class='period'>.</span><span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_training_samples'>training_samples</span><span class='comma'>,</span> <span class='id identifier rubyid_traininig_values'>traininig_values</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_estimator'>estimator</span><span class='period'>.</span><span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_testing_samples'>testing_samples</span><span class='rparen'>)</span></code></pre>
     
   </div>
 
@@ -1064,7 +1064,7 @@ results = estimator.predict(testing_samples)</code></pre>
 </div>
 
       <div id="footer">
-  Generated on Thu Jan  2 19:00:55 2025 by
+  Generated on Thu Jan  2 19:28:29 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-3.4.1).
 </div>
