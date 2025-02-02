@@ -6,7 +6,7 @@
 <title>
   File: README
   
-    &mdash; Documentation by YARD 0.9.28
+    &mdash; Documentation by YARD 0.9.37
   
 </title>
 
@@ -19,8 +19,6 @@
   relpath = '';
 </script>
 
-
-  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
 
   <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
 
@@ -106,39 +104,19 @@ $ ./llama-quantize ./models/open_llama_7b/ggml-model-f16.gguf ./models/open_llam
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>llama_cpp</span><span class='tstring_end'>&#39;</span></span>
 
-<span class='id identifier rubyid_model_params'>model_params</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="LLaMACpp.html" title="LLaMACpp (module)">LLaMACpp</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLaMACpp/ModelParams.html" title="LLaMACpp::ModelParams (class)">ModelParams</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
-<span class='id identifier rubyid_model'>model</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="LLaMACpp.html" title="LLaMACpp (module)">LLaMACpp</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLaMACpp/Model.html" title="LLaMACpp::Model (class)">Model</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLaMACpp/Model.html#initialize-instance_method" title="LLaMACpp::Model#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>model_path:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/home/user/llama.cpp/models/open_llama_7b/ggml-model-q4_0.bin</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_model_params'>model_params</span><span class='rparen'>)</span>
+<span class='const'><span class='object_link'><a href="LlamaCpp.html" title="LlamaCpp (module)">LlamaCpp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_ggml_backend_load_all'><span class='object_link'><a href="LlamaCpp.html#ggml_backend_load_all-class_method" title="LlamaCpp.ggml_backend_load_all (method)">ggml_backend_load_all</a></span></span>
 
-<span class='id identifier rubyid_context_params'>context_params</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="LLaMACpp.html" title="LLaMACpp (module)">LLaMACpp</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLaMACpp/ContextParams.html" title="LLaMACpp::ContextParams (class)">ContextParams</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
-<span class='id identifier rubyid_context_params'>context_params</span><span class='period'>.</span><span class='id identifier rubyid_seed'>seed</span> <span class='op'>=</span> <span class='int'>42</span>
-<span class='id identifier rubyid_context'>context</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="LLaMACpp.html" title="LLaMACpp (module)">LLaMACpp</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLaMACpp/Context.html" title="LLaMACpp::Context (class)">Context</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLaMACpp/Context.html#initialize-instance_method" title="LLaMACpp::Context#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>model:</span> <span class='id identifier rubyid_model'>model</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_context_params'>context_params</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_model_params'>model_params</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="LlamaCpp.html" title="LlamaCpp (module)">LlamaCpp</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LlamaCpp/LlamaModelParams.html" title="LlamaCpp::LlamaModelParams (class)">LlamaModelParams</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+<span class='id identifier rubyid_model'>model</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="LlamaCpp.html" title="LlamaCpp (module)">LlamaCpp</a></span></span><span class='op'>::</span><span class='id identifier rubyid_llama_model_load_from_file'><span class='object_link'><a href="LlamaCpp.html#llama_model_load_from_file-class_method" title="LlamaCpp.llama_model_load_from_file (method)">llama_model_load_from_file</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/home/user/llama.cpp/models/open_llama_7b/ggml-model-q4_0.bin</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_model_params'>model_params</span><span class='rparen'>)</span>
 
-<span class='id identifier rubyid_puts'>puts</span> <span class='const'><span class='object_link'><a href="LLaMACpp.html" title="LLaMACpp (module)">LLaMACpp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_generate'><span class='object_link'><a href="LLaMACpp.html#generate-class_method" title="LLaMACpp.generate (method)">generate</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_context'>context</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Hello, World.</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_context_params'>context_params</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="LlamaCpp.html" title="LlamaCpp (module)">LlamaCpp</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LlamaCpp/LlamaContextParams.html" title="LlamaCpp::LlamaContextParams (class)">LlamaContextParams</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+<span class='id identifier rubyid_context'>context</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="LlamaCpp.html" title="LlamaCpp (module)">LlamaCpp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_llama_init_from_model'><span class='object_link'><a href="LlamaCpp.html#llama_init_from_model-class_method" title="LlamaCpp.llama_init_from_model (method)">llama_init_from_model</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_model'>model</span><span class='comma'>,</span> <span class='id identifier rubyid_context_params'>context_params</span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_puts'>puts</span> <span class='const'><span class='object_link'><a href="top-level-namespace.html#LLaMACpp-constant" title="LLaMACpp (constant)">LLaMACpp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_generate'>generate</span><span class='lparen'>(</span><span class='id identifier rubyid_context'>context</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Hello, World.</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+
+<span class='const'><span class='object_link'><a href="LlamaCpp.html" title="LlamaCpp (module)">LlamaCpp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_llama_free'><span class='object_link'><a href="LlamaCpp.html#llama_free-class_method" title="LlamaCpp.llama_free (method)">llama_free</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_context'>context</span><span class='rparen'>)</span>
+<span class='const'><span class='object_link'><a href="LlamaCpp.html" title="LlamaCpp (module)">LlamaCpp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_llama_model_free'><span class='object_link'><a href="LlamaCpp.html#llama_model_free-class_method" title="LlamaCpp.llama_model_free (method)">llama_model_free</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_model'>model</span><span class='rparen'>)</span>
 </code></pre>
-
-<h2 id="label-Examples">Examples</h2>
-
-<p>There is a sample program in the <a href="https://github.com/yoshoku/llama_cpp.rb/tree/main/examples">examples</a> directory that allow interactvie communication like ChatGPT.</p>
-
-<pre class="code ruby"><code class="ruby">$ git clone https://github.com/yoshoku/llama_cpp.rb.git
-$ cd examples
-$ bundle install
-$ ruby chat.rb --model /home/user/llama.cpp/models/open_llama_7b/ggml-model-q4_0.bin --seed 2023
-...
-User: Who is the originator of the Ruby programming language?
-Bob: The originator of the Ruby programming language is Mr. Yukihiro Matsumoto.
-User:
-</code></pre>
-
-<p><img src="https://github.com/yoshoku/llama_cpp.rb/assets/5562409/374ae3d8-63a6-498f-ae6e-5552b464bdda"></p>
-
-<p>Japanse chat is also possible using the <a href="https://huggingface.co/CRD716/ggml-vicuna-1.1-quantized">Vicuna model on Hugging Face</a>.</p>
-
-<pre class="code ruby"><code class="ruby">$ wget https://huggingface.co/CRD716/ggml-vicuna-1.1-quantized/resolve/main/ggml-vicuna-7b-1.1-q4_0.bin
-$ ruby chat.rb --model ggml-vicuna-7b-1.1-q4_0.bin --file prompt_jp.txt
-</code></pre>
-
-<p><img src="https://github.com/yoshoku/llama_cpp.rb/assets/5562409/526ff18c-2bb2-4b06-8933-f72960024033"></p>
 
 <h2 id="label-Contributing">Contributing</h2>
 
@@ -154,9 +132,9 @@ $ ruby chat.rb --model ggml-vicuna-7b-1.1-q4_0.bin --file prompt_jp.txt
 </div></div>
 
       <div id="footer">
-  Generated on Sun Sep  8 14:45:27 2024 by
+  Generated on Sun Feb  2 15:37:57 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-3.3.2).
+  0.9.37 (ruby-3.4.1).
 </div>
 
     </div>

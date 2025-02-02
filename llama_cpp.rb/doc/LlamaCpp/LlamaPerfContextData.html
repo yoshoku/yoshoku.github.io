@@ -4,9 +4,9 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: LLaMACpp::Timings
+  Class: LlamaCpp::LlamaPerfContextData
   
-    &mdash; Documentation by YARD 0.9.28
+    &mdash; Documentation by YARD 0.9.37
   
 </title>
 
@@ -15,12 +15,10 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "LLaMACpp::Timings";
+  pathId = "LlamaCpp::LlamaPerfContextData";
   relpath = '../';
 </script>
 
-
-  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
 
   <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
 
@@ -36,10 +34,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../_index.html">Index (T)</a> &raquo;
-    <span class='title'><span class='object_link'><a href="../LLaMACpp.html" title="LLaMACpp (module)">LLaMACpp</a></span></span>
+    <a href="../_index.html">Index (L)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../LlamaCpp.html" title="LlamaCpp (module)">LlamaCpp</a></span></span>
      &raquo; 
-    <span class="title">Timings</span>
+    <span class="title">LlamaPerfContextData</span>
   
 </div>
 
@@ -59,7 +57,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: LLaMACpp::Timings
+      <div id="content"><h1>Class: LlamaCpp::LlamaPerfContextData
   
   
   
@@ -74,7 +72,7 @@
         <ul class="fullTree">
           <li>Object</li>
           
-            <li class="next">LLaMACpp::Timings</li>
+            <li class="next">LlamaCpp::LlamaPerfContextData</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -94,7 +92,9 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>ext/llama_cpp/dummy.rb</dd>
+    <dd>ext/llama_cpp/llama_cpp.c<span class="defines">,<br />
+  ext/llama_cpp/llama_cpp.c</span>
+</dd>
   </dl>
   
 </div>
@@ -102,7 +102,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Class for timings</p>
+<p>“struct llama_perf_context_data” wrapper class</p>
 
 
   </div>
@@ -142,9 +142,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the number of evaluations.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -166,57 +164,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the number of prompt evaluations.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#n_sample-instance_method" title="#n_sample (instance method)">#<strong>n_sample</strong>  &#x21d2; Integer </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the number of samples.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#t_end_ms-instance_method" title="#t_end_ms (instance method)">#<strong>t_end_ms</strong>  &#x21d2; Float </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the time to end.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -238,9 +186,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the time to evaluate.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -262,9 +208,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the time to load model.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -286,33 +230,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the time to evaluate prompt.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#t_sample_ms-instance_method" title="#t_sample_ms (instance method)">#<strong>t_sample_ms</strong>  &#x21d2; Float </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the sampling time.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -334,9 +252,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the time to start.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -362,8 +278,6 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the number of evaluations.</p>
-
 
   </div>
 </div>
@@ -389,12 +303,18 @@
       <pre class="lines">
 
 
-1194</pre>
+3647
+3648
+3649
+3650</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1194</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3647</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_n_eval'>n_eval</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+static VALUE llama_perf_context_data_get_n_eval(VALUE self) {
+  struct llama_perf_context_data* data = get_llama_perf_context_data(self);
+  return INT2NUM(data-&gt;n_eval);
+}</pre>
     </td>
   </tr>
 </table>
@@ -412,8 +332,6 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the number of prompt evaluations.</p>
-
 
   </div>
 </div>
@@ -439,112 +357,18 @@
       <pre class="lines">
 
 
-1190</pre>
+3642
+3643
+3644
+3645</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1190</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3642</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_n_p_eval'>n_p_eval</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="n_sample-instance_method">
-  
-    #<strong>n_sample</strong>  &#x21d2; <tt>Integer</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Returns the number of samples.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Integer</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-1186</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1186</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_n_sample'>n_sample</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="t_end_ms-instance_method">
-  
-    #<strong>t_end_ms</strong>  &#x21d2; <tt>Float</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Returns the time to end.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Float</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-1166</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1166</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_t_end_ms'>t_end_ms</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+static VALUE llama_perf_context_data_get_n_p_eval(VALUE self) {
+  struct llama_perf_context_data* data = get_llama_perf_context_data(self);
+  return INT2NUM(data-&gt;n_p_eval);
+}</pre>
     </td>
   </tr>
 </table>
@@ -562,8 +386,6 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the time to evaluate.</p>
-
 
   </div>
 </div>
@@ -589,12 +411,18 @@
       <pre class="lines">
 
 
-1182</pre>
+3637
+3638
+3639
+3640</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1182</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3637</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_t_eval_ms'>t_eval_ms</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+static VALUE llama_perf_context_data_get_t_eval_ms(VALUE self) {
+  struct llama_perf_context_data* data = get_llama_perf_context_data(self);
+  return DBL2NUM(data-&gt;t_eval_ms);
+}</pre>
     </td>
   </tr>
 </table>
@@ -612,8 +440,6 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the time to load model.</p>
-
 
   </div>
 </div>
@@ -639,12 +465,18 @@
       <pre class="lines">
 
 
-1170</pre>
+3627
+3628
+3629
+3630</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1170</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3627</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_t_load_ms'>t_load_ms</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+static VALUE llama_perf_context_data_get_t_load_ms(VALUE self) {
+  struct llama_perf_context_data* data = get_llama_perf_context_data(self);
+  return DBL2NUM(data-&gt;t_load_ms);
+}</pre>
     </td>
   </tr>
 </table>
@@ -662,8 +494,6 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the time to evaluate prompt.</p>
-
 
   </div>
 </div>
@@ -689,62 +519,18 @@
       <pre class="lines">
 
 
-1178</pre>
+3632
+3633
+3634
+3635</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1178</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3632</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_t_p_eval_ms'>t_p_eval_ms</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="t_sample_ms-instance_method">
-  
-    #<strong>t_sample_ms</strong>  &#x21d2; <tt>Float</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Returns the sampling time.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Float</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-1174</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1174</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_t_sample_ms'>t_sample_ms</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+static VALUE llama_perf_context_data_get_t_p_eval_ms(VALUE self) {
+  struct llama_perf_context_data* data = get_llama_perf_context_data(self);
+  return DBL2NUM(data-&gt;t_p_eval_ms);
+}</pre>
     </td>
   </tr>
 </table>
@@ -762,8 +548,6 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the time to start.</p>
-
 
   </div>
 </div>
@@ -789,12 +573,18 @@
       <pre class="lines">
 
 
-1162</pre>
+3622
+3623
+3624
+3625</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 1162</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3622</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_t_start_ms'>t_start_ms</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+static VALUE llama_perf_context_data_get_t_start_ms(VALUE self) {
+  struct llama_perf_context_data* data = get_llama_perf_context_data(self);
+  return DBL2NUM(data-&gt;t_start_ms);
+}</pre>
     </td>
   </tr>
 </table>
@@ -805,9 +595,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Sep  8 14:45:27 2024 by
+  Generated on Sun Feb  2 15:37:58 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-3.3.2).
+  0.9.37 (ruby-3.4.1).
 </div>
 
     </div>

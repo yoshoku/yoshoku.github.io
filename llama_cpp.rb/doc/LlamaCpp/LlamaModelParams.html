@@ -4,9 +4,9 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: LLaMACpp::ModelParams
+  Class: LlamaCpp::LlamaModelParams
   
-    &mdash; Documentation by YARD 0.9.28
+    &mdash; Documentation by YARD 0.9.37
   
 </title>
 
@@ -15,12 +15,10 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "LLaMACpp::ModelParams";
+  pathId = "LlamaCpp::LlamaModelParams";
   relpath = '../';
 </script>
 
-
-  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
 
   <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
 
@@ -36,10 +34,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../_index.html">Index (M)</a> &raquo;
-    <span class='title'><span class='object_link'><a href="../LLaMACpp.html" title="LLaMACpp (module)">LLaMACpp</a></span></span>
+    <a href="../_index.html">Index (L)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../LlamaCpp.html" title="LlamaCpp (module)">LlamaCpp</a></span></span>
      &raquo; 
-    <span class="title">ModelParams</span>
+    <span class="title">LlamaModelParams</span>
   
 </div>
 
@@ -59,7 +57,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: LLaMACpp::ModelParams
+      <div id="content"><h1>Class: LlamaCpp::LlamaModelParams
   
   
   
@@ -74,7 +72,7 @@
         <ul class="fullTree">
           <li>Object</li>
           
-            <li class="next">LLaMACpp::ModelParams</li>
+            <li class="next">LlamaCpp::LlamaModelParams</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -94,7 +92,9 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>ext/llama_cpp/dummy.rb</dd>
+    <dd>ext/llama_cpp/llama_cpp.c<span class="defines">,<br />
+  ext/llama_cpp/llama_cpp.c</span>
+</dd>
   </dl>
   
 </div>
@@ -102,7 +102,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Class for model parameters.</p>
+<p>“struct llama_model_params” wrapper class</p>
 
 
   </div>
@@ -142,9 +142,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the flag to validate model tensor data.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -152,7 +150,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#check_tensors=-instance_method" title="#check_tensors= (instance method)">#<strong>check_tensors=</strong>(flag)  &#x21d2; Object </a>
+      <a href="#check_tensors=-instance_method" title="#check_tensors= (instance method)">#<strong>check_tensors=</strong>(check_tensors)  &#x21d2; Boolean </a>
     
 
     
@@ -166,9 +164,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Sets the flag to validate model tensor data.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -190,9 +186,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the GPU that is used.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -200,7 +194,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#main_gpu=-instance_method" title="#main_gpu= (instance method)">#<strong>main_gpu=</strong>(main_gpu)  &#x21d2; Object </a>
+      <a href="#main_gpu=-instance_method" title="#main_gpu= (instance method)">#<strong>main_gpu=</strong>(main_gpu)  &#x21d2; Integer </a>
     
 
     
@@ -214,9 +208,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Sets the GPU that is used.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -238,9 +230,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the number of layers to stor in VRAM.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -248,7 +238,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#n_gpu_layers=-instance_method" title="#n_gpu_layers= (instance method)">#<strong>n_gpu_layers=</strong>(n_gpu_layers)  &#x21d2; Object </a>
+      <a href="#n_gpu_layers=-instance_method" title="#n_gpu_layers= (instance method)">#<strong>n_gpu_layers=</strong>(n_gpu_layers)  &#x21d2; Integer </a>
     
 
     
@@ -262,9 +252,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Sets the number of layers to stor in VRAM.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -286,9 +274,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Return the split mode.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -296,7 +282,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#split_mode=-instance_method" title="#split_mode= (instance method)">#<strong>split_mode=</strong>(split_mode)  &#x21d2; Object </a>
+      <a href="#split_mode=-instance_method" title="#split_mode= (instance method)">#<strong>split_mode=</strong>(split_mode)  &#x21d2; Integer </a>
     
 
     
@@ -310,9 +296,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Sets the split mode.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -334,9 +318,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the how layers are split across multi-GPUs.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -358,9 +340,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the flag to force system to keep model in memory.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -368,7 +348,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#use_mlock=-instance_method" title="#use_mlock= (instance method)">#<strong>use_mlock=</strong>(flag)  &#x21d2; Object </a>
+      <a href="#use_mlock=-instance_method" title="#use_mlock= (instance method)">#<strong>use_mlock=</strong>(use_mlock)  &#x21d2; Boolean </a>
     
 
     
@@ -382,9 +362,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Sets the flag to force system to keep model in memory.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -406,9 +384,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the flag to use mmap.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -416,7 +392,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#use_mmap=-instance_method" title="#use_mmap= (instance method)">#<strong>use_mmap=</strong>(flag)  &#x21d2; Object </a>
+      <a href="#use_mmap=-instance_method" title="#use_mmap= (instance method)">#<strong>use_mmap=</strong>(use_mmap)  &#x21d2; Boolean </a>
     
 
     
@@ -430,9 +406,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Sets the flag to use mmap.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -454,9 +428,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the flag to load only vocabulary.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -464,7 +436,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#vocab_only=-instance_method" title="#vocab_only= (instance method)">#<strong>vocab_only=</strong>(flag)  &#x21d2; Object </a>
+      <a href="#vocab_only=-instance_method" title="#vocab_only= (instance method)">#<strong>vocab_only=</strong>(vocab_only)  &#x21d2; Boolean </a>
     
 
     
@@ -478,9 +450,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Sets the flag to load only vocabulary.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -506,8 +476,6 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the flag to validate model tensor data.</p>
-
 
   </div>
 </div>
@@ -533,12 +501,18 @@
       <pre class="lines">
 
 
-721</pre>
+477
+478
+479
+480</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 721</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 477</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_check_tensors'>check_tensors</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+static VALUE llama_model_params_get_check_tensors(VALUE self) {
+  struct llama_model_params* data = get_llama_model_params(self);
+  return data-&gt;check_tensors ? Qtrue : Qfalse;
+}</pre>
     </td>
   </tr>
 </table>
@@ -547,7 +521,7 @@
       <div class="method_details ">
   <h3 class="signature " id="check_tensors=-instance_method">
   
-    #<strong>check_tensors=</strong>(flag)  &#x21d2; <tt>Object</tt> 
+    #<strong>check_tensors=</strong>(check_tensors)  &#x21d2; <tt>Boolean</tt> 
   
 
   
@@ -556,8 +530,6 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Sets the flag to validate model tensor data.</p>
-
 
   </div>
 </div>
@@ -567,7 +539,7 @@
   
     <li>
       
-        <span class='name'>flag</span>
+        <span class='name'>check_tensors</span>
       
       
         <span class='type'>(<tt>Boolean</tt>)</span>
@@ -578,6 +550,19 @@
   
 </ul>
 
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -585,12 +570,20 @@
       <pre class="lines">
 
 
-717</pre>
+482
+483
+484
+485
+486</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 717</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 482</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_check_tensors='>check_tensors=</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+static VALUE llama_model_params_set_check_tensors(VALUE self, VALUE check_tensors) {
+  struct llama_model_params* data = get_llama_model_params(self);
+  data-&gt;check_tensors = RTEST(check_tensors) ? true : false;
+  return check_tensors;
+}</pre>
     </td>
   </tr>
 </table>
@@ -608,8 +601,6 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the GPU that is used.</p>
-
 
   </div>
 </div>
@@ -635,12 +626,18 @@
       <pre class="lines">
 
 
-685</pre>
+418
+419
+420
+421</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 685</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 418</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_main_gpu'>main_gpu</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+static VALUE llama_model_params_get_main_gpu(VALUE self) {
+  struct llama_model_params* data = get_llama_model_params(self);
+  return INT2NUM(data-&gt;main_gpu);
+}</pre>
     </td>
   </tr>
 </table>
@@ -649,7 +646,7 @@
       <div class="method_details ">
   <h3 class="signature " id="main_gpu=-instance_method">
   
-    #<strong>main_gpu=</strong>(main_gpu)  &#x21d2; <tt>Object</tt> 
+    #<strong>main_gpu=</strong>(main_gpu)  &#x21d2; <tt>Integer</tt> 
   
 
   
@@ -658,8 +655,6 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Sets the GPU that is used.</p>
-
 
   </div>
 </div>
@@ -680,6 +675,19 @@
   
 </ul>
 
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -687,12 +695,20 @@
       <pre class="lines">
 
 
-681</pre>
+423
+424
+425
+426
+427</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 681</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 423</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_main_gpu='>main_gpu=</span><span class='lparen'>(</span><span class='id identifier rubyid_main_gpu'>main_gpu</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+static VALUE llama_model_params_set_main_gpu(VALUE self, VALUE main_gpu) {
+  struct llama_model_params* data = get_llama_model_params(self);
+  data-&gt;main_gpu = NUM2INT(main_gpu);
+  return main_gpu;
+}</pre>
     </td>
   </tr>
 </table>
@@ -710,8 +726,6 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the number of layers to stor in VRAM.</p>
-
 
   </div>
 </div>
@@ -737,12 +751,18 @@
       <pre class="lines">
 
 
-669</pre>
+396
+397
+398
+399</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 669</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 396</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_n_gpu_layers'>n_gpu_layers</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+static VALUE llama_model_params_get_n_gpu_layers(VALUE self) {
+  struct llama_model_params* data = get_llama_model_params(self);
+  return INT2NUM(data-&gt;n_gpu_layers);
+}</pre>
     </td>
   </tr>
 </table>
@@ -751,7 +771,7 @@
       <div class="method_details ">
   <h3 class="signature " id="n_gpu_layers=-instance_method">
   
-    #<strong>n_gpu_layers=</strong>(n_gpu_layers)  &#x21d2; <tt>Object</tt> 
+    #<strong>n_gpu_layers=</strong>(n_gpu_layers)  &#x21d2; <tt>Integer</tt> 
   
 
   
@@ -760,8 +780,6 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Sets the number of layers to stor in VRAM.</p>
-
 
   </div>
 </div>
@@ -782,6 +800,19 @@
   
 </ul>
 
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -789,12 +820,20 @@
       <pre class="lines">
 
 
-665</pre>
+401
+402
+403
+404
+405</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 665</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 401</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_n_gpu_layers='>n_gpu_layers=</span><span class='lparen'>(</span><span class='id identifier rubyid_n_gpu_layers'>n_gpu_layers</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+static VALUE llama_model_params_set_n_gpu_layers(VALUE self, VALUE n_gpu_layers) {
+  struct llama_model_params* data = get_llama_model_params(self);
+  data-&gt;n_gpu_layers = NUM2INT(n_gpu_layers);
+  return n_gpu_layers;
+}</pre>
     </td>
   </tr>
 </table>
@@ -812,8 +851,6 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Return the split mode.</p>
-
 
   </div>
 </div>
@@ -839,12 +876,18 @@
       <pre class="lines">
 
 
-677</pre>
+407
+408
+409
+410</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 677</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 407</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_split_mode'>split_mode</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+static VALUE llama_model_params_get_split_mode(VALUE self) {
+  struct llama_model_params* data = get_llama_model_params(self);
+  return INT2NUM(data-&gt;split_mode);
+}</pre>
     </td>
   </tr>
 </table>
@@ -853,7 +896,7 @@
       <div class="method_details ">
   <h3 class="signature " id="split_mode=-instance_method">
   
-    #<strong>split_mode=</strong>(split_mode)  &#x21d2; <tt>Object</tt> 
+    #<strong>split_mode=</strong>(split_mode)  &#x21d2; <tt>Integer</tt> 
   
 
   
@@ -862,8 +905,6 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Sets the split mode.</p>
-
 
   </div>
 </div>
@@ -884,6 +925,19 @@
   
 </ul>
 
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -891,12 +945,20 @@
       <pre class="lines">
 
 
-673</pre>
+412
+413
+414
+415
+416</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 673</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 412</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_split_mode='>split_mode=</span><span class='lparen'>(</span><span class='id identifier rubyid_split_mode'>split_mode</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+static VALUE llama_model_params_set_split_mode(VALUE self, VALUE split_mode) {
+  struct llama_model_params* data = get_llama_model_params(self);
+  data-&gt;split_mode = (enum llama_split_mode)NUM2INT(split_mode);
+  return split_mode;
+}</pre>
     </td>
   </tr>
 </table>
@@ -914,8 +976,6 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the how layers are split across multi-GPUs.</p>
-
 
   </div>
 </div>
@@ -941,12 +1001,38 @@
       <pre class="lines">
 
 
-689</pre>
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 689</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 429</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_tensor_split'>tensor_split</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+static VALUE llama_model_params_get_tensor_split(VALUE self) {
+  if (llama_max_devices() &lt; 1) {
+    return rb_ary_new();
+  }
+  struct llama_model_params* data = get_llama_model_params(self);
+  if (data-&gt;tensor_split == NULL) {
+    return rb_ary_new();
+  }
+  VALUE ret = rb_ary_new2(llama_max_devices());
+  for (size_t i = 0; i &lt; llama_max_devices(); i++) {
+    rb_ary_store(ret, i, DBL2NUM(data-&gt;tensor_split[i]));
+  }
+  return ret;
+}</pre>
     </td>
   </tr>
 </table>
@@ -964,8 +1050,6 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the flag to force system to keep model in memory.</p>
-
 
   </div>
 </div>
@@ -991,12 +1075,18 @@
       <pre class="lines">
 
 
-713</pre>
+466
+467
+468
+469</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 713</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 466</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_use_mlock'>use_mlock</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+static VALUE llama_model_params_get_use_mlock(VALUE self) {
+  struct llama_model_params* data = get_llama_model_params(self);
+  return data-&gt;use_mlock ? Qtrue : Qfalse;
+}</pre>
     </td>
   </tr>
 </table>
@@ -1005,7 +1095,7 @@
       <div class="method_details ">
   <h3 class="signature " id="use_mlock=-instance_method">
   
-    #<strong>use_mlock=</strong>(flag)  &#x21d2; <tt>Object</tt> 
+    #<strong>use_mlock=</strong>(use_mlock)  &#x21d2; <tt>Boolean</tt> 
   
 
   
@@ -1014,8 +1104,6 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Sets the flag to force system to keep model in memory.</p>
-
 
   </div>
 </div>
@@ -1025,7 +1113,7 @@
   
     <li>
       
-        <span class='name'>flag</span>
+        <span class='name'>use_mlock</span>
       
       
         <span class='type'>(<tt>Boolean</tt>)</span>
@@ -1036,6 +1124,19 @@
   
 </ul>
 
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -1043,12 +1144,20 @@
       <pre class="lines">
 
 
-709</pre>
+471
+472
+473
+474
+475</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 709</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 471</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_use_mlock='>use_mlock=</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+static VALUE llama_model_params_set_use_mlock(VALUE self, VALUE use_mlock) {
+  struct llama_model_params* data = get_llama_model_params(self);
+  data-&gt;use_mlock = RTEST(use_mlock) ? true : false;
+  return use_mlock;
+}</pre>
     </td>
   </tr>
 </table>
@@ -1066,8 +1175,6 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the flag to use mmap.</p>
-
 
   </div>
 </div>
@@ -1093,12 +1200,18 @@
       <pre class="lines">
 
 
-705</pre>
+455
+456
+457
+458</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 705</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 455</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_use_mmap'>use_mmap</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+static VALUE llama_model_params_get_use_mmap(VALUE self) {
+  struct llama_model_params* data = get_llama_model_params(self);
+  return data-&gt;use_mmap ? Qtrue : Qfalse;
+}</pre>
     </td>
   </tr>
 </table>
@@ -1107,7 +1220,7 @@
       <div class="method_details ">
   <h3 class="signature " id="use_mmap=-instance_method">
   
-    #<strong>use_mmap=</strong>(flag)  &#x21d2; <tt>Object</tt> 
+    #<strong>use_mmap=</strong>(use_mmap)  &#x21d2; <tt>Boolean</tt> 
   
 
   
@@ -1116,8 +1229,6 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Sets the flag to use mmap.</p>
-
 
   </div>
 </div>
@@ -1127,7 +1238,7 @@
   
     <li>
       
-        <span class='name'>flag</span>
+        <span class='name'>use_mmap</span>
       
       
         <span class='type'>(<tt>Boolean</tt>)</span>
@@ -1138,6 +1249,19 @@
   
 </ul>
 
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -1145,12 +1269,20 @@
       <pre class="lines">
 
 
-701</pre>
+460
+461
+462
+463
+464</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 701</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 460</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_use_mmap='>use_mmap=</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+static VALUE llama_model_params_set_use_mmap(VALUE self, VALUE use_mmap) {
+  struct llama_model_params* data = get_llama_model_params(self);
+  data-&gt;use_mmap = RTEST(use_mmap) ? true : false;
+  return use_mmap;
+}</pre>
     </td>
   </tr>
 </table>
@@ -1168,8 +1300,6 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the flag to load only vocabulary.</p>
-
 
   </div>
 </div>
@@ -1195,12 +1325,18 @@
       <pre class="lines">
 
 
-697</pre>
+444
+445
+446
+447</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 697</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 444</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_vocab_only'>vocab_only</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+static VALUE llama_model_params_get_vocab_only(VALUE self) {
+  struct llama_model_params* data = get_llama_model_params(self);
+  return data-&gt;vocab_only ? Qtrue : Qfalse;
+}</pre>
     </td>
   </tr>
 </table>
@@ -1209,7 +1345,7 @@
       <div class="method_details ">
   <h3 class="signature " id="vocab_only=-instance_method">
   
-    #<strong>vocab_only=</strong>(flag)  &#x21d2; <tt>Object</tt> 
+    #<strong>vocab_only=</strong>(vocab_only)  &#x21d2; <tt>Boolean</tt> 
   
 
   
@@ -1218,8 +1354,6 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Sets the flag to load only vocabulary.</p>
-
 
   </div>
 </div>
@@ -1229,7 +1363,7 @@
   
     <li>
       
-        <span class='name'>flag</span>
+        <span class='name'>vocab_only</span>
       
       
         <span class='type'>(<tt>Boolean</tt>)</span>
@@ -1240,6 +1374,19 @@
   
 </ul>
 
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -1247,12 +1394,20 @@
       <pre class="lines">
 
 
-693</pre>
+449
+450
+451
+452
+453</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 693</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 449</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_vocab_only='>vocab_only=</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+static VALUE llama_model_params_set_vocab_only(VALUE self, VALUE vocab_only) {
+  struct llama_model_params* data = get_llama_model_params(self);
+  data-&gt;vocab_only = RTEST(vocab_only) ? true : false;
+  return vocab_only;
+}</pre>
     </td>
   </tr>
 </table>
@@ -1263,9 +1418,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Sep  8 14:45:27 2024 by
+  Generated on Sun Feb  2 15:37:58 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-3.3.2).
+  0.9.37 (ruby-3.4.1).
 </div>
 
     </div>

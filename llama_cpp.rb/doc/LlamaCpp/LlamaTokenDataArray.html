@@ -4,9 +4,9 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: LLaMACpp::TokenDataArray
+  Class: LlamaCpp::LlamaTokenDataArray
   
-    &mdash; Documentation by YARD 0.9.28
+    &mdash; Documentation by YARD 0.9.37
   
 </title>
 
@@ -15,12 +15,10 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "LLaMACpp::TokenDataArray";
+  pathId = "LlamaCpp::LlamaTokenDataArray";
   relpath = '../';
 </script>
 
-
-  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
 
   <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
 
@@ -36,10 +34,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../_index.html">Index (T)</a> &raquo;
-    <span class='title'><span class='object_link'><a href="../LLaMACpp.html" title="LLaMACpp (module)">LLaMACpp</a></span></span>
+    <a href="../_index.html">Index (L)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../LlamaCpp.html" title="LlamaCpp (module)">LlamaCpp</a></span></span>
      &raquo; 
-    <span class="title">TokenDataArray</span>
+    <span class="title">LlamaTokenDataArray</span>
   
 </div>
 
@@ -59,7 +57,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: LLaMACpp::TokenDataArray
+      <div id="content"><h1>Class: LlamaCpp::LlamaTokenDataArray
   
   
   
@@ -74,7 +72,7 @@
         <ul class="fullTree">
           <li>Object</li>
           
-            <li class="next">LLaMACpp::TokenDataArray</li>
+            <li class="next">LlamaCpp::LlamaTokenDataArray</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -94,7 +92,9 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>ext/llama_cpp/dummy.rb</dd>
+    <dd>ext/llama_cpp/llama_cpp.c<span class="defines">,<br />
+  ext/llama_cpp/llama_cpp.c</span>
+</dd>
   </dl>
   
 </div>
@@ -102,7 +102,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Class for token data array</p>
+<p>“struct llama_token_data_array” wrapper class</p>
 
 
   </div>
@@ -128,15 +128,13 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(arr, sorted: false)  &#x21d2; TokenDataArray </a>
+      <a href="#selected-instance_method" title="#selected (instance method)">#<strong>selected</strong>  &#x21d2; Integer </a>
     
 
     
   </span>
   
   
-    <span class="note title constructor">constructor</span>
-  
   
   
   
@@ -144,9 +142,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Create token data array.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -168,9 +164,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the size of token data array.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -192,9 +186,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the flag for sorted.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -202,47 +194,6 @@
     </ul>
   
 
-<div id="constructor_details" class="method_details_list">
-  <h2>Constructor Details</h2>
-  
-    <div class="method_details first">
-  <h3 class="signature first" id="initialize-instance_method">
-  
-    #<strong>initialize</strong>(arr, sorted: false)  &#x21d2; <tt><span class='object_link'><a href="" title="LLaMACpp::TokenDataArray (class)">TokenDataArray</a></span></tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Create token data array.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-436</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 436</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_arr'>arr</span><span class='comma'>,</span> <span class='label'>sorted:</span> <span class='kw'>false</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-  
-</div>
 
 
   <div id="instance_method_details" class="method_details_list">
@@ -250,9 +201,9 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="size-instance_method">
+  <h3 class="signature first" id="selected-instance_method">
   
-    #<strong>size</strong>  &#x21d2; <tt>Integer</tt> 
+    #<strong>selected</strong>  &#x21d2; <tt>Integer</tt> 
   
 
   
@@ -261,8 +212,6 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the size of token data array.</p>
-
 
   </div>
 </div>
@@ -288,12 +237,72 @@
       <pre class="lines">
 
 
-440</pre>
+235
+236
+237
+238</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 440</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 235</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_size'>size</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+static VALUE llama_token_data_array_get_selected(VALUE self) {
+  llama_token_data_array* data = get_llama_token_data_array(self);
+  return SIZET2NUM(data-&gt;selected);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="size-instance_method">
+  
+    #<strong>size</strong>  &#x21d2; <tt>Integer</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+230
+231
+232
+233</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 230</span>
+
+static VALUE llama_token_data_array_get_size(VALUE self) {
+  llama_token_data_array* data = get_llama_token_data_array(self);
+  return SIZET2NUM(data-&gt;size);
+}</pre>
     </td>
   </tr>
 </table>
@@ -311,8 +320,6 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the flag for sorted.</p>
-
 
   </div>
 </div>
@@ -338,12 +345,18 @@
       <pre class="lines">
 
 
-444</pre>
+240
+241
+242
+243</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/dummy.rb', line 444</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 240</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_sorted'>sorted</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+static VALUE llama_token_data_array_get_sorted(VALUE self) {
+  llama_token_data_array* data = get_llama_token_data_array(self);
+  return data-&gt;sorted ? Qtrue : Qfalse;
+}</pre>
     </td>
   </tr>
 </table>
@@ -354,9 +367,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Sep  8 14:45:27 2024 by
+  Generated on Sun Feb  2 15:37:58 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-3.3.2).
+  0.9.37 (ruby-3.4.1).
 </div>
 
     </div>
