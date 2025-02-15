@@ -127,7 +127,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.18.0</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.18.1</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
         <dt id="LLAMA_CPP_VERSION-constant" class="">LLAMA_CPP_VERSION =
           <div class="docstring">
@@ -143,7 +143,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>b4611</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>b4713</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
         <dt id="LLAMA_DEFAULT_SEED-constant" class="">LLAMA_DEFAULT_SEED =
           
@@ -2692,6 +2692,28 @@
   <span class="summary_signature">
     
       <a href="#llama_sampler_init_top_k-class_method" title="llama_sampler_init_top_k (class method)">.<strong>llama_sampler_init_top_k</strong>(k)  &#x21d2; LlamaSampler </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#llama_sampler_init_top_n_sigma-class_method" title="llama_sampler_init_top_n_sigma (class method)">.<strong>llama_sampler_init_top_n_sigma</strong>(n)  &#x21d2; LlamaSampler </a>
     
 
     
@@ -9635,20 +9657,20 @@ static VALUE rb_llama_numa_init(VALUE self, VALUE numa) {
       <pre class="lines">
 
 
-3701
-3702
-3703
-3704
-3705
-3706
-3707
-3708
-3709
-3710
-3711</pre>
+3715
+3716
+3717
+3718
+3719
+3720
+3721
+3722
+3723
+3724
+3725</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3701</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3715</span>
 
 static VALUE rb_llama_perf_context(VALUE self, VALUE ctx) {
   if (!rb_obj_is_kind_of(ctx, rb_cLlamaContext)) {
@@ -9729,19 +9751,19 @@ static VALUE rb_llama_perf_context(VALUE self, VALUE ctx) {
       <pre class="lines">
 
 
-3718
-3719
-3720
-3721
-3722
-3723
-3724
-3725
-3726
-3727</pre>
+3732
+3733
+3734
+3735
+3736
+3737
+3738
+3739
+3740
+3741</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3718</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3732</span>
 
 static VALUE rb_llama_perf_context_print(VALUE self, VALUE ctx) {
   if (!rb_obj_is_kind_of(ctx, rb_cLlamaContext)) {
@@ -9821,19 +9843,19 @@ static VALUE rb_llama_perf_context_print(VALUE self, VALUE ctx) {
       <pre class="lines">
 
 
-3750
-3751
-3752
-3753
-3754
-3755
-3756
-3757
-3758
-3759</pre>
+3764
+3765
+3766
+3767
+3768
+3769
+3770
+3771
+3772
+3773</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3750</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3764</span>
 
 static VALUE rb_llama_perf_context_reset(VALUE self, VALUE ctx) {
   if (!rb_obj_is_kind_of(ctx, rb_cLlamaContext)) {
@@ -9913,20 +9935,20 @@ static VALUE rb_llama_perf_context_reset(VALUE self, VALUE ctx) {
       <pre class="lines">
 
 
-3766
-3767
-3768
-3769
-3770
-3771
-3772
-3773
-3774
-3775
-3776</pre>
+3780
+3781
+3782
+3783
+3784
+3785
+3786
+3787
+3788
+3789
+3790</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3766</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3780</span>
 
 static VALUE rb_llama_perf_sampler(VALUE self, VALUE chain) {
   if (!rb_obj_is_kind_of(chain, rb_cLlamaSampler)) {
@@ -10007,19 +10029,19 @@ static VALUE rb_llama_perf_sampler(VALUE self, VALUE chain) {
       <pre class="lines">
 
 
-3734
-3735
-3736
-3737
-3738
-3739
-3740
-3741
-3742
-3743</pre>
+3748
+3749
+3750
+3751
+3752
+3753
+3754
+3755
+3756
+3757</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3734</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3748</span>
 
 static VALUE rb_llama_perf_sampler_print(VALUE self, VALUE chain) {
   if (!rb_obj_is_kind_of(chain, rb_cLlamaSampler)) {
@@ -10099,19 +10121,19 @@ static VALUE rb_llama_perf_sampler_print(VALUE self, VALUE chain) {
       <pre class="lines">
 
 
-3783
-3784
-3785
-3786
-3787
-3788
-3789
-3790
-3791
-3792</pre>
+3797
+3798
+3799
+3800
+3801
+3802
+3803
+3804
+3805
+3806</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3783</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3797</span>
 
 static VALUE rb_llama_perf_sampler_reset(VALUE self, VALUE chain) {
   if (!rb_obj_is_kind_of(chain, rb_cLlamaSampler)) {
@@ -10264,13 +10286,13 @@ static VALUE rb_llama_pooling_type(VALUE self, VALUE ctx) {
       <pre class="lines">
 
 
-3579
-3580
-3581
-3582</pre>
+3593
+3594
+3595
+3596</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3579</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3593</span>
 
 <span class='id identifier rubyid_static'>static</span> <span class='const'>VALUE</span> <span class='id identifier rubyid_rb_llama_print_system_info'>rb_llama_print_system_info</span><span class='lparen'>(</span><span class='const'>VALUE</span> <span class='kw'>self</span><span class='rparen'>)</span> <span class='lbrace'>{</span>
   <span class='id identifier rubyid_const'>const</span> <span class='id identifier rubyid_char'>char</span><span class='op'>*</span> <span class='id identifier rubyid_info'>info</span> <span class='op'>=</span> <span class='id identifier rubyid_llama_print_system_info'>llama_print_system_info</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='semicolon'>;</span>
@@ -11394,19 +11416,19 @@ static VALUE rb_llama_sampler_free(VALUE self, VALUE sampler) {
       <pre class="lines">
 
 
-3536
-3537
-3538
-3539
-3540
-3541
-3542
-3543
-3544
-3545</pre>
+3550
+3551
+3552
+3553
+3554
+3555
+3556
+3557
+3558
+3559</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3536</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3550</span>
 
 static VALUE rb_llama_sampler_get_seed(VALUE self, VALUE smpl) {
   if (!rb_obj_is_kind_of(smpl, rb_cLlamaSampler)) {
@@ -11596,20 +11618,6 @@ static VALUE rb_llama_sampler_init_dist(VALUE self, VALUE seed) {
       <pre class="lines">
 
 
-3435
-3436
-3437
-3438
-3439
-3440
-3441
-3442
-3443
-3444
-3445
-3446
-3447
-3448
 3449
 3450
 3451
@@ -11617,10 +11625,24 @@ static VALUE rb_llama_sampler_init_dist(VALUE self, VALUE seed) {
 3453
 3454
 3455
-3456</pre>
+3456
+3457
+3458
+3459
+3460
+3461
+3462
+3463
+3464
+3465
+3466
+3467
+3468
+3469
+3470</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3435</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3449</span>
 
 static VALUE rb_llama_sampler_init_grammar(VALUE self, VALUE vocab, VALUE grammar_str, VALUE grammar_root) {
   if (!rb_obj_is_kind_of(vocab, rb_cLlamaVocab)) {
@@ -11777,19 +11799,19 @@ static VALUE rb_llama_sampler_init_greedy(VALUE self) {
       <pre class="lines">
 
 
-3520
-3521
-3522
-3523
-3524
-3525
-3526
-3527
-3528
-3529</pre>
+3534
+3535
+3536
+3537
+3538
+3539
+3540
+3541
+3542
+3543</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3520</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3534</span>
 
 static VALUE rb_llama_sampler_init_infill(VALUE self, VALUE vocab) {
   if (!rb_obj_is_kind_of(vocab, rb_cLlamaVocab)) {
@@ -11891,29 +11913,29 @@ static VALUE rb_llama_sampler_init_infill(VALUE self, VALUE vocab) {
       <pre class="lines">
 
 
-3494
-3495
-3496
-3497
-3498
-3499
-3500
-3501
-3502
-3503
-3504
-3505
-3506
-3507
 3508
 3509
 3510
 3511
 3512
-3513</pre>
+3513
+3514
+3515
+3516
+3517
+3518
+3519
+3520
+3521
+3522
+3523
+3524
+3525
+3526
+3527</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3494</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3508</span>
 
 static VALUE rb_llama_sampler_init_logit_bias(VALUE self, VALUE n_vocab, VALUE n_logit_bias, VALUE logit_bias) {
   if (!RB_INTEGER_TYPE_P(n_vocab)) {
@@ -12154,20 +12176,6 @@ static VALUE rb_llama_sampler_init_min_p(VALUE self, VALUE p, VALUE min_keep) {
       <pre class="lines">
 
 
-3379
-3380
-3381
-3382
-3383
-3384
-3385
-3386
-3387
-3388
-3389
-3390
-3391
-3392
 3393
 3394
 3395
@@ -12177,10 +12185,24 @@ static VALUE rb_llama_sampler_init_min_p(VALUE self, VALUE p, VALUE min_keep) {
 3399
 3400
 3401
-3402</pre>
+3402
+3403
+3404
+3405
+3406
+3407
+3408
+3409
+3410
+3411
+3412
+3413
+3414
+3415
+3416</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3379</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3393</span>
 
 static VALUE rb_llama_sampler_init_mirostat(VALUE self, VALUE n_vocab, VALUE seed, VALUE tau, VALUE eta, VALUE m) {
   if (!RB_INTEGER_TYPE_P(n_vocab)) {
@@ -12296,25 +12318,25 @@ static VALUE rb_llama_sampler_init_mirostat(VALUE self, VALUE n_vocab, VALUE see
       <pre class="lines">
 
 
-3411
-3412
-3413
-3414
-3415
-3416
-3417
-3418
-3419
-3420
-3421
-3422
-3423
-3424
 3425
-3426</pre>
+3426
+3427
+3428
+3429
+3430
+3431
+3432
+3433
+3434
+3435
+3436
+3437
+3438
+3439
+3440</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3411</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3425</span>
 
 static VALUE rb_llama_sampler_init_mirostat_v2(VALUE self, VALUE seed, VALUE tau, VALUE eta) {
   if (!RB_INTEGER_TYPE_P(seed)) {
@@ -12433,29 +12455,29 @@ static VALUE rb_llama_sampler_init_mirostat_v2(VALUE self, VALUE seed, VALUE tau
       <pre class="lines">
 
 
-3466
-3467
-3468
-3469
-3470
-3471
-3472
-3473
-3474
-3475
-3476
-3477
-3478
-3479
 3480
 3481
 3482
 3483
 3484
-3485</pre>
+3485
+3486
+3487
+3488
+3489
+3490
+3491
+3492
+3493
+3494
+3495
+3496
+3497
+3498
+3499</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3466</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3480</span>
 
 static VALUE rb_llama_sampler_init_penalties(VALUE self, VALUE penalty_last_n, VALUE penalty_repeat, VALUE penalty_freq, VALUE penalty_present) {
   if (!RB_INTEGER_TYPE_P(penalty_last_n)) {
@@ -12777,6 +12799,94 @@ static VALUE rb_llama_sampler_init_top_k(VALUE self, VALUE k) {
     return Qnil;
   }
   struct llama_sampler* sampler = llama_sampler_init_top_k(NUM2INT(k));
+  return TypedData_Wrap_Struct(rb_cLlamaSampler, &amp;llama_sampler_data_type, sampler);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="llama_sampler_init_top_n_sigma-class_method">
+  
+    .<strong>llama_sampler_init_top_n_sigma</strong>(n)  &#x21d2; <tt><span class='object_link'><a href="LlamaCpp/LlamaSampler.html" title="LlamaCpp::LlamaSampler (class)">LlamaSampler</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>n</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="LlamaCpp/LlamaSampler.html" title="LlamaCpp::LlamaSampler (class)">LlamaSampler</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3375
+3376
+3377
+3378
+3379
+3380
+3381
+3382</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3375</span>
+
+static VALUE rb_llama_sampler_init_top_n_sigma(VALUE self, VALUE n) {
+  if (!RB_FLOAT_TYPE_P(n)) {
+    rb_raise(rb_eArgError, &quot;n must be a Float&quot;);
+    return Qnil;
+  }
+  struct llama_sampler* sampler = llama_sampler_init_top_n_sigma(NUM2DBL(n));
   return TypedData_Wrap_Struct(rb_cLlamaSampler, &amp;llama_sampler_data_type, sampler);
 }</pre>
     </td>
@@ -13414,29 +13524,29 @@ static VALUE rb_llama_sampler_reset(VALUE self, VALUE sampler) {
       <pre class="lines">
 
 
-3554
-3555
-3556
-3557
-3558
-3559
-3560
-3561
-3562
-3563
-3564
-3565
-3566
-3567
 3568
 3569
 3570
 3571
 3572
-3573</pre>
+3573
+3574
+3575
+3576
+3577
+3578
+3579
+3580
+3581
+3582
+3583
+3584
+3585
+3586
+3587</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3554</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3568</span>
 
 static VALUE rb_llama_sampler_sample(VALUE self, VALUE smpl, VALUE ctx, VALUE idx) {
   if (!rb_obj_is_kind_of(smpl, rb_cLlamaSampler)) {
@@ -17005,7 +17115,7 @@ static VALUE rb_llama_vocab_type(VALUE self, VALUE vocab) {
 </div>
 
       <div id="footer">
-  Generated on Sun Feb  2 15:37:57 2025 by
+  Generated on Sat Feb 15 11:13:44 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-3.4.1).
 </div>
