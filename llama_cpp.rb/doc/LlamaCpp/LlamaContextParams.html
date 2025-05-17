@@ -304,50 +304,6 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#logits_all-instance_method" title="#logits_all (instance method)">#<strong>logits_all</strong>  &#x21d2; Boolean </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#logits_all=-instance_method" title="#logits_all= (instance method)">#<strong>logits_all=</strong>(logits_all)  &#x21d2; Boolean </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#n_batch-instance_method" title="#n_batch (instance method)">#<strong>n_batch</strong>  &#x21d2; Integer </a>
     
 
@@ -679,6 +635,50 @@
   <span class="summary_signature">
     
       <a href="#offload_kqv=-instance_method" title="#offload_kqv= (instance method)">#<strong>offload_kqv=</strong>(offload_kqv)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#op_offload-instance_method" title="#op_offload (instance method)">#<strong>op_offload</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#op_offload=-instance_method" title="#op_offload= (instance method)">#<strong>op_offload=</strong>(op_offload)  &#x21d2; Boolean </a>
     
 
     
@@ -1477,13 +1477,13 @@ static VALUE llama_context_params_set_defrag_thold(VALUE self, VALUE defrag_thol
       <pre class="lines">
 
 
-786
-787
-788
-789</pre>
+775
+776
+777
+778</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 786</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 775</span>
 
 static VALUE llama_context_params_get_embeddings(VALUE self) {
   struct llama_context_params* data = get_llama_context_params(self);
@@ -1546,14 +1546,14 @@ static VALUE llama_context_params_get_embeddings(VALUE self) {
       <pre class="lines">
 
 
-791
-792
-793
-794
-795</pre>
+780
+781
+782
+783
+784</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 791</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 780</span>
 
 static VALUE llama_context_params_set_embeddings(VALUE self, VALUE embeddings) {
   struct llama_context_params* data = get_llama_context_params(self);
@@ -1602,13 +1602,13 @@ static VALUE llama_context_params_set_embeddings(VALUE self, VALUE embeddings) {
       <pre class="lines">
 
 
-808
-809
-810
-811</pre>
+797
+798
+799
+800</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 808</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 797</span>
 
 static VALUE llama_context_params_get_flash_attn(VALUE self) {
   struct llama_context_params* data = get_llama_context_params(self);
@@ -1671,144 +1671,19 @@ static VALUE llama_context_params_get_flash_attn(VALUE self) {
       <pre class="lines">
 
 
-813
-814
-815
-816
-817</pre>
+802
+803
+804
+805
+806</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 813</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 802</span>
 
 static VALUE llama_context_params_set_flash_attn(VALUE self, VALUE flash_attn) {
   struct llama_context_params* data = get_llama_context_params(self);
   data-&gt;flash_attn = RTEST(flash_attn) ? true : false;
   return flash_attn;
-}</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="logits_all-instance_method">
-  
-    #<strong>logits_all</strong>  &#x21d2; <tt>Boolean</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Boolean</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-775
-776
-777
-778</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 775</span>
-
-static VALUE llama_context_params_get_logits_all(VALUE self) {
-  struct llama_context_params* data = get_llama_context_params(self);
-  return data-&gt;logits_all ? Qtrue : Qfalse;
-}</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="logits_all=-instance_method">
-  
-    #<strong>logits_all=</strong>(logits_all)  &#x21d2; <tt>Boolean</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>logits_all</span>
-      
-      
-        <span class='type'>(<tt>Boolean</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Boolean</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-780
-781
-782
-783
-784</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 780</span>
-
-static VALUE llama_context_params_set_logits_all(VALUE self, VALUE logits_all) {
-  struct llama_context_params* data = get_llama_context_params(self);
-  data-&gt;logits_all = RTEST(logits_all) ? true : false;
-  return logits_all;
 }</pre>
     </td>
   </tr>
@@ -2602,13 +2477,13 @@ static VALUE llama_context_params_set_n_ubatch(VALUE self, VALUE n_ubatch) {
       <pre class="lines">
 
 
-819
-820
-821
-822</pre>
+808
+809
+810
+811</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 819</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 808</span>
 
 static VALUE llama_context_params_get_no_perf(VALUE self) {
   struct llama_context_params* data = get_llama_context_params(self);
@@ -2671,14 +2546,14 @@ static VALUE llama_context_params_get_no_perf(VALUE self) {
       <pre class="lines">
 
 
-824
-825
-826
-827
-828</pre>
+813
+814
+815
+816
+817</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 824</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 813</span>
 
 static VALUE llama_context_params_set_no_perf(VALUE self, VALUE no_perf) {
   struct llama_context_params* data = get_llama_context_params(self);
@@ -2727,13 +2602,13 @@ static VALUE llama_context_params_set_no_perf(VALUE self, VALUE no_perf) {
       <pre class="lines">
 
 
-797
-798
-799
-800</pre>
+786
+787
+788
+789</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 797</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 786</span>
 
 static VALUE llama_context_params_get_offload_kqv(VALUE self) {
   struct llama_context_params* data = get_llama_context_params(self);
@@ -2796,19 +2671,144 @@ static VALUE llama_context_params_get_offload_kqv(VALUE self) {
       <pre class="lines">
 
 
-802
-803
-804
-805
-806</pre>
+791
+792
+793
+794
+795</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 802</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 791</span>
 
 static VALUE llama_context_params_set_offload_kqv(VALUE self, VALUE offload_kqv) {
   struct llama_context_params* data = get_llama_context_params(self);
   data-&gt;offload_kqv = RTEST(offload_kqv) ? true : false;
   return offload_kqv;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="op_offload-instance_method">
+  
+    #<strong>op_offload</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+819
+820
+821
+822</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 819</span>
+
+static VALUE llama_context_params_get_op_offload(VALUE self) {
+  struct llama_context_params* data = get_llama_context_params(self);
+  return data-&gt;op_offload ? Qtrue : Qfalse;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="op_offload=-instance_method">
+  
+    #<strong>op_offload=</strong>(op_offload)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>op_offload</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+824
+825
+826
+827
+828</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 824</span>
+
+static VALUE llama_context_params_set_op_offload(VALUE self, VALUE op_offload) {
+  struct llama_context_params* data = get_llama_context_params(self);
+  data-&gt;op_offload = RTEST(op_offload) ? true : false;
+  return op_offload;
 }</pre>
     </td>
   </tr>
@@ -4195,7 +4195,7 @@ static VALUE llama_context_params_set_yarn_orig_ctx(VALUE self, VALUE yarn_orig_
 </div>
 
       <div id="footer">
-  Generated on Sat Apr 26 07:24:38 2025 by
+  Generated on Sat May 17 14:01:16 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-3.4.3).
 </div>
