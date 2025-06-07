@@ -501,13 +501,13 @@
       <pre class="lines">
 
 
-521
 522
 523
-524</pre>
+524
+525</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 521</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 522</span>
 
 static VALUE llama_model_params_get_check_tensors(VALUE self) {
   struct llama_model_params* data = get_llama_model_params(self);
@@ -570,14 +570,14 @@ static VALUE llama_model_params_get_check_tensors(VALUE self) {
       <pre class="lines">
 
 
-526
 527
 528
 529
-530</pre>
+530
+531</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 526</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 527</span>
 
 static VALUE llama_model_params_set_check_tensors(VALUE self, VALUE check_tensors) {
   struct llama_model_params* data = get_llama_model_params(self);
@@ -626,13 +626,13 @@ static VALUE llama_model_params_set_check_tensors(VALUE self, VALUE check_tensor
       <pre class="lines">
 
 
-462
 463
 464
-465</pre>
+465
+466</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 462</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 463</span>
 
 static VALUE llama_model_params_get_main_gpu(VALUE self) {
   struct llama_model_params* data = get_llama_model_params(self);
@@ -695,14 +695,14 @@ static VALUE llama_model_params_get_main_gpu(VALUE self) {
       <pre class="lines">
 
 
-467
 468
 469
 470
-471</pre>
+471
+472</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 467</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 468</span>
 
 static VALUE llama_model_params_set_main_gpu(VALUE self, VALUE main_gpu) {
   struct llama_model_params* data = get_llama_model_params(self);
@@ -751,13 +751,13 @@ static VALUE llama_model_params_set_main_gpu(VALUE self, VALUE main_gpu) {
       <pre class="lines">
 
 
-440
 441
 442
-443</pre>
+443
+444</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 440</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 441</span>
 
 static VALUE llama_model_params_get_n_gpu_layers(VALUE self) {
   struct llama_model_params* data = get_llama_model_params(self);
@@ -820,14 +820,14 @@ static VALUE llama_model_params_get_n_gpu_layers(VALUE self) {
       <pre class="lines">
 
 
-445
 446
 447
 448
-449</pre>
+449
+450</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 445</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 446</span>
 
 static VALUE llama_model_params_set_n_gpu_layers(VALUE self, VALUE n_gpu_layers) {
   struct llama_model_params* data = get_llama_model_params(self);
@@ -876,13 +876,13 @@ static VALUE llama_model_params_set_n_gpu_layers(VALUE self, VALUE n_gpu_layers)
       <pre class="lines">
 
 
-451
 452
 453
-454</pre>
+454
+455</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 451</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 452</span>
 
 static VALUE llama_model_params_get_split_mode(VALUE self) {
   struct llama_model_params* data = get_llama_model_params(self);
@@ -945,14 +945,14 @@ static VALUE llama_model_params_get_split_mode(VALUE self) {
       <pre class="lines">
 
 
-456
 457
 458
 459
-460</pre>
+460
+461</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 456</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 457</span>
 
 static VALUE llama_model_params_set_split_mode(VALUE self, VALUE split_mode) {
   struct llama_model_params* data = get_llama_model_params(self);
@@ -1001,7 +1001,6 @@ static VALUE llama_model_params_set_split_mode(VALUE self, VALUE split_mode) {
       <pre class="lines">
 
 
-473
 474
 475
 476
@@ -1014,10 +1013,11 @@ static VALUE llama_model_params_set_split_mode(VALUE self, VALUE split_mode) {
 483
 484
 485
-486</pre>
+486
+487</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 473</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 474</span>
 
 static VALUE llama_model_params_get_tensor_split(VALUE self) {
   if (llama_max_devices() &lt; 1) {
@@ -1075,13 +1075,13 @@ static VALUE llama_model_params_get_tensor_split(VALUE self) {
       <pre class="lines">
 
 
-510
 511
 512
-513</pre>
+513
+514</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 510</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 511</span>
 
 static VALUE llama_model_params_get_use_mlock(VALUE self) {
   struct llama_model_params* data = get_llama_model_params(self);
@@ -1144,14 +1144,14 @@ static VALUE llama_model_params_get_use_mlock(VALUE self) {
       <pre class="lines">
 
 
-515
 516
 517
 518
-519</pre>
+519
+520</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 515</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 516</span>
 
 static VALUE llama_model_params_set_use_mlock(VALUE self, VALUE use_mlock) {
   struct llama_model_params* data = get_llama_model_params(self);
@@ -1200,13 +1200,13 @@ static VALUE llama_model_params_set_use_mlock(VALUE self, VALUE use_mlock) {
       <pre class="lines">
 
 
-499
 500
 501
-502</pre>
+502
+503</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 499</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 500</span>
 
 static VALUE llama_model_params_get_use_mmap(VALUE self) {
   struct llama_model_params* data = get_llama_model_params(self);
@@ -1269,14 +1269,14 @@ static VALUE llama_model_params_get_use_mmap(VALUE self) {
       <pre class="lines">
 
 
-504
 505
 506
 507
-508</pre>
+508
+509</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 504</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 505</span>
 
 static VALUE llama_model_params_set_use_mmap(VALUE self, VALUE use_mmap) {
   struct llama_model_params* data = get_llama_model_params(self);
@@ -1325,13 +1325,13 @@ static VALUE llama_model_params_set_use_mmap(VALUE self, VALUE use_mmap) {
       <pre class="lines">
 
 
-488
 489
 490
-491</pre>
+491
+492</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 488</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 489</span>
 
 static VALUE llama_model_params_get_vocab_only(VALUE self) {
   struct llama_model_params* data = get_llama_model_params(self);
@@ -1394,14 +1394,14 @@ static VALUE llama_model_params_get_vocab_only(VALUE self) {
       <pre class="lines">
 
 
-493
 494
 495
 496
-497</pre>
+497
+498</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 493</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 494</span>
 
 static VALUE llama_model_params_set_vocab_only(VALUE self, VALUE vocab_only) {
   struct llama_model_params* data = get_llama_model_params(self);
@@ -1418,7 +1418,7 @@ static VALUE llama_model_params_set_vocab_only(VALUE self, VALUE vocab_only) {
 </div>
 
       <div id="footer">
-  Generated on Sat May 31 20:09:28 2025 by
+  Generated on Sat Jun  7 20:00:24 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-3.4.4).
 </div>
