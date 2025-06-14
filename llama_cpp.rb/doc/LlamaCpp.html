@@ -127,7 +127,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.20.2</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.20.3</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
         <dt id="LLAMA_CPP_VERSION-constant" class="">LLAMA_CPP_VERSION =
           <div class="docstring">
@@ -143,7 +143,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>b5600</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>b5650</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
         <dt id="LLAMA_DEFAULT_SEED-constant" class="">LLAMA_DEFAULT_SEED =
           
@@ -1518,7 +1518,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#llama_memory_clear-class_method" title="llama_memory_clear (class method)">.<strong>llama_memory_clear</strong>(memory)  &#x21d2; Object </a>
+      <a href="#llama_memory_clear-class_method" title="llama_memory_clear (class method)">.<strong>llama_memory_clear</strong>(memory, data)  &#x21d2; Object </a>
     
 
     
@@ -7528,7 +7528,7 @@ static VALUE rb_llama_memory_can_shift(VALUE self, VALUE memory) {
       <div class="method_details ">
   <h3 class="signature " id="llama_memory_clear-class_method">
   
-    .<strong>llama_memory_clear</strong>(memory)  &#x21d2; <tt>Object</tt> 
+    .<strong>llama_memory_clear</strong>(memory, data)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -7565,13 +7565,13 @@ static VALUE rb_llama_memory_can_shift(VALUE self, VALUE memory) {
     <td>
       <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 1950</span>
 
-static VALUE rb_llama_memory_clear(VALUE self, VALUE memory) {
+static VALUE rb_llama_memory_clear(VALUE self, VALUE memory, VALUE data) {
   if (!rb_obj_is_kind_of(memory, rb_cLlamaMemoryT)) {
     rb_raise(rb_eArgError, &quot;memory must be a LlamaMemoryT&quot;);
     return Qnil;
   }
   llama_memory_t_wrapper* memory_wrapper = get_llama_memory_t_wrapper(memory);
-  llama_memory_clear(memory_wrapper-&gt;memory);
+  llama_memory_clear(memory_wrapper-&gt;memory, RTEST(data) ? true : false);
   RB_GC_GUARD(memory);
   return Qnil;
 }</pre>
@@ -18581,7 +18581,7 @@ static VALUE rb_llama_vocab_type(VALUE self, VALUE vocab) {
 </div>
 
       <div id="footer">
-  Generated on Sat Jun  7 20:00:24 2025 by
+  Generated on Sat Jun 14 09:31:14 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-3.4.4).
 </div>
