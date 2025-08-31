@@ -326,6 +326,50 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#use_extra_bufts-instance_method" title="#use_extra_bufts (instance method)">#<strong>use_extra_bufts</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#use_extra_bufts=-instance_method" title="#use_extra_bufts= (instance method)">#<strong>use_extra_bufts=</strong>(use_extra_bufts)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#use_mlock-instance_method" title="#use_mlock (instance method)">#<strong>use_mlock</strong>  &#x21d2; Boolean </a>
     
 
@@ -501,13 +545,13 @@
       <pre class="lines">
 
 
+521
 522
 523
-524
-525</pre>
+524</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 522</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 521</span>
 
 static VALUE llama_model_params_get_check_tensors(VALUE self) {
   struct llama_model_params* data = get_llama_model_params(self);
@@ -570,14 +614,14 @@ static VALUE llama_model_params_get_check_tensors(VALUE self) {
       <pre class="lines">
 
 
+526
 527
 528
 529
-530
-531</pre>
+530</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 527</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 526</span>
 
 static VALUE llama_model_params_set_check_tensors(VALUE self, VALUE check_tensors) {
   struct llama_model_params* data = get_llama_model_params(self);
@@ -626,13 +670,13 @@ static VALUE llama_model_params_set_check_tensors(VALUE self, VALUE check_tensor
       <pre class="lines">
 
 
+462
 463
 464
-465
-466</pre>
+465</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 463</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 462</span>
 
 static VALUE llama_model_params_get_main_gpu(VALUE self) {
   struct llama_model_params* data = get_llama_model_params(self);
@@ -695,14 +739,14 @@ static VALUE llama_model_params_get_main_gpu(VALUE self) {
       <pre class="lines">
 
 
+467
 468
 469
 470
-471
-472</pre>
+471</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 468</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 467</span>
 
 static VALUE llama_model_params_set_main_gpu(VALUE self, VALUE main_gpu) {
   struct llama_model_params* data = get_llama_model_params(self);
@@ -751,13 +795,13 @@ static VALUE llama_model_params_set_main_gpu(VALUE self, VALUE main_gpu) {
       <pre class="lines">
 
 
+440
 441
 442
-443
-444</pre>
+443</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 441</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 440</span>
 
 static VALUE llama_model_params_get_n_gpu_layers(VALUE self) {
   struct llama_model_params* data = get_llama_model_params(self);
@@ -820,14 +864,14 @@ static VALUE llama_model_params_get_n_gpu_layers(VALUE self) {
       <pre class="lines">
 
 
+445
 446
 447
 448
-449
-450</pre>
+449</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 446</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 445</span>
 
 static VALUE llama_model_params_set_n_gpu_layers(VALUE self, VALUE n_gpu_layers) {
   struct llama_model_params* data = get_llama_model_params(self);
@@ -876,13 +920,13 @@ static VALUE llama_model_params_set_n_gpu_layers(VALUE self, VALUE n_gpu_layers)
       <pre class="lines">
 
 
+451
 452
 453
-454
-455</pre>
+454</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 452</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 451</span>
 
 static VALUE llama_model_params_get_split_mode(VALUE self) {
   struct llama_model_params* data = get_llama_model_params(self);
@@ -945,14 +989,14 @@ static VALUE llama_model_params_get_split_mode(VALUE self) {
       <pre class="lines">
 
 
+456
 457
 458
 459
-460
-461</pre>
+460</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 457</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 456</span>
 
 static VALUE llama_model_params_set_split_mode(VALUE self, VALUE split_mode) {
   struct llama_model_params* data = get_llama_model_params(self);
@@ -1001,6 +1045,7 @@ static VALUE llama_model_params_set_split_mode(VALUE self, VALUE split_mode) {
       <pre class="lines">
 
 
+473
 474
 475
 476
@@ -1013,11 +1058,10 @@ static VALUE llama_model_params_set_split_mode(VALUE self, VALUE split_mode) {
 483
 484
 485
-486
-487</pre>
+486</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 474</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 473</span>
 
 static VALUE llama_model_params_get_tensor_split(VALUE self) {
   if (llama_max_devices() &lt; 1) {
@@ -1032,6 +1076,131 @@ static VALUE llama_model_params_get_tensor_split(VALUE self) {
     rb_ary_store(ret, i, DBL2NUM(data-&gt;tensor_split[i]));
   }
   return ret;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="use_extra_bufts-instance_method">
+  
+    #<strong>use_extra_bufts</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+532
+533
+534
+535</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 532</span>
+
+static VALUE llama_model_params_get_use_extra_bufts(VALUE self) {
+  struct llama_model_params* data = get_llama_model_params(self);
+  return data-&gt;use_extra_bufts ? Qtrue : Qfalse;
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="use_extra_bufts=-instance_method">
+  
+    #<strong>use_extra_bufts=</strong>(use_extra_bufts)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>use_extra_bufts</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+537
+538
+539
+540
+541</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 537</span>
+
+static VALUE llama_model_params_set_use_extra_bufts(VALUE self, VALUE use_extra_bufts) {
+  struct llama_model_params* data = get_llama_model_params(self);
+  data-&gt;use_extra_bufts = RTEST(use_extra_bufts) ? true : false;
+  return use_extra_bufts;
 }</pre>
     </td>
   </tr>
@@ -1075,13 +1244,13 @@ static VALUE llama_model_params_get_tensor_split(VALUE self) {
       <pre class="lines">
 
 
+510
 511
 512
-513
-514</pre>
+513</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 511</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 510</span>
 
 static VALUE llama_model_params_get_use_mlock(VALUE self) {
   struct llama_model_params* data = get_llama_model_params(self);
@@ -1144,14 +1313,14 @@ static VALUE llama_model_params_get_use_mlock(VALUE self) {
       <pre class="lines">
 
 
+515
 516
 517
 518
-519
-520</pre>
+519</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 516</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 515</span>
 
 static VALUE llama_model_params_set_use_mlock(VALUE self, VALUE use_mlock) {
   struct llama_model_params* data = get_llama_model_params(self);
@@ -1200,13 +1369,13 @@ static VALUE llama_model_params_set_use_mlock(VALUE self, VALUE use_mlock) {
       <pre class="lines">
 
 
+499
 500
 501
-502
-503</pre>
+502</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 500</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 499</span>
 
 static VALUE llama_model_params_get_use_mmap(VALUE self) {
   struct llama_model_params* data = get_llama_model_params(self);
@@ -1269,14 +1438,14 @@ static VALUE llama_model_params_get_use_mmap(VALUE self) {
       <pre class="lines">
 
 
+504
 505
 506
 507
-508
-509</pre>
+508</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 505</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 504</span>
 
 static VALUE llama_model_params_set_use_mmap(VALUE self, VALUE use_mmap) {
   struct llama_model_params* data = get_llama_model_params(self);
@@ -1325,13 +1494,13 @@ static VALUE llama_model_params_set_use_mmap(VALUE self, VALUE use_mmap) {
       <pre class="lines">
 
 
+488
 489
 490
-491
-492</pre>
+491</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 489</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 488</span>
 
 static VALUE llama_model_params_get_vocab_only(VALUE self) {
   struct llama_model_params* data = get_llama_model_params(self);
@@ -1394,14 +1563,14 @@ static VALUE llama_model_params_get_vocab_only(VALUE self) {
       <pre class="lines">
 
 
+493
 494
 495
 496
-497
-498</pre>
+497</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 494</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 493</span>
 
 static VALUE llama_model_params_set_vocab_only(VALUE self, VALUE vocab_only) {
   struct llama_model_params* data = get_llama_model_params(self);
@@ -1418,9 +1587,9 @@ static VALUE llama_model_params_set_vocab_only(VALUE self, VALUE vocab_only) {
 </div>
 
       <div id="footer">
-  Generated on Sat Jun 14 09:31:14 2025 by
+  Generated on Sun Aug 31 17:10:48 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.37 (ruby-3.4.4).
+  0.9.37 (ruby-3.4.5).
 </div>
 
     </div>

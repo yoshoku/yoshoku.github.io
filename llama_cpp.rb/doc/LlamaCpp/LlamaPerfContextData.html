@@ -172,6 +172,28 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#n_reused-instance_method" title="#n_reused (instance method)">#<strong>n_reused</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#t_eval_ms-instance_method" title="#t_eval_ms (instance method)">#<strong>t_eval_ms</strong>  &#x21d2; Float </a>
     
 
@@ -303,13 +325,13 @@
       <pre class="lines">
 
 
-3935
-3936
-3937
-3938</pre>
+3723
+3724
+3725
+3726</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3935</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3723</span>
 
 static VALUE llama_perf_context_data_get_n_eval(VALUE self) {
   struct llama_perf_context_data* data = get_llama_perf_context_data(self);
@@ -357,17 +379,71 @@ static VALUE llama_perf_context_data_get_n_eval(VALUE self) {
       <pre class="lines">
 
 
-3930
-3931
-3932
-3933</pre>
+3718
+3719
+3720
+3721</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3930</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3718</span>
 
 static VALUE llama_perf_context_data_get_n_p_eval(VALUE self) {
   struct llama_perf_context_data* data = get_llama_perf_context_data(self);
   return INT2NUM(data-&gt;n_p_eval);
+}</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="n_reused-instance_method">
+  
+    #<strong>n_reused</strong>  &#x21d2; <tt>Integer</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3728
+3729
+3730
+3731</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3728</span>
+
+static VALUE llama_perf_context_data_get_n_reused(VALUE self) {
+  struct llama_perf_context_data* data = get_llama_perf_context_data(self);
+  return INT2NUM(data-&gt;n_reused);
 }</pre>
     </td>
   </tr>
@@ -411,13 +487,13 @@ static VALUE llama_perf_context_data_get_n_p_eval(VALUE self) {
       <pre class="lines">
 
 
-3925
-3926
-3927
-3928</pre>
+3713
+3714
+3715
+3716</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3925</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3713</span>
 
 static VALUE llama_perf_context_data_get_t_eval_ms(VALUE self) {
   struct llama_perf_context_data* data = get_llama_perf_context_data(self);
@@ -465,13 +541,13 @@ static VALUE llama_perf_context_data_get_t_eval_ms(VALUE self) {
       <pre class="lines">
 
 
-3915
-3916
-3917
-3918</pre>
+3703
+3704
+3705
+3706</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3915</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3703</span>
 
 static VALUE llama_perf_context_data_get_t_load_ms(VALUE self) {
   struct llama_perf_context_data* data = get_llama_perf_context_data(self);
@@ -519,13 +595,13 @@ static VALUE llama_perf_context_data_get_t_load_ms(VALUE self) {
       <pre class="lines">
 
 
-3920
-3921
-3922
-3923</pre>
+3708
+3709
+3710
+3711</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3920</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3708</span>
 
 static VALUE llama_perf_context_data_get_t_p_eval_ms(VALUE self) {
   struct llama_perf_context_data* data = get_llama_perf_context_data(self);
@@ -573,13 +649,13 @@ static VALUE llama_perf_context_data_get_t_p_eval_ms(VALUE self) {
       <pre class="lines">
 
 
-3910
-3911
-3912
-3913</pre>
+3698
+3699
+3700
+3701</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3910</span>
+      <pre class="code"><span class="info file"># File 'ext/llama_cpp/llama_cpp.c', line 3698</span>
 
 static VALUE llama_perf_context_data_get_t_start_ms(VALUE self) {
   struct llama_perf_context_data* data = get_llama_perf_context_data(self);
@@ -595,9 +671,9 @@ static VALUE llama_perf_context_data_get_t_start_ms(VALUE self) {
 </div>
 
       <div id="footer">
-  Generated on Sat Jun 14 09:31:14 2025 by
+  Generated on Sun Aug 31 17:10:49 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.37 (ruby-3.4.4).
+  0.9.37 (ruby-3.4.5).
 </div>
 
     </div>
