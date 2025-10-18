@@ -127,9 +127,7 @@
     <h4 class="tag_title">Examples:</h4>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/tiny_linalg</span><span class='tstring_end'>&#39;</span></span>
-<span class='const'>Numo</span><span class='op'>::</span><span class='const'>Linalg</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>TinyLinalg</span>
-
+      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/linalg</span><span class='tstring_end'>&#39;</span></span>
 <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rumale/neural_network/rvfl_regressor</span><span class='tstring_end'>&#39;</span></span>
 
 <span class='id identifier rubyid_estimator'>estimator</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../NeuralNetwork.html" title="Rumale::NeuralNetwork (module)">NeuralNetwork</a></span></span><span class='op'>::</span><span class='const'>RVFLRegressor</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::NeuralNetwork::RVFLRegressor#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>hidden_units:</span> <span class='int'>128</span><span class='comma'>,</span> <span class='label'>reg_param:</span> <span class='float'>100.0</span><span class='rparen'>)</span>
@@ -485,12 +483,12 @@
       <pre class="lines">
 
 
-50
-51
-52</pre>
+48
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rvfl_regressor.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rvfl_regressor.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>hidden_units:</span> <span class='int'>128</span><span class='comma'>,</span> <span class='label'>reg_param:</span> <span class='float'>100.0</span><span class='comma'>,</span> <span class='label'>scale:</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>super</span>
@@ -551,12 +549,12 @@
       <pre class="lines">
 
 
-34
-35
-36</pre>
+32
+33
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rvfl_regressor.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rvfl_regressor.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_random_bias'>random_bias</span>
   <span class='ivar'>@random_bias</span>
@@ -612,12 +610,12 @@
       <pre class="lines">
 
 
-30
-31
-32</pre>
+28
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rvfl_regressor.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rvfl_regressor.rb', line 28</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_random_weight_vec'>random_weight_vec</span>
   <span class='ivar'>@random_weight_vec</span>
@@ -668,12 +666,12 @@
       <pre class="lines">
 
 
-42
-43
-44</pre>
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rvfl_regressor.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rvfl_regressor.rb', line 40</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rng'>rng</span>
   <span class='ivar'>@rng</span>
@@ -729,12 +727,12 @@
       <pre class="lines">
 
 
-38
-39
-40</pre>
+36
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rvfl_regressor.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rvfl_regressor.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_weight_vec'>weight_vec</span>
   <span class='ivar'>@weight_vec</span>
@@ -831,6 +829,8 @@
       <pre class="lines">
 
 
+57
+58
 59
 60
 61
@@ -840,12 +840,10 @@
 65
 66
 67
-68
-69
-70</pre>
+68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rvfl_regressor.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rvfl_regressor.rb', line 57</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -928,17 +926,17 @@
       <pre class="lines">
 
 
+74
+75
 76
 77
 78
 79
 80
-81
-82
-83</pre>
+81</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rvfl_regressor.rb', line 76</span>
+      <pre class="code"><span class="info file"># File 'rumale-neural_network/lib/rumale/neural_network/rvfl_regressor.rb', line 74</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -958,9 +956,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan  2 19:28:30 2025 by
+  Generated on Sat Oct 18 13:46:45 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.37 (ruby-3.4.1).
+  0.9.37 (ruby-3.4.7).
 </div>
 
     </div>

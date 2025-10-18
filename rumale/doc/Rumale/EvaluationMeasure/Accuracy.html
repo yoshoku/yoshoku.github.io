@@ -266,7 +266,7 @@
       <pre class="code"><span class="info file"># File 'rumale-evaluation_measure/lib/rumale/evaluation_measure/accuracy.rb', line 22</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_score'>score</span><span class='lparen'>(</span><span class='id identifier rubyid_y_true'>y_true</span><span class='comma'>,</span> <span class='id identifier rubyid_y_pred'>y_pred</span><span class='rparen'>)</span>
-  <span class='lparen'>(</span><span class='id identifier rubyid_y_true'>y_true</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='period'>.</span><span class='id identifier rubyid_with_index'>with_index</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_label'>label</span><span class='comma'>,</span> <span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='id identifier rubyid_label'>label</span> <span class='op'>==</span> <span class='id identifier rubyid_y_pred'>y_pred</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span> <span class='op'>?</span> <span class='int'>1</span> <span class='op'>:</span> <span class='int'>0</span> <span class='rbrace'>}</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span> <span class='op'>/</span> <span class='id identifier rubyid_y_true'>y_true</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
+  <span class='id identifier rubyid_y_true'>y_true</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='period'>.</span><span class='id identifier rubyid_with_index'>with_index</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_label'>label</span><span class='comma'>,</span> <span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='id identifier rubyid_label'>label</span> <span class='op'>==</span> <span class='id identifier rubyid_y_pred'>y_pred</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span> <span class='op'>?</span> <span class='int'>1</span> <span class='op'>:</span> <span class='int'>0</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span> <span class='op'>/</span> <span class='id identifier rubyid_y_true'>y_true</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -278,9 +278,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan  2 19:28:31 2025 by
+  Generated on Sat Oct 18 13:46:45 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.37 (ruby-3.4.1).
+  0.9.37 (ruby-3.4.7).
 </div>
 
     </div>

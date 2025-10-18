@@ -125,9 +125,7 @@
     <h4 class="tag_title">Examples:</h4>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/tiny_linalg</span><span class='tstring_end'>&#39;</span></span>
-<span class='const'>Numo</span><span class='op'>::</span><span class='const'>Linalg</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>TinyLinalg</span>
-
+      <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>numo/linalg</span><span class='tstring_end'>&#39;</span></span>
 <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rumale/decomposition/sparse_pca</span><span class='tstring_end'>&#39;</span></span>
 
 <span class='id identifier rubyid_decomposer'>decomposer</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Decomposition.html" title="Rumale::Decomposition (module)">Decomposition</a></span></span><span class='op'>::</span><span class='const'>SparsePCA</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Rumale::Decomposition::SparsePCA#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>n_components:</span> <span class='int'>2</span><span class='comma'>,</span> <span class='label'>reg_param:</span> <span class='float'>0.1</span><span class='rparen'>)</span>
@@ -485,6 +483,8 @@
       <pre class="lines">
 
 
+45
+46
 47
 48
 49
@@ -496,12 +496,10 @@
 55
 56
 57
-58
-59
-60</pre>
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-decomposition/lib/rumale/decomposition/sparse_pca.rb', line 47</span>
+      <pre class="code"><span class="info file"># File 'rumale-decomposition/lib/rumale/decomposition/sparse_pca.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>n_components:</span> <span class='int'>2</span><span class='comma'>,</span> <span class='label'>reg_param:</span> <span class='float'>0.001</span><span class='comma'>,</span> <span class='label'>max_iter:</span> <span class='int'>1000</span><span class='comma'>,</span> <span class='label'>tol:</span> <span class='float'>1e-6</span><span class='comma'>,</span> <span class='label'>random_seed:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>super</span><span class='lparen'>(</span><span class='rparen'>)</span>
@@ -573,12 +571,12 @@
       <pre class="lines">
 
 
-30
-31
-32</pre>
+28
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-decomposition/lib/rumale/decomposition/sparse_pca.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'rumale-decomposition/lib/rumale/decomposition/sparse_pca.rb', line 28</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_components'>components</span>
   <span class='ivar'>@components</span>
@@ -634,12 +632,12 @@
       <pre class="lines">
 
 
-34
-35
-36</pre>
+32
+33
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-decomposition/lib/rumale/decomposition/sparse_pca.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'rumale-decomposition/lib/rumale/decomposition/sparse_pca.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mean'>mean</span>
   <span class='ivar'>@mean</span>
@@ -690,12 +688,12 @@
       <pre class="lines">
 
 
-38
-39
-40</pre>
+36
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-decomposition/lib/rumale/decomposition/sparse_pca.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'rumale-decomposition/lib/rumale/decomposition/sparse_pca.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rng'>rng</span>
   <span class='ivar'>@rng</span>
@@ -789,6 +787,8 @@
       <pre class="lines">
 
 
+65
+66
 67
 68
 69
@@ -803,12 +803,10 @@
 78
 79
 80
-81
-82
-83</pre>
+81</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-decomposition/lib/rumale/decomposition/sparse_pca.rb', line 67</span>
+      <pre class="code"><span class="info file"># File 'rumale-decomposition/lib/rumale/decomposition/sparse_pca.rb', line 65</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit'>fit</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid__y'>_y</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -909,14 +907,14 @@
       <pre class="lines">
 
 
+88
+89
 90
 91
-92
-93
-94</pre>
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-decomposition/lib/rumale/decomposition/sparse_pca.rb', line 90</span>
+      <pre class="code"><span class="info file"># File 'rumale-decomposition/lib/rumale/decomposition/sparse_pca.rb', line 88</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_fit_transform'>fit_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid__y'>_y</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -992,14 +990,14 @@
       <pre class="lines">
 
 
+98
+99
 100
 101
-102
-103
-104</pre>
+102</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-decomposition/lib/rumale/decomposition/sparse_pca.rb', line 100</span>
+      <pre class="code"><span class="info file"># File 'rumale-decomposition/lib/rumale/decomposition/sparse_pca.rb', line 98</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_transform'>transform</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -1016,9 +1014,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan  2 19:28:29 2025 by
+  Generated on Sat Oct 18 13:46:44 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.37 (ruby-3.4.1).
+  0.9.37 (ruby-3.4.7).
 </div>
 
     </div>

@@ -632,7 +632,8 @@
 77
 78
 79
-80</pre>
+80
+81</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'rumale-linear_model/lib/rumale/linear_model/nnls.rb', line 56</span>
@@ -651,9 +652,10 @@
   <span class='id identifier rubyid_bounds'>bounds</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>DFloat</span><span class='period'>.</span><span class='id identifier rubyid_zeros'>zeros</span><span class='lparen'>(</span><span class='id identifier rubyid_n_outputs'>n_outputs</span> <span class='op'>*</span> <span class='id identifier rubyid_n_features'>n_features</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_bounds'>bounds</span><span class='period'>.</span><span class='id identifier rubyid_shape'>shape</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='id identifier rubyid_bounds'>bounds</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Float</span><span class='op'>::</span><span class='const'>INFINITY</span> <span class='rbrace'>}</span>
 
-  <span class='id identifier rubyid_res'>res</span> <span class='op'>=</span> <span class='const'>Lbfgsb</span><span class='period'>.</span><span class='id identifier rubyid_minimize'>minimize</span><span class='lparen'>(</span>
+  <span class='id identifier rubyid_res'>res</span> <span class='op'>=</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Optimize</span><span class='period'>.</span><span class='id identifier rubyid_minimize'>minimize</span><span class='lparen'>(</span>
     <span class='label'>fnc:</span> <span class='id identifier rubyid_method'>method</span><span class='lparen'>(</span><span class='symbol'>:nnls_fnc</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='label'>jcb:</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='label'>x_init:</span> <span class='id identifier rubyid_w_init'>w_init</span><span class='comma'>,</span> <span class='label'>args:</span> <span class='lbracket'>[</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:reg_param</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>bounds:</span> <span class='id identifier rubyid_bounds'>bounds</span><span class='comma'>,</span>
-    <span class='label'>maxiter:</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_iter</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>factr:</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:tol</span><span class='rbracket'>]</span> <span class='op'>/</span> <span class='const'>Lbfgsb</span><span class='op'>::</span><span class='const'>DBL_EPSILON</span><span class='comma'>,</span> <span class='label'>verbose:</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:verbose</span><span class='rbracket'>]</span> <span class='op'>?</span> <span class='int'>1</span> <span class='op'>:</span> <span class='op'>-</span><span class='int'>1</span>
+    <span class='label'>maxiter:</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:max_iter</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>factr:</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:tol</span><span class='rbracket'>]</span> <span class='op'>/</span> <span class='const'>Numo</span><span class='op'>::</span><span class='const'>Optimize</span><span class='op'>::</span><span class='const'>Lbfgsb</span><span class='op'>::</span><span class='const'>DBL_EPSILON</span><span class='comma'>,</span>
+    <span class='label'>verbose:</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='symbol'>:verbose</span><span class='rbracket'>]</span> <span class='op'>?</span> <span class='int'>1</span> <span class='op'>:</span> <span class='op'>-</span><span class='int'>1</span>
   <span class='rparen'>)</span>
 
   <span class='ivar'>@n_iter</span> <span class='op'>=</span> <span class='id identifier rubyid_res'>res</span><span class='lbracket'>[</span><span class='symbol'>:n_iter</span><span class='rbracket'>]</span>
@@ -731,14 +733,14 @@
       <pre class="lines">
 
 
-86
 87
 88
 89
-90</pre>
+90
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'rumale-linear_model/lib/rumale/linear_model/nnls.rb', line 86</span>
+      <pre class="code"><span class="info file"># File 'rumale-linear_model/lib/rumale/linear_model/nnls.rb', line 87</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_predict'>predict</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Rumale.html" title="Rumale (module)">Rumale</a></span></span><span class='op'>::</span><span class='const'>Validation</span><span class='period'>.</span><span class='id identifier rubyid_check_convert_sample_array'>check_convert_sample_array</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -755,9 +757,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan  2 19:28:28 2025 by
+  Generated on Sat Oct 18 13:46:43 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.37 (ruby-3.4.1).
+  0.9.37 (ruby-3.4.7).
 </div>
 
     </div>
